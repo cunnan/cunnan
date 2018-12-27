@@ -1,0 +1,216 @@
+ MySQL存储过程
+
+ 14.1.1 创建存储过程
+
+MySQL中，创建存储过程的基本形式如下：
+
+    CREATE PROCEDURE sp_name ([proc_parameter[,...]])  
+            [characteristic ...] routine_body 
+
+其中，sp_name参数是存储过程的名称；proc_parameter表示存储过程的参数列表； characteristic参数指定存储过程的特性；routine_body参数是SQL代码的内容，可以用BEGIN…END来标志SQL代码的开始和结束。
+
+proc_parameter中的每个参数由3部分组成。这3部分分别是输入输出类型、参数名称和参数类型。其形式如下：
+
+    [ IN | OUT | INOUT ] param_name type 
+
+
+其中，IN表示输入参数；OUT表示输出参数； INOUT表示既可以是输入，也可以是输出； param_name参数是存储过程的参数名称；type参数指定存储过程的参数类型，该类型可以是MySQL数据库的任意数据类型。
+
+characteristic参数有多个取值。其取值说明如下：
+
+LANGUAGE SQL：说明routine_body部分是由SQL语言的语句组成，这也是数据库系统默认的语言。
+
+[NOT] DETERMINISTIC：指明存储过程的执行结果是否是确定的。DETERMINISTIC表示结果是确定的。每次执行存储过程时，相同的输入会得到相同的输出。NOT DETERMINISTIC表示结果是非确定的，相同的输入可能得到不同的输出。默认情况下，结果是非确定的。
+
+{ CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }：指明子程序使用SQL语句的限制。CONTAINS SQL表示子程序包含SQL语句，但不包含读或写数据的语句；NO SQL表示子程序中不包含SQL语句；READS SQL DATA表示子程序中包含读数据的语句；MODIFIES SQL DATA表示子程序中包含写数据的语句。默认情况下，系统会指定为CONTAINS SQL。
+
+SQL SECURITY { DEFINER | INVOKER }：指明谁有权限来执行。DEFINER表示只有定义者自己才能够执行；INVOKER表示调用者可以执行。默认情况下，系统指定的权限是DEFINER。
+
+COMMENT 'string'：注释信息。
+
+技巧：创建存储过程时，系统默认指定CONTAINS SQL，表示存储过程中使用了SQL语句。但是，如果存储过程中没有使用SQL语句，最好设置为NO SQL。而且，存储过程中最好在COMMENT部分对存储过程进行简单的注释，以便以后在阅读存储过程的代码时更加方便。
+
+【示例14-1】 下面创建一个名为num_from_employee的存储过程。代码如下：
+
+    CREATE  PROCEDURE  num_from_employee (IN emp_id INT, OUT count_num INT )  
+              READS SQL DATA  
+              BEGIN  
+                  SELECT  COUNT(*)  INTO  count_num  
+                  FROM  employee  
+                  WHERE  d_id=emp_id ;  
+              END 
+
+上述代码中，存储过程名称为num_from_employee；输入变量为emp_id；输出变量为count_num。SELECT语句从employee表查询d_id值等于emp_id的记录，并用COUNT(*)计算d_id值相同的记录的条数，最后将计算结果存入count_num中。代码的执行结果如下：
+
+    mysql> DELIMITER &&  
+    mysql> CREATE  PROCEDURE  num_from_employee
+    (IN emp_id INT, OUT count_num INT )  
+        -> READS SQL DATA  
+        -> BEGIN  
+        -> SELECT  COUNT(*)  INTO  count_num  
+        -> FROM  employee  
+        -> WHERE  d_id=emp_id ;  
+        -> END &&  
+    Query OK, 0 rows affected (0.09 sec)  
+    mysql> DELIMITER ; 
+
+代码执行完毕后，没有报出任何出错信息就表示存储函数已经创建成功。以后就可以调用这个存储过程，数据库中会执行存储过程中的SQL语句。
+
+说明：MySQL中默认的语句结束符为分号（;）。存储过程中的SQL语句需要分号来    结束。为了避免冲突，首先用"DELIMITER &&"将MySQL的结束符设置为&&。最后再用"DELIMITER ;"来将结束符恢复成分号。这与创建触发器时是一样的。
+
+ 
+
+ 
+
+ 
+
+14.1.2 创建存储函数
+
+在MySQL中，创建存储函数的基本形式如下：
+
+    CREATE FUNCTION sp_name ([func_parameter[,...]])  
+            RETURNS type  
+            [characteristic ...] routine_body 
+
+其中，sp_name参数是存储函数的名称；func_parameter表示存储函数的参数列表；RETURNS type指定返回值的类型；characteristic参数指定存储函数的特性，该参数的取值与存储过程中的取值是一样的，请读者参照14.1.1小节的内容；routine_body参数是SQL代码的内容，可以用BEGIN…END来标志SQL代码的开始和结束。
+
+func_parameter可以由多个参数组成，其中每个参数由参数名称和参数类型组成，其形式如下：
+
+    param_name type 
+
+其中，param_name参数是存储函数的参数名称；type参数指定存储函数的参数类型，该类型可以是MySQL数据库的任意数据类型。
+
+【示例14-2】 下面创建一个名为name_from_employee的存储函数。代码如下：
+
+    CREATE  FUNCTION  name_from_employee (emp_id INT )  
+              RETURNS VARCHAR(20)  
+              BEGIN  
+                  RETURN  (SELECT  name  
+                  FROM  employee  
+                  WHERE  num=emp_id );  
+              END 
+
+上述代码中，存储函数的名称为name_from_employee；该函数的参数为emp_id；返回值是VARCHAR类型。SELECT语句从employee表查询num值等于emp_id的记录，并将该记录的name字段的值返回。代码的执行结果如下：
+
+    mysql> DELIMITER &&  
+    mysql> CREATE  FUNCTION  name_from_employee (emp_id INT )  
+        -> RETURNS VARCHAR(20)  
+        -> BEGIN  
+        -> RETURN  (SELECT  name  
+        -> FROM  employee  
+        -> WHERE  num=emp_id );  
+        -> END&&  
+    Query OK, 0 rows affected (0.00 sec)  
+    mysql> DELIMITER ; 
+
+结果显示，存储函数已经创建成功。该函数的使用和MySQL内部函数的使用方法一样。
+
+ 
+
+ 
+
+ 
+
+14.1.3  变量的使用
+
+在存储过程和函数中，可以定义和使用变量。用户可以使用DECLARE关键字来定义变量。然后可以为变量赋值。这些变量的作用范围是BEGIN…END程序段中。本小节将讲解如何定义变量和为变量赋值。
+
+1．定义变量
+
+MySQL中可以使用DECLARE关键字来定义变量。定义变量的基本语法如下：
+
+    DECLARE  var_name[,...]  type  [DEFAULT value] 
+
+其中， DECLARE关键字是用来声明变量的；var_name参数是变量的名称，这里可以同时定义多个变量；type参数用来指定变量的类型；DEFAULT value子句将变量默认值设置为value，没有使用DEFAULT子句时，默认值为NULL。
+
+【示例14-3】 下面定义变量my_sql，数据类型为INT型，默认值为10。代码如下：
+
+    DECLARE  my_sql  INT  DEFAULT 10 ; 
+
+2．为变量赋值
+
+MySQL中可以使用SET关键字来为变量赋值。SET语句的基本语法如下：
+
+    SET  var_name = expr [, var_name = expr] ... 
+
+其中，SET关键字是用来为变量赋值的；var_name参数是变量的名称；expr参数是赋值表达式。一个SET语句可以同时为多个变量赋值，各个变量的赋值语句之间用逗号隔开。
+
+【示例14-4】 下面为变量my_sql赋值为30。代码如下：
+
+    SET  my_sql = 30 ; 
+
+MySQL中还可以使用SELECT…INTO语句为变量赋值。其基本语法如下：
+
+    SELECT  col_name[,…]  INTO  var_name[,…]  
+        FROM  table_name  WEHRE  condition 
+
+其中，col_name参数表示查询的字段名称；var_name参数是变量的名称；table_name参数指表的名称；condition参数指查询条件。
+
+【示例14-5】 下面从employee表中查询id为2的记录，将该记录的d_id值赋给变量my_sql。代码如下：
+
+    SELECT  d_id  INTO  my_sql  
+            FROM  employee  WEHRE  id=2 ; 
+
+ 
+
+ 
+
+14.1.4  定义条件和处理程序
+
+定义条件和处理程序是事先定义程序执行过程中可能遇到的问题。并且可以在处理程序中定义解决这些问题的办法。这种方式可以提前预测可能出现的问题，并提出解决办法。这样可以增强程序处理问题的能力，避免程序异常停止。MySQL中都是通过DECLARE关键字来定义条件和处理程序。本小节中将详细讲解如何定义条件和处理程序。
+
+1．定义条件
+
+MySQL中可以使用DECLARE关键字来定义条件。其基本语法如下：
+
+    DECLARE  condition_name  CONDITION  FOR  condition_value  
+    condition_value:  
+          SQLSTATE [VALUE] sqlstate_value | mysql_error_code 
+
+其中，condition_name参数表示条件的名称；condition_value参数表示条件的类型；sqlstate_value参数和mysql_error_code参数都可以表示MySQL的错误。例如ERROR 1146 (42S02)中，sqlstate_value值是42S02，mysql_error_code值是1146。
+
+【示例14-6】 下面定义"ERROR 1146 (42S02)"这个错误，名称为can_not_find。可以用两种不同的方法来定义，代码如下：
+
+    //方法一：使用sqlstate_value  
+    DECLARE  can_not_find  CONDITION  FOR  SQLSTATE  '42S02' ;  
+    //方法二：使用mysql_error_code  
+    DECLARE  can_not_find  CONDITION  FOR  1146 ; 
+
+2．定义处理程序
+
+MySQL中可以使用DECLARE关键字来定义处理程序。其基本语法如下：
+
+    DECLARE handler_type HANDLER FOR 
+    condition_value[,...] sp_statement  
+    handler_type:  
+        CONTINUE | EXIT | UNDO  
+    condition_value:  
+        SQLSTATE [VALUE] sqlstate_value |
+    condition_name  | SQLWARNING  
+           | NOT FOUND  | SQLEXCEPTION  | mysql_error_code 
+
+其中，handler_type参数指明错误的处理方式，该参数有3个取值。这3个取值分别是CONTINUE、EXIT和UNDO。CONTINUE表示遇到错误不进行处理，继续向下执行；EXIT表示遇到错误后马上退出；UNDO表示遇到错误后撤回之前的操作，MySQL中暂时还不支持这种处理方式。
+
+注意：通常情况下，执行过程中遇到错误应该立刻停止执行下面的语句，并且撤回前面的操作。但是，MySQL中现在还不能支持UNDO操作。因此，遇到错误时最好执行EXIT操作。如果事先能够预测错误类型，并且进行相应的处理，那么可以执行CONTINUE操作。
+
+condition_value参数指明错误类型，该参数有6个取值。sqlstate_value和mysql_error_code与条件定义中的是同一个意思。condition_name是DECLARE定义的条件名称。SQLWARNING表示所有以01开头的sqlstate_value值。NOT FOUND表示所有以02开头的sqlstate_value值。SQLEXCEPTION表示所有没有被SQLWARNING或NOT FOUND捕获的sqlstate_value值。sp_statement表示一些存储过程或函数的执行语句。
+
+【示例14-7】 下面是定义处理程序的几种方式。代码如下：
+
+    //方法一：捕获sqlstate_value  
+    DECLARE CONTINUE HANDLER FOR SQLSTATE '42S02'
+    SET @info='CAN NOT FIND';  
+    //方法二：捕获mysql_error_code  
+    DECLARE CONTINUE HANDLER FOR 1146 SET @info='CAN NOT FIND';  
+    //方法三：先定义条件，然后调用  
+    DECLARE  can_not_find  CONDITION  FOR  1146 ;  
+    DECLARE CONTINUE HANDLER FOR can_not_find SET 
+    @info='CAN NOT FIND';  
+    //方法四：使用SQLWARNING  
+    DECLARE EXIT HANDLER FOR SQLWARNING SET @info='ERROR';  
+    //方法五：使用NOT FOUND  
+    DECLARE EXIT HANDLER FOR NOT FOUND SET @info='CAN NOT FIND';  
+    //方法六：使用SQLEXCEPTION  
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION SET @info='ERROR'; 
+
+上述代码是6种定义处理程序的方法。第一种方法是捕获sqlstate_value值。如果遇到sqlstate_value值为42S02，执行CONTINUE操作，并且输出"CAN NOT FIND"信息。第二种方法是捕获mysql_error_code值。如果遇到mysql_error_code值为1146，执行CONTINUE操作，并且输出"CAN NOT FIND"信息。第三种方法是先定义条件，然后再调用条件。这里先定义can_not_find条件，遇到1146错误就执行CONTINUE操作。第四种方法是使用SQLWARNING。SQLWARNING捕获所有以01开头的sqlstate_value值，然后执行EXIT操作，并且输出"ERROR"信息。第五种方法是使用NOT FOUND。NOT FOUND捕获所有以02开头的sqlstate_value值，然后执行EXIT操作，并且输出"CAN NOT FIND"信息。第六种方法是使用SQLEXCEPTION。SQLEXCEPTION捕获所有没有被SQLWARNING或NOT FOUND捕获的sqlstate_value值，然后执行EXIT操作，并且输出"ERROR"信息。

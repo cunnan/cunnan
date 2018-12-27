@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript FORM</title>
+</head>
+
+<body>
+<form action="index.php" method="get" name="frm">
+姓名：<input type="text" name="username" /><br/><br/>
+密码：<input type="password" name="password" /><br/><br/>
+<input type="submit" value="提交" onclick="return frmSubmit()"/>
+</form>
+<script>
+//获取表单对象
+var fobj = document.frm;
+
+var username = document.getElementsByName("username");
+
+function frmSubmit(){
+	//验证要求用户输入的用户名面都不能为空
+	if(username[0].value==""){
+		alert("用户名不能为空");
+		return false;
+	}
+	fobj.submit();
+}
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

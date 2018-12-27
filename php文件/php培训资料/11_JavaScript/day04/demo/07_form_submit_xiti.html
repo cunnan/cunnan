@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript FORM</title>
+</head>
+
+<body>
+<form action="index.php" method="get" name="frm" onsubmit="return check()">
+姓名：<input type="text" name="username" /><br/><br/>
+密码：<input type="password" name="password" /><br/><br/>
+<input type="submit" value="提交" />
+</form>
+<script>
+/*
+ * 2、应用form表单对象，对表单提交进行验证，要求用户
+ 名密码不能为空，有任意一个为空不能提交。验证通过将提交地址设置
+ 为regist.php,提交方式设置为post，提交数据。
+ */
+//获取表单对象
+var fobj = document.frm;
+//获取用户名对象
+var username = document.getElementsByName("username");
+//获取密码
+var password = document.getElementsByName("password");
+
+// 验证封装到自定义函数中
+function check(){
+	//对用户名的值value进行验证
+	if(username[0].value==""){
+		alert("用户名不能为空");
+		return false;
+	}
+	
+	if(password[0].value==""){
+		alert("密码不能为空");
+		return false;
+	}
+	//验证通过
+	fobj.action = "regist.php";
+	fobj.method = "post";
+	fobj.submit();
+	
+}
+
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

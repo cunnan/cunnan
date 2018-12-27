@@ -1,0 +1,141 @@
+一.HTML5
+ 1.什么是HTML
+   [HyperText Markup Language]超文本标记语言 
+ 2.发展历史
+   HTML1.0
+   HTML4.0
+   XHTML1.0
+   HTML5
+ 3.HTML5文档结构
+    <!DOCTYPE html>
+	<html>
+	   <head>
+	      <title>我的第一个html页面</title>
+	      <meta charset="utf-8"/>
+	   </head>
+	   <body>
+	            正文
+	   </body>
+	</html>
+   说明:
+   a.html5 文档类型定义 <!DOCTYPE html>
+     W3C 组织规定语言标准
+   b.根元素:<html></html>
+   c.子元素：
+         <head>...</head>：描述网页信息
+         <body>...</body>:网页正文
+   d.网页字符集(中文编码)
+       utf-8 : 国际中文编码
+       gb2312(中文简体),gbk(简体,繁体): 国内中文编码
+   e. 网页扩展名(后缀) : .html  .htm
+ 4. 标记(Tag)又叫元素(Element) 
+   (1) 分类:
+      a. 按是否有内容或子元素分
+            单标记  <标记名称/>
+            双标记  <标记名称>...</标记名称>
+      b. 按是否自动换行
+            块元素:自动折行,宽度是父级的100%
+            行元素:不会自动折行,宽度是文本宽度
+    说明:
+        标记小写
+        标记嵌套正确嵌套
+ 5.属性:标记特征描述(修饰标记)
+     说明:
+    a.属性名称和属性值用等号分隔
+    b.属性值必须用引号括起来(推荐双引号)
+    c.标记和属性，属性和属性用空格隔开
+    d.属性不是必须有的，属性没有顺序
+ 6. 文本标记(行元素)
+   (1) 加粗标记
+      <b>...</b>
+      <strong>...</strong>
+   (2) 倾斜
+      <i>...</i>
+      <em>...</em>
+   (3)下划线
+      <u>...</u>
+   (4)没有实际意义的行元素
+      <span>...</span>
+ 7. 块元素
+   (1) 标题字
+     <h1~6 align="水平对齐:left默认值|center居中|right居右">
+     ...
+     </h1~6>
+   (2)段落
+     <p align="水平对齐:left默认值|center居中|right居右">...</p>
+   (3)分隔线
+     <hr/>
+   (4)强制换行
+     <br/>
+   (5) 没实际意义的块元素
+     <div>...</div>
+  8.HTML注释
+    <--注释内容-->
+        快捷键:shift +ctrl +'/'
+ 
+  9. HTML实体 （Entites）
+   (1)原理:W3C规定在浏览器中看到特殊符号用
+      HTML实体实现
+     >  ==== &gt;
+     <  ==== &lt;
+     "  ==== &quot;
+     '  ==== &#39;
+     &  ==== &amp;
+     不间断空格 == &nbsp;
+     版权    ===== &copy;
+      商标   ===== &reg;
+ 
+ 
+ 
+====================================
+zend 使用
+  1. 创建项目
+  File - New - Local PHP Project
+    Project Name 项目名称 
+    Location  项目的位置  d:/www/
+  2. 创建文件 和文件夹
+  (1)创建文件夹
+             右键 -- New -Folder (文件夹)
+  (2) 创建文件
+             右键文件夹 --New -- HTML File
+  3. 参数设置
+   Window --Preferences --General(基本)
+    (1) 字大小  Appearance - colors and fonts
+              Basic-- Text font 
+    (2) 工作区中文编码
+            workspace -- utf-8 
+  4. 创建  HTML5 文档结构 模板
+    (1) New - HTML File
+    (2) 点击 Next
+    (3) 点击 HTML Templates模板
+    (4) 双击 HTML5 修改
+    (5) OK OK
+    (6) 回到第一个对话框 选择 HTML5 模板
+    (7) 点击Finish
+     
+ 浏览器使用
+  主流浏览器
+   (1) IE（Internet Explorer）
+   (2) Chrome 谷歌
+   (3) Firefox 火狐
+   (4) Safari 苹果浏览器
+   (5) Opera 欧朋   
+    
+ 快捷键   
+    F12  调试工具
+    ctrl + '+' 放大
+    ctrl + '-' 缩小
+    ctrl + 0零  100%显示 
+   
+   
+   
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  

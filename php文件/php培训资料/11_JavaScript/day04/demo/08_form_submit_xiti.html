@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript FORM</title>
+<style>
+.hint{
+	color:#888;
+}
+.wrong{
+	color:#f00;
+}
+.correct{
+	color:#0f0;
+}
+</style>
+</head>
+
+<body onload="check()">
+<center>用户注册</center><br/><br/>
+<form action="index.php" method="get" name="frm" onsubmit="return check()">
+姓名：<input type="text" name="username"  id="username"/>
+    <span></span><br/><br/>
+密码：<input type="password" name="password"  id="password"/>
+     <span></span><br/><br/>
+<input type="submit" value="提交" />
+</form>
+<script>
+//input username 
+var username = document.getElementById("username");
+var uspan = getSpan(username);
+var uflag = false; //当uflag为true表单可以进行提交
+
+//获取password对象
+var password = document.getElementById("password");
+var pspan = getSpan(password);
+var pflag = false; //用来记录password的状态
+
+
+//查找username后面的span，要求不管间隔了多少节点，
+//都能找到span
+function getSpan(obj){
+	while(true){		
+		if(obj.nodeName=="SPAN"){
+			return obj;
+		}else{
+			obj = obj.nextSibling;
+		}
+	}
+}
+
+function check(){
+	//当用户名输入框获取焦点时
+	username.onfocus = function(){
+		if(username.value==""){
+			//若username中没有值，则进行提示
+			uspan.innerHTML = "请输入用户名";
+			uspan.className = "hint";
+			//此时不能提交表单
+			uflag = false;
+		}
+	}
+	
+	password.onfocus = function(){
+		if(password.value==""){
+			pspan.innerHTML = "请输入密码";
+			pspan.className = "hint";
+			pflag = false; 
+		}	
+	} 
+	
+	//当username失去焦点时
+	username.onblur = function(){
+		if(username.value==""){
+			uspan.innerHTML = "用户名不能为空";
+			uspan.className = "wrong";
+			//此时不能提交表单
+			uflag = false;
+		}else{
+			uspan.innerHTML = "正确";
+			uspan.className = "correct";
+			//此时可以提交表单
+			uflag = true;
+		}
+	}
+	password.onblur = function(){
+		if(password.value==""){
+			pspan.innerHTML = "密码不能为空";
+			pspan.className = "wrong";
+			pflag = false; 
+		}else{
+			pspan.innerHTML = "正确";
+			pspan.className = "correct";
+			pflag = true;
+		}		
+	}
+    //提交
+    if(pflag&&uflag){
+    	return true;
+    }else{
+    	return false;
+    }
+}
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+.clearfix:after{
+	display: block;
+	height: 0;
+	content: '.';
+	clear: both;
+	overflow: hidden;
+}
+.clearfix{
+	zoom:1;
+}
+body{
+	font: 14px/24px 微软雅黑;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.wrap{
+	margin: 5px;
+}
+h1#subject{
+	font-size:30px;
+	line-height:50px;
+	font-weight:bold;
+}

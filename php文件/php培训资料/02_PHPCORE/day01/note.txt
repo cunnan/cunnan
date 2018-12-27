@@ -1,0 +1,395 @@
+一.WEB基础
+ 1.模式: B/S (Browser浏览器/Server服务器)
+ 
+ 2.Browser浏览器
+  (1)主流浏览器:
+     IE(Inernet Explorer)
+     Chrome 谷歌
+     Firefox  火狐
+     Safari  苹果浏览器
+     Opera  欧朋
+     
+  (2)作用:请求服务器的页面,并且将服务器返回的结果标记
+                   显示出来
+                   
+ 3.Server服务器
+   1.服务器:装有应用软件的计算机
+   2.种类
+    (1)FTP服务器
+    (2)邮箱服务器
+    (3)WEB服务器:处理请求(HTTP Request)页面,并将执
+                               行结构返回(响应 HTTP Response)给客
+                               户端浏览器
+    (4)数据库服务器  MySQL，SQLserver  Oracle等
+    
+   3.安装 WEB服务器：只能解析静态页面 .html .htm .js .css
+    (1) apache,IIS,Tomact,Nginx等
+    (2)安装 apache
+    (3)端口:计算机跟外界沟通的媒介
+      web服务器: 默认80
+      FTP服务器:默认 21
+      MySQL服务器: 默认 3306
+    (4)web服务器访问
+       (1)远程访问
+          http://域名(一个域名可以绑定多个IP地址)
+          http://IP
+       (2)本地访问
+          http://localhost 
+          http:127.0.0.1  
+    (5)默认主目录 
+       windows:htdocs文件夹
+    (6)默认首页(自动执行的页面)
+       index.html index.htm index.php
+       
+    (7)apache 配置文件
+       windows: conf/httpd.conf
+       a. Listen 80  端口
+       b.DocumentRoot "D:/apache/htdocs"
+                  默认主目录位置
+       c.<Directory "D:/apache/htdocs">
+                 浏览目录
+              说明:修改 b 和c的默认主目录位置为目标路径
+                      位置即改变主目录位置。
+                      重启apache才能让配置文件生效
+       d.DirectoryIndex index.html
+                 设置默认自动执行的首页  index.php
+    
+    (8)集成软件(phpstudy)
+     wamp = windows +apache +MySQL +php 
+     Lamp = linux +apache +MySQL +php 
+     
+    (9)远程服务器的申请
+      1. 买空间和 域名 (PHP环境 MySQL 50M 150/年)
+      2. 虚拟主机服务器,服务器 (200元/月)
+            提供商:万网(阿里云),新网
+            
+二.PHPCORE基础
+  1. 什么是PHP :web程序开发的交互语言，运行在
+                              服务器端的脚本语言
+  2. PHP的好处
+    (1)PHP代码开源
+    (2)PHP支持跨平台(windows linux)
+    (3)PHP支持多种web服务器(apache，IIS,Tomact,Nginx)
+    (4)PHP支持多种数据库（MySQl,SQLserver,Oracle,DB2等）
+  3.安装 PHP环境
+    (1)安装apache:只解析静态页面
+    (2)PHP引擎安装
+      a.php5.4 解压缩将文件移动到安装目标位置
+      b.将文件 php.ini-development改为 php.ini
+                作为PHP配置文件
+      c.将 apache 和 php5.4 绑定
+	配置Apache服务器的配置文件httpd.conf这个文件
+
+	#加载PHP5这个模块，加载路径php5apache2_2.dll所在位置及全称
+	LoadModule php5_module "d:\php5.4\php5apache2_2.dll"
+	#加载PHP配置文件所在位置
+	PHPIniDir "d:\php5.4"
+	#告诉Apache什么样类型的文件交给PHP引擎处理
+	AddType application/x-httpd-php .php
+       说明: 重启apache 才能生效
+   (3).原理:客户端浏览器请求 .php页面，apache服务器
+         只能解析静态页面，所以apache服务器要请PHP引擎
+         帮忙，PHP引擎执行PHP页面将静态结果交给apache
+         服务器,最后apache服务器响应给客户端浏览器，页面
+        显示出来了
+ 4.PHP语法结构
+  (1)XML风格 (标准风格)  xml自定义标记 
+   <?php
+     ...
+   ?>
+     说明：如果文档的最后是PHP代码,那结束符'?>'
+               可以省略,推荐省略
+  
+  (2)短风格
+   <?
+      ...
+   ?>
+     说明:配置 php.ini 文件中
+   short_open_tag = Off
+      改为 On 重启apache服务器
+  (3)asp风格
+   <%
+     ...
+   %>  
+    说明:配置 php.ini 文件中
+   asp_tags = Off
+      改为 On 重启apache服务器    
+  (4)脚本风格
+   <script language="php">
+      ...
+   </script> 
+ 5.PHP的文档结构(PHP+HTML)
+  1. PHP代码
+  2. HTML标记
+  3. CSS
+  4. Javascript/jQuery
+  说明:
+   a.扩展名  必须是 .php
+   b.PHP的文档结构, 可以有多个PHP语法结构
+          并且任意位置,每句PHP代码用分号结束.
+  6. 变量(Variable)
+   6.1. 什么是变量:在内存中有名称的量,并且在
+                               程序执行中可以改变.也就是
+                               说变量是临时存放数据的容器.
+             内存：临时存放程序执行的数据,一旦断电数据消失。
+   6.2.用在哪: 当前数据不止一次被用到就可以存为变量.
+   6.3.声明变量
+       $变量名称;
+       $变量名称 = 值;
+   6.4.变量名称规范
+    (1)$开始,变量名称以字母,下划线开头后面包含字母
+              数字和下划线。
+    (2)变量名称禁止包含特殊符号(空格,斜杠,反斜杠等)
+    (3)变量名称尽量含义明确
+    (4)变量名称尽量采用驼峰格式 
+              例如: $userName 或 $UserName
+    (5)变量名称区分大小写
+             例如: $test  $Test 不是一个变量
+    (6)变量名称相同后面的值覆盖前面的值。
+   6.5.变量的特殊使用
+    (1)多个变量赋相同的值
+    (2)可变变量
+    (3)引用变量 
+7. PHP注释
+     1. //单行注释
+     2. #单行注释
+     3. /*多行
+                  注释*/
+                  
+8.数据类型：8个主要数据类型和4伪类型
+   8.1.8个主要数据类型:
+        (1)标量类型(存储单一值)
+                            整型(Integer Int)
+                            浮点(Float Double)
+                            布尔类型(Boolean Bool)
+                            字符类型(String)
+        (2)复合类型(存储多个值)
+                            数组(Array)
+                            对象(Object)
+        (3)特殊类型
+                            资源类型(Resource)
+             NULL类型
+   8.2 整型(Integer Int)
+     说明:
+     a.正值 ,负值
+     b.整型最大值与操作系统有关,一般 -2^31 ~ 2^31
+       PHP_INT_MAX 获得最大值
+               如果超出整型最大值产生溢出
+     c.
+              十进制 (0-9)
+              二进制 (0 1): '0b'开头 ,php5.2以上支持
+              八进制(0-7): '0'开头
+              十六制(0-9 a b c d e f) '0x'开头
+   8.3  浮点(Float Double)
+     说明:
+     a.科学计数法  e E
+           例如: 1.2e2 = 1.2*10^2 =120
+          1.2e-2 = 1.2/10^2 = 0.012
+     b. 浮点类型存储的是近似值,所以不要对浮点型
+                 进行比较
+   8.4 布尔类型(Boolean Bool)
+      说明:
+               只有 TRUE|true 真 和 FALSE|false假
+               两个值
+   
+   8.5 字符类型(String)：必须用定界符括起来
+     1.定界符
+       (1)单引号(PHP推荐)
+       (2)双引号
+       (3)HereDOC(自定义定界符)
+       (4)NowDOC(自定义定界符)
+      
+     2.单引号和双引号区别
+       a.双引号能解析变量而单引号不能解析变量
+       b.双引号能解析所有转义字符,而单引号只能解析
+         \' 和\\两个
+     3.转义字符(在源代码中的特殊符号)
+       \' 单引号
+       \" 双引号
+       \r 回车
+       \n 换行
+       \t 水平制表符
+       \v 垂直制表符
+       \\ 反斜杠
+     
+     
+     
+     
+   
+   
+   
+   
+               
+       
+       
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+             
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+                      
+   
+  
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+===========================================
+ 1.解决PHP中文乱码
+ header('Content-Type:text/html;charset=utf-8');
+ 2. echo ：向浏览器输出一个或多个字符串
+    (1) echo '字符串';
+    (2) echo '字符串','字符串','字符串'
+        echo $var1,$var2,$var3;
+    (3) echo('字符串') 只能输出一个字符串
+ 
+ 3. var_dump：向浏览器输出详细信息
+    (1)var_dump($var1,$var2...)
+
+   
+      
+      
+      
+      
+        
+     
+     
+     
+     
+ 
+ 
+ 
+ 
+ 
+       
+ 
+        
+        
+
+
+
+
+
+      
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                              
+              
+
+
+
+
+
+
+
+
+
+           
+            
+            
+            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+       
+       
+      
+       
+       
+       
+       
+       
+       
+    
+    
+    
+     
+    
+    
+    
+    
+   
+   
+   
+     
+    
+    
+    
+    
+   
+ 
+ 
+ 
+ 
+ 
+ 
+
+

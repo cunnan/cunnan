@@ -1,0 +1,189 @@
+[ 2017-02-23T11:25:10+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:27:17+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.ph
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+ERR: 无法加载模块:Index
+
+[ 2017-02-23T11:27:40+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:35+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:35+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:36+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:36+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:36+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:36+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:36+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:36+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:36+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:37+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:37+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:37+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:37+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000383s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:37+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:37+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:38+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:28:38+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:29:31+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:29:38+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Public/images/jd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:45:01+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/Public/styles/__PUBLIC__/images/123.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T11:45:45+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/Public/styles/__PUBLIC__/images/123.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+ERR: 无法加载模块:Public
+
+[ 2017-02-23T14:11:44+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/i
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+ERR: 无法加载模块:I
+
+[ 2017-02-23T14:11:44+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/i
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+ERR: 无法加载模块:I
+
+[ 2017-02-23T17:09:13+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+ERR: 无法加载模块:Admin
+
+[ 2017-02-23T17:11:01+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/Admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+ERR: 无法加载模块:Admin
+
+[ 2017-02-23T17:18:07+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/admisdasdfa
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+ERR: 无法加载模块:Admisdasdfa
+
+[ 2017-02-23T17:18:30+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/admisdasdfa
+ERR: 无法加载模块:Admisdasdfa
+
+[ 2017-02-23T17:18:51+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/admisdasdfa
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000246s ]
+ERR: 无法加载模块:Admisdasdfa
+
+[ 2017-02-23T17:19:07+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/index.php/admisdasdfa
+ERR: 无法加载模块:Admisdasdfa
+
+[ 2017-02-23T17:23:23+08:00 ] 127.0.0.1 /psd1611/16_ThinkPHP/Day01/demo/b.php
+ERR: 无法加载模块:B
+

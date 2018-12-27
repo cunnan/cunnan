@@ -1,0 +1,153 @@
+﻿购物车功能：网上购物
+
+
+ThinkPHP + Database
+
+
+
+访问流程
+                    商城首页                       购物车页面
+LoginController->IndexController->ActController->CarController->OrderController
+   会员登陆                         操纵购物车                    订单页面
+
+
+数据表
+userinfo	会员表(LoginController)
+bookinfo	产品表(IndexController)
+carinfo		购物车表(ActController、CarController)
+orderinfo	订单表(OrderController)
+orderdetails	订单明细表(OrderController)
+
+
+ThinkPHP知识点
+1、目录结构
+2、入口文件写法
+3、系统常量
+
+
+ThinkPHP自定义系统提示信息页面
+1、在View下的Public文件夹中新建一个success.html文件
+2、编写success.html里的代码
+   {$message}：提示信息
+   {$jumpUrl}：跳转地址
+3、修改配置文件，设置success页面
+   'TMPL_ACTION_ERROR'     =>  'Public:success',
+   'TMPL_ACTION_SUCCESS'   =>  'Public:success',
+
+
+以键值对的形式来操纵数据
+$_SESSION[key] = value;
+setcookie(key,value);
+$this->assign(key,value);
+
+
+ThinkPHP遍历数组的标签
+1、foreach标签
+   <foreach name="key" key="k" item="v">
+     下标：{$k}    值：{$v}
+   </foreach>
+2、volist标签
+   <volist name="key" key="k" id="v">
+     序号：{$k}   值：{$v}
+   </volist>
+
+
+ThinkPHP获得模型对象
+$model = M("表名");
+$model = D("表名");
+$model = D("模型名");//必须新建模型文件
+
+
+ThinkPHP数据库操作
+1、查询多条记录，返回：二维数组
+   $result = $model->select();
+   $result = $model->where()->select();
+   $result = $model->order()->select();
+   $result = $model->limit()->select();
+   $result = $model->where()->order()->limit()->select(); 
+   $result = $model->join()->select();
+2、查询一条记录，返回：一维关联数组
+   $result = $model->find();
+   $result = $model->where()->find();
+3、添加记录，返回：受影响的行数、新加记录的主键值
+   $result = $model->add(一维关联数组);
+   $result = $model->data(一维关联数组)->add();
+4、修改记录，返回：受影响的行数
+   $result = $model->save(一维关联数组);
+   $result = $model->where()->save(一维关联数组);
+5、删除记录，返回：受影响的行数
+   $result = $model->delete();
+   $result = $model->where()->delete();
+6、执行select语句，返回：二维数组
+   $result = M()->query("select语句");
+7、执行insert、update、delete语句，返回：受影响的行数
+   $result = M()->execute("insert|update|delete语句");
+8、获得某一字段值，返回：值
+   $result = $model->where()->getField("字段名");
+9、修改指定的字段值，返回：boolean
+   $result = $model->where()->setField("字段名","值");
+10、让某个字段值自增
+   $result = $model->where()->setInc("字段");//加1
+   $result = $model->where()->setInc("字段",7);//加7
+11、让某个字段值自减
+   $result = $model->where()->setDec("字段");//减1
+   $result = $model->where()->setDec("字段",7);//减7
+
+
+ThinkPHP标签：显示数组中某一个值
+{$key.下标}
+{$key[下标]}
+
+
+ThinkPHP标签可以执行简单的运算：+  -  *  /  %  ++  --
+{$a * $b}
+{$a + $b}
+{$a % $b}
+{$a++}
+{$a--}
+{$key.下标 + $key.下标}：错
+{$key[下标] + $key[下标]}：对
+
+
+
+ThinkPHP自定义的公用函数
+1、在Common下新建一个function.php文件
+2、function.php文件名固定
+3、控制器、视图都可以直接调用公用函数
+
+控制器调用公用函数：通过函数名直接调用
+hello();
+hello(值,值...);
+$变量 = hello(值,值...);
+
+视图调用公用函数：配合着输出值的标签来使用
+{$a|函数名}：该标签显示的是函数的返回值，$a将做为函数的参数
+{$a,$b|函数名}
+
+
+
+ThinkPHP获得url中的参数
+1、通过$_GET来获得
+   $变量 = $_GET["名"];
+2、给控制器中的方法加参数
+   public function 方法名($参数名,$参数名...)
+   {}
+   注意：
+   1)方法中的参数名，与url中的参数必须相同
+   2)方法中的参数与url中参数的顺序必须相同
+   例子：
+   http://localhost/项目/index.php/Act/delete/userId/10/carId/5
+   public function delete($userId,$carId)
+   {}
+
+
+
+
+
+
+
+
+
+
+
+

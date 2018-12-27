@@ -1,0 +1,96 @@
+﻿模板标签：
+{$名称}
+{$数组名.下标}
+{$数组名['下标']}
+{foreach $名称 as $k=>$v}
+	{$v.下标}
+{/foreach}
+foreach循环标签的属性：
+$v@index
+$v@iteration
+$v@total
+$v@first
+$v@last
+
+条件标签：
+{if 条件}
+{/if}
+
+标签：
+加载模板标签
+{include file="模板路径"}
+案例：为文章列表页，详细页加头，尾
+
+模板上使用常量   BASE_URL
+{$smarty.const.名称}
+在模板上对一个变量处理---变量调节器
+{第一个参数|函数名称:第二个参数:第三个参数:......}
+
+$str="abcdefwc";
+$str="我爱北京天安门";  //substr
+mb_substr(string,start,length,'GBK|UTF-8')
+mb_strlen(string,'GBK|UTF-8')
+使用预定义变量
+{$smarty.cookies.名称}
+{$smarty.get.名称}
+{$smarty.post.名称}
+{$smarty.session.名称}
+{$smarty.server.HTTP_REFERER}
+
+注册函数：把主程序中的函数注册给模板。
+
+1、主程序中必须有一个函数。
+要求：
+函数至多两个参数，第一个参数以数组的形式接收模板上的所有传参。
+第二个参数接收的是smarty对象。
+
+2、注册函数，smarty
+$smarty->registerPlugin('function','模板上函数的名称','主程序中函数的名称');
+3、在模板上调用
+{模板上函数的名称 fid=2 num=3 length=7}
+
+文件缓存：把程序的运行结果，临时放到一个文件中。
+前提：数据更新的频率一般，不高。
+聊天工具：文件缓存。
+适合：文章列表页，详细页
+
+实现：
+开启缓存  $smarty->caching=true;
+设置缓存的时间  $smarty->cache_lifetime=120;
+设置缓存文件的目录 $smarty->setCacheDir(ROOT."cache");
+
+生成缓存 $smarty->display();//生成缓存文件
+
+268b4812af11ae7fb3497fde427ec54a5b0d4034.list.html.php
+list.html-----1个
+list.html----多个
+fid+p---->1个
+2+1----1个
+2+2----一个
+
+项目中的使用，静态化 ？
+
+
+
+
+
+
+
+
+
+
+
+MVC
+ThinkPHP
+Yii
+MySQL
+88
+
+
+
+
+
+
+
+
+

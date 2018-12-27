@@ -1,0 +1,46 @@
+﻿5、实现前台
+文章列表页
+a、修改后台中添加文章没有图片。
+      修改表单，加一个文件选择框
+      save.php，图片保存。  move_uploaded_file
+b、文章张列表，带有分页
+      根据一级分类的id，找一级分类下的文章
+      一级分类下的二级分类
+      查询
+	$oneTypeId=$_GET['fid'];//一级id
+	2,3
+      select * from  news where typeid in(2,3)
+
+      select * from news where typeid in(select id from type where fid=$oneTypeId)    
+c、24小时点击排行
+条件：where clicktime>time()-24*3600  
+分组：group by newsid
+汇总：count(*) as num
+排行：order by num desc
+$t=time()-24*3600;
+select count(c.id) as num,c.newsid,n.title from clicknum as c join news as n
+on c.newsid=n.id
+where clicktime>1486868690 
+group by newsid
+order by num desc
+
+
+d、广告图片的轮播（简单）
+
+文章详细页
+
+6、测试
+7、上线   服务器   域名
+
+	
+
+
+
+
+
+
+
+
+
+
+

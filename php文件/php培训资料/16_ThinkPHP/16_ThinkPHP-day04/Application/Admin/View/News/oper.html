@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style type="text/css">
+	.page{
+		height:50px;
+		line-height:50px;
+	}
+	.page .num,span{
+		padding:3px 5px;
+		border:1px solid #ccc;
+		background:#f2f2f2;
+		margin:0 5px;
+		text-decoration:none;
+	}
+	.page .current{
+		border:1px solid orange;
+		background:#fedcba;
+	}
+	</style>
+  </head>
+  <body>
+  <include file="Public/header"/>
+  <h1>文章列表</h1>
+  <div style="text-align:right;"><a href="__APP__/Admin/News/add">添加</a></div>
+  <form action="__APP__/Admin/News/oper" method="get">
+  	分类：
+  	<select name="typeid" id="suibian">
+  	{$optStr}
+  	</select>
+  	&nbsp;
+  	<input type="submit" value="查询"/>
+  </form>
+  <table width="100%" border=1>
+  	<tr>
+  		<th>id</th>
+  		<th>title</th>
+  		<th>tname</th>
+  		<th>addtime</th>
+  		<td>操作</td>
+  	</tr>
+  	<foreach name='arr' key='k' item='v'>
+  	<if condition="$k % 2 eq 0">
+  	<tr bgcolor="#abcdef">
+  	<else/>
+  	<tr bgcolor="#fedcba">
+  	</if>
+  		<td>{$v.id}</td>
+  		<td>{$v.title}</td>
+  		<td>{$v.tname}</td>
+  		<td>{$v.addtime|date='Y-m-d H:i:s',###}</td>
+  		<td><a href="__APP__/Admin/News/update/id/{$v.id}">修改</a>&nbsp;|&nbsp;<a href="__APP__/Admin/News/del/id/{$v.id}">删除</a></td>
+  	</tr>
+  	</foreach>
+  	
+  	
+  	
+  	
+  	
+  </table>
+  <div class="page">{$pageStr}</div>
+  </body>
+</html>
+<script type="text/javascript">
+document.getElementById("suibian").value={$Think.get.typeid};
+</script>
+
+
+
+
+
+
+

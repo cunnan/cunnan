@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>商城首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="__ROOT__/public/css/store.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+      function shopBook(bookId)
+      {
+    	  //获得产品的数量
+    	  var bookCount = document.getElementById("txt"+bookId).value;
+    	  //跳转到Act页面，进行购买商品
+    	  window.location = "__APP__/Act/index/bookId/"+bookId+"/bookCount/"+bookCount;
+      }
+    </script>
+  </head>
+  <body>
+    <center><h2>商城首页</h2></center>
+    <br>
+    <table border="1" align="center" width="600">
+      <tr>
+        <td>编号</td>
+        <td>名称</td>
+        <td>单价</td>
+        <td>数量</td>
+        <td>操作</td>
+      </tr>
+      <volist name="bookInfo" id="v">
+      <tr>
+        <td>{$v.bookId}</td>
+        <td>{$v.bookName}</td>
+        <td>{$v.price}</td>
+        <td><input id="txt{$v.bookId}" type="text" size="10" value="1"></td>
+        <td><input type="button" value="放入购物车" onclick="shopBook({$v.bookId})"></td>
+      </tr>
+      </volist>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+

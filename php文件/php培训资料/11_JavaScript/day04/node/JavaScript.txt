@@ -1,0 +1,83 @@
+﻿         setTimeout(code,millisec)
+         功能： 在millisec毫秒后执行代码code
+         参数：
+         code  可以是一段JavaScript代码，也可以是自定义函数的名称。若是JavaScript代码或者自定义函数的名称都要求写在字符串里面。
+                   匿名函数。不用写在字符串里面。
+         返回：id
+
+        clearTimeout(setTimeout产生的id)      
+        功能：停止setTimeout
+        参数：
+        setTimeout产生的id
+
+        open(url,name,描述)
+        功能：打开一个新的窗口。
+        参数：
+        url 要打开的窗口的名称
+        name 以何种方式打开新的窗口
+        描述   对于新打开的窗口的限制。窗口的宽度，高度等。
+
+        close()
+         功能：关闭窗口。close仅能关闭由JavaScript打开的窗口。
+
+
+八、JavaScript form表单操作
+       1、获取对象
+            document.getElementsByTagName("form")
+            document.getElementsByName("form表单的name属性值");
+            document.getElementById("form表单的id属性值")
+            document.form表单的name属性值
+
+       2、属性
+            action
+            method
+            enctype
+
+       3、方法
+             submit()
+             reset()  
+
+       4、提交的方法
+             - 定时提交
+                setTimeout()
+             - click事件 点击提交
+             - submit事件
+
+       
+       5、form表单元素值的获取
+             
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+习题：
+1、应用window.open打开子窗口，在父窗口中点击按钮，子窗口可以弹出对话框。关闭父窗口，子窗口也随之关闭。
+2、应用form表单对象，对表单提交进行验证，要求用户名密码不能为空，有任意一个为空不能提交。验证通过将提交地址设置为 regist.php,提交方式设置为post，提交数据。
+
+3、实现项目中点击验证码更换验证码。
+
+
+
+
+
+
+
+
+
+
+
+
+
+         

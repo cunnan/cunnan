@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+  <include file="Public/header"/>
+  <h1>添加文章</h1>
+  <div style="text-align:right;"><a href="__APP__/Admin/News/oper">列表</a></div>
+  <form action="__APP__/Admin/News/save" method="post">
+  <table>
+  	<tr>
+  		<td>标题：</td>
+  		<td><input type="text" name="title"/></td>
+  	</tr>
+  	<tr>
+  		<td>分类：</td>
+  		<td>
+  		<select name="typeid">
+  			{$str}
+  		</select>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td>内容：</td>
+  		<td>
+  		<textarea name="content"></textarea>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td colspan="2"><input type="submit" value="添加"/></td>
+  	</tr>
+  </table>
+  </form>
+  </body>
+</html>

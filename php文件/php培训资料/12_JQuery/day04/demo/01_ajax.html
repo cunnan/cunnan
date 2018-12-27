@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery AJAX</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+$(function(){
+	$("input:last").click(function(){
+		//加载div层
+		$(document).ajaxStart(function(){
+			$("div").show();
+		}).ajaxStop(function(){
+			$("div").hide();
+		});
+		$.ajax({
+			"url":"regist.php", //异步数据请求的地址
+			"type":"post",//异步数据请求的方式
+			/*"data":{"username":$("#username").val(),
+				    "password":$("#password").val(),
+				    "email":$("#email").val(),
+				    "birthday":$("#birthday").val()},*/
+			"data":$("form").serialize(),	    
+			"success":function(response,status,xhr){
+				$("span").html(response);
+			}	    
+			});
+	});
+});
+</script>
+</head>
+
+
+<body>
+<center>用户注册</center><br/>
+<div style="display:none;background-color:orange;width:200px;height:30px;">
+努力加载中...
+</div>
+<span></span><br/>
+<form>
+用户名：<input type="text" name="username" id="username" /><br/><br/>
+密码：<input type="password" name="password" id="password" /><br/><br/>
+邮箱：<input type="text" name="email" id="email" /><br/><br/>
+出生日期：<input type="text" name="birthday" id="birthday" /><br/><br/>
+个人主页：<input type="text" name="url" id="url" /><br/><br/>
+<input type="button" value="注册" />
+</form>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

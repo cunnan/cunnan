@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <link rel="stylesheet" href="styles/global.css" />
+  </head>
+  <body>
+  	<div id="container">
+  	<h1 class="subject">用户列表</h1>
+	<table>
+		<tr>
+			<td>用户ID</td>
+			<td>用户名</td>
+			<td>性别</td>
+			<td>操作</td>
+		</tr>
+		{foreach $rowset as $row}
+		<tr>
+			<td>{$row.id}</td>
+			<td>{$row.username}</td>
+			<td>{$row.sex}</td>
+			<td><a href="index.php?b=users&c=removeUser&id={$row.id}">删除</a></td>
+		</tr>
+		{/foreach}
+	</table> 
+	</div>  
+  </body>
+</html>

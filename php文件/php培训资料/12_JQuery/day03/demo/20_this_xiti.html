@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery this</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+/*5、有如下HTML标签
+<div>div层1<span style="background-color:green;">span1</span></div>
+<div>div层2<span style="background-color:blue;">span2</span></div>
+     点击span，在被点击的span的父级div层中加入
+     <span style='color:red'>hello</span>
+    要求加入新标签后不破坏原有HTML文档。
+*/
+$(function(){
+	$("span").click(function(){
+		$(this).parent().append("<span style='color:red'>hello</span>");
+	});
+});
+
+</script>
+</head>
+
+
+<body>
+<div>div层1<span style="background-color:green;">span1</span></div>
+<div>div层2<span style="background-color:blue;">span2</span></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

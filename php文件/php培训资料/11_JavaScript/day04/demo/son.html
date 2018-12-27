@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript BOM</title>
+</head>
+
+<body>
+<h1>son</h1>
+<script>
+//由于son页面是被father页面打开，则产生opener对象
+//opener对象相当于father页面的window对象
+function callFather(){
+	opener.alert("hell son");
+}
+</script>
+<input type="button" value="call father" onclick="callFather()" />
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

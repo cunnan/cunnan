@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM className</title>
+</head>
+
+<body>
+aaaaa<br/>
+aaaaa<br/>
+aaaaa<br/>
+<div style="background-color:green;width:150px;height:50px;">
+
+</div>
+<div style="background-color:blue;width:150px;height:50px;">
+
+</div>
+<div style="background-color:yellow;width:150px;height:50px;">
+
+</div>
+ccccc<br/>
+ccccc<br/>
+ccccc<br/>
+ccccc<br/>
+<script>
+//获取div的对象
+var dobj = document.getElementsByTagName("div");
+/*
+ * 1、给HTML文档中添加img标签，要求img标签添加到div层中。
+ 指定img标签的宽和高分别为 30。
+ */
+function add(){
+	//创建超链接节点
+	var aobj = document.createElement("a");
+	//JavaScript 修改 aobj 的href属性
+	aobj.href = "index.php";
+	//修改 aobj 的  文本
+	aobj.innerHTML = "首页";	
+	//将超链接添加到dobj中
+	dobj[2].appendChild(aobj);
+}
+
+</script>
+<a href='javascript:add();'>添加</a>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+﻿ThinkPHP   CI
+url地址规则
+Controller
+Model
+	1、放在Model
+	2、类名文件名 XxxModel.class.php
+	3、类名和类文件名一致
+	4、继承Model，封装了很多很多的方法。
+	namespace Common\Model;
+	use Think\Model;
+修改配置项，连接数据库
+	'DB_TYPE'               =>  'mysql',     // 数据库类型
+	'DB_HOST'               =>  'localhost', // 服务器地址
+	'DB_NAME'               =>  'projectone',          // 数据库名
+	'DB_USER'               =>  'root',      // 用户名
+	'DB_PWD'                =>  'root',          // 密码
+	'DB_PREFIX'             =>  '', //表的前缀，没有是空
+数据模型类的使用：
+	实例化对象
+	new \命名空间\XxxModel();
+数据模型类基类Model的方法：
+	后台操作
+	文章列表（不带分页）
+	select 字段列表 from 表名 
+	where 条件
+	group by 字段
+	having 条件
+	order by  字段 desc|asc
+	limit start,length
+
+	select t1.字段,t2.字段 from 表1 as t1 join 表2 as t2 
+	on t1.字段=t2.字段
+	where 条件
+	group by 字段
+	having 条件
+	order by  字段 desc|asc
+	limit start,length
+
+	$news=new \Common\Model\NewsModel();
+	$news->where("条件");//产生条件的。
+	$news->group("字段")
+	$news->order("字段 asc|desc")
+	$news->having("条件")
+	$news->limit("start,length")
+	$news->join("表2 as t2 on t1.字段=t2.字段")
+	$news->tabel('表名') ？？？
+	$news->field("字段列表")
+	$news->alias("t1") 给主表起别名 
+
+	array $news->find()
+	array $news->select()
+	int     $news->count()  获取文章的总条数  where()
+	$news->getLastSql();
+1、获取文章表中的所有记录，在后台。
+$news->select();
+2、查询栏目id为6的,把栏目的名称显示。
+$news->where("typeid=6");
+$arr=$news->select();
+3、文章根据栏目id进行查询。
+
+添加文章
+insert into 表名(字段,) value('值',)
+$modelOb->data(array)//产生数据 array('字段'=>'值')
+	 ->create()
+int $modelOb->add()
+例子：
+1、添加文章
+	|
+	呈现一个form表单页面
+	|
+	提交
+	|
+	save 控制器
+修改文章
+update 表名 set 字段='值', where 条件
+where()
+table()
+data(array)
+save()
+
+
+	修改连接
+	|
+	修改表单页面
+	NewsController
+	update()-------->表单（update.html）
+	|
+	提交
+	|
+	usave()//保存数据到表  根据文章id，修改
+	
+删除文章
+	delete from 表名 where tiaojian
+table()
+where()
+delete()
+
+命名空间：一个虚拟的目录。使用这类的时候，指定命名空间。
+链式操作： jquery
+	 $("选择器").find("span").addClass('c1');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+View---标签
+
+公共类
+
+
+
+
+

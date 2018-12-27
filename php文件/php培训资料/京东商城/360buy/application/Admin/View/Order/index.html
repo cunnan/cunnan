@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/library/jquery/jquery-1.4.js"></script>
+  </head>
+  <body>
+    <!-- 网站的头 -->
+    <include file="Public:header" />
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 订单管理 : 查看订单</div>
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv"><include file="Public:left" /></div>
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv">
+        <br><br><br><br>
+        <table border="1" align="center" width="730" cellpadding="0" cellspacing="0">
+          <tr class="modTypeDiv1">
+            <td>订单编号</td>
+            <td>会员名称</td>
+            <td>订单总价</td>
+            <td>支付状态</td>
+            <td>发货状态</td>
+            <td>签收状态</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr class="modTypeDiv2" style="background-color:#FFFFFF;">
+            <td id="td11" width="100">1345678901</td>
+            <td id="td12" width="100">张三</td>
+            <td id="td12" width="100">5000</td>
+            <td id="td12" width="100">已付</td>
+            <td id="td12" width="100">已发</td>
+            <td id="td12" width="100">未签收</td>
+            <td id="td13" width="130">
+              <a href="__APP__/Order/details">详情</a>
+              &nbsp;&nbsp;&nbsp;
+              <a href="__APP__/Order/show">产品</a>
+              &nbsp;&nbsp;&nbsp;
+              <a href="#">删除</a>
+            </td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

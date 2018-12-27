@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+/* 全局样式 */
+body{
+	font-size:12px;
+	font-family:宋体,"Arial Narrow";
+}
+body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,input,select,textarea{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration:none;
+	color:#333;
+}
+a:hover{
+	text-decoration:underline;
+	color:#c00;
+}
+ul,ol,li{
+	list-style:none;
+}
+img{
+	border:none;
+}
+em,i{
+  font-style:normal;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;
+	font-weight:bold;
+}
+:focus{
+	outline:none;
+}
+.clear{
+	clear:both;
+	zoom:1;
+}
+.clear:after{
+	content:" ";
+	display:block;
+	visibility:hidden;
+	height:0;
+	clear:both;
+}
+.left{
+	float:left;
+}
+.middle{
+	float:left;
+}
+.right{
+	float:right;
+}
+.blank10{
+	margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

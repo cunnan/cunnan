@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+  	<h1 align="center">你好！{$username}</h1>
+	<table width="500" align="center" cellpadding="10" cellspacing="0" border="1">
+		<tr>
+			<td>序号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>注册时间</td>
+			<td>操作</td>
+		</tr>
+		<foreach name="rowset" item="row">
+		<tr>
+			<td>{$row.id}</td>
+			<td>{$row.username}</td>
+			<td>{$row['sex'] ? "男" : "女"}</td>
+			<td>{$row['regTime']|substr=0,3}</td>
+			<td><a href="__CONTROLLER__/edit/id/{$row.id}/pid/5">编辑</a></td>
+		</tr>
+		</foreach>
+	</table>   
+  </body>
+</html>

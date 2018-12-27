@@ -1,0 +1,37 @@
+﻿微信接口(微信公众号 + 网站)
+
+
+准备条件
+1、网站的服务器
+   sae.sina.com.cn
+2、微信公众号
+   mp.weixin.qq.com
+
+
+将服务器接入到公众号
+1、下载微信的示例代码(wx_sample.20140819.zip)
+2、将示例代码的压缩包上传到服务器空间
+3、修改服务器上的示例代码
+   1)修改token值(php1611)
+   2)给该文件添加header设置文档的类型
+     header("content-type:text");
+4、微信公众号->开发->基本配置
+   url：微信示例代码的访问地址
+        http://hanys.applinzi.com/wx_sample.php
+   Token：php1611
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

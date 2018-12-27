@@ -1,0 +1,188 @@
+﻿View
+数据模型类如何封装：
+1、继承Model
+2、XxxModel.class.php 类名和类文件名一样。
+3、放在文件夹Model
+4、protected $tableName="表名";//不用指定前缀  news
+      protected $trueTableName="真实表名";//cms_news
+
+Model的方法：
+	where()
+	group()
+	having()
+	limit()
+	order()
+	alias()
+	field()
+	join()
+	
+	count()
+	select()
+	find()
+
+	where()
+	delete()
+
+	data()
+	add()
+	
+	where()
+	data()
+	save()
+view 模板标签
+	普通变量标签
+	{$变量名}
+	数组变量标签
+	{$变量名.下标}
+	{$变量名['下标']}
+	循环遍历标签
+	<foreach name='arr' item="v">
+	{$v.下标}
+	</foreach>
+	条件标签
+	<if condition="条件">
+	</if>
+	<if condition="条件">
+	<else/>
+	</if>
+	<if condition="条件">
+
+	<elseif condition="条件">
+	
+	<else/>
+
+	</if>
+	说明：
+	条件中不能使用> <
+	gt  
+	lt
+	eq
+	neq
+	egt
+	elt
+
+	
+	
+	加载标签
+	<include file="模板的路径"/>	
+	控制器名/方法名对应的默认模板
+	Public/header------Public文件夹下的header.html
+	
+	常量预定义变量使用标签
+	{$Think.get.名称}
+	{$Think.cookie.名称}
+	......
+	{$Think.const.名称}
+	变量调节器
+	{被调节的变量|函数名=参数1,参数2,.....}
+	函数使用
+	{:函数名(参数,)}	
+	
+公共类
+	分页 Think/Page.class.php
+	1、获取总条数，每页的显示条数
+	2、实例化分页类
+	$page=new \Think\Page($num,$pageSize);
+	3、获取起始位置
+	$start=$page->firstRow;
+	4、获取分页结果
+	$pageStr=$page->show();
+
+	setConfig()设置显示效果
+	
+	文件上传 Upload.class.php
+	1、实例化对象
+	$upload=new \Think\Upload();
+	2、设置
+		文件的大小
+		文件的类型
+		文件保存目录
+	$upload->mimes=array('image/png',"image/jpeg",'image/gif');
+	$upload->maxSize=200000;
+	$upload->rootPath="./Public/";
+	$upload->savePath="upload/";
+
+	3、保存图片
+	$arr=$upload->upload();
+	4、获取错误信息
+	if($arr){
+		var_dump($arr);
+	}else{
+		var_dump($upload->getError());
+	}
+	
+	缩略图,水印
+	类  Image.class.php
+	1、实例化Image对象
+	2、open()打开一个图片
+	3、thumb()指定缩略图的宽，高
+	4、保存 save()
+	例子：对所有的上传图片，进行缩略 100*100
+	foreach($arr as $v){
+		$imagePath="./Public/".$v['savepath'].$v['savename'];
+		$image->open($imagePath);
+		$toPath="./Public/".$v['savepath']."s_".$v['savename'];
+		$re=$image->thumb(100,100)->save($toPath);
+	}
+	验证码
+	1、实例化对象
+	$verify=new \Think\Verify();	
+	2、生成验证码图片
+	$verify->entry();
+	3、检查验证码是否正确
+	$verify->check('code')
+
+后台访问控制
+	1、在Admin/Controller/BaseController.class.php
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class BaseController extends Controller{
+	function _initialize(){
+		if(!isset($_COOKIE['userid'])){//判断是否登录
+			$this->error("请登录",U("Login/index"));
+			exit();
+		}
+	}
+}
+	2、编写Admin/Controller/LogonController.class.php控制器
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class LoginController extends Controller{
+	function index(){
+		$this->display();
+	}
+	function check(){
+		//检查用户名密码是否正确
+		$username=$_POST['username'];
+		$password=md5($_POST['password']);
+		//$ob=new \Think\Model('admin');
+		$ob=M('admin');
+		$arr=$ob->where("username='%s' and password='%s'",array($username,$password))
+		   		->find();
+		if($arr){
+			setcookie('username',$arr['username'],0,'/');
+			setcookie('userid',$arr['id'],0,'/');
+			$this->success("登录成功",U("Index/index"));
+		}else{
+			$this->error("登录失败",U("Login/index"));
+		}
+		
+		
+		
+	}
+}
+	3、编写View/Login/index.html登录表单模板
+
+	where("条件占位符",array())
+	占位符的写法：
+	'%s'
+	%d
+	%f
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+﻿composer：管理第三方软件包
+
+作用：
+1、自动加载本地类
+2、自动加载第三方插件类
+
+下载资源包
+composer.phar
+
+修改php.ini配置文件，开启php_openssl.dll扩展
+;extension=php_openssl.dll
+去掉上边代码的分号(重启Apache服务)
+
+
+
+利用composer自动加载本地类
+1、将composer.phar复制到项目根目录
+2、在项目根目录新建一个composer.json文件
+3、打开命令提示符窗口，并切换到composer.phar所在的目录
+   php composer.phar update
+   错误："php 不是系统内部或外部命令"
+   解决：将php的安装目录配置到系统的path环境变量中
+
+
+composer官网
+http://www.phpcomposer.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

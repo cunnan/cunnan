@@ -1,0 +1,188 @@
+一.时间日期函数库
+ 1.设置时区
+  date_default_timezone_set(string $timezone)
+ 2.获得时区  
+  date_default_timezone_get()
+ 3.格式化时间日期函数
+  string date(string $format[,int $timestamp])
+ 4.返回时间戳 (秒)
+  time()
+ 5.返回描述英文文本的时间日期时间戳(秒) 
+   strtotime()
+ 6.返回时间日期时间戳(秒)
+   mktime()
+ 7.返回时间戳(秒)和微妙数 
+   microtime()
+   说明:
+    microtime(true) 返回浮点数的微妙数
+二.数学函数
+  1. floor:舍去法取整,向下取整
+  2. ceil:进一法取整,向上取整
+  3. round:四舍五入
+      float round ( float $val [, int $precision = 0])
+             例如: echo round(4.78); //5
+           echo round(4.789,2);//4.79
+  4. max:最大值
+  5. min:最小值
+  6. abs:绝对值
+  7. sqrt:开平方
+  8. pow:求次幂
+  9. rand:获得随机整数
+  10 mt_rand:获得更好的随机整数
+  
+三.循环
+ 1. 什么时候用循环:重复的事情和有规律的事情用循环.
+ 2.for循环
+   (1)格式
+   for(expr1;expr2;expr3){
+     ...
+   }
+   说明:
+    a.expr1：无条件执行一次,一般给变量赋初始值
+    b.expr2：每次循环时都执行的语句,作用判断循环
+                          进入条件(循环终止条件)
+    c.expr3：每次循环后(循环体最后)执行的语句，作用
+                          变量步长(增量,减量)
+                          
+  3.for的特殊使用
+   (1)省略表达式
+    for(;;){
+      ...
+    }
+   
+   (2)每个表达式中有多条语句
+  
+       说明:
+       a.每条语句用逗号隔开，每个表达式用分号隔开.
+       b.第一个表达式和第三个表达式可以多条语句都执行
+       c.第二个表达式只执行最后一条语句
+   
+   4. while,do...while循环
+    (1)格式
+      while(循环条件){
+        ...
+      }
+      do{
+        ...
+      }while(循环条件);
+      
+       说明:
+      a.for,while先判断条件后执行语句
+        do...while 先执行语句后判断条件
+      b. 如果第一次判断的条件为假，do...while
+                比  while多执行一次
+      c. for和 while,for一般精确次数的循环,
+         while 可以实现不定次数循环
+    5. break, continue
+           说明:
+        a. break:用在swtich和循环中，作用
+                       结束程序执行,如果用在循环只结束一层
+                       循环
+        b. continue：用在swtich和循环中，
+                      如果用在swtich 和break功能一样;
+                      如果用循环中跳过当前循环后面的代码
+                      执行下一次循环(循环没结束)           
+       
+四.字符串函数
+  1. substr:字符串截取函数
+     格式:string substr(string $var,int $start
+      [,int $length]);
+      说明:
+      a.$start:起始编号,编号从0开始
+      b.$length:截取长度,如果省略$length那就是
+                从起始编号开始一直到字符串结束
+      c.如果$start,$length 是负值,位置倒数  
+      d.如果$start 大于字符串长度返回 false
+  2. strlen :获得字符的长度
+  3. 
+     strtolower:将字符串转为小写
+     strtoupper:将字符串转为大写
+     ucfirst:将字符串首字母大写
+     ucwords:将字符串中每个单词首字母大写
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+               
+   
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+   
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>用户中心_京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/transport.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="Text/Javascript" language="JavaScript">
+	function selectPage(sel)
+	{
+	  sel.form.submit();
+	}
+	var msg_title_empty = "留言标题为空";
+    var msg_content_empty = "留言内容为空";
+    var msg_title_limit = "留言标题不能超过200个字";
+	</script>
+  </head>
+  <body>
+    <div id="container">
+      
+      <include file="Public:header" />
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div id="urHere" class="globalModule">
+        <h3><a href=".">首页</a> <code>&gt;</code> 用户中心</h3>
+      </div>
+      <div class="blank"></div>
+      <div id="globalLeft">
+        <div class="globalModule">
+          <h3><div id="list_t_l"><div id="list_t_r"><b>用户中心</b></div></div></h3>
+          <div id="global_box" class="userMenu">
+            <a href="__APP__/User/index"><img src="__ROOT__/public/themes/jindong/images/u1.gif"> 欢迎页</a>
+			<a href="__APP__/User/profile"><img src="__ROOT__/public/themes/jindong/images/u2.gif"> 用户信息</a>
+			<a href="__APP__/User/order"><img src="__ROOT__/public/themes/jindong/images/u3.gif"> 我的订单</a>
+			<a href="__APP__/User/address"><img src="__ROOT__/public/themes/jindong/images/u4.gif"> 收货地址</a>
+			<a href="__APP__/User/collection"><img src="__ROOT__/public/themes/jindong/images/u5.gif"> 我的收藏</a>
+			<a href="__APP__/User/message" class="curs"><img src="__ROOT__/public/themes/jindong/images/u6.gif"> 我的留言</a>
+			<a href="__APP__/User/tag"><img src="__ROOT__/public/themes/jindong/images/u7.gif"> 我的标签</a>
+			<a href="__APP__/User/booking"><img src="__ROOT__/public/themes/jindong/images/u8.gif"> 缺货登记</a>
+			<a href="__APP__/User/bonus"><img src="__ROOT__/public/themes/jindong/images/u9.gif"> 我的红包</a>
+			<a href="__APP__/User/affiliate"><img src="__ROOT__/public/themes/jindong/images/u10.gif"> 我的推荐</a>
+			<a href="__APP__/User/comment"><img src="__ROOT__/public/themes/jindong/images/u11.gif"> 我的评论</a>
+			<!--<a href="__APP__/User/groupbuy">我的团购</a>-->
+			<a href="__APP__/User/trackpackages"><img src="__ROOT__/public/themes/jindong/images/u12.gif"> 跟踪包裹</a>
+			<a href="__APP__/User/accountlog"><img src="__ROOT__/public/themes/jindong/images/u13.gif"> 资金管理</a>
+			<a href="__APP__/User/logout" style="background:none; text-align:right; margin-right:10px;"><img src="__ROOT__/public/themes/jindong/images/bnt_sign.gif"></a>
+		  </div>
+		</div>
+      </div>
+      <div id="globalBigRight">
+        <div class="tab_box">
+          <div id="globalMessage" class="globalModule">
+            <div class="tab_title"><h3>我的留言</h3></div>
+            <div class="globalModuleContent">
+              <table border="0" cellspacing="0" class="tableList">
+                <tr>
+                  <th width="580">投诉：什么破东西<span class="textTime">2012-05-30 15:02:23</span></th>
+                  <th><span class="btnBlue"><a href="#" onclick="if (!confirm('你确实要彻底删除这条留言吗？')) return false;">删除</a></span></th>
+                </tr>
+                <tr>
+                  <td colspan="2">什么破玩意,刚用几天就有问题</td>
+                </tr>
+              </table>
+              <table border="0" cellspacing="0" class="tableList">
+                <tr>
+                  <th width="580">留言：好产品<span class="textTime">2012-05-30 15:01:57</span></th>
+                  <th><span class="btnBlue"><a href="#" onclick="if (!confirm('你确实要彻底删除这条留言吗？')) return false;">删除</a></span></th>
+                </tr>
+                <tr>
+                  <td colspan="2">好产品,那也真好价钱啊 <p class="btnFile"><a href="data/feedbackimg/615_20120530vqfsnx.rar" target="_blank"><img src="__ROOT__/public/themes/jindong/images/icon_attachment.gif" alt="" /> 查看上传的文件</a></p></td>
+                </tr>
+              </table>
+              <div class="blank"></div>
+              <form name="selectPageForm" action="" method="get">
+                <div id="pager"></div>
+              </form>
+              <form action="user.php" method="post" enctype="multipart/form-data" name="formMsg" onSubmit="return submitMsg()">
+                <table border="0" cellspacing="0" class="tableList topLine">
+                  <tr>
+                    <th>留言类型：</th>
+                    <td>
+                      <input name="msg_type" type="radio" value="0" checked="checked" id="msg_type0" /> <label for="msg_type0">留言</label>
+                      <input type="radio" name="msg_type" value="1" id="msg_type1" /> <label for="msg_type1">投诉</label>
+                      <input type="radio" name="msg_type" value="2" id="msg_type2" /> <label for="msg_type2">询问</label>
+                      <input type="radio" name="msg_type" value="3" id="msg_type3" /> <label for="msg_type3">售后</label>
+                      <input type="radio" name="msg_type" value="4" id="msg_type4" /> <label for="msg_type4">求购</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>主题：</th>
+                    <td><input name="msg_title" type="text" size="30" class="textInput" /></td>
+                  </tr>
+                  <tr>
+                    <th>留言内容：</th>
+                    <td><textarea name="msg_content" cols="50" rows="4"></textarea></td>
+                  </tr>
+                  <tr>
+                    <th>上传文件：</th>
+                    <td><input type="file" name="message_img" size="45" /></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="提交留言" /></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                      <font color="red">小提示：</font>
+                      <br />您可以上传以下格式的文件：<br />gif、jpg、png、word、excel、txt、zip、ppt、pdf
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blank"></div>
+      
+      <include file="Public:footer" />
+    
+    </div>
+  </body>
+</html>

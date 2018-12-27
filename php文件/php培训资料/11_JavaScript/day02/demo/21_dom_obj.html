@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM</title>
+</head>
+
+<body>
+<a href="http://www.baidu.com" name="alink" id="a0">百度</a>
+
+<a href="http://www.baidu.com" name="alink" id="a1">搜狐</a>
+<script>
+//获取A连接的JavaScript对象
+//根据HTML标签获取对象
+/*
+ * 6、有如下的HTML文档
+ <img src="dog.jpg"/> 
+ 应用javascript将图片的地址改为新的图片地址。
+ */
+var aobj = document.getElementsByTagName("a");
+ 
+aobj[1].href="index.php";
+alert(aobj[1].href);
+var aobj1 = document.getElementsByName("alink");
+aobj1[0].href="http://www.sina.com";
+var aobj2 = document.getElementById("a0");
+aobj2.href="https://www.jd.com";
+aobj2.target = "_blank";
+//aobj2.aaaa = "bbb";
+</script>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

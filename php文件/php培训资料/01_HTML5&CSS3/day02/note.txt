@@ -1,0 +1,193 @@
+一.图像
+  1.浏览器支持的图像格式
+    (1)jpg:不支持动画,不支持透明,1670万种颜色
+    (2)png:不支持动画,支持透明,256种或 1670万种颜色或更多
+    (3)gif:支持动画,支持透明,256种颜色
+  2.格式
+    <img src="图像URL路径" alt="描述"
+      width="宽度" height="高度" border="边框"/>
+  3. 路径
+    (1)绝对路径:由协议名称,主机名称,及目录和文件名称组成.
+        <img src="http://www.sohu.com/images/1.jpg" alt=""/>
+    (2)相对路径：由当前文档开始的路径
+                 同级: 当前文档和目标文档在同一个目录
+         <img src="1.jpg" alt=""/>
+         <img src="./1.jpg" alt=""/>
+                 下一级:当前文档要进入文件夹名称找目标文档
+         <img src="images/2.jpg" alt=""/>   
+                上一级：当前文档跳出文件夹找目标文档
+         <img src="../1.jpg" alt=""/>
+    (3)根相对路径：由服务器主目录开始的路径 '/'开头
+ 
+    说明:
+     a. img标记种 src 和 alt属性不能省略
+     b. 改变 图像的width和height不影响图像的大小
+二.链接(Anchor)
+ 1. 什么是链接:跳转页面
+ 2. 链接元素:文本 ,图像 ,热点  
+ 3. 格式
+   <a href="目标文档URL" target="窗口形式">...</a>
+    说明:
+     窗口形式target值
+     a._self:默认值, 目标文档以当前窗口形式打开  
+     b._blank:新窗口 ,目标文档以新窗口形式打开
+     c._parent ：父级窗口,目标文档以父级窗口形式打开
+     d._top ：顶级窗口,目标文档以顶级窗口形式打开
+     e.框架集名称:目标文档以框架集名称所在窗口打开 
+三.列表(List)
+  (1)无序列表
+     <ul type="disc实心圆|square实心方块|circle空心圆">
+       <li>...</li>
+       <li>...</li> 
+       <li>...</li> 
+       ......  
+     </ul>
+  (2)有序列表
+     <ol type="1默认值|a|A|i|I" start="起始数字编码">
+       <li>...</li>
+       <li>...</li>
+       <li>...</li>
+       ...
+     </ol>
+  (3)自定义列表
+     <dl>
+        <dt>列表项</dt>
+        <dd>列表项描述</dd>
+        <dd>列表项描述</dd>
+        <dd>列表项描述</dd>
+        ...
+     </dl>
+    
+四.表格(Table)
+ 1.作用:将数据放到格式化的结构中
+ 2.表格组成
+   (1)父元素 : <table>...</table>
+   (2)行  : <tr>...</tr>
+   (3)单元格: <td>...</td> | <th>...</th>
+  说明: 内容要写在单元格中。
+ 3.格式
+  <table border="边框" width="宽度 像素值|百分比"
+   height="高度" cellspacing="外边距:单元格和单元格直接的距离默认2像素"
+   cellpadding="内边距:内容到边框的距离 默认值2像素">
+     <tr>
+         <td>...</td>
+         <td>...</td>
+         ......
+     </tr>
+     <tr>
+         <td>...</td>
+         <td>...</td>
+         ......
+     </tr>
+     ......
+  </table>
+  4. th|td 属性
+        合并:
+     colspan:列合并
+     rowspan:行合并
+五. HTML5新增标记(语义化标记)
+  1.header：页眉  (<div class="header">...</div>)
+  2.footer：页脚
+  3.aside ：一般用作侧边栏 
+  4.section:盒子的区块,一般带标题
+                        如果加样式或javascript用div
+  5.nav：导航(navigation),一个页面中可以有多个nav标记
+  6.article：文章
+  7.progress：进度条
+  8.mark ：文本标记
+  9.time ： 时间
+
+六.表单(Form)
+  1. 作用:收集客户端的信息发送到服务器上
+           客户端:浏览器
+           服务器:装有应用软件的计算机
+  2.格式
+   <form action="动态页面URL" 
+      method="传输方式get|post" name="表单名称">
+      ...
+   </form>
+      说明:
+      a. action 动态页面URL
+      b. method 传输方式
+        (a)get 默认值 ,以名/值对浏览器的地址栏后面
+                       传输小文件,不安全
+                     例如: xx.php?user=tom&pwd=123456
+        (b)post: 以名/值对在HTTP请求头部中传输
+                      传输大文件,安全
+     c. 表单元素必须有有效的 名称和值               
+  3.表单元素
+   (1)单行文本框:
+    <input type="text" name="名称" value="值"
+    size="文本框的宽度" maxlength="字符的最大长度"/>
+   (2)密码框
+    <input type="password" name="名称" value="值"
+    size="文本框的宽度" maxlength="字符的最大长度"/>
+   (3)单选框
+   <input type="radio" name="名称" value="值"/>
+       说明:
+     a.一组类型相同的单选框名称必须相同
+     b.单选框有效的初始值 checked="checked"
+   (4)多选框
+   <input type="checkbox" name="名称" value="值"/>
+       说明:
+     a.一组类型相同的多选框名称必须相同,多选框名称
+              以数组形式存储(存多个值)例如 : 名称[]
+     b.多选框有效的初始值 checked="checked"
+   (5)下拉列表框
+   <select name="名称">
+     <optgroup label="分组的名称">
+      <option value="值">...</option>
+      <option value="值">...</option>
+     </optgroup>
+      <option value="值">...</option>
+      <option value="值">...</option>
+      .....
+   </select>
+   说明:
+   a.有效初始值 selected="selected"
+   b.select标记中  multiple="multiple"
+          实现多选下拉列表框，名称以数组形式存储多个值
+          例如:名称[]
+  (6)浏览框
+   <input type="file" name="名称" value="值"/>
+      说明:
+        表单中具有浏览框的条件
+    a. method 传输方式必须是 post
+    b. form标记中添加 属性和值
+       enctype="multipart/form-data"
+       
+  (7)多行文本框
+    <textarea name="名称" cols="宽度" 
+    rows="高度" value="值">...</textarea>
+    说明:多行文本框被 第三方HTML在线编辑器替代
+  (8)按钮
+     提交按钮: <input type="submit" name="名称" value="值"/>
+     普通按钮: <input type="button" name="名称" value="值"/>
+                       结合 javascript 脚本代码实现
+     重置按钮: <input type="reset" name="名称" value="值"/>
+    说明: 按钮一般不用写 name 属性
+
+
+
+
+   
+  
+  
+  
+     
+
+
+
+
+
+
+
+    
+     
+     
+     
+     
+     
+     
+     
+     

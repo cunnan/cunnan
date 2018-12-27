@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript 变量的作用域</title>
+<script>
+//函数体外声明的变量， 作用域就是全局作用域     
+var i=10;
+//alert(i);
+</script>
+
+
+</head>
+
+<body>
+<script>
+function test(){
+	// 函数体内声明的变量， 作用域就是局部作用域     
+	var x = 100;
+	y = 200;
+	//alert(x);
+	//alert(i);
+}
+test();
+//alert(x);//not define
+alert(y);
+</script>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

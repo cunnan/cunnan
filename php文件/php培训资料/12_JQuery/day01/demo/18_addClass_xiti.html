@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery</title>
+<style>
+.test{
+	font-size:40px;
+	background-color:green;
+}
+</style>
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<script>
+/*
+ * 4、修改HTML文档的样式：
+ <p>段落标签</p>
+ 将字体指定为40像素，背景色为绿色。
+ */
+ $(function(){
+	// $("p").css({"font-size":"40px","background-color":"green"});
+	//$("p").css("font-size","40px");
+	//$("p").css("background-color","green");
+	//批量添加class样式
+	$("p").addClass("test");
+ });
+</script>
+</head>
+
+
+<body>
+<p>段落标签</p>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

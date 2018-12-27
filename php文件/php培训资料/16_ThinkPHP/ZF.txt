@@ -1,0 +1,10 @@
+
+function __autoload($class){ //魔术函数
+       $path = str_replace('_','/',$class);  //Zend/Controller/Front
+       $classFile = $path . '.class.php';
+       require_once $classFile;
+}
+class Zend_Controller_Front{
+
+}
+$x = new Zend_Controller_Front;

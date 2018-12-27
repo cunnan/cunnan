@@ -1,0 +1,68 @@
+一.CSS
+  1.什么是CSS：层叠样式表[Cascading Style Sheets]
+  2.能做什么CSS:修饰网页结构(HTML标记)外观(例如:字大小,颜色,加粗等)
+              w3c规定尽量用CSS样式替代HTML属性
+  3.HTML和CSS关系
+      HTML网页结构(结构)
+      CSS修饰网页结构(表现,外观)
+  4. CSS的使用
+   (1)内联样式:写在标记中
+      <标记名称 style="css样式代码"/>
+      <标记名称 style="css样式代码"></标记名称>
+          说明:
+        HTML公共属性(除了html,head,body,link,meta外都可以使用的属性)
+         (a)style
+         (b)title 提示信息
+         (c)class
+         (d)id
+   (2)内部样式：写在 head 标记里的样式
+       <style type="text/css">
+          ... css样式代码
+       </style>
+   (3)外部样式:将css代码单独写页面，然后引用页面
+     <link type="text/css" rel="stylesheet"
+      href="目标文档.css页面" media="all"/>
+         说明:
+      a.type :目标文档的类型 css页面,可省略
+      b.rel :当前文档和目标文档的关系
+      c.href :目标文档.css页面
+      d.media:不同媒介可以使用不同样式
+                               移动端排版使用
+            值:
+       all 所有设备
+       screen 屏幕
+       print 打印机
+       tv 电视机
+       
+   5. css的使用的优先级
+           说明:内联样式优先级最高,内部样式和
+                   外部样式优先级相同,如果优先级
+                   相同后面的样式覆盖前面的样式
+   6.css样式的语法结构
+           选择器{属性:值;属性:值;...}
+     selector{property:value;property:value;...}
+      
+   7.选择器(selector)
+   (1) 通配符选择器      *{...} (自动应用于所有标记中)
+   (2) 标记选择器         标记{...}(自动应用于指定标记)
+   (3) class选择器     .class名称{...}(手动应用于任意标记中)
+            手动应用 标记中写属性  class="class名称1 class名称2"
+   
+   (4) id选择器         #id名称{...}(手动应用于唯一标记中)
+           手动应用 标记中写属性  id="id名称"
+   
+   
+   
+   
+   
+   
+   
+  
+   
+   
+   
+   
+   
+   
+   
+   

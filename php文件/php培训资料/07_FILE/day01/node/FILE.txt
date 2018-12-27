@@ -1,0 +1,184 @@
+﻿date
+编辑php.ini
+date.timezone =PRC
+重新启动apache。
+
+文件目录
+一、概述
+       1、用途：
+             网站静态化
+             日志的收集
+        
+
+二、应用
+       1、文件系统的分类
+             file 文件
+             dir  目录
+             block 块文件
+             char   字符类型文件。
+             fifo     管道文件
+             link     链接文件
+             unknow 未知
+
+       2、PHP文件系统函数
+             filetype(string $filename)
+             功能：获取文件的类型
+             参数：
+             filename 要获取的文件类型的地址
+             返回：文件类型的字符串形式
+
+             is_dir(string $filename)  
+             功能：判断文件是否是一个目录
+             参数：
+             filename 要进行判断的文件地址
+             返回：布尔值
+
+             is_file(string $filename)
+             功能：判断是否是一个文件
+             参数：
+             filename 要进行判断的文件地址
+             返回：布尔值
+
+             filesize(string $filename)
+             功能：返回文件的大小
+             参数：
+             filename 要判断文件大小的文件地址
+             返回：文件的大小。单位 byte 字节
+             1024types(2^10bytes) = 1KB
+             1024KB(2^20 bytes) = 1MB
+             1024MB (2^30 bytes)= 1GB
+             1024GB(2^40 bytes) = 1TB 
+
+             filectime(string $filename) --create
+             功能：获取文件的创建时间
+             参数：
+             filename 要获取文件创建时间的文件地址
+             返回：文件的创建时间，返回格式 时间戳1970-01-01
+
+             filemtime(string $filename)--modify
+             功能：获取文件的修改时间
+             参数：
+             filename 要获取文件修改时间的文件地址
+             返回：文件的修改时间，返回格式 时间戳1970-01-01
+
+             fileatime(string $filename) --alter/access
+             功能：获取文件的访问时间
+             参数：
+             filename 要获取文件访问时间的文件地址
+             返回：文件的访问时间，返回格式 时间戳1970-01-01
+
+             is_readable(string $filename)
+             功能：查看文件是否可读
+             参数：
+             filename 要查看的文件地址
+             返回：布尔值
+
+            is_writable(string $filename)
+            功能：判断文件是否可写
+            参数：
+            filename 要判断的文件地址
+            返回：布尔值
+
+            is_executable(string $filename)
+            功能：判断文件是否可执行
+            参数：
+            filename 要判断的文件地址
+            返回：布尔值
+
+            file_exists(string $filename)
+            功能：判断文件或者目录是否存在
+            参数：
+            filename 要进行判断的文件或者目录
+            返回：布尔值
+
+       3、PHP对目录的操作
+             相对目录和绝对目录
+             绝对目录：从根目录计算起得目录就成为绝对目录。
+                               windows：盘符
+                               linux：      /
+             相对目录：从当前文件计算起得目录成为相对目录。
+
+             目录分隔符
+             反向目录分隔符：\
+             正向目录分隔符：/ 建议使用正向目录分隔符。
+
+             目录的遍历
+             glob(string $pattern)
+             功能：目录的遍历
+             参数：
+             pattern 遍历的目录的匹配模式
+             返回：数组。遍历的目录中的内容。
+                        - 不支持solaris操作系统
+                        - 不支持远程文件目录遍历 
+
+             opendir(string $pathname)
+             功能：打开目录
+             参数：
+             pathname 要打开的目录地址
+             返回：资源
+
+            readdir(resource $dir)
+            功能：读取已经打开的目录资源
+            参数：
+            dir  已经打开的目录资源
+            返回：目录下的内容。每执行一次获取一次目录下的内容。
+当获取不到的时候返回false。
+                       所有目录下都有 
+                       .和..
+                       . 当前目录
+                       .. 上一级目录
+
+
+            closedir(resource $dir)
+            功能：关闭已经打开的目录资源。释放内存
+            参数：
+            dir  已经打开的目录资源
+              
+                 
+             
+
+
+
+
+
+
+
+
+            
+
+
+
+习题：
+1、获取文件的修改，创建和访问时间。
+2、应用glob遍历当前目录，将当前目录中的内容进行输出，要求一行输出一个目录内容。
+3、应用opendir一组函数循环读取出目录下的内容。
+4、将上一题循环读取出的内容进行判断，分别判断出文件和目录。
+      要求输出：文件：***
+                        目录：***
+5、统计目录的大小。
+         统计目录下所有文件大小之和。
+
+6、统计目录下文件和目录数。
+
+7、作用：项目登录功能.
+      考虑session的应用。      
+
+
+
+     
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+     
+    

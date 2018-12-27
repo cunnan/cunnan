@@ -1,0 +1,244 @@
+﻿态度---努力练，一直想。
+思想---思想有多远才能滚多远。
+封装类：
+	封装分页分页类
+	作用入手分析
+	作用：展现分页的效果
+class page{
+	protected $page=1;
+	protected $pageSize=10;
+	function __construct($num,$pageSize){
+		//当前页的页码值
+		$page=isset($_GET['p']) ? (int)$_GET['p'] : 1;
+		//合法性
+		if($page<1){
+			$page=1;
+		}
+		//不能超过总页数
+		$pageNum=ceil($num/$pageSize);
+		if($page>$pageNum && $num>0){
+			$page=$pageNum;
+		}
+		$this->page=$page;
+		$this->pageSize=$pageSize;
+	}
+	function getStart(){
+		return ($this->page-1)*$this->pageSize;
+	}
+	function show(){//分页的效果
+		$lastPage=$this->page-1;
+		$nextPage=$this->page+1;
+		return "<a href='？p='>下一页</a><a href=''>上一页</a>";
+	}
+}
+
+课程：
+5天 项目 cms     dedecms
+smarty 3天
+MVC 软件设计模式  3天   ***
+ThinkPHP 4天
+YII 3-4  
+ci  
+laravel 
+自研发 
+
+MysqlCore 3
+
+5天 项目 cms 
+新闻世界
+1、需求分析，画原型图。
+2、美工设计页面，切图。
+3、设计数据库，规划目录。（看页面，设计数据库）
+a、有多少类数据 
+管理员 
+文章
+文章分类
+文章点击数
+广告图片
+会员
+b、设计每个表
+-- 管理员
+create table admin(
+	id int key auto_increment,
+	username varchar(30) unique,
+	password varchar(32) not null
+);
+insert into admin(username,password) value('admin','e10adc3949ba59abbe56e057f20f883e');
+-- 文章分类表
+create table type(
+	id int key auto_increment,
+	tname char(10) not null,
+	fid int default 0,
+	state tinyint(1) default 0
+);
+-- 文章表
+create table news(
+	id int key auto_increment,
+	title varchar(100),
+	content text,
+	addtime int,
+	typeid int,
+	state tinyint(1) default 0
+);
+-- 文章评论表
+create table comment(
+	id int key auto_increment,
+	newsid int,
+	userid int,
+	content text,
+	addtime int
+);
+-- 文章点击数表
+create table clicknum(
+	id int key auto_increment,
+	newsid int,
+	clicktime int,
+	ip varchar(25)
+);
+-- 会员表
+create table user(
+	id int key auto_increment,
+	username char(20),
+	password char(32),
+	state tinyint default 0
+);
+-- 广告图片表
+create table advinfo(
+	id int key auto_increment,
+	title char(100),
+	url char(200),
+	imagename char(50)
+);
+
+规划网站目录：
+image
+css
+js
+class
+admin
+	images
+	css
+	js
+	user
+	news
+	comment
+	public
+		head.php
+		menu.php
+		
+	index.php
+	login.php
+	check.php
+user
+	reg.php
+	login.php
+news
+	list.php
+	detail.php
+comment
+	add.php
+	list.php
+public
+	header.php
+	footer.php
+index.php
+config.ini.php 配置文件
+			projectone
+后台登录
+	表单页面
+		|
+		登录按钮
+		|
+		check.php 检查用户名密码是否正确
+		Db.class.php
+		//创建会话变量，否则跳转到登录页
+		
+后台首页
+
+后台访问控制：
+后台的程序，处理登录相关的login.html check.php外，
+所有的程序只能登录后才能访问。
+
+
+
+
+
+
+文章分类的添加，列表，修改，删除--逻辑删除
+
+
+session 
+优点：安全高
+缺点：性能差  session自定义开发
+
+
+1、浏览器关闭cookie  session还能不能使用？
+能，通过url地址已get方式传送sessionid
+2、session的缺点？
+客户端模拟sessionid,唤起过期的session文件
+性能差，小文件过多
+3、如何解决？
+
+class f{
+	public $a=1;
+	protected $b=2;
+	private $c=3;
+	function fun1(){
+		echo $this->a;
+	}
+	function fun2(){
+		echo $this->b;
+	}
+	function fun3(){
+		echo $this->c;
+	}
+}
+class s extends f{
+	public $a=4;
+	protected $b=5;
+	private $c=6;
+	function fun4(){
+		echo $this->a;
+	}
+	function fun5(){
+		echo $this->b;
+	}
+	function fun6(){
+		echo $this->c;
+	}
+}
+$ob=new s();
+$ob->fun1();//4
+$ob->fun2();//5
+$ob->fun3();//3
+$ob->fun4();//4
+$ob->fun5();//5
+$ob->fun6();//6
+
+
+
+
+
+
+
+
+
+
+
+
+
+4、开发后台
+5、实现前台
+6、测试
+7、上线   服务器   域名
+
+
+
+
+
+
+
+
+
+
+

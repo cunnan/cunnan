@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM className</title>
+</head>
+
+<body>
+<div id="one" style="font-size:40px;width:50px;height:50px;background-color:green;"></div>
+<input type="button" value="stop" onclick="stops();"/>
+<script>
+//获取div的javascript对象
+/*
+ * 5、有如下div层
+ <div id="one" 
+ style="font-size:40px;width:
+	 50px;height:50px;background-color:green;">
+	 </div>
+ 有两个按钮，点击第一个按钮开始计数（从1开始自增），
+ 点击第二个按钮停止计数。
+ */
+var dobj = document.getElementById("one");
+var i = 1;
+//setInterval(code,millisec)
+var id = setInterval("test()",100);
+function test(){
+	dobj.innerHTML = i;
+	i++;
+}
+
+//定义stops()自定义函数，用于停止setInterval
+function stops(){
+	clearInterval(id);
+}
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM</title>
+</head>
+
+<body>
+<input type="checkbox" name="ids[]"  />新闻标题1<br/>
+<input type="checkbox" name="ids[]"  />新闻标题2<br/>
+<script>
+//获取input javascript对象
+var iobj = document.getElementsByName("ids[]");
+
+function selectAll(){
+	for(var i=0;i<iobj.length;i++){
+		iobj[i].checked = true;
+	}
+}	
+
+//反选 
+function invest(){
+	//将选中设置为未选中，将未选中设置为选中
+	for(var i=0;i<iobj.length;i++){
+		if(iobj[i].checked){
+			iobj[i].checked = false;
+		}else{
+			iobj[i].checked = true;
+		}
+	}
+}
+
+//全不选
+function unSelectAll(){
+	for(var i=0;i<iobj.length;i++){
+		iobj[i].checked = false;
+	}
+}
+
+
+
+</script>
+<a href="javascript:selectAll();">全选</a> | <a href="javascript:unSelectAll();">全不选</a> | <a href="javascript:invest();">反选</a> 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

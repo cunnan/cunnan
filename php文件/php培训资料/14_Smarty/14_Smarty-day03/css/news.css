@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+.content{
+	width:900px;
+	margin:10px auto;
+	background:#f0f0f0;
+}
+.content .left{
+	float:left;
+	width:200px;
+}
+.content .left h3{
+	background:orange;
+	text-align:center;
+	height:25px;
+	line-height:25px;
+}
+.content .left li{
+	margin-left:20px;
+}
+.content .right{
+	width:690px;
+	float:right;
+}
+.content .right li{
+	margin-left:20px;
+}
+
+
+
+

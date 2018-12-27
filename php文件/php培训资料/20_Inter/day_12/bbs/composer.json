@@ -1,0 +1,8 @@
+{
+	"require":{
+		"voku/anti-xss":"2.1.2"
+	},
+	"autoload":{
+		"classmap":["core","hello"]
+	}
+}

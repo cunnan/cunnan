@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript FORM</title>
+</head>
+
+<body>
+<form action="index.php" method="get" name="frm">
+姓名：<input type="text" name="username" /><br/><br/>
+密码：<input type="password" name="password" /><br/><br/>
+<input type="submit" value="提交" />
+</form>
+<script>
+//获取表单对象
+// document.form表单的name属性值
+var dobj = document.frm;
+
+function test(){
+	dobj.action = "regist.php";
+	dobj.method = "post";
+	dobj.submit();
+}
+setTimeout("test()",2000);
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

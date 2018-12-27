@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM className</title>
+</head>
+
+<body>
+aaaaa<br/>
+aaaaa<br/>
+aaaaa<br/>
+<div style="background-color:green;width:150px;height:50px;">
+
+</div>
+<div style="background-color:blue;width:150px;height:50px;">
+
+</div>
+<div style="background-color:yellow;width:150px;height:50px;">
+
+</div>
+ccccc<br/>
+ccccc<br/>
+ccccc<br/>
+ccccc<br/>
+<script>
+/*
+ * 1、给HTML文档中添加img标签，要求img标签添加到div层中。
+ 指定img标签的宽和高分别为 30。
+ */
+ //获取div对象
+ var dobj = document.getElementsByTagName("div");
+ 
+ function add(){
+	 var iobj = document.createElement("img");
+	 // 修改img对象的src属性
+	 iobj.src = "dog.jpg";
+	 //修改img对象的宽和高
+	 iobj.style.width = "30px";
+	 iobj.style.height = "30px";
+	 //将iobj对象添加到div层中
+	 dobj[1].appendChild(iobj); 
+ }
+ 
+</script>
+<a href='javascript:add();'>添加</a>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

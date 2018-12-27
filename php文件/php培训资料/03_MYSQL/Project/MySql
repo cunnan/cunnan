@@ -1,0 +1,513 @@
+-- 进入MySQL的命令
+-- 将提示符 修改 为 hello
+prompt hello
+-- 恢复提示符
+prompt mysql>
+-- 登录MySQL写的命令
+-- 提示符 修改 为 world
+quit
+mysql -uroot -p --prompt=world
+-- 进入MySQL的命令
+-- 将提示符 修改 为  
+-- \h主机名称  \D 系统的时间日期  \d 选择的数据库
+prompt \h 
+ -- 查看数据库
+ SHOW DATABASES;
+ -- 创建数据库 psd1603
+ CREATE DATABASE psd1603;
+ -- 查看创建数据库命令
+ SHOW CREATE DATABASE psd1603;
+ -- 删除数据库
+ DROP DATABASE psd1603;
+  -- 创建数据库 psd1603 编码为 gbk
+ CREATE DATABASE IF NOT EXISTS
+ psd1603 DEFAULT CHARACTER SET gbk;
+ -- 修改数据库 psd1603 编码 utf8
+ ALTER DATABASE psd1603
+ CHARACTER SET utf8;
+ -- 查看创建数据库命令
+ SHOW CREATE DATABASE psd1603;
+ -- 选择数据库
+ USE psd1603;
+ -- 查看当前选择的数据库
+ SELECT DATABASE();
+--window 设置客户端编码 SET NAMES gbk;
+-- 选择数据库 psd1603
+USE psd1603;
+-- 查看表
+SHOW TABLES;
+-- 创建表结构
+CREATE TABLE users(
+  id INT,
+  name VARCHAR(30)
+);
+-- 查看表结构 users
+DESC users;
+DESCRIBE users;
+SHOW COLUMNS FROM users;
+-- 查看创建表结构命令 users
+SHOW CREATE TABLE users;
+-- 给users表添加记录(Record行)
+INSERT users(id,name)
+VALUE
+(1,'tom'),
+(2,'rose'),
+(3,'jerry');
+-- 查看 users 中的数据
+SELECT * FROM users;
+-- 选择数据库 psd1603
+USE psd1603;
+-- 创建 表结构  cms_user
+CREATE TABLE cms_user(
+ id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+ name VARCHAR(30) NOT NULL UNIQUE,
+ password CHAR(32) NOT NULL,
+ age TINYINT UNSIGNED DEFAULT 18,
+ sex TINYINT(1) DEFAULT 0,
+ email VARCHAR(50) NOT NULL DEFAULT '11@163.com'
+);
+--  cms_user 添加数据
+INSERT cms_user(name,password)
+VALUE
+('tom','tom123'),
+('rose','rose123'),
+('jerry','jerry123'),
+('john','john123');
+
+-- 查询数据
+SELECT * FROM cms_user;
+
+
+
+USE psd03; 
+-- 在 users表中
+-- 在 age 字段后添加 addr
+ALTER TABLE users
+ADD addr VARCHAR(30) AFTER age;
+-- 在 users表中
+-- 在最前面添加字段 aa bb
+ALTER TABLE users
+ADD aa VARCHAR(10) FIRST,
+ADD bb VARCHAR(10) FIRST;
+-- 在 users表中 删除 字段aa ,bb
+ALTER TABLE users
+DROP aa,
+DROP bb;
+-- 在 users表中 修改 addr 数据类型 VARCHAR(50)
+-- 设置默认值 北京, 更改位置在sex字段后
+ALTER TABLE users
+MODIFY addr VARCHAR(50) DEFAULT '北京'
+AFTER sex;
+-- 修改字段名称 password 为 pwd
+ALTER TABLE users
+CHANGE password pwd CHAR(32) NOT NULL
+AFTER age;
+--  去掉 age 字段默认值
+ALTER TABLE users
+ALTER age DROP DEFAULT;
+--  添加 age 字段默认值 20
+ALTER TABLE users
+ALTER age SET DEFAULT 20;
+-- 删除 主键 id
+--要删除主键 id，必须先删除 AUTO_INCRMENT
+ALTER TABLE users
+MODIFY id SMALLINT UNSIGNED;
+ALTER TABLE users
+DROP PRIMARY KEY;
+-- 添加主键 id字段
+ALTER TABLE users
+ADD PRIMARY KEY(id);
+--给字段id添加自动增长
+ALTER TABLE users
+MODIFY id SMALLINT UNSIGNED AUTO_INCREMENT;
+
+-- 删除 name 字段的唯一性
+ALTER TABLE users
+DROP KEY name;
+-- 添加 name 字段的唯一性
+ALTER TABLE users
+ADD CONSTRAINT uni_name UNIQUE KEY(name);
+-- 删除 name 字段的唯一性
+ALTER TABLE users
+DROP KEY uni_name;
+-- 将表users 改为 cms_user
+ALTER TABLE users
+RENAME cms_user;
+-- 将表 cms_user 改为 users
+RENAME TABLE cms_user
+TO users;
+
+-- a.不列出表字段的添加
+-- 给表 users 记录
+INSERT users
+VALUE(7,'alice','22','alice123',1,'天津','55@163.com');
+
+-- 不省略字段添加(添加多记录)
+INSERT users(name,pwd,email)
+VALUE
+('wrw','dfd123','66@163.com'),
+('uyu','dfd123','77@163.com'),
+('wew','dfd123','88@163.com');
+
+-- d.INSERT...SET （只能添加一条记录）
+INSERT users SET name='ghg',pwd='ghg123',
+email='99@163.com';
+
+--将 users中的编号是10记录中 addr 值改为广州
+UPDATE users SET addr='广州'
+WHERE id=10;
+-- 将 users中的 age 都增长1 岁
+UPDATE users SET age=age+1;
+-- 删除users中的编号是10记录
+DELETE FROM users WHERE id=10;
+-- 清空表中所有数据
+--  AUTO_INCREMENT 不重置
+DELETE FROM users;
+-- 重置 AUTO_INCREMENT
+ALTER TABLE users
+AUTO_INCREMENT =1;
+INSERT users(name,pwd,email)
+VALUE
+('wrw','dfd123','66@163.com'),
+('uyu','dfd123','77@163.com'),
+('wew','dfd123','88@163.com');
+
+-- TRUNCATE 清空表中所有数据
+-- 并且 AUTO_INCREMENT 重置
+TRUNCATE users;
+
+--  查询 users表中 name,addr,email
+
+SELECT name,addr,email
+FROM users;
+
+SELECT 3+5,3*5;
+
+-- 查询 users表中 name,addr,email
+-- 并且给 addr 起别名 a 和 email 起别名 a
+
+SELECT name,addr AS a,email AS e
+FROM users;
+
+-- 查询 users表中 name,addr,email
+-- 给 users 起别，并且标注，字段来自哪个表
+SELECT u.name,u.addr,u.email
+FROM users AS u;
+
+--  数据库名.表名 (表来自哪个数据库)
+SELECT name,addr,email
+FROM psd03.users;
+
+INSERT users(name,pwd,email)
+VALUE
+('wrw','hjk','66@163.com'),
+('uyu','dfd123','77@163.com'),
+('wew','dfd123','88@163.com'),
+('alice','hjk','99@163.com'),
+('john','uyu','44@163.com'),
+('hello','er534','55@163.com');
+
+-- 查询users表中编号是3 的记录
+SELECT * FROM users
+WHERE id=3;
+
+-- 查询users表中小于3 的记录
+SELECT * FROM users
+WHERE id<3;
+
+-- 查询users表中大于等于5 的记录
+SELECT * FROM users
+WHERE id>=5;
+
+-- 查询users表中年龄age 大于等21 的记录
+SELECT * FROM users
+WHERE age>=21;
+
+-- 查询users表中 addr 不是广州
+SELECT * FROM users
+WHERE addr!='广州';
+SELECT * FROM users
+WHERE addr<>'广州';
+
+-- 查询users表中 addr 是 null值记录
+
+INSERT users(name,pwd,addr,email)
+VALUE('ttgf','1234',null,'12@163.com');
+
+SELECT * FROM users
+WHERE addr<=>null;
+
+SELECT * FROM users
+WHERE addr IS null;
+
+-- 查询users表中 addr 不是 null值记录
+SELECT * FROM users
+WHERE addr IS NOT NULL;
+
+-- 查询users表中编号在3-8的记录
+SELECT * FROM users
+WHERE id BETWEEN 3 AND 8;
+
+SELECT * FROM users
+WHERE id>=3 AND id<=8;
+-- 查询users表中编号不在3-8的记录
+SELECT * FROM users
+WHERE id NOT BETWEEN 3 AND 8;
+
+SELECT * FROM users
+WHERE id<3 OR id>8;
+
+-- 查询users表中编号 3 5 8的记录
+SELECT * FROM users
+WHERE id IN(3,5,8);
+
+SELECT * FROM users
+WHERE id=3 OR id=5 OR id=8;
+-- 查询users表中编号不在 3 5 8的记录
+
+SELECT * FROM users
+WHERE id  NOT IN(3,5,8);
+
+SELECT * FROM users
+WHERE id<>3 AND id<>5 AND id<>8;
+
+UPDATE users SET age=19 WHERE id IN(5,9,10,11);
+UPDATE users SET addr='山东' WHERE id IN(5,9,10);
+UPDATE users SET addr='河北' WHERE id IN(6,7,11);
+-- 查询users表中编号大于3 并且年龄是21的记录
+SELECT * FROM users
+WHERE id>3 AND age=21;
+-- 查询users表中编号3-8之间 并且年龄大于等于20的记录
+SELECT * FROM users
+WHERE id>=3 AND id<=8 AND age>=20;
+-- 查询users表中编号3-8之间 或年龄大于等于20的记录
+SELECT * FROM users
+WHERE id>=3 AND id<=8 OR age>=20;
+
+-- 查询users表中编号不是5的 并且addr是北京的记录
+SELECT * FROM users
+WHERE id<>5 AND addr='北京';
+
+-- 查询users表中编号是偶数的 或是 age 年龄大于 19
+SELECT * FROM users
+WHERE id%2=0 OR age>19;
+
+-- 查询users表 name 字段第二个字母是o的记录
+SELECT * FROM users
+WHERE name LIKE '_O%';
+
+--查询users表 name 字段包含m 记录
+SELECT * FROM users
+WHERE name LIKE '%m%';
+-- 查询users表 name 最后一个字母是e 记录
+SELECT * FROM users
+WHERE name LIKE '%e';
+
+-- 查询users表 name 包含四个字母的记录
+SELECT * FROM users
+WHERE name LIKE '____';
+
+-- 查询users表 name 倒数第二个字母是r的记录
+SELECT * FROM users
+WHERE name LIKE '%r_';
+-- 查询users表 name 包含 e字母 并且 age大于19的记录
+SELECT * FROM users
+WHERE name LIKE '%e%' AND age>19;
+-- 查询users表 编号在2-8 并且
+-- name和pwd 字段包含 e字母
+SELECT * FROM users
+WHERE id>=2 AND id<=8
+AND (name LIKE '%e%' OR pwd LIKE '%e%');
+
+
+-- 将 users中 addr分组查询
+-- 并且 显示 addr字段和
+-- 每组中的平均年龄
+SELECT  addr,AVG(age) AS avg FROM users
+GROUP BY addr;
+
+
+UPDATE users SET sex=1 WHERE id IN(3,5,6,9,11);
+-- 将 users中 sex分组查询
+-- 并且 显示 sex字段和
+-- 每组中的最大年龄和每组的人数
+SELECT sex,MAX(age) AS max,COUNT(*) AS count
+FROM users
+GROUP BY sex;
+
+-- 将 users中 addr分组查询
+-- 并且 显示 addr字段和
+-- 每组中的平均年龄
+-- 显示每组中的平均年龄大于等19
+
+SELECT addr,AVG(age) AS avg FROM users
+GROUP BY addr
+HAVING avg>=19;
+
+-- 将 users中 sex分组查询
+-- 并且 显示 sex字段和
+-- 每组中的最大年龄和每组的人数
+-- 显示 人数大于等6的记录
+SELECT sex,MAX(age) AS max,COUNT(*) AS count
+FROM users
+GROUP BY sex
+HAVING count>=6;
+
+
+
+-- 将 users中 addr分组查询
+-- 编号在 3-9之间
+-- 并且 显示 addr字段和
+-- 每组中的平均年龄
+-- 显示每组中的平均年龄大于等19
+SELECT addr,AVG(age) AS avg FROM users
+WHERE id>=3 AND id<=9
+GROUP BY addr
+HAVING avg>=19;
+
+-- 对表users 中id字段 降序显示
+SELECT * FROM users
+ORDER BY id DESC;
+
+
+-- 将 users中 addr分组查询
+-- 并且 显示 addr字段和
+-- 每组中的平均年龄
+-- 对平均年龄 升序显示
+SELECT  addr,AVG(age) AS avg FROM users
+GROUP BY addr
+HAVING avg>=19
+ORDER BY avg ASC;
+
+
+-- 在表中显示 第一页(1-3)
+SELECT * FROM users
+LIMIT 0,3;
+
+-- 在表中显示 第二页(4-6)
+-- $offset =（2-1）*3
+SELECT * FROM users
+LIMIT 3,3;
+
+-- 在表中显示 第三页(7-9)
+-- $offset =（3-1）*3
+SELECT * FROM users
+LIMIT 6,3;
+
+-- 在表中显示 第四页(10-11)
+-- $offset =（4-1）*3
+SELECT * FROM users
+LIMIT 9,3;
+
+
+-- 在表中对编号降序并且显示 第一页（后3条）
+SELECT * FROM users
+ORDER BY id DESC
+LIMIT 0,3;
+
+-- 在表中对编号降序并且显示 第二页（后8-6）
+SELECT * FROM users
+ORDER BY id DESC
+LIMIT 3,3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

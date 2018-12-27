@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style>
+       table{
+	     color:blue;
+       }
+       tr{
+	     color:green;
+       }
+       td{
+	     color:red;
+       }
+       .test1 b{/* 11  */
+	      color:yellow;
+       }
+       #test1 b{/* 101 */
+	      color:blue;
+       } 
+       h2 b{/* 2 */
+	      color:red;
+       }
+       h3.green{/* 11 */
+	     color:red;
+       }
+       h3{/* 1 */
+	     color:blue;
+       }
+       #list li{/*101  */
+	     color:green;
+       }
+       .list li{/* 11 */
+	     color:gray;
+       }
+       .list2 li{/* 11后面覆盖前面*/
+	     color:red !important;/*important优先级最高*/
+       }
+       .list2>li{/* 11 */
+	     color:yellow;
+         color:green;
+       }
+       .test3 p em{/*12  */
+	      color:red;
+       }
+       #test3 p{/* 101 继承的优先级最低*/
+	      color:green;
+       }
+    </style>
+  </head>
+  <body>
+      <table>
+         <tr>
+            <td>星期一</td>
+         </tr>
+      </table>
+      <h2 class="test1" id="test1">
+         <b>加粗</b>
+      </h2>
+      <!-- 
+                   比较权值 
+                         标记选择器          权值 0001
+            class选择器      权值  0010
+            id选择器            权值  0100
+                         内联样式             权值  1000
+         (1)h3 (1)  h3.green(11)
+         (2).list li(11)  #list li(101)
+         (3).list2 li(11)  .list2>li(11)
+         (4).test3 p em (12)  .test3 p(11)
+      -->
+      <h3 class="green">标题字</h3>
+      <ul class="list" id="list">
+         <li>one</li>
+         <li>two</li>
+         <li>three</li>
+      </ul>
+      <ul class="list2">
+         <li>one</li>
+         <li>two</li>
+         <li>three</li>
+      </ul>
+      <div class="test3" id="test3">
+         <p>
+           <em>倾斜</em> 
+         </p>
+      </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+

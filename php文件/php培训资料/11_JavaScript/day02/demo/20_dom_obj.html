@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM</title>
+</head>
+
+<body>
+<a href="http://www.baidu.com" name="alink" id="a0">百度</a>
+
+<a href="http://www.baidu.com" name="alink" id="a1">百度</a>
+<script>
+//获取超链接a标签 ，将a标签转换JavaScript对象
+var aobj = document.getElementsByTagName("a");
+//aobj 是数组 元素是对象
+//打印数组的长度
+document.write(aobj.length);
+document.write("<br/>");
+var aobj1 = document.getElementsByName("alink");
+document.write(aobj1.length);
+document.write("<br/>");
+//获取超链接的JavaScript对象
+var aobj2 = document.getElementById("a0");
+document.write(aobj2.length);
+</script>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

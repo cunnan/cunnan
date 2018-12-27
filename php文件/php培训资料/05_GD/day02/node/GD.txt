@@ -1,0 +1,126 @@
+﻿GD库
+三、应用
+        1、应用不同的背景作画
+              imagecreatefrom图片格式(string $filename)
+              功能：从现有图片上获取GD资源
+              参数：
+              filename 现有图片位置
+              返回：资源
+             注意：现有图片的图片格式要跟函数中指定的图片格式保持一致。
+       
+         2、getimagesize(string $filename)
+               功能：返回图片的信息
+               参数：
+               filename 要获取图片信息的图片文件地址
+               返回：图片的信息，格式索引数组。
+                         下标 0 图片的宽
+                                 1 图片的高
+                                 2 图片的格式，格式是以数值来表示
+                                                          1 gif
+                                                          2 jpeg
+                                                          3 png  
+         3、imagefontwidth(int $font)   
+               功能：获取font字体的宽度，仅支持font（1~5）
+               参数：
+               font 字体大小，取值范围（1~5）
+               返回：字体的宽度
+
+         4、imagefontheight(int $font)   
+               功能：获取font字体的高度，仅支持font（1~5）
+               参数：
+               font 字体大小，取值范围（1~5）
+               返回：字体的高度
+
+        5、imagecopy(resource $dst_img,resource $src_img,
+                                  int $dst_x,int $dst_y,
+                                  int $src_x,int $src_y,
+                                  int $src_w,int $src_h) 
+             功能：将两张图片合并为一张图片
+             参数：
+             dst_img 目标图片的资源（大图）
+             src_img  源图片的资源（水印图片）
+             dst_x，dst_y 目标图片上的坐标
+             src_x,src_y     小图片的坐标
+             src_w,src_h    小图片的宽和高
+
+        6、图片的缩放和剪切
+              imagecopyresampled(resource $dst_img,
+                                                    resource $src_img,
+                                                    int $dst_x,int $dst_y,
+                                                    int $src_x,int $src_y,
+                                                    int $dst_w,int $dst_h,
+                                                    int $src_w,int $src_h)
+             功能：图片的缩放和剪切
+             参数：
+             dst_img 目标图片的资源
+             src_img  源图片的资源
+             dst_x,dst_y 目标图片起始点坐标
+             src_x,src_y  源图片的起始点坐标
+             dst_w,dst_h 目标图片的宽和高
+             src_w,src_h  源图片的宽和高 
+
+       7、图片的翻转和旋转
+             imagerotate(resource $src_img,float $angle,
+                                   int $bg_color)
+             功能：图片的旋转
+             参数：
+             src_img 源图片的资源，要被旋转的图片资源
+             angle     旋转的角度
+             bg_color 旋转后的背景色
+             返回：资源 被旋转后的图片资源
+       
+         
+
+                          
+
+
+
+
+
+
+
+
+
+
+
+习题：
+1、在现有图片上输出文字 hello
+2、考虑：将文字水印功能封装成自定义函数。要求图片文件可以任意指定。
+        function 函数名称([参数]){
+	函数体
+                 return 10
+        }
+        函数名称 
+        - 小驼峰式命名规则
+        - 尽量起得有意义
+        - 数字、字母、下划线。数字不能开头。
+
+        复习函数 list()
+
+3、考虑：将图片水印功能封装成自定义函数。要求大图片文件和水印图片文件可以任意指定。
+
+4、将图片缩放功能封装为自定义函数，要求被缩放的图片文件可以任意指定，缩放尺寸可以任由指定。
+
+5、将图片的旋转封装为自定义函数，要求被旋转的图片文件名称和旋转的角度可以任意指定。
+
+6、作业： 将图片沿x轴进行翻转。
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

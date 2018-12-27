@@ -1,0 +1,179 @@
+一.查询(Select)
+ 1. 完整格式
+  select 字段|expr,字段|expr...
+  from 表名
+  [where 条件]
+  [group by 字段]
+  [having 条件]
+  [order by 字段]
+  [limit [$offset,] $length]
+  
+ 2.[order by 字段] :排序
+   order by 字段   asc 升序|desc 降序
+ 
+ 3.[limit [$offset,] $length]:获得前n条记录
+        说明:
+      a.   $offset ：偏移量,编号从0开始
+           $length ：获得记录长度(条数)
+      b. web程序的分页中
+                  计算偏移量
+           $offset = (当前页-1)*记录条数 
+                   = ($curpage-1)*$pagesize
+             
+ 4.多表的联合查询
+   4.1select 字段,字段...
+      form 表1
+            连接类型  表2  on 两个表的逻辑关系
+            连接类型  表3  on 两个表的逻辑关系
+     ...;
+    4.2连接类型：
+        (1)内连接:inner join 查询两个表中符合条件的信息
+        (2)外连接:
+                          左外连接:left [outer]join,查询左表的所有信息
+                                         和右表中符合条件的信息，当左表中有的信息
+                                         右表没有,用null填补
+                          右外连接:right [outer]join,查询右表的所有信息
+                                         和左表中符合条件的信息，当右表中有的信息
+                                         左表没有,用null填补
+       
+  5. 多表操作-子查询(嵌套查询)
+    1.子查询:SQL语句嵌套select 语句
+    2.子查询特性:
+      (1)子查询是select 语句
+      (2)子查询用括号括起来
+    3.子查询使用
+      (1)where后
+         a.in
+         b.比较运算后：子查询中比较运算符后比较一个结果，
+                                            如果不是一个结果会报错可以用
+                     all 和 some/any 解决
+               >all >=all 大于最大值
+               <all <=all 小于最小值   
+               >some/any >=some/any 大于最小值
+               <some/any <=some/any 小于最大值     
+               =some/any    等同与 in  
+      (2)from 后
+                 原理: 通过子查询产生新表 用括号括起来，然后起别名
+           
+  
+二.约束条件(Contraint)
+  1. 约束条件种类
+     (1) NOT　NULL :不能为空
+     (2) DEFAULT: 默认值
+     (3) [PRIMARY] KEY 主键字段
+     (4) UNIQUE [KEY]  唯一性，不重复
+     (5) FOREIGN KEY 外键
+     
+  2. 约束条件写法
+     (1) 列约束:在一个字段后写的约束
+                    例如:NOT　NULL,DEFAULT只能是列约束
+     (2) 表约束:对一个字段以上写的约束
+                     例如:[PRIMARY] KEY,UNIQUE [KEY]
+              FOREIGN KEY 外键 可以是表约束
+     
+     (3)格式
+       a. 列约束
+       create table test(
+         id int unsigned PRIMARY KEY,
+         name varchar(30) NOT NULL UNIQUE
+         ...
+       );
+       b. 表约束
+       create table test(
+         id int unsigned,
+         name varchar(30) NOT NULL,
+         ...
+         PRMARY KEY(id),
+         UNIQUE KEY(name,email)
+         
+       );  
+     
+   3.FOREIGN KEY 外键:一对多表中字段完整性，一致性约束
+     (1)格式
+     CREATE TABLE cms_news(
+       id int...
+       aid int unsigned NOT NULL,
+       tid int unsigned NOT NULL,
+       FOREIGN KEY(外键列aid) 
+       REFERENCES 参考表cms_admin(id),
+       FOREIGN KEY(外键列tid) 
+       REFERENCES 参考表cms_type(id),
+     );
+          说明:
+       a.FOREIGN KEY 表约束
+       b.外键列(子表)的类型要和 参考表(父表)的类型一致
+                   说明:如果是整型 unsigned也要一致
+                            如果字符类型编码必须一致，长度可以不等
+       c.先有父表再子表  
+                   先有父表的记录再有子表的记录   
+                   先删子表再删父表
+                   先删子表记录再删父表记录 
+       d.创建外键列必须是 InnoDB引擎
+       e.外键列自动产生索引外键约束名称
+   
+   
+   
+   
+   
+   
+   
+   
+    
+     
+     
+     
+     
+     
+     
+     
+     
+  
+  
+  
+  
+  
+  
+     
+     
+     
+     
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                  
+            
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+ 
+ 
+ 
+ 
+
+
+

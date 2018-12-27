@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+   <div>当前操作：管理产品&nbsp;<a href="__APP__/Admin/Product/add">添加</a></div>
+  <table>
+  	<tr>
+  		<th>id</th>
+  		<th>title</th>
+  		<th>price</th>
+  		<th>image</th>
+  		<th>操作</th>
+  	</tr>
+  	<foreach name='arr' item="v">
+  	<tr>
+  		<td>{$v.id}</td>
+  		<td>{$v.title}</td>
+  		<td>{$v.price}</td>
+  		<td><img width="100" src="__PUBLIC__/upload/{$v.image}"/></td>
+  		<td><a href="__APP__/Admin/Product/update/id/{$v.id}">修改</a></td>
+  	</tr>
+  	</foreach>
+  </table>
+  </body>
+</html>

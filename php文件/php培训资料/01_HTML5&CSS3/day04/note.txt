@@ -1,0 +1,158 @@
+一.基本选择器
+ 1.通配符选择器  *{...}
+ 2.标记选择器     标记名称{...}
+ 3.class选择器  .class名称{...}
+          应用标记加属性: class="class名称1 class名称2..."
+ 4.id选择器       #id名称{...}
+         应用标记加属性: id="id名称"  
+ 5.群组选择器    选择器名称,选择器名称...{....}
+    (不同选择器相同属性的缩写)
+ 6.后代选择器   选择器名称 选择器名称{...}
+   (两个选择器至少是父子关系)
+ 7. 子代选择器   选择器名称>选择器名称{...}
+   (两个选择器必须是父子关系)
+二.选择器优先级
+      标记选择器          权值 0001
+   class选择器      权值  0010
+   id选择器            权值  0100
+      内联样式             权值  1000
+  说明: 权值越大优先级越高,权值相同后面的样式
+             覆盖前面的样式,继承的有限级样式最低
+      !important 优先级最高
+ 
+三.伪类选择器
+  1. 行为伪类
+               超链接的4个状态
+     :link 超链接未访问过状态
+     :visited 超链接访问过状态
+     :hover  设置鼠标悬停状态
+     :active 设置鼠标激活状态
+          说明:
+       a. LVHA 顺序设置
+       b. 常用:
+        a{
+	     color:gray;
+       	 text-decoration:none;
+        }
+        a:hover{
+	     color:red;
+       	 text-decoration:underline;
+        }
+     :focus 设置获得鼠标焦点的选择器
+  2.UL元素伪类
+     :enabled  设置元素开启状态的选择器
+     :disabled 设置元素关闭状态的选择器
+     :checked  设置元素被选中状态的选择器
+
+  3.Css3.0新增
+     :first-child:找每个父元素中第一个子元素
+     :last-child:找每个父元素中最后子元素
+     :nth-child(n):找每个父元素中n子元素
+     :only-child: 找每个父元素中唯一一个子元素
+四.伪元素选择器
+     :before 在元素的前面添加内容
+     :after  在元素的后面添加内容
+      p:before{
+         content:"文本内容"|URL(图像)|attr(属性);
+      }     
+     
+     :target 与超链接有关,选择当前活动的 锚点名称元素。
+五.文本样式
+  1.font-size:value; 文本大小
+    说明:单位(像素 px; 
+          em:父元素默认文本大小倍数 例如:1.5em;
+                      百分比)
+  2.font-family:宋体,arial,'Times New Roman'; 文本字体
+  3.color:value; 文本颜色
+    说明:
+       颜色值
+    a.单词 : red blue green yellow...
+    b.十六进制(0-9 a b c d e f)
+            红色: #ff0000  == #f00 (red green blue)
+    c.rgba: r:red,g:green b:blue a:alpha透明度
+          例如: 红色 rgba(255,0,0,0.5) (范围 0-255)
+              rgba(100%,0%,0%,0.5)
+              
+            红色  #f00  rgb(255,0,0) 
+            绿色  #0f0  rgb(0,255,0) 
+            蓝色  #00f  rgb(0,0,255)
+            黄色  #ff0  rgb(255,255,0)
+            黑色  #000  rgb(0,0,0)
+            白色  #fff  rgb(255,255,255)
+            浅灰  #eee  rgb(220,220,220)
+            深灰  #333  rgb(2,2,2)
+    4.text-align:left居左|center居中|right居右  文本水平对齐  
+    5.line-height:value;行高 
+           说明:当行高 跟盒子的高度一致，可以实现
+                   文本在盒子中的垂直居中
+    6.text-indent:value; 文本缩进
+          说明:
+       a.首行缩进 text-index:2em;
+       b.只能对块元素实现文本缩进 ,行元素不能实现文本缩进
+    
+    7.font-weight:normal正常|bold|值(100-900) 加粗
+           normal == 400
+           bold  == 700
+    8.font-style:normal正常|italic倾斜       
+    9.font-variant:normal|small-caps 小型大写
+    10. font 缩写形式
+      font:font-style倾斜值 ||
+           font-variant 小型大写值||
+           font-weight 加粗值 ||
+           font-size/line-height 字大小值/行高值
+           font-family 字体值
+     
+    11. text-decoration:none|underline下划线
+                        overline 上划线 |
+                        line-through 删除线
+         
+    12 新增css3.0文本样式                     
+       (1) text-shadow  文本阴影
+       text-shadow: h-shadow v-shadow blur color;
+              说明:
+         a.h-shadow 必需。水平阴影的位置。允许负值。
+         b.v-shadow 必需。垂直阴影的位置。允许负值。
+         c.blur 可选。模糊的距离。
+         d.color 可选。阴影的颜色
+       (2)text-overflow:clip 剪切默认值|ellipsis 实现省略号
+       
+          
+                    
+    
+   
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+     
+   
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+          

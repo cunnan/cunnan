@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 工具函数</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+$(function(){
+	//数组的遍历
+	/*
+	3、遍历数组
+      var  arr = ["team","time","term"]
+     将遍历到的结果写入到div层中。写入的格式为：
+      key=0 value=team
+	*/
+	 var  arr = ["team","time","term"];
+	 $.each(arr,function(key,value){
+		 $("div").append("key="+key+" value="+value+"<br/>");
+	 });
+	
+	
+});
+</script>
+</head>
+
+
+<body>
+<div></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

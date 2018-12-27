@@ -1,0 +1,411 @@
+﻿模拟数据：
+通过cmd窗口运行两个php程序，addClass.php addStudent.php
+总结：
+项目
+	实现后台，编写的步骤，就是管理员操作的步骤。
+	
+	显示前台， 编写的步骤，就是网民浏览（操作）的过程
+上线：
+	服务器   ftp  winscp linux  putty
+	空间 ftp  账号 ip
+	mysql 账号 ip
+Smarty 模板引擎
+             作用：php+smarty+html分离
+方法：
+	设置方法
+	setTemplateDir()
+	setCompileDir()
+	setCacheDir()
+
+	assign()
+	display()
+模板标签：
+	{$变量名}
+	{$数组名.下标}
+	{foreach $数组名 as $v}
+	{/foreach}
+	属性：
+	{$v@last}
+	{$v@first}
+	{$v@total}
+	{$v@index}
+	{$v@iteration}
+	{if 条件}
+	{/if}
+	{if 条件}
+	{else}
+	{/if}
+	{if 条件}
+	{else if 条件}
+	
+	{/if}
+	
+	{include file="path"}
+	{$smarty.const.名称}
+	{$smarty.get.名称}
+	{$smarty.cookies.下标}
+	{第一个参数|函数名:参数2:参数3......}
+	
+MVC  ***
+	定义：软件设计模式，把整个程序分成MVC
+	工作原理：
+	在url地址中指定控制器及方法，入口文件index.php接收控制器名和方法名
+请求C层，在c层的方法中调用M层操作数据库表，获取数据传给v显示页面。
+
+	优点：
+	便于维护，程序命名，目录，文件的名称规范化。
+	实现了软件的低耦合性。
+	分成三层M V C 相互独立。
+	缩短开发周期。
+
+	缺点：
+	效率低。
+	不好理解。
+	c层和v层联系过于紧密。
+	C层的工作过于繁重。
+
+ThinkPHP
+	如何学习：
+	1、安装
+	index.php
+	define('APP_PATH','./Application/');
+
+// define('BIND_MODULE','Admin');
+// define('BIND_CONTROLLER_LIST','Index,Users,Products,Images,Members');
+
+// 引入ThinkPHP入口文件
+require './ThinkPHP/ThinkPHP.php';
+	2、目录结构
+	3、url地址规则。
+	index.php?m=模块&c=控制器&a=方法
+	index.php/模块/控制器/方法
+	index.php?g=/模块/控制器/方法
+	4、C
+	放在Controller/XxxController.class.php
+	类名和类文件名相同
+	指定命名空间 namespace Home/Controller
+		      use Think/Controller
+	必须继承Controller
+	Controller的方法：
+	_initialize()
+	assign()
+	display()
+	get()
+	post()
+	success()
+	error()
+	redirect()
+	
+	U() 函数
+
+	5、V
+	{$名称}
+	{$名称.下标}
+	<foreach name="变量名称" item="v" key='k'>
+		
+	</foreach>
+	<if condition="条件">
+	</if>
+	<if condition="条件">
+	<else/>
+	</if>
+	<if condition="条件">
+	<elseif contdition="条件"/>
+	</if>
+	注意：条件中不能使用> < 
+	gt lt eq egt elt  neq
+
+	<include file="控制器/方法"/>  public/header.html
+	{$Think.const.名称}
+	{$Think.get.名称}
+	{$Think.cookie.名称}
+	{变量|函数名=参数,参数,###}
+	6、M
+	修改配置文件
+	数据模型类的封装
+	放在Model/XxxModel.class.php
+	类名和类文件名一致
+	继承Model
+	指定命名空间
+	namespace Home\Model;
+	use Think\Model;
+
+	Model的方法
+	where()
+	group()
+	table()
+	having()
+	limit()
+	order()
+	field()
+	alias()
+	join()
+	find()
+	select()
+	count()
+
+	data()
+	create()
+	where()
+	save()
+	
+	data()
+	create()
+	add()
+	
+	where()
+	delete()
+
+	自动验证
+	protected $_validate=array(
+		array('字段名','规则','错误提示','条件 0 1 2',附加规则,时间),
+	);
+	附加规则：   规则
+	regex
+	confirm       字段
+	unique 
+	in
+	length
+	between
+	
+	
+	自动完成
+	protected $_auto=array(
+		array('字段','规则','条件','附加规则')
+	)
+		
+	数据模型类的实例化
+	new \Home\Model\XxxModel();
+	M('表名')  // Model
+	D('Xxx')   //XxxModel.class.php
+	7、公共类
+	
+Yii
+	安装：
+	php.exe -f ***/yiic.php webapp ***/shop/
+	url规则
+	index.php?r=模块/控制器/方法
+	C
+	protected/controller/XxxController.php
+	类名类文件名一致
+	继承Controller
+	方法名 actionXxx()
+	Controller的方法：
+	render()
+	renderPartical()
+	redirect()
+	createUrl()
+	属性：
+	public $layout="//layouts/名称";
+	提示语
+	Yii::app()->user->getFlash()
+	Yii::app()->user->hasFlash()
+	Yii::app()->user->setFlash()
+
+	V  php标签
+	M
+	protected/models/Xxx.php
+	类名和类文件名同名
+	继承CActiveRecord
+	方法 public static function model($class=__CLASS__){
+		return parent::model($class);
+	}
+	function tableName(){
+		return "{{表名}}";
+	}
+
+	查询
+	object find($condition,$params=array())
+	array findAll($condition,$params=array())
+	object findByPk(id值)
+	$c=new	CDbCriteria()
+	属性：
+	$c->condition="";
+	$c->params=array();
+	$c->group="";
+	$c->having="";
+	$c->select=""
+	$c->limit=""
+	$c->offset="";
+	$c->order="";
+	$c->join="";
+	$c->alias="";
+
+	修改
+	$ob=Xxx::model()
+	update()
+	save()
+	删除
+	$ob=new Xxx()
+	$ob=$ob->find()
+	$ob->delete();
+	
+	$ob->deleteByPk(id)
+	添加
+	$ob=new Xxx();
+	//产生数据
+	$ob->insert()
+	$ob->save()
+	
+	表单生成 CActiveForm：
+	$form=$this->beginWidget("CActiveForm",array());
+	$form->textField();
+	.....
+	$this->endWidget();
+
+	自动验证：
+	function rules(){
+		return array(
+			array('字段','规则',......),
+		);
+	}
+	自动完成：
+	function beforeSave(){
+		$this->password=md5($this->password);
+	}
+
+	公共类：
+	
+Mysql高级
+索引 ***
+定义：为了提高查询的速度，重新生成一个有一定结构的表。
+说明：删除 修改 添加 速度变慢。
+
+如何创建，什么时候创建？
+如何创建？ 
+主键索引   primary key   key
+普通索引
+create index 索引名称 on 表名(字段列表)
+例子：为年龄创建普通索引
+create index i_age on student(age);
+唯一索引
+create unique index 索引名称 on 表名(字段列表)
+要求：值有唯一性。
+例子：为字段card加上唯一索引
+create unique index i_card on student(card);
+
+
+案例：查询 99班，男女生各有多少人。
+select count(*) as num,sex from student where classid=99 group by sex;
+
+联合索引：
+字段列表  多个字段，用逗号分隔。
+create index i_classid_sex on student(classid,sex);
+
+查看一个查询语句的性能：
+explain 查询语句
+
+Using temporary; Using filesort
+
+group    Using temporary; Using filesort
+order     Using filesort
+where typeid in(select ......) Using temporary;
+
+查询55班的学生10人，根据年龄正序排序。
+select * from student where classid=55 order by age asc limit 10;
+create index i_classid_age on student(classid,age);
+
+全文索引 放弃
+sphinx
+
+总结：为查询语句中 order by group by on中出现的字段创建上索引，
+能创建唯一不普通，能联合则联合。
+
+什么时候创建？
+先有查询，再创建索引。
+有了慢查询，才去创建索引。
+
+表的拆分  ***
+字段数比较多。 纵向
+淘宝   会员表50个字段。
+id
+username
+password
+nick
+
+name
+sex
+age
+........
+
+表记录数多。横向
+目的，查询速度快
+例子：日志表
+1亿用户-----10条----->10亿
+create table blog(
+	id
+	title
+	content
+	clicknum
+	addtime
+	userid
+);
+根据id拆分：1000个表
+id%1000=余数
+
+1----第一个表
+2----
+。。。。。。
+0----1000个表
+
+
+select * from blog where userid=100; 速度快。
+8------第8个表
+
+1000000111-----第111个表
+
+10000000011----第11个表
+
+select * from blog1 where userid=100
+union
+select * from blog2 where userid=100
+union
+........
+select * from blog1000 where userid=100
+
+保证一次查询的记录在一个表：
+
+userid%1000=余数
+1--------第一个
+2--------第二个
+........
+0-------第1000个，配合索引。
+
+hash表：
+hash:一个值，根据一定算法，生成一个16进制的数。
+hash表：根据hash,分段存储。
+作用：对表进行了拆分。
+create table 表名(
+	id
+	title
+	content
+	clicknum
+	addtime
+	userid	
+)partirion by hash(字段名) partitions 10000;
+
+select * from blog where userid=108
+
+存储过程
+触发器
+用户管理
+权限分配，回收
+数据库的备份及恢复
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

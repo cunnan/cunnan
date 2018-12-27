@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+     <h2>注册界面</h2>
+     <form action="xx.php" method="post" enctype="multipart/form-data">
+        <div>
+           <label>用户名称</label>
+           <input type="text" name="user" maxlength="10"/>
+        </div>
+        <div>
+           <label>密　　码</label>
+           <input type="password" name="pwd1"/>
+        </div>
+        <div>
+           <label>性　　别</label>
+           <input type="radio" name="sex" checked="checked" value="0"/>男
+           <input type="radio" name="sex" value="1"/>女
+        </div>
+        <div>
+           <label>兴趣标签</label>
+           <input type="checkbox" name="aa[]" value="1" checked="checked"/>新闻
+           <input type="checkbox" name="aa[]" value="2" checked="checked"/>社会
+           <input type="checkbox" name="aa[]" value="3"/>体育
+           <input type="checkbox" name="aa[]" value="4"/>娱乐
+           <input type="checkbox" name="aa[]" value="5"/>IT
+           <input type="checkbox" name="aa[]" value="6"/>时尚
+           <input type="checkbox" name="aa[]" value="7"/>历史
+           <input type="checkbox" name="aa[]" value="8"/>教育
+        </div>
+        <div>
+           <label>城　　市</label>
+           <!-- 多选下拉列表框<select name="city[]"
+                multiple="multiple" size="2"> -->
+           <select name="city">
+             <optgroup label="北方">
+	              <option value="1">北京</option>
+	              <option value="2">天津</option>
+	              <option value="3">山西</option>
+             </optgroup>
+             <optgroup label="南方">
+	              <option value="4" selected="selected">上海</option>
+	              <option value="5">广州</option>
+	              <option value="6">福建</option>
+             </optgroup> 
+           </select>
+        </div>
+        <div>
+           <label>图　　片</label>
+           <!--写在form标记中 enctype="multipart/form-data" -->
+           <input type="file" name="pic[]" multiple="multiple"/>
+        </div>
+        <div>
+           <label>自我介绍</label>
+           <textarea name="info" cols="50" rows="10">简介</textarea>
+        </div>
+        <div>
+           <input type="submit" value="注册"/>
+           <input type="button" value="普通按钮"/>
+           <input type="reset" value="重写"/>      
+        </div>
+     </form>
+  </body>
+</html>
+
+
+
+
+

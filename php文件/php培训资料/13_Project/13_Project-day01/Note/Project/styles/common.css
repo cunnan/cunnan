@@ -1,0 +1,24 @@
+/*顶部导航*/
+#top-navi-wrap{
+	background-color: #f7f7f7;
+	border-top: 3px solid #213e82;
+	border-bottom: 1px solid #e5e5e5;
+}
+/*顶部导航-登录按钮*/
+a.top-nav-login-title{
+	background:url(../images/top-nav-login-title.png);
+	color:#fff;
+}
+/*顶部导航-当前登录用户*/
+a.current-user{
+	color:#0E439A;
+}
+
+/*logo区域*/
+
+#logo a{
+	background-image:url(../images/logo.png);	
+}
+
+/*搜索栏*/
+

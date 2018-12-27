@@ -1,0 +1,120 @@
+一、ThinkPHP框架
+
+1.简介
+
+简化企业级应用开发和敏捷WEB应用开发
+
+2.目录结构
+
+index.php 		-- 入口文件
+
+.htaccess 		-- URL重写文件
+
+composer.json 	-- composer文件
+
+ThinkPHP目录		-- 框架源代码目录
+
+Public目录		-- 公共目录(如存储CSS文件/JS文件等)
+
+Application目录	-- 应用程序目录
+
+     |-- Home,默认的模块名称;
+     |
+     |-- Common,应用公共模块(如配置文件等);
+     |
+     |-- Runtime,存储运行时的临时文件、日志文件等;
+
+3.安装
+
+直接通过URL地址访问
+
+http://hostname/index.php
+
+4.命名规范
+
+A.所有的类必须命名为XXX.class.php的形式;
+
+B.所有的类必须采用"驼峰标记法"命名;
+
+C.所有控制器类必须继承Think\Controller.class.php的控制器基类;
+
+
+5.控制器
+
+A.控制器子类中的构造函数只能命名为_initialize;
+
+B.控制器基类中的show()、display()、assign()方法其实
+
+   调用的是ThinkPHP中Think\View.class.php中相应方法;
+
+6.视图
+
+A.视图文件存储的默认信息为
+
+./应用程序目录/模块名称/View/substr(控制器名称,0,-10)/方法名称.html
+
+如访问Application项目目录下Home模块的UsersController的add方法,那么
+
+其默认调用的视图文件为
+
+./Application/Home/View/Users/add.html
+
+
+B.无论任何的PHP框架,只要地址栏采用PATHINFO模式,那么
+
+视图中直接引用的图像、CSS文件、JS文件等路径信息时必须采用根相对路径;
+
+C.向视图文件传值的assign()方法的工作原理就是将用户传递给视图的变量
+
+存储到视图类中的某个属性中(数组类型);
+
+C.视图常量
+
+__ROOT__:  会替换成当前网站的地址(不含域名) 
+
+__APP__: 会替换成当前应用的URL地址(不含域名)
+
+__MODULE__:会替换成当前模块的URL地址(不含域名)
+
+__CONTROLLER__(__或者__URL__ 兼容考虑): 会替换成当前控制器的URL地址(不含域名)
+
+__ACTION__:会替换成当前操作的URL地址 (不含域名)
+
+__SELF__:会替换成当前的页面URL
+
+__PUBLIC__:会被替换成当前网站的公共目录 通常是 /Public/
+
+D.视图中的变量
+
+	a.输出变量:{$name}
+
+	b.三元运算符:
+	
+		普通变量
+		
+		{$status?'正常':'错误'}
+		
+		数组变量
+		
+		{$info['status']?$info['msg']:$info['error']}
+		
+	c.数组遍历
+
+		<foreach name="list" item="vo" key="key">
+    	
+    		{$key}|{$vo}
+		
+		</foreach>
+
+   
+
+
+
+
+
+
+
+
+
+
+

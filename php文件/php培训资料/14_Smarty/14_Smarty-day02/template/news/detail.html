@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <link href="<{$smarty.const.BASE_URL}>css/common.css" type="text/css" rel="stylesheet"/>
+    <link href="<{$smarty.const.BASE_URL}>css/news.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <body>
+  <{include file="public/header.html"}>
+  <div class="content clear">
+	  <div class="left">
+	  	<h3>国内资讯</h3>
+	  	<{t_getNewsByFid fid=2 num=5 length=7 arrname='guoneiArr'}>
+	  	<ul>
+	  		<{foreach $guoneiArr as $v}>
+	  		<li><{$v.title}></li>
+	  		<{/foreach}>
+	  	</ul>
+	  	<h3>国际资讯</h3>
+	  	<{t_getNewsByFid fid=1 num=5 length=7 arrname='guoneiArr'}>
+	  	<ul>
+	  		<{foreach $guoneiArr as $v}>
+	  		<li><{$v.title}></li>
+	  		<{/foreach}>
+	  	</ul>
+	  </div>
+	  <div class="right">
+	  	<h1><{$arr.title}></h1>
+		<div>发布时间：<{"Y-m-d H:i:s"|date:$arr.addtime}></div>
+		<hr/>
+		<p><{$arr.content}></p>
+	  </div>
+  </div>
+  
+  </body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

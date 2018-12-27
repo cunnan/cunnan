@@ -1,0 +1,29 @@
+﻿ThinkPHP   CI
+url地址规则
+Controller
+Model
+	1、放在Model
+	2、类名文件名 XxxModel.class.php
+	3、类名和类文件名一致
+	4、继承Model，封装了很多很多的方法。
+	namespace Common\Model;
+	use Think\Model;
+修改配置项，连接数据库
+	'DB_TYPE'               =>  'mysql',     // 数据库类型
+	'DB_HOST'               =>  'localhost', // 服务器地址
+	'DB_NAME'               =>  'projectone',          // 数据库名
+	'DB_USER'               =>  'root',      // 用户名
+	'DB_PWD'                =>  'root',          // 密码
+	'DB_PREFIX'             =>  '', //表的前缀，没有是空
+数据模型类的使用：
+	实例化对象
+	new \命名空间\XxxModel();
+
+View---标签
+
+公共类
+
+
+
+
+

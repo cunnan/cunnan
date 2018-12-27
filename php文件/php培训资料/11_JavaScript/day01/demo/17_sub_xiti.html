@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript 对象 字符串对象</title>
+
+
+</head>
+
+<body>
+<script>
+/*
+ *4、完成字符串的截取。 tom@qq.com，应用字符串的截取，
+ 获取字符@所在位置，根据@所在位置，
+ 截取字符串中的 tom 和  qq.com 
+ */
+ var email = "tom@qq.com";
+ var pos =email.indexOf("@");  //@符号在email字符串中的位置
+ var name = email.slice(0,pos);
+ document.write(name);//tom
+ //截取qq.com
+// var host = email.substr(pos+1);
+ var host = email.slice(pos+1);
+ document.write("<br/>"+host);//tom
+ 
+ 
+ 
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

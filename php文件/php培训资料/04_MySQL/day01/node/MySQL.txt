@@ -1,0 +1,175 @@
+﻿王亚南
+QQ:466961829
+一、PHP的MySQL函数库
+       
+       PHP操作MySQL数据库：
+       - MySQL函数库
+       - MySQLi 函数库
+       - PDO 扩展
+
+
+      PHP5.5之前核心函数库。PHP7 MySQL函数库移除出核心函数库。
+       
+二、安装
+       1、确认是否安装扩展
+             phpinfo()
+             功能：输出php的配置信息。
+       2、编辑php的配置文件 php.ini  
+             extension_dir=""  php扩展函数库所在目录
+             extension=php_mysql.dll 去掉前面的";" 
+       3、重启网络服务器(apache)
+       4、再次确认是否安装成功。
+
+三、MySQL函数库的应用
+       1、连接数据库
+       2、选择默认数据库
+       3、操作
+       4、关闭
+
+      1、连接数据库
+            mysql_connect(string $server,string $username,
+                                      string $password)
+           功能：连接数据库
+           参数：
+           server 数据库服务器。服务器名称，服务器的ip地址。
+                      可以包括端口号。默认端口号可以不写。3306
+                      例如：localhost:3306   或者 localhost
+           username 用户名
+           password  密码
+           返回：mysql资源
+
+    2、mysql_select_db(string $dbname)
+          功能：选择默认数据库
+          参数：
+          dbname  数据库名称
+
+      3、操作（增insert、删delete、改update、查select show）
+           没有返回结果集的sql语句，例如： 增insert、删delete、改update
+           有返回结果集的sql语句：例如：查select show
+   
+           mysql_query(string $query)
+           功能：操作sql语句
+           参数：
+           query sql语句
+           返回：没有返回结果集的sql语句返回是布尔值。
+                      有返回结果集的sql语句，返回是资源。
+                     
+
+      4、关闭数据库
+           mysql_close()
+           功能：关闭数据库，释放内存。
+
+      5、mysql_affected_rows()
+           功能：返回没有返回结果集的sql语句操作后被影响的行数
+           返回：被影响的行数
+
+      6、mysql_insert_id()
+            功能：返回上一个成功insert操作产生的自增id 
+            返回：成功insert操作产生的自增id。若id不是自增的则返回 0
+
+      7、mysql_fetch_array(resource $result[,int $result_type])
+            功能：取回查询的结果
+            参数：
+            result mysql_query产生的资源
+            result_type  指定查询结果的数组类型。
+                                MYSQL_BOTH 关联和索引
+                                MYSQL_ASSOC  关联
+                                MYSQL_NUM     索引
+            返回：取回查询的结果，格式数组。每次取回一行结果。取回不到时返回false。
+
+       8、mysql_fetch_assoc(resource $result) 
+             功能：取回查询的结果，关联数组
+             参数：
+             result   mysql_query产生的资源
+             返回：取回查询结果，格式：关联数组。
+                        一次取回一行结果。获取不到返回false。
+
+       9、mysql_fetch_row(resource $result)
+             功能：取回查询的结果，索引数组
+             参数：
+             result   mysql_query产生的资源
+             返回：取回查询结果，格式：索引数组。
+                        一次取回一行结果。获取不到返回false。
+
+       10、mysql_num_rows(resource $result)
+               功能：获取有返回结果集查询的行数。
+               参数：
+               result  mysql_query产生的资源
+               返回：结果集的行数。
+
+
+
+
+
+            
+
+ 
+
+
+
+习题：
+1、应用PHP的MySQL函数库，更新数据库cms中的表cms_admin中id为1的用户名。
+2、给数据库cms中的表cms_admin新增一个用户。返回新用户的id。
+3、新用户注册，当用户注册成功，反馈注册成功和新用户的id。
+4、应用mysql_fetch_array从查询的资源中获取一行结果。将获取到的结果进行输出。
+5、思考：如果取出数据库表中的多行数据。  
+6、查询数据库表cms_admin中的内容，将获取的数据输出到浏览器：
+     查询字段为：id，aname。输出格式如下：
+     id：id的值    aname:aname的值
+     例如：
+     id:4              aname:tom
+7、将获取查询到的行数输出到上一题中。
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

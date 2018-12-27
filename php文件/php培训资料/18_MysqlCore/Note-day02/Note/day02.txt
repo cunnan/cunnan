@@ -1,0 +1,308 @@
+﻿存储过程：在mysql中封装一个代码块，来完成一个操作。
+类似于函数。
+语法格式：
+create procedure 过程名称(in|out|inout 名称 类型,......)
+begin
+	代码块;
+end
+说明：
+in   传入值。
+out  传出值。
+inout  继承传入又能传出。
+
+名称  类型  和创建表声明字段一样。
+cid int(10)
+
+调用：
+call 过程名称(参数,......)
+1、根据班级id，获取班级的人数。
+create procedure getStudentNum(in cid int)
+begin
+	select count(*) as num from student where classid=cid;
+end//
+2、根据班级id，获取班级的人数。要求人数值，使用参数。
+create procedure getStudentNum1(in cid int,out num int)
+begin
+	select count(*) into num from student where classid=cid;
+end//
+调用：
+call getStudentNum1(5,100)
+在过程体外声明变量：
+set @num=1//
+3、根据班级id，获取班级的人数。要求有一个参数。
+create procedure getStudentNum2(inout num int)
+begin
+	select count(*) into num from student where classid=num;
+end//
+查询数据库中的存储过程
+
+方法一：
+
+       select `name` from mysql.proc where db = 'your_db_name' and `type` = 'PROCEDURE'
+
+方法二：
+
+         show procedure status;
+          show PROCEDURE status where db='test'; 
+查看存储过程或函数的创建代码
+
+show create procedure proc_name;
+show create function func_name;
+
+改变sql语句的结束符：
+delimiter //
+
+into 在查询语句中给变量赋值。
+
+变量的声明：
+declare  变量名称 类型(长度) default 值;
+例子：查找某个学生班级名称。
+create procedure getClassNameById(in studentId int)
+begin
+	declare cid int default 0;
+	-- 查询学生的班级id，并把id放到变量中
+	select classid into cid from student where id=studentid;
+	-- 根据班级id，从班级表中获取班级的名称
+	select name from class where id=cid;
+end//
+
+循环
+声明一个整型变量
+while 循环条件 do
+循环体；
+end while;
+例子：循环输入10个数。
+create procedure shownum()
+begin
+	declare i int(2) default 1;
+	while i<=10 do
+		select i;
+		set i=i+1;
+	end while;
+end//
+例子：复制表class，复制到class1
+1、创建表class1
+create table class1(
+	id int key auto_increment,
+	name char(20)
+)//
+2、编写一个存储过程，读表class中每一条记录，添加到class1中。
+查询class表中的所有记录，赋给一个变量。
+循环获取变量中每一条记录，写一次class1.
+create procedure copclasstoclass1_2()
+begin
+	-- 班级表class的总条数
+	declare num int default 0;
+	-- 循环变量i
+	declare i int default 0;
+	-- 班级id
+	declare cid int;
+	-- 班级名称
+	declare cname char(20);
+	-- 产生结果集（班级信息）
+	declare classCur cursor for select id,name from class;
+	-- 给num赋值
+	select count(*) into num from class;
+	-- 循环操作游标
+	open classCur;
+	while i<num do
+		fetch classCur into cid,cname;
+		insert into class1(id,name) value(cid,cname);
+		set i=i+1;
+	end while;
+	close classCur;
+end//
+///////////////////////////////////////////
+读一条，写一条 limit子句？？？ limit start,1
+获取记录的总条数
+循环，读一条，写一条
+create procedure copyclasstoclass1_1()
+begin
+	declare num int default 0;
+	declare i int default 0;
+	declare cid int;
+	declare cname char(20);
+	select count(*) into num from class;
+	while i<num do
+		select name into cname from class limit i,1;
+		insert into class1(name) value(cname);
+		set i=i+1;
+	end while;
+end//
+
+cursor 游标-----类似于结果集资源
+
+declare 变量名称 cursor for sql语句;
+
+游标的操作：
+-- 打开
+open 游标的名称;
+-- 获取记录
+fetch 游标 into 变量1,变量2,......；
+-- 关闭
+close 游标;
+
+变量赋值：
+set 变量名=值;
+
+条件语句：
+if 条件 then
+end if;
+
+if 条件 then
+else
+end if;
+
+if 条件 then
+elseif 条件 then
+......
+end if;
+例子：如果输入是1，输入男
+create procedure showSex(in s tinyint)
+begin
+	if s=1 then
+		select '男' as sex;
+	end if;
+end//
+例子：1输入男 2 输出女
+create procedure showSex1(in s tinyint)
+begin
+	if s=1 then
+		select '男' as sex;
+	elseif s=2 then
+		select '女' as sex;
+	else
+		select '保密' as sex;
+	end if;
+end//
+
+查看所有的存储过程：
+show procedure status;
+删除存储过程：
+drop procedure 过程名称;
+
+触发器：一个事件，使得一段代码执行了。
+事件：insert  update  delete
+作用：一个表或多个表的记录同步另一张表中去。
+
+例子：有两个表
+news
+id  title
+1  dsafas
+2  ffsfdas
+3  jgjrt
+select * from news where title like '%f%'
+product
+id  title
+1   tyrey
+2   dfasdf
+3   eyter
+select * from product where title like '%f%'
+有一个搜索功能，能够根据文章的标题及产品的标题进行模糊查询
+
+select * from news where title like '%f%'
+union
+select * from product where title like '%f%'
+
+news--------
+	   |                    把news 和 product的总和存放在zong中
+product ----------------zong
+
+语法格式：
+create trigger 名称  时机before|after 事件 on 表名 for each row
+begin
+	-- 同步数据需要执行的sql语句
+	insert  into zong ........
+end//
+
+实践：
+create table news(
+	id int key auto_increment,
+	title varchar(100)
+)//
+create table product(
+	id int key auto_increment,
+	title varchar(100)
+)//
+
+create table zong(
+	id int,
+	title varchar(100),
+	type tinyint(1)
+)//
+
+type-----------1 文章
+type-----------2 产品
+例子：
+当文章表写入一条记录，zong中也写入一条记录
+create trigger insert_news  after insert on news for each row
+begin
+	insert into zong(id,title,type) value(new.id,new.title,1); 
+end//
+当文章表修改一条记录，zong中也修改这一条记录
+create trigger update_news after update on news for each row
+begin
+	update zong set title=new.title where id=old.id and type=1;
+end//
+当文章表中删除一条记录，总中也删除这一条记录
+create trigger delete_news after delete on news for each row
+begin
+	delete from zong where id=old.id and type=1;
+end//
+
+用户管理(创建  删除  修改密码)
+flush privileges
+create user 用户名@localhost identified by '密码'
+drop user 名称@localhost
+set password for 用户@localhost=password('新的密码')
+
+权限分配，回收
+
+grant 哪些权限  on 哪个库.哪些表   to 用户名@localhost
+
+权限值：
+all
+insert
+update
+delete
+create
+alter
+select
+grant
+revoke
+
+库.表名
+*.*
+库.*
+例子：给xiaowang分配权限 select delete upadte insert 在test库下的所有表
+grant select,delete,update,insert on test.* to xiaowang@localhost
+
+回收权限：
+revoke 权限列表 on 对象列表 from 用户@localhost
+
+数据库的备份及恢复
+mysqldump -uroot -proot 库名>D:/name.sql
+
+mysql -uroot -proot
+use 库名;
+source D:/name.sql
+
+数据采集
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

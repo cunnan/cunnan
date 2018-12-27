@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>天天新闻网</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="{dede:global.cfg_templets_skin/}/css/news.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- 网站头 -->
+    {dede:include file="header.html" /}
+	
+	<!-- 正文内容 -->
+	<div class="mainDiv clear">
+	  <!-- 左侧 -->
+	  <div class="leftDiv">
+	    <!-- 登陆 -->
+	    <div class="loginDiv">
+	      <div class="loginDiv1">会员登陆</div>
+	      <div class="loginDiv2 clear">
+	        <div class="loginDiv20">用户名</div>
+	        <div class="loginDiv21"><input type="text" name="userName" value="admin" class="txt1">*</div>
+	      </div>
+	      <div class="loginDiv2 clear">
+	        <div class="loginDiv20">密码</div>
+	        <div class="loginDiv21"><input type="password" name="password" value="123" class="txt1">*</div>
+	      </div>
+	      <div class="loginDiv2 clear">
+	        <div class="loginDiv20">验证码</div>
+	        <div class="loginDiv21"><input type="text" name="checkCode" size="8" maxlength="4"><img id="myImg" src="" align="absmiddle"></div>
+	      </div>
+	      <div class="loginDiv2 clear">
+	        <div class="loginDiv20">&nbsp;</div>
+	        <div class="loginDiv21"><input type="submit" value="登陆"></div>
+	      </div>
+	    </div>
+	    <!-- 一个分类带两条新闻 -->
+	    {dede:channelartlist row=0}
+	    <div class="twoNews">
+	      <div class="twoNews1">&nbsp;<a href="{dede:field name='typeurl'/}" class="a">{dede:field name="typename" /}</a></div>
+	      <div class="twoNews2"><a href="{dede:field name='typeurl'/}" class="a">更多</a>&nbsp;</div>
+	    </div>
+	    {dede:arclist titlelen='38' row='2'}
+	    <div class="twoNews3"><img src="[field:id function='getTemplateDir()' /]/images/makealltop.gif"><a href="[field:arcurl/]">[field:title/]...</a></div>
+	    {/dede:arclist}
+	    {/dede:channelartlist}
+	  </div>
+	  <!-- 右侧 -->
+	  <div class="rightDiv">
+	    <!-- 热点要闻 -->
+	    <div class="hotNews">热点要闻</div>
+	    {dede:arclist titlelen='1000' orderby='click' limit='0,6'}
+	    <div class="hotNews1">
+	      [<a href="[field:typeurl/]">[field:typename/]</a>] <a href="[field:arcurl/]">[field:title/]</a> [field:pubdate function="MyDate('Y-m-d H:i:s',@me)"/] <img src="[field:id function='getTemplateDir()'/]/images/new1.gif">
+	    </div>
+	    {/dede:arclist}
+	    
+	    <!-- 新闻分类导航 -->
+	    <div class="hotNews">新闻分类导航</div>
+	    <div class="newsDh">
+	      <div class="newsDh1"><span class="newsCount">新闻总数：</span></div>
+	      <div class="newsDh2">
+	        {dede:sql sql="select count(*) as newscount from dede_archives"}
+	          [field:newscount/]
+	        {/dede:sql}
+	      </div>
+	      <div class="newsDh3">&nbsp;</div>
+	    </div>
+	    {dede:channel type="top" row="0"}
+	    <div class="newsDh">
+	      <div class="newsDh1"><a href="[field:typelink/]">[field:typename/]：</a></div>
+	      <div class="newsDh2">[field:id function="getNewsCount(@me)"/]</div>
+	      <div class="newsDh3"><a href="[field:typelink/]"><img src="[field:id function='getTemplateDir()' /]/images/sch.gif" border="0" class="goImg"></a></div>
+	    </div>
+	    {/dede:channel}
+	  </div>
+	</div>
+    
+    
+    <!-- 网页脚 -->
+    {dede:include file="footer.html"/}
+  </body>
+</html>
+
+
+
+
+
+

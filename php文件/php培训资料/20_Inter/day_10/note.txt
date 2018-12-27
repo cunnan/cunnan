@@ -1,0 +1,139 @@
+﻿MongoDB：文档型数据库
+
+下载资源包
+mongodb-win32-i386_32-2.6.6.zip(32位)
+mongodb-win32-x86_64-2.6.6.zip(64位)
+
+
+安装MongoDB
+1、在mongodb文件夹中新建几个文件夹
+   mongodb
+     bin------------MongoDB命令
+     data
+       db-----------数据文件
+       log----------日志文件
+2、将mongodb的bin目录配置到系统的path环境变量中
+   变量名：Path
+   变量值：asdfasdfasdf;E:\mongodb\bin
+3、安装服务：打开命令提示符窗口，输入如下命令(Win7以管理员方式打开)
+   mongod --dbpath "e:/mongodb/data/db" --logpath "e:/mongodb/data/log/MongoDB.log" --install --serviceName "MongoDB"
+   卸载服务：打开命令提示符窗口，输入如下命令(Win7以管理员方式打开)
+   mongod --remove --serviceName "MongoDB"
+
+
+登陆MongoDB：打开命令提示符窗口
+mongo 主机地址:27017/库名
+mongo 主机地址/库名
+mongo 主机地址
+
+
+存储数据的方式
+MySQL：库->表->记录->字段
+MongoDB：库->集合->记录->字段
+
+
+
+MongoDB命令(注意：MongoDB命令区分大小写)
+1、退出
+exit
+
+2、清屏
+cls
+
+3、查看现存的所有库
+show dbs
+
+4、创建库、进入库
+use 库名
+
+5、删除库(进入该库)
+db.dropDatabase()
+
+6、查看当前库中所有集合
+show collections
+
+7、删除指定的集合
+db.集合名.drop()
+db.userInfo.drop()
+
+8、添加记录
+db.集合名.insert({名:值,名:值,名:值...})
+db.userInfo.insert({"userName":"张三","age":30,"sex":"男","address":"北京"})
+db.userInfo.insert({"userName":"李四","age":32,"sex":"女","address":"天津"})
+db.userInfo.insert({"userName":"王五","age":33,"sex":"男","address":"上海"})
+db.userInfo.insert({"userName":"赵六","age":34,"sex":"女","address":"深圳"})
+db.userInfo.insert({"userName":"田七","age":27,"sex":"女","address":"山西"})
+db.userInfo.insert({"userName":"许三多","age":29,"sex":"女","address":"河南"})
+db.userInfo.insert({"userName":"张大三","age":21,"sex":"女","address":"山东"})
+
+9、修改记录
+db.集合名.update({条件},{字段的数据})
+db.userInfo.update({"userName":"许三多"},{"userName":"许三多","age":"35","sex":"男","address":"刑台"})
+
+10、删除记录
+db.集合名.remove({条件})
+db.userInfo.remove({"userName":"许三多"})
+db.userInfo.remove({"sex":"女"})
+
+11、普通查询
+db.集合名.find()
+db.userInfo.find()
+
+12、条件查询
+db.集合名.find({条件})
+db.userInfo.find({"sex":"男"})
+
+13、count查询
+db.集合名.find({条件}).count()
+db.userInfo.find().count()
+db.userInfo.find({"sex":"女"}).count()
+
+14、limit查询
+db.集合名.find().limit(条数)
+db.userInfo.find().limit(3)
+
+15、skip查询
+db.集合名.find().skip(起始值)
+db.userInfo.find().skip(2)
+
+16、分页查询
+db.集合名.find().skip(起始值).limit(条数)
+db.userInfo.find().skip(0).limit(2)
+
+17、查询一条记录
+db.集合名.findOne({条件})
+db.userInfo.findOne({"userName":"许三多"})
+db.userInfo.findOne()
+
+
+
+安装MongoDB的php扩展
+1、将php_mongo.dll复制到php的ext目录中
+2、修改php.ini配置
+   extension=php_mongo.dll
+3、重启Apache服务
+4、通过phpinfo()查看
+
+
+
+
+购物车表
+MySQL：carInfo表
+       carId,userId,goodsId,goodsCount,dateandtime
+MongoDB：carInfo集合
+         userId,goodsId,goodsName,price,images,goodsCount,dataandtime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

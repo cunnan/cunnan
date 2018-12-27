@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="styles/reset.css" rel="stylesheet" type="text/css" />
+<link href="styles/common.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+	.table{
+		width: 100%;
+		border-top: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+	}
+	.table td,.table th{
+		padding: 10px;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	.table th{
+		font-weight: normal;
+		width: 100px;
+		text-align: left;
+	}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<h1 id="subject">发布新闻</h1>	
+	<form action="doAddNews.php" method="post">
+		<table class="table">
+			<tr>
+				<td>新闻标题</td>
+				<td><input type="text" name="subject"/></td>
+			</tr>
+			<tr>
+				<td>新闻分类</td>
+				<td>
+					<select name="cid">
+						<option value="1">国内新闻</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>新闻正文</td>
+				<td><textarea rows="10" cols="60" name="content"></textarea></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><input type="submit" value="确认发布" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+</body>
+</html>
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

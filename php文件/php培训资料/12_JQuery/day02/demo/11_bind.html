@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 事件</title>
+<!-- 引入jQuery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<script>
+//jquery事件处理 单击事件
+$(function(){
+	//在一个按钮中同时绑定两个事件
+	$("input").bind("click mouseout",function(){
+		$("div").html("hello");
+	});
+});
+
+</script>
+</head>
+
+
+<body>
+<div style='width:150px;height:150px;background-color:green;'></div>
+<input type="button" value="单击" />
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

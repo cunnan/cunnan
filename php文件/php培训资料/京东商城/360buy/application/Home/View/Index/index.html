@@ -1,0 +1,975 @@
+<!DOCTYPE html PUBliC "-//W3C//dtD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/dtD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head>
+    <title>京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+	<!--
+	.age_box a{float: left; height:22px; line-height:22px; width:70px; background:url(__ROOT__/public/themes/jindong/images/biao6.gif) 0 center no-repeat; padding-left:10px;font-family:arial, Helvetica, sans-serif;color:#333333}
+	.brand_img{ width:88px; height:31px; border:1px solid #efefef; float:left; margin:4px 5px;}
+	-->
+	</style>
+    <script type="text/javascript" src="__ROOT__/public/js/index.js"></script>
+    <script type="text/javascript" src="__ROOT__/public/js/transport.js"></script>
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+	    var swf_width=766;
+	    var swf_height=120;
+		
+		  var email = document.getElementById('user_email');
+		  
+		  function rep_add_email_list(text)
+		  {
+		    alert(text);
+		  }
+		  function rep_cancel_email_list(text)
+		  {
+		    alert(text);
+		  }
+		  function check_email()
+		  {
+		    if (Utils.isEmail(email.value))
+		    {
+		      return true;
+		    }
+		    else
+		    {
+		      alert('邮件地址非法！');
+		      return false;
+		    }
+		  }
+		  function Marquee()
+		  {
+		  	this.ID = document.getElementById(arguments[0]);
+		  	this.Direction = arguments[1];
+		  	this.Step = arguments[2];
+		  	this.Width = arguments[3];
+		  	this.Height = arguments[4];
+		  	this.Timer = arguments[5];
+		  	this.WaitTime = arguments[6];
+		  	this.StopTime = arguments[7];
+		  	if(arguments[8])
+		  		this.ScrollStep = arguments[8]
+		  	else
+		  		this.ScrollStep = this.Direction>1 ? this.Width : this.Height;
+		  	this.CTL = this.StartID = this.Stop = this.MouseOver = 0;
+		  	this.ID.style.overflowX = this.ID.style.overflowY = "hidden";
+		  	this.ID.noWrap = true;
+		  	this.ID.style.width = this.Width;
+		  	this.ID.style.height = this.Height;
+		  	this.ClientScroll = this.Direction>1 ? this.ID.scrollWidth : this.ID.scrollHeight;
+		  	this.ID.innerHTML += this.ID.innerHTML;
+		  	this.Start(this,this.Timer,this.WaitTime,this.StopTime);
+		  }
+		  Marquee.prototype.Start = function(msobj,timer,waittime,stoptime)
+		  {
+		  	msobj.StartID = function(){msobj.Scroll()}
+		  	msobj.Continue = function()
+		  				{
+		  					if(msobj.MouseOver == 1)
+		  					{
+		  						setTimeout(msobj.Continue,waittime);
+		  					}
+		  					else
+		  					{	clearInterval(msobj.TimerID);
+		  						msobj.CTL = msobj.Stop = 0;
+		  						msobj.TimerID = setInterval(msobj.StartID,timer);
+		  					}
+		  				}
+		  	msobj.Pause = function()
+		  			{
+		  				msobj.Stop = 1;
+		  				clearInterval(msobj.TimerID);
+		  				setTimeout(msobj.Continue,waittime);
+		  			}
+		  	msobj.Begin = function()
+		  	{
+		  		msobj.TimerID = setInterval(msobj.StartID,timer);
+		  		msobj.ID.onmouseover = function()
+		  					{
+		  						msobj.MouseOver = 1;
+		  						clearInterval(msobj.TimerID);
+		  					}
+		  		msobj.ID.onmouseout = function()
+		  					{
+		  						msobj.MouseOver = 0;
+		  						if(msobj.Stop == 0)
+		  						{
+		  							clearInterval(msobj.TimerID);
+		  							msobj.TimerID = setInterval(msobj.StartID,timer);
+		  						}
+		  					}
+		  	}
+		  	setTimeout(msobj.Begin,stoptime);
+		  }
+		  Marquee.prototype.Scroll = function()
+		  {
+		  	switch(this.Direction)
+		  	{
+		  		case 0:
+		  			this.CTL += this.Step;
+		  			if(this.CTL >= this.ScrollStep && this.WaitTime > 0)
+		  			{
+		  				this.ID.scrollTop += this.ScrollStep + this.Step - this.CTL;
+		  				this.Pause();
+		  				return;
+		  			}
+		  			else
+		  			{   
+		  				if(this.ID.scrollTop >= this.ClientScroll)
+		  				{
+		  					this.ID.scrollTop -= this.ClientScroll;
+		  				}
+		  				this.ID.scrollTop += this.Step;
+		  			}
+		  		break;
+		  		case 1:
+		  			this.CTL += this.Step;
+		  			if(this.CTL >= this.ScrollStep && this.WaitTime > 0)
+		  			{
+		  				this.ID.scrollTop -= this.ScrollStep + this.Step - this.CTL;
+		  				this.Pause();
+		  				return;
+		  			}
+		  			else
+		  			{
+		  				if(this.ID.scrollTop <= 0)
+		  				{
+		  					this.ID.scrollTop += this.ClientScroll;
+		  				}
+		  				this.ID.scrollTop -= this.Step;
+		  			}
+		  		break;
+		  		case 2:
+		  			this.CTL += this.Step;
+		  			if(this.CTL >= this.ScrollStep && this.WaitTime > 0)
+		  			{
+		  				this.ID.scrollLeft += this.ScrollStep + this.Step - this.CTL;
+		  				this.Pause();
+		  				return;
+		  			}
+		  			else
+		  			{
+		  				if(this.ID.scrollLeft >= this.ClientScroll)
+		  				{
+		  					this.ID.scrollLeft -= this.ClientScroll;
+		  				}
+		  				this.ID.scrollLeft += this.Step;
+		  			}
+		  		break;
+		  		case 3:
+		  			this.CTL += this.Step;
+		  			if(this.CTL >= this.ScrollStep && this.WaitTime > 0)
+		  			{
+		  				this.ID.scrollLeft -= this.ScrollStep + this.Step - this.CTL;
+		  				this.Pause();
+		  				return;
+		  			}
+		  			else
+		  			{
+		  				if(this.ID.scrollLeft <= 0)
+		  				{
+		  					this.ID.scrollLeft += this.ClientScroll;
+		  				}
+		  				this.ID.scrollLeft -= this.Step;
+		  			}
+		  		break;
+		  	}
+		  }
+	</script>
+  </head>
+  <body>
+    <div id="container">
+      <include file="Public:header" />
+      
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div id="globalLeft">
+        <div id="o-search" style="bottom:50px;">
+          <div class="allsort">
+            <div class="mt">
+              <strong><a href="__APP__/Catalog/index">全部商品分类</a></strong>
+              <div class="extra">&nbsp;</div>
+            </div>
+            <div class="mc">
+              <!-- 左上动态菜单 -->
+              <div class="item  fore" onMouseOver="this.className='item  fore  hover';"  onMouseOut="this.className='item  fore';">
+                <span>
+                  <h3><a href="category.php?id=355">展销会专栏</a></h3>
+                  <s></s>
+                </span>
+                <div class="i-mc">
+                  <div class="subitem">
+                    <dl  class="fore" >
+                      <dt><a href="category.php?id=356">红酒</a></dt>
+                      <dd>
+                        <em><a href="category.php?id=363">长城干红系列</a></em>
+                        <em><a href="category.php?id=356">更多&gt;&gt;</a></em>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="fr">
+				    <dl class="brands">
+				      <dt>推荐品牌</dt>
+				      <dd> 
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				      </dd>
+				    </dl>
+				  </div>
+                </div>
+              </div>
+              <div class="item  fore" onMouseOver="this.className='item  fore  hover';"  onMouseOut="this.className='item  fore';">
+                <span>
+                  <h3><a href="category.php?id=355">展销会专栏</a></h3>
+                  <s></s>
+                </span>
+                <div class="i-mc">
+                  <div class="subitem">
+                    <dl  class="fore" >
+                      <dt><a href="category.php?id=356">红酒</a></dt>
+                      <dd>
+                        <em><a href="category.php?id=363">长城干红系列</a></em>
+                        <em><a href="category.php?id=356">更多&gt;&gt;</a></em>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="fr">
+				    <dl class="brands">
+				      <dt>推荐品牌</dt>
+				      <dd> 
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				      </dd>
+				    </dl>
+				  </div>
+                </div>
+              </div>
+              <div class="item  fore" onMouseOver="this.className='item  fore  hover';"  onMouseOut="this.className='item  fore';">
+                <span>
+                  <h3><a href="category.php?id=355">展销会专栏</a></h3>
+                  <s></s>
+                </span>
+                <div class="i-mc">
+                  <div class="subitem">
+                    <dl  class="fore" >
+                      <dt><a href="category.php?id=356">红酒</a></dt>
+                      <dd>
+                        <em><a href="category.php?id=363">长城干红系列</a></em>
+                        <em><a href="category.php?id=356">更多&gt;&gt;</a></em>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="fr">
+				    <dl class="brands">
+				      <dt>推荐品牌</dt>
+				      <dd> 
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				      </dd>
+				    </dl>
+				  </div>
+                </div>
+              </div>
+              <div class="item  fore" onMouseOver="this.className='item  fore  hover';"  onMouseOut="this.className='item  fore';">
+                <span>
+                  <h3><a href="category.php?id=355">展销会专栏</a></h3>
+                  <s></s>
+                </span>
+                <div class="i-mc">
+                  <div class="subitem">
+                    <dl  class="fore" >
+                      <dt><a href="category.php?id=356">红酒</a></dt>
+                      <dd>
+                        <em><a href="category.php?id=363">长城干红系列</a></em>
+                        <em><a href="category.php?id=356">更多&gt;&gt;</a></em>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="fr">
+				    <dl class="brands">
+				      <dt>推荐品牌</dt>
+				      <dd> 
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				        <a href="#" style="margin-right:3px;width:70px;display:block; float:left; height:18px; line-height:18px; margin:0 0 3px; overflow:hidden;">飞利浦</a>
+				      </dd>
+				    </dl>
+				  </div>
+                </div>
+              </div>
+              <div class="extra">
+                <a href="__APP__/Catalog/index">全部商品分类</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blank"></div>
+        <div id="brandlist" class="globalModule" style="margin-top:355px;">
+          <h3><div id="list_t_l"><div id="list_t_r"><b>按年龄查询</b></div></div></h3>
+          <div id="global_box">
+            <div style="clear:both"></div>
+              <div class="age_box">
+                <a target="_blank" href="#">出生-12个月</a>
+                <a target="_blank" href="#">12-24个月</a>
+                <a target="_blank" href="#">2岁</a>
+                <a target="_blank" href="#">3-4岁</a>
+                <a target="_blank" href="#">5-7岁</a>
+                <a target="_blank" href="#">8-11岁</a>
+                <a target="_blank" href="#">12-14岁</a>
+                <a target="_blank" href="#">15岁以上</a>
+              </div>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <div id="brandlist" class="globalModule">
+            <h3><div id="list_t_l"><div id="list_t_r"><b>品牌专卖店</b></div></div></h3>
+            <div id="global_box">
+              <div style="clear:both"></div>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <a href="__APP__/Brand/brand"><img class="brand_img" src="__ROOT__/public/data/brandlogo/1261024702576255018.jpg" alt="苹果 (1)" /></a>
+              <div style="clear:both"></div>
+              <p class="more"><a href="__APP__/Brand/index"> 更多>></a></p>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <table cellpadding="0" cellspacing="0" width="100%" style="margin:6px 0 0 0;">
+            <tr>
+              <td style="padding-bottom:5px;">
+                <a href='#' target='_blank'><img src='__ROOT__/public/data/afficheimg/1284142905922427409.jpg' width='211' height='90' border='0' /></a>
+              </td>
+            </tr>
+          </table>
+          <div class="blank"></div>
+          <div class="globalModule">
+            <h3><div id="list_t_l"><div id="list_t_r"><b>用户评论</b></div></div></h3>
+            <div id="global_box">
+            <div style="clear:both"></div>
+            <!-- 评论 -->
+            <div style="border-bottom:1px solid #efefef; line-height:21px; padding-bottom:5px; margin:0 4px;">
+              <b style="color:#fe9900">[评论]</b>
+              <a style=" color:#005ba0;" href="__APP__/Goods/index" title="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" target="_blank">aMD athlonII×2（速龙II双核）250盒装CPU（S...</a>
+              <div style="clear:both"></div>
+              <a href="__APP__/Goods/index" title="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" target="_blank">
+                <img alt="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" src="__ROOT__/public/images/201001/thumb_img/4738_thumb_G_1262821000118.jpg" style="width:50px; height:50px; float:left; padding-right:7px; " >
+              </a>
+              <a href="__APP__/Goods/index" title="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" target="_blank">我现在的电脑就用这个，这里比我买的便宜。</a>
+              <div style="clear:both"></div>
+              <span style=" color:#12a000">2010-01-29 07:02:59</span>
+            </div>
+            <div style="border-bottom:1px solid #efefef; line-height:21px; padding-bottom:5px; margin:0 4px;">
+              <b style="color:#fe9900">[评论]</b>
+              <a style=" color:#005ba0;" href="__APP__/Goods/index" title="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" target="_blank">aMD athlonII×2（速龙II双核）250盒装CPU（S...</a>
+              <div style="clear:both"></div>
+              <a href="__APP__/Goods/index" title="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" target="_blank">
+                <img alt="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" src="__ROOT__/public/images/201001/thumb_img/4738_thumb_G_1262821000118.jpg" style="width:50px; height:50px; float:left; padding-right:7px; " >
+              </a>
+              <a href="__APP__/Goods/index" title="aMD athlonII×2（速龙II双核）250盒装CPU（Socket aM3/3.0GHz/2M二级缓存/45纳米）" target="_blank">我现在的电脑就用这个，这里比我买的便宜。</a>
+              <div style="clear:both"></div>
+              <span style=" color:#12a000">2010-01-29 07:02:59</span>
+            </div>
+            <div style="clear:both"></div>
+            <p class="more"><a target="_blank" href="message.php"> 更多>></a></p>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <table cellpadding="0" cellspacing="0" width="100%" style="margin:6px 0 0 0;">
+            <tr>
+              <td style="padding-bottom:5px;">
+                <a href='#' target='_blank'><img src='__ROOT__/public/data/afficheimg/1284142944453704804.gif' width='211' height='90' border='0' /></a>
+              </td>
+            </tr>
+          </table>
+          <div class="blank"></div>
+          <table cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <a href='#' target='_blank'><img src='__ROOT__/public/data/afficheimg/1284142966967642808.jpg' width='211' height='90' border='0' /></a>
+              </td>
+            </tr>
+          </table>
+          <div class="blank"></div>
+          <div id="ECS_VOTE">
+            <div class="globalModule">
+              <h3><div id="list_t_l"><div id="list_t_r"><b>站内调查</b></div></div></h3>
+              <div id="global_box">
+                <form name="ECS_VOTEFORM" method="post" action="javascript:submit_vote()" style="_margin:0px -50px 0px 0px;">
+                <table border="0" >
+                  <tr>
+                    <th style="width:150px;">您更希望我们从哪些方面改进并提高服务质量：</th>
+                  </tr>
+                  <tr>
+                    <td class="textDesc">(参与人次:4)</td>
+                  </tr>
+                  <tr>
+                    <td class="optionlist">
+                      <input type="checkbox" name="option_id" value="21" id="option_21" /> <label for="option_21">提供优惠的价格及丰富促销活动</label> <span class="textDesc">(75%)</span><br />
+                      <input type="checkbox" name="option_id" value="20" id="option_20" /> <label for="option_20">增加更多产品种类及商品类别</label> <span class="textDesc">(0%)</span><br />
+                      <input type="checkbox" name="option_id" value="19" id="option_19" /> <label for="option_19">改善售后、投诉及返修等服务</label> <span class="textDesc">(0%)</span><br />
+                      <input type="checkbox" name="option_id" value="18" id="option_18" /> <label for="option_18">增加货到付款、配送覆盖区域</label> <span class="textDesc">(0%)</span><br />
+                      <input type="checkbox" name="option_id" value="17" id="option_17" /> <label for="option_17">改善并提高物流配送的时效性</label> <span class="textDesc">(25%)</span><br />
+                      <input type="hidden" name="type" value="0" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="btnlist">
+                      <input type="hidden" name="id" value="4" />
+                      <input type="image" name="submit" src="__ROOT__/public/themes/jindong/images/btn_submit.gif" />
+                      <input type="image" src="__ROOT__/public/themes/jindong/images/btn_reset.gif" onclick="ECS_VOTEFORM.reset();" />
+                    </td>
+                  </tr>
+                </table>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="blank"></div>
+          <div id="emaillist"  class="globalModule">
+            <h3><div id="list_t_l"><div id="list_t_r"><b>邮件订阅</b></div></div></h3>
+            <div id="global_box">
+              <ul>
+                <input type="text" id="user_email" class="textInput" />
+                <input type="image" src="__ROOT__/public/themes/jindong/images/btn_subscription.gif" onclick="add_email_list();" />
+                <input type="image" src="__ROOT__/public/themes/jindong/images/btn_unsubscription.gif" onclick="cancel_email_list();" />
+              </ul>
+            </div>
+          </div>
+          <div class="blank"></div>
+        </div>
+        <div id="globalBigRight3">
+          <div id="globalMiddle">
+            <div id="promotionVideo" class="globalModule">
+              <script type="text/javascript" src="__ROOT__/public/data/flashdata/dynfocus/cycle_image.js"></script>
+            </div>
+            <div id="globalBest" class="globalModule">
+              <h3>
+                <div id="recom_title_r">
+                  <div id="recom_title_l">
+                    <span>热卖商品</span>
+                    <a  target="_blank" href="search.php?intro=hot">更多热卖>></a>
+                  </div>
+                </div>
+              </h3>
+              <div id="show_hot_area" class="itemGrid">
+                <div class="clearfix">
+                  <div class="item hot_item1">
+                    <p align="center" class="pic"><a target="_blank" href="__APP__/Goods/index"><img style="width:130px; height:130px;margin:0 auto; text-align:center" src="__ROOT__/public/images/201001/thumb_img/4692_thumb_G_1262412867503.jpg" alt="星辉遥控车模1：14超轻跑车兰博基尼橘色"/></a></p>
+                    <p align="center" class="name"><a target="_blank" href="__APP__/Goods/index" title="星辉遥控车模1：14超轻跑车兰博基尼橘色">星辉遥控车模1：14超轻跑车兰博基尼橘色</a></p>
+                    <p align="center" class="price">￥388元</p>
+                  </div>
+                  <div class="item hot_item1">
+                    <p align="center" class="pic"><a target="_blank" href="__APP__/Goods/index"><img style="width:130px; height:130px;margin:0 auto; text-align:center" src="__ROOT__/public/images/201001/thumb_img/4692_thumb_G_1262412867503.jpg" alt="星辉遥控车模1：14超轻跑车兰博基尼橘色"/></a></p>
+                    <p align="center" class="name"><a target="_blank" href="__APP__/Goods/index" title="星辉遥控车模1：14超轻跑车兰博基尼橘色">星辉遥控车模1：14超轻跑车兰博基尼橘色</a></p>
+                    <p align="center" class="price">￥388元</p>
+                  </div>
+                  <div class="item hot_item1">
+                    <p align="center" class="pic"><a target="_blank" href="__APP__/Goods/index"><img style="width:130px; height:130px;margin:0 auto; text-align:center" src="__ROOT__/public/images/201001/thumb_img/4692_thumb_G_1262412867503.jpg" alt="星辉遥控车模1：14超轻跑车兰博基尼橘色"/></a></p>
+                    <p align="center" class="name"><a target="_blank" href="__APP__/Goods/index" title="星辉遥控车模1：14超轻跑车兰博基尼橘色">星辉遥控车模1：14超轻跑车兰博基尼橘色</a></p>
+                    <p align="center" class="price">￥388元</p>
+                  </div>
+                </div>
+                <div class="clearfix">
+                  <div class="item hot_item2">
+                    <p align="center" class="pic"><a target="_blank" href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4690_thumb_G_1262412601118.jpg" alt="飞利浦（Philips）无尘袋吸尘器 FC8264" /></a></p>
+                    <p align="center" class="name"><a target="_blank" href="__APP__/Goods/index" title="飞利浦（Philips）无尘袋吸尘器 FC8264">飞利浦（Philips）无尘袋吸尘器 F...</a></p>
+                  </div>
+                  <div class="item hot_item2">
+                    <p align="center" class="pic"><a target="_blank" href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4690_thumb_G_1262412601118.jpg" alt="飞利浦（Philips）无尘袋吸尘器 FC8264" /></a></p>
+                    <p align="center" class="name"><a target="_blank" href="__APP__/Goods/index" title="飞利浦（Philips）无尘袋吸尘器 FC8264">飞利浦（Philips）无尘袋吸尘器 F...</a></p>
+                  </div>
+                  <div class="item hot_item2">
+                    <p align="center" class="pic"><a target="_blank" href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4690_thumb_G_1262412601118.jpg" alt="飞利浦（Philips）无尘袋吸尘器 FC8264" /></a></p>
+                    <p align="center" class="name"><a target="_blank" href="__APP__/Goods/index" title="飞利浦（Philips）无尘袋吸尘器 FC8264">飞利浦（Philips）无尘袋吸尘器 F...</a></p>
+                  </div>
+                </div>
+                <div class="hot_item3box clearfix">
+                  <div class="item hot_item2">
+                    <a target="_blank" href="__APP__/Goods/index" title="美的(midea) MYR720T 台式温热型饮水机">美的(midea) MYR720T 台式...</a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a target="_blank" href="__APP__/Goods/index" title="美的(midea) MYR720T 台式温热型饮水机">美的(midea) MYR720T 台式...</a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a target="_blank" href="__APP__/Goods/index" title="美的(midea) MYR720T 台式温热型饮水机">美的(midea) MYR720T 台式...</a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a target="_blank" href="__APP__/Goods/index" title="美的(midea) MYR720T 台式温热型饮水机">美的(midea) MYR720T 台式...</a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a target="_blank" href="__APP__/Goods/index" title="美的(midea) MYR720T 台式温热型饮水机">美的(midea) MYR720T 台式...</a>
+                  </div>
+                </div>
+                <div class="clearfix">
+                  <div class="item hot_item2">
+                    <p align="center" class="pic"><a href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4701_thumb_G_1262417807509.jpg" alt="美的(midea) MYD718S-X 电子制冷饮水机" /></a></p>
+                    <p align="center" class="name"><a href="__APP__/Goods/index" title="美的(midea) MYD718S-X 电子制冷饮水机">美的(midea) MYD718S-X ...</a></p>
+                  </div>
+                  <div class="item hot_item2">
+                    <p align="center" class="pic"><a href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4701_thumb_G_1262417807509.jpg" alt="美的(midea) MYD718S-X 电子制冷饮水机" /></a></p>
+                    <p align="center" class="name"><a href="__APP__/Goods/index" title="美的(midea) MYD718S-X 电子制冷饮水机">美的(midea) MYD718S-X ...</a></p>
+                  </div>
+                  <div class="item hot_item2">
+                    <p align="center" class="pic"><a href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4701_thumb_G_1262417807509.jpg" alt="美的(midea) MYD718S-X 电子制冷饮水机" /></a></p>
+                    <p align="center" class="name"><a href="__APP__/Goods/index" title="美的(midea) MYD718S-X 电子制冷饮水机">美的(midea) MYD718S-X ...</a></p>
+                  </div>
+                </div>
+                <div class="hot_item3box clearfix">
+                  <div class="item hot_item2">
+                    <a href="__APP__/Goods/index" title="长虹（CHaNGHONG）50英寸 高清 等离子电视PT50718(a)">长虹（CHaNGHONG）50英寸 高清...</a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a href="__APP__/Goods/index" title="多普达(Dopod) S505 CDMa智能手机 (黑)"><font color=#fe0000>多普达(Dopod) S505 CDMa...</font></a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a href="__APP__/Goods/index" title="长虹（CHaNGHONG）50英寸 高清 等离子电视PT50718(a)">长虹（CHaNGHONG）50英寸 高清...</a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a href="__APP__/Goods/index" title="多普达(Dopod) S505 CDMa智能手机 (黑)"><font color=#fe0000>多普达(Dopod) S505 CDMa...</font></a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a href="__APP__/Goods/index" title="长虹（CHaNGHONG）50英寸 高清 等离子电视PT50718(a)">长虹（CHaNGHONG）50英寸 高清...</a>
+                  </div>
+                  <div class="item hot_item2">
+                    <a href="__APP__/Goods/index" title="多普达(Dopod) S505 CDMa智能手机 (黑)"><font color=#fe0000>多普达(Dopod) S505 CDMa...</font></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="blank"></div>
+            <div id="globalBest" class="globalModule">
+              <h3>
+                <div id="recom_title_r">
+                  <div id="recom_title_l">
+                    <span>新品上市</span>
+                    <a target="_blank" href="search.php?intro=new">更多新品>></a>
+                  </div>
+                </div>
+              </h3>
+              <div id="show_new_area" class="itemGrid">
+                <div class=container>
+                  <div id=textdiv style="height:164px; overflow:hidden">
+                    <div id=lr>
+                      <div>
+                        <div class="cxtj2" >
+                          <div class="item" style=" border-bottom:none; height:163px; padding:0; padding-top:1px;">
+                            <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                            <p class="name" ><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                            <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+                          </div>
+                          <div class="item" style=" border-bottom:none; height:163px; padding:0; padding-top:1px;">
+                            <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                            <p class="name" ><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                            <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+                          </div>
+                          <div class="item" style=" border-bottom:none; height:163px; padding:0; padding-top:1px;">
+                            <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                            <p class="name" ><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                            <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+                          </div>
+                          <div class="item" style=" border-bottom:none; height:163px; padding:0; padding-top:1px;">
+                            <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                            <p class="name" ><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                            <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <SCRIPT defer>
+                  if(screen.width   <   1025)
+                	  new Marquee("textdiv",0,4,546,164,7,3000,7)
+                  else
+                	  new Marquee("textdiv",0,4,766,164,7,3000,7)
+                 </SCRIPT>
+               </div>
+             </div>
+           </div>
+         </div>
+         
+         
+         
+         
+         
+         <div id="globalRight">
+           <div id="newarticle" class="globalModule">
+             <h3><div id="list_t_l"><div id="list_t_r"><b>京东快报</b>   &nbsp;&nbsp;&nbsp;<a target="_blank" href="article_cat.php?id=12 "> 更多>></a></div></div></h3>
+             <div id="global_box">
+               <ul class="linkSkyblue">
+                 <div class="txt_list">
+                   <a target="_blank"  href="article.php?id=35" title="“沃”的世界我做主">“沃”的世界我做主</a>
+                 </div>
+                 <div class="txt_list">
+                   <a target="_blank"  href="article.php?id=35" title="“沃”的世界我做主">“沃”的世界我做主</a>
+                 </div>
+                 <div class="txt_list">
+                   <a target="_blank"  href="article.php?id=35" title="“沃”的世界我做主">“沃”的世界我做主</a>
+                 </div>
+                 <div class="txt_list">
+                   <a target="_blank"  href="article.php?id=35" title="“沃”的世界我做主">“沃”的世界我做主</a>
+                 </div>
+               </ul>
+             </div>
+           </div>
+           
+           
+           
+           <div class="blank"></div><div id="globalauction" class="globalModule">
+             <h3><div id="list_t_l"><div id="list_t_r"><b>拍卖商品</b></div></div></h3>
+             <div id="global_box">
+               <div class="itemGrid itemGrid2">
+               <div class="item" style="padding:8px 5px;">
+                 <p class="pic"><a href="auction.php?act=view&amp;id=22"><img src="__ROOT__/public/images/201001/thumb_img/4693_thumb_G_1262412960593.jpg" alt="海尔(haier)吸尘器ZW1200—201" /></a></p>
+                 <p class="name"><a class="a1 f10" href="auction.php?act=view&amp;id=22" title="海尔(haier)吸尘器ZW1200—201">海尔(haier)吸尘器ZW1200—2...</a></p>
+                 <p class="price">起拍价<span class="goodsPrice">￥150元</span></p>
+               </div>
+               <div class="txt_list">
+                 <a class="a1    f10 " href="auction.php?act=view&amp;id=23" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...</a>
+               </div>
+               <div class="txt_list">
+                 <a class="a1    f10 " href="auction.php?act=view&amp;id=23" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...</a>
+               </div>
+               <div class="txt_list">
+                 <a class="a1    f10 " href="auction.php?act=view&amp;id=23" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...</a>
+               </div>
+               <div class="txt_list">
+                 <a class="a1    f10 " href="auction.php?act=view&amp;id=23" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...</a>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="blank"></div>
+         <table cellpadding="0" cellspacing="0">
+           <tr>
+             <td>
+               <a href='affiche.php?ad_id=11&amp;uri=http%3a%2F%2Fwww.17558.net' target='_blank'><img src='__ROOT__/public/data/afficheimg/1306041417806904366.jpg' width='211' height='90'border='0' /></a>
+             </td>
+           </tr>
+         </table>
+         <div class="blank"></div>
+         <table cellpadding="0" cellspacing="0">
+           <tr>
+             <td>
+               <a href='affiche.php?ad_id=11&amp;uri=http%3a%2F%2Fwww.17558.net' target='_blank'><img src='__ROOT__/public/data/afficheimg/1306041417806904366.jpg' width='211' height='90'border='0' /></a>
+             </td>
+           </tr>
+         </table>
+         <div class="blank"></div>
+         <table cellpadding="0" cellspacing="0">
+           <tr>
+             <td>
+               <a href='affiche.php?ad_id=11&amp;uri=http%3a%2F%2Fwww.17558.net' target='_blank'><img src='__ROOT__/public/data/afficheimg/1306041417806904366.jpg' width='211' height='90'border='0' /></a>
+             </td>
+           </tr>
+         </table>
+       </div>
+       <div class="blank5"></div>
+       <div id="globalBest" class="globalModule">
+         <h3>
+           <div id="recom_title_r">
+             <div id="recom_title_l">
+               <span>特价专区</span>
+               <a  href="search.php?intro=promotion">更多特价>></a>
+             </div>
+           </div>
+         </h3>
+       </div>
+       <div class="blank"></div>
+       <div id="globalMiddle">
+         <div  id="globalcat" >
+           <h3>
+             <div class="cat_r">
+               <span class="title_goods" style="color:#005aa0;" ><a target="_blank" href="category.php?id=21">家用电器</a></span>
+             </div>
+           </h3>
+           <div class="itemGrid">
+             <div class="in">
+               <div class="item">
+                 <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                 <p class="name"><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                 <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+               </div>
+               <div class="item">
+                 <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                 <p class="name"><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                 <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+               </div>
+               <div class="item">
+                 <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                 <p class="name"><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                 <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+               </div>
+               <div class="item">
+                 <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                 <p class="name"><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                 <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+               </div>
+               <div class="item">
+                 <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201105/thumb_img/4760_thumb_G_1306040436494.jpg" alt="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！" /></a></p>
+                 <p class="name"><a target="_blank" href="__APP__/Goods/index" title="华为（HUaWEI）C8600 经典机器 直降70元！超值特价！">华为（HUaWEI）C8600 经典机器...<span></span></a></p>
+                 <p class="price">美智价：<span class="goodsPrice">￥11111111元</span></p>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="blank"></div>
+         <script type="text/javascript">
+         if (screen.width < 1280)
+         {
+        	 document.write("<a href='#'><img style='float: left' src='__ROOT__/public/themes/jindong/images/ad_small.jpg'></a>");
+         } 
+		 else { 
+		 	 document.write("<a href='#'><img style='float: left' src='__ROOT__/public/themes/jindong/images/ad_big.jpg'></a>"); 
+		 }
+		 </script>
+		 <div class="blank"></div>
+		 <div  id="globalcat" >
+		   <h3>
+		     <div class="cat_r">
+		       <span class="title_goods" style="color:#005aa0;" ><a target="_blank" href="category.php?id=16">电脑产品</a></span>
+		     </div>
+		   </h3>
+		   <div class="itemGrid">
+		     <div class="in">
+		       <div class="item">
+		         <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201001/thumb_img/4749_thumb_G_1262822060634.jpg" alt="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）" /></a></p>
+		         <p class="name"><a target="_blank" href="__APP__/Goods/index" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...<span></span></a></p>
+		         <p class="price">美智价：<span class="goodsPrice">￥650元</span></p>
+		       </div>
+		       <div class="item">
+		         <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201001/thumb_img/4749_thumb_G_1262822060634.jpg" alt="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）" /></a></p>
+		         <p class="name"><a target="_blank" href="__APP__/Goods/index" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...<span></span></a></p>
+		         <p class="price">美智价：<span class="goodsPrice">￥650元</span></p>
+		       </div>
+		       <div class="item">
+		         <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201001/thumb_img/4749_thumb_G_1262822060634.jpg" alt="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）" /></a></p>
+		         <p class="name"><a target="_blank" href="__APP__/Goods/index" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...<span></span></a></p>
+		         <p class="price">美智价：<span class="goodsPrice">￥650元</span></p>
+		       </div>
+		       <div class="item">
+		         <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201001/thumb_img/4749_thumb_G_1262822060634.jpg" alt="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）" /></a></p>
+		         <p class="name"><a target="_blank" href="__APP__/Goods/index" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...<span></span></a></p>
+		         <p class="price">美智价：<span class="goodsPrice">￥650元</span></p>
+		       </div>
+		       <div class="item">
+		         <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201001/thumb_img/4749_thumb_G_1262822060634.jpg" alt="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）" /></a></p>
+		         <p class="name"><a target="_blank" href="__APP__/Goods/index" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...<span></span></a></p>
+		         <p class="price">美智价：<span class="goodsPrice">￥650元</span></p>
+		       </div>
+		       <div class="item">
+		         <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201001/thumb_img/4749_thumb_G_1262822060634.jpg" alt="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）" /></a></p>
+		         <p class="name"><a target="_blank" href="__APP__/Goods/index" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...<span></span></a></p>
+		         <p class="price">美智价：<span class="goodsPrice">￥650元</span></p>
+		       </div>
+		       <div class="item">
+		         <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img src="__ROOT__/public/images/201001/thumb_img/4749_thumb_G_1262822060634.jpg" alt="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）" /></a></p>
+		         <p class="name"><a target="_blank" href="__APP__/Goods/index" title="技嘉（GIGaBYTE）Ga-Ma785GPMT-UD2H主板REV 1.0（aMD 785G/Socket aM3）">技嘉（GIGaBYTE）Ga-Ma785...<span></span></a></p>
+		         <p class="price">美智价：<span class="goodsPrice">￥650元</span></p>
+		       </div>
+		     </div>
+		   </div>
+		 </div>
+	   </div>
+	   <div id="globalRight">
+	     <div id="globalauction" class="globalModule top10">
+	       <h3 class="h3_3">
+	         <div id="list_t_l">
+	           <div id="list_t_r"><b>益智风暴畅销排行榜</b></div>
+	         </div>
+	       </h3>
+	       <div id="global_box">
+	         <div class="itemGrid itemGrid2">
+	           <div id="com1_b" class="tab_title clearfix" >
+	             <h2>航模竞技</h2>
+	             <h2 class="h2bg"> 机 器 人</h2>
+	             <h2 class="h2bg">天文地理</h2>
+	           </div>
+	           <div id="com1_v"></div>
+	           <div id="com1_h">
+	           <blockquote>
+	           <div class="line">
+	             <div class="item">
+	               <span class="no">1</span>
+	               <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4710_thumb_G_1262426233316.jpg" alt="联想（Lenovo）Y450a-TSI 14.0英寸笔记本电脑（T6600 2G 320G 512M独显 D刻 蓝牙 WIN7）" class="B_blue" /></a></p>
+	               <p class="name">  <a target="_blank" href="__APP__/Goods/index" title="联想（Lenovo）Y450a-TSI 14.0英寸笔记本电脑（T6600 2G 320G 512M独显 D刻 蓝牙 WIN7）">联想（Lenovo）Y450a-TSI 14.0英寸笔记本电脑（T6600 2G 320G 512M独显 D刻 蓝牙 WIN7）</a></p>
+	               <p class="price"><span class="goodsPrice">￥5099元        </span></p>
+	             </div>
+	           </div>
+	           <div style="clear:both"></div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           </blockquote>
+	           <blockquote>
+	           <div class="line">
+	             <div class="item">
+	               <span class="no">1</span>
+	               <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4710_thumb_G_1262426233316.jpg" alt="联想（Lenovo）Y450a-TSI 14.0英寸笔记本电脑（T6600 2G 320G 512M独显 D刻 蓝牙 WIN7）" class="B_blue" /></a></p>
+	               <p class="name">  <a target="_blank" href="__APP__/Goods/index" title="联想（Lenovo）Y450a-TSI 14.0英寸笔记本电脑（T6600 2G 320G 512M独显 D刻 蓝牙 WIN7）">联想（Lenovo）Y450a-TSI 14.0英寸笔记本电脑（T6600 2G 320G 512M独显 D刻 蓝牙 WIN7）</a></p>
+	               <p class="price"><span class="goodsPrice">￥5099元        </span></p>
+	             </div>
+	           </div>
+	           <div style="clear:both"></div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           <div class="txt_list">
+	             <span class="no">2</span>
+	             <a target="_blank" href="__APP__/Goods/index" title="惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）">惠普（hp）4411s 14.0英寸笔记本电脑（T6570 2G 250G DVD刻录 512独显 无线 摄像头）</a>
+	           </div>
+	           </blockquote>
+	         </div>
+	         <script type="text/javascript">
+	         <!--
+	         //reg("com1");
+	         //-->
+	         </script>
+	       </div>
+	     </div>
+	   </div>
+	   <div class="blank"></div>
+	   <div class="blank"></div>
+	   <table cellpadding="0" cellspacing="0">
+	     <tr>
+	       <td>
+	         <a href='affiche.php?ad_id=12&amp;uri=http%3a%2F%2Fwww.17558.net' target='_blank'><img src='__ROOT__/public/data/afficheimg/1306041433837845368.gif' width='211' height='90'border='0' /></a>
+	       </td>
+	     </tr>
+	   </table>
+	   <div class="blank"></div>
+	   <div id="globalauction" class="globalModule top10">
+	     <h3 class="h3_3">
+	       <div id="list_t_l">
+	         <div id="list_t_r"><b>户外运动站畅销排行榜</b></div>
+	       </div>
+	     </h3>
+	     <div id="global_box">
+	       <div class="itemGrid itemGrid2">
+	         <div id="com2_b" class="tab_title clearfix" >
+	           <h2>水上乐园</h2>
+	           <h2 class="h2bg">户外游戏</h2>
+	           <h2 class="h2bg">运动健身</h2>
+	         </div>
+	         <div id="com2_v"></div>
+	         <div id="com2_h">
+	           <blockquote>
+	             <div class="line">
+	               <div class="item">
+	                 <span class="no">1</span>
+	                 <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4718_thumb_G_1262450231383.jpg" alt="诺基亚（NOKIa）N86白色 3G手机 WCDMa/GSM800W卡尔蔡司镜头" class="B_blue" /></a></p>
+	                 <p class="name">  <a target="_blank" href="__APP__/Goods/index" title="诺基亚（NOKIa）N86白色 3G手机 WCDMa/GSM800W卡尔蔡司镜头">诺基亚（NOKIa）N86白色 3G手机 WCDMa/GSM800W卡尔蔡司镜头</a></p>
+	                 <p class="price"><span class="goodsPrice">￥3099元        </span></p>
+	               </div>
+	             </div>
+	             <div style="clear:both"></div>
+	             <div class="txt_list">
+	               <span class="no">2</span>
+	               <a target="_blank" href="__APP__/Goods/index" title="诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机">诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机</a>
+	             </div>
+	             <div class="txt_list">
+	               <span class="no">2</span>
+	               <a target="_blank" href="__APP__/Goods/index" title="诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机">诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机</a>
+	             </div>
+	             <div class="txt_list">
+	               <span class="no">2</span>
+	               <a target="_blank" href="__APP__/Goods/index" title="诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机">诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机</a>
+	             </div>
+	           </blockquote>
+	           <blockquote>
+	             <div class="line">
+	               <div class="item">
+	                 <span class="no">1</span>
+	                 <p class="pic"><a target="_blank" href="__APP__/Goods/index"><img  src="__ROOT__/public/images/201001/thumb_img/4718_thumb_G_1262450231383.jpg" alt="诺基亚（NOKIa）N86白色 3G手机 WCDMa/GSM800W卡尔蔡司镜头" class="B_blue" /></a></p>
+	                 <p class="name">  <a target="_blank" href="__APP__/Goods/index" title="诺基亚（NOKIa）N86白色 3G手机 WCDMa/GSM800W卡尔蔡司镜头">诺基亚（NOKIa）N86白色 3G手机 WCDMa/GSM800W卡尔蔡司镜头</a></p>
+	                 <p class="price"><span class="goodsPrice">￥3099元        </span></p>
+	               </div>
+	             </div>
+	             <div style="clear:both"></div>
+	             <div class="txt_list">
+	               <span class="no">2</span>
+	               <a target="_blank" href="__APP__/Goods/index" title="诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机">诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机</a>
+	             </div>
+	             <div class="txt_list">
+	               <span class="no">2</span>
+	               <a target="_blank" href="__APP__/Goods/index" title="诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机">诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机</a>
+	             </div>
+	             <div class="txt_list">
+	               <span class="no">2</span>
+	               <a target="_blank" href="__APP__/Goods/index" title="诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机">诺基亚（Nokia）N97i 3G手机 WCDMa/GSM （白色） 非移动定制机</a>
+	             </div>
+	           </blockquote>
+	         </div>
+		     <script type="text/javascript">
+		     <!--
+		     //reg("com2");
+		     //-->
+		     </script>
+		   </div>
+		 </div>
+	   </div>
+	   <div class="blank"></div>
+	   <div class="blank"></div>
+	 </div>
+   </div>
+   <div class="blank"></div>
+   
+   <include file="Public:footer" />
+   
+ </div>
+ <script type="text/javascript" src="__ROOT__/public/js/my_lefttime.js"></script>
+ </body>
+</html>

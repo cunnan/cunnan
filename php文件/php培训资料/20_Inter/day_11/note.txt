@@ -1,0 +1,103 @@
+﻿Redis：内存存储
+
+特点
+1、内存存储
+2、以键值对
+3、库
+4、计算机断电或关闭Redis服务，数据丢失
+
+下载资源包
+redis_win_2.6.13.zip
+  redisbin_x32.zip(32位)
+  redisbin_x64.zip(64位)
+
+
+安装
+1、在redis的目录中新建一个redis.conf文件
+2、启动服务：打开命令提示符窗口，并切换到redis目录中
+   redis-server.exe redis.conf
+   redis-server redis.conf
+3、登陆Redis：重新打开一个命令提示符窗口，并切换到redis目录中
+   redis-cli.exe --raw -h 主机地址 -p 端口号
+   redis-cli --raw -h 主机地址 -p 端口号
+   redis-cli --raw -h localhost -p 6379
+
+
+Redis命令
+1、存储一个数据
+   set 名 值
+   set userName 张三
+2、同时存储多个数据
+   mset 名 值 名 值 名 值...
+   mset sex 男 address 北京
+3、获得一个数据
+   get 名
+   get address
+4、同时获得多个数据
+   mget 名 名 名...
+   mget userName sex address
+5、删除一个或多个数据
+   del 名 名 名...
+6、清空库
+   flushdb
+7、判断某个值是否存在
+   exists 名
+8、选择库(库号：0-15，默认：0号库)
+   select 库号
+9、跨库移动数据
+   move 名 库号
+   move userName 3
+10、重命名
+    rename 原名 新名
+    rename userName names
+11、查看当前库下键名
+    *：代表任意长度的任意字符
+    ?：代表任意一个字符
+    []：多选一
+    1)查看当前库下所有键名
+      keys *
+    2)查看a开头的所有键名
+      keys a*
+    3)查看a开头，并且键名只有三个字符的所有键名
+      keys a??
+    4)查看以a或s开头的所有键名
+      keys [as]*
+12、值自减一
+    decr 名
+13、值自减一个指定的值
+    decrby 名 差值
+    decrby age 3
+14、值自增一
+    incr 名
+15、值自增一个指定的值
+    incrby 名 差值
+    incrby age 3
+
+
+安装php的Redis扩展
+1、将php_igbinary.dll、php_redis.dll文件复制到php的ext目录中
+2、修改php.ini配置文件
+   extension=php_igbinary.dll
+   extension=php_redis.dll
+   注意：这两个dll文件的顺序不能换
+3、重启Apache服务
+4、通过phpinfo()查看
+
+
+转换字符串的编码
+String iconv("当前编码","转换后编码","字符串");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

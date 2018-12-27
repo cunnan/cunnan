@@ -1,0 +1,201 @@
+﻿Linux介绍
+1、发展
+2、特点
+3、安装
+4、图形界面
+5、目录介绍
+6、颜色介绍
+
+
+Linux命令
+1、查看目录中的所有内容
+   ls
+   ls -a
+   ls -A
+   ls -l
+   ls 目录
+   ls -la 目录
+2、查看工作的路径
+   pwd
+3、切换目录
+   cd 文件夹
+   cd 文件夹/文件夹/文件夹
+   cd ..
+   cd /
+4、修改登陆密码
+   passwd
+   passwd 用户名
+5、创建文件夹
+   mkdir 文件夹
+   mkdir 路径/文件夹
+   mkdir 文件夹 文件夹 文件夹
+   mkdir -p 文件夹/文件夹/文件夹
+6、删除文件夹
+   rmdir 文件夹
+   rmdir 路径/文件夹
+   rmdir 文件夹 文件夹 文件夹
+   注意：只能删除空文件夹
+7、创建文件
+   touch 文件名
+   touch 路径/文件名
+   touch 文件名 文件名 文件名
+8、删除文件
+   unlink 文件名
+   unlink 路径/文件名
+   注意：一次只能删除一个文件
+9、删除文件或文件夹
+   rm -rf 文件名
+   rm -rf 文件夹
+   rm -rf 文件名 文件夹 文件夹 文件名
+   rm -rf *.*
+   rm -rf *
+   参数的作用：-f(不提示直接删除)  -r(递归删除文件夹)
+10、复制文件
+    cp 文件名 文件夹
+    cp 原文件名 文件夹/新文件名
+11、移动文件或文件夹
+    mv 文件名 文件夹
+    mv 原文件名 文件夹/新文件名
+    mv 文件夹 文件夹
+    mv 原文件夹 文件夹/新文件夹
+12、重命名
+    mv 原名 新名
+13、权限
+    1)权限种类：读(r 4)、写(w 2)、执行(x 1)
+    2)用户种类：a(所有用户) u(文件拥有者) g(组用户) o(其他用户)
+    3)权限操作符：+(赋予)、-(收回)
+    4)查看权限：ls -l
+    chmod 用户[+-]权限 文件名
+    chmod 用户[+-]权限 文件夹
+    chmod -R 用户[+-]权限 文件夹
+    chmod 数数数 文件名
+    chmod 数数数 文件夹
+    chmod -R 数数数 文件夹
+    注意：777(最大权限) 644(文件默认权限) 755(文件夹默认的权限)
+14、查找文件
+    find 路径 -name 文件名
+15、查看ip地址
+    ifconfig
+16、清屏
+    clear
+17、切换登陆用户
+    su 用户名
+    注意：高->低(不需要密码)   低->高(需要密码)
+18、打包
+    tar cvf xxx.tar 文件名 文件夹 文件夹 文件名
+    参数：c(创建)  v(显示打包信息)  f(包文件)
+    1)将a.txt、haha、hello打包成一个test.tar包(显示打包信息)
+      tar cvf test.tar a.txt haha hello
+    2)将a.txt、haha、hello打包成一个test.tar包(不显示打包信息)
+      tar cf test.tar a.txt haha hello
+19、解包
+    tar xvf xxx.tar
+    1)将test.tar进行解包(显示解包信息)
+      tar xvf test.tar
+    2)将test.tar进行解包(不显示解包信息)
+      tar xf test.tar
+    3)将test.tar中的hello文件夹进行解包
+      tar xf test.tar hello a.txt
+20、gzip压缩
+    gzip 文件名
+    1)将test.tar进行gzip压缩
+      gzip test.tar
+    注意：只能压缩文件
+21、gunzip解压缩
+    gunzip xxxx.gz
+    1)将test.tar.gz进行解压缩
+      gunzip test.tar.gz
+22、zip压缩
+    zip xxx.zip 文件名
+    1)将test.tar进行压缩，压缩后的名称为：test.zip
+      zip test.zip test.tar
+    注意：只能压缩文件
+23、unzip解压缩
+    unzip xxx.zip
+    1)将test.zip进行解压缩
+      unzip test.zip
+24、vi编辑器(命令行下的编辑器)
+    1)通过vi打开指定文件
+      vi 文件名
+      vi 路径/文件名
+    2)编辑器的状态：命令状态、编辑状态
+      命->编：按下"i"键
+      编->命：按下"Esc"键
+    3)保存文件：切换到命令状态
+      输入：":w"回车
+    4)退出编辑器：切换到命令状态
+      输入：":q"回车
+    5)保存并退出：切换到命令状态
+      输入：":wq"回车
+    6)不保存退出：切换到命令状态
+      输入：":q!"回车
+    7)查找内容：切换到命令状态
+      输入："/要查找的内容"回车
+      查找下一个：按下"n"键
+      查找上一个：按下"shift+n"键
+    8)显示行号：切换到命令状态
+      输入：":set nu"回车
+25、查看文件编码
+    file 文件名
+26、不打开文件，直接查看文件的内容
+    cat 文件名
+27、不打开文件，直接查看文件的内容
+    more 文件名
+28、不打开文件，直接查看文件的内容
+    less 文件名
+    注意：按q退出
+29、查看系统盘符
+    fdisk -l
+    注意：U盘，linux只识别FAT、FAT32格式
+30、挂载u盘
+    mount u盘磁盘的路径 挂载到的路径
+    1)将u盘挂载到/tarena/uuu文件夹
+      mount /dev/sdb1 uuu
+      mount /dev/sdb1 /tarena/uuu
+31、卸载u盘
+    umount 挂载u盘的路径
+    1)将/tarena/uuu挂载的u盘卸载
+      umount uuu
+      umount /tarena/uuu
+32、查看系统进程
+    ps -A
+33、结束进程(杀死进程)
+    kill 进程号
+    kill 2120
+34、查看系统服务信息
+    service --status-all
+35、操纵服务
+    1)开启服务
+      service 服务名 start
+    2)关闭服务
+      service 服务名 stop
+36、查看日期
+    date
+37、查看当前月份日历
+    cal
+38、重启计算机
+    reboot
+39、定时关机
+    shutdown -h 时间
+    shutdown -h 14:55
+40、关机
+    halt
+
+
+发布网站
+1、服务器空间：php/100M/年/90元
+2、数据库空间：MySQL/10M/年/90元
+3、域名(www万维)：gov、com、org、net、cn
+   com/年/60元    cn/年/20元
+
+
+
+
+
+
+
+
+
+
+
+

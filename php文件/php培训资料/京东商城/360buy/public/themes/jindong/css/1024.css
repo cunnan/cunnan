@@ -1,0 +1,39 @@
+/* 1024 */
+#container {width:980px;}
+/* 1024 */
+#globalMiddle{width: 546px; overflow:hidden} 
+/* 1024 */
+#globalBigRight { width:760px;  overflow:hidden}
+#globalBigRight3 { width:760px; overflow:hidden}
+/* 1024 */
+#itemInfoList { width:405px;}
+/* 1024 */
+#globalLoginLeft {width:485px;float: left;overflow:hidden}
+#globalLoginRight {width:485px;float:right;overflow:hidden}
+#globalLoginLeft h3{ width:485px; height:38px; background:url(../images/denglu_title.gif) no-repeat;padding:20px 0 0 20px; color:#FFFFFF; font-size:14px; overflow:hidden;}
+#globalLoginRight h3{ width:485px; height:38px; background:url(../images/zhuce_title.gif) no-repeat; padding:0; padding:20px 0 0 20px; color:#FFFFFF; font-size:14px; overflow:hidden;}
+#globalLoginLeft form,#globalLoginRight form{margin:0; background:url(../images/login_box_m.gif) repeat-y; padding:0; height:500px; float:left;}
+#globalLoginMain {width:980px;}
+#globalLoginMain h3{ width:960px; height:38px; background:url(../images/goable_main_t.gif) no-repeat;padding:20px 0 0 20px; color:#FFFFFF; font-size:14px; overflow:hidden;}
+#globalLoginMain form{margin:0; background:url(../images/goable_main_m.gif) repeat-y; padding:0; float:left;}	 
+#goable_main_bottom{background:url(../images/Login_bottom.gif) no-repeat; width:485px; height:2px;float:left;} 
+#goable_main_bottom2{background:url(../images/goable_main_b.gif) no-repeat; width:980px; height:3px;float:left;} 
+
+
+
+
+/* 1024 */
+#promotionVideo{text-align:left; margin:0 auto; padding-bottom:10px; width:546px; height:120px; position:relative; overflow:hidden}	
+
+#promotionVideo *{ position:absolute; top:0; right:0;}
+
+
+  #globalHelp dt a{ float: left; width:120px;  }
+
+
+
+#globalcat h3 .cat_r{_width:97.2%;} 
+
+
+
+.hot_item2_2{ float: left; width:72px; overflow:hidden}

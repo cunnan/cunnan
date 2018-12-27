@@ -1,0 +1,15 @@
+body,td,a{
+	font-size:13px;
+}
+a{
+	color:blue;
+	text-decoration:none;
+}
+a:hover{
+	color:red;
+	text-decoration:underline;
+}
+input{
+	border:1px solid black;
+	background-color:white;
+}

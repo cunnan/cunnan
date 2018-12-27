@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style>
+       .box1{/*外阴影:水平方向正值向右 ,垂直正值向下 */
+	       width:100px;
+       	   height:100px;
+       	   background:#ff0;
+           box-shadow:5px 5px 8px 1px #f0f;
+       }
+       .box2{/*内阴影 :水平方向正值向右 ,垂直正值向下 */
+	       width:100px;
+       	   height:100px;
+       	   background:#ff0;
+           box-shadow:5px 5px 8px 1px #f0f inset;
+       }
+      .box3{/*外阴影:水平方向负值向左 ,垂直正值向下*/
+	       width:100px;
+       	   height:100px;
+       	   background:#ff0;
+           box-shadow:-5px 5px 8px 1px #f0f;
+       }
+      .box4{/*外阴影:水平方向正值向右 ,垂直负值向上*/
+	       width:100px;
+       	   height:100px;
+       	   background:#ff0;
+           box-shadow:5px -5px 8px 1px #f0f;
+       }
+      .box5{/*外阴影:水平方向负值向左 ,垂直负值向上*/
+	       width:100px;
+       	   height:100px;
+       	   background:#ff0;
+           box-shadow:-5px -5px 8px 1px #f0f;
+       }
+       .box6{
+	       width:100px;
+       	   height:100px;
+       	   background:#00f;
+       	   box-shadow:3px 3px 5px #f00,
+       	           -3px -3px 5px #0f0,
+       	           0px 0px 8px 5px #ff0 inset;
+       }
+    </style>
+  </head>
+  <body>
+     <div class="box1"></div>
+     <br/>
+     <div class="box2"></div>
+     <br/>
+     <div class="box3"></div>
+     <br/>
+     <div class="box4"></div>
+     <br/>
+     <div class="box5"></div>
+     <br/>
+     <div class="box6"></div>
+  </body>
+</html>

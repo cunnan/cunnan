@@ -1,0 +1,119 @@
+﻿会话
+一、HTTP协议
+       用来规定客户端与服务器进行数据交互的方式和格式。
+
+       方式：
+       请求（request）和应答(response)的方式
+
+       格式:
+       见图片
+      
+      特点：
+       无状态：无法记录用户的行为。
+
+二、COOKIE
+       1、cookie的生成
+             setcookie(string $name,string $value,int $expire)
+             功能：生成cookie
+             参数：
+             name cookie的名称
+             value  cookie的值
+             expire cookie的存活时间。存活时间是从现在向后顺延的秒数。
+                        例如cookie的存活时间是一个小时
+                        time()+3600 
+                        若expire存活时间没有给出，则关闭浏览器，cookie就失效。
+
+       2、读取cookie
+             $_COOKIE['cookiename']
+
+
+      3、删除COOKIE
+            setcookie(sting $name,string $value,int $expire) 
+            功能：删除cookie
+            参数：
+            name 要删除的cookie的名称
+            value  空字符串“”
+            expire 当前时间戳剪去任意时间。
+
+        问题：安全
+
+三、SESSION
+       1、生成SESSION
+             session_start()
+             - 分配sessionid给客户端。
+                kpdq9lu2gfm9p6e54cuvi9ni35
+             - 在服务器端创建session文件。
+                sess_kpdq9lu2gfm9p6e54cuvi9ni35
+
+
+             $_SESSION['sessionname'] = sessionvalue
+      
+         2、读取SESSION
+               session_start()
+               将浏览器上的sessionid与服务器端的session文件建立连接
+               
+              $_SESSION['sessionname']  
+
+         3、SESSION的删除
+               session_start()
+                -  将sessionid与session文件建立连接       
+               - unset($_SESSION['sessionname'])  
+                   删除一个session元素
+
+               - $_SESSION = array();
+                   将整个session文件清空
+
+               - session_destroy();
+                   删除session文件
+
+         4、SESSION的垃圾回收
+               session.gc_maxlifetime = 1440（24分钟）
+               记录session文件的最大存活时间。超过1440秒，session文件就被视为垃圾文件。
+               删除是由session_start()
+               session_start()并不是每次启动都执行垃圾删除。
+               session_start()执行垃圾删除的时机：
+                session.gc_probability = 1/session.gc_divisor = 1000   
+               session_start()每启动1000次，有1次删除垃圾文件的机会。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+习题：
+1、在test1.php文件中保存cookie，名称为uname，值为jerry。
+      在test2.php文件中读取出cookie的值。
+2、删除上一题设置的cookie。
+3、用户登录
+
+4、在test1.php 文件中保存session，在test2.php 文件中读取出保存的session内容。
+
+5、删除上一题创建的session文件。
+
+6、思考：验证码验证如何忽略掉大小写。
+     
+
+
+
+
+
+
+
+
+
+
+

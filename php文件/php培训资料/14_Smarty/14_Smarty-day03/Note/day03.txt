@@ -1,0 +1,92 @@
+﻿项目中的使用，静态化 ？
+定义：把php程序运行的结果html，生成一个html文件。
+如何实现：
+1、获取php程序的运行结果
+$content="内容";
+2、生成html文件
+fopen(path,'w r a')
+string fread($f)
+int fwrite($f,$content)
+fclose($f)
+3、列表页---》详细页  静态页 html    
+detail.php?id=7-----7.html
+
+优点：
+减轻了mysql服务器的压力。
+90%----mysql
+
+前提条件：
+数据不变，变化的频率超低。
+
+程序写在哪？后台
+1、文章添加,写数据库表完成，立马静态化
+save.php
+
+2、文章修改
+usave.php
+
+3、全部静态化？？？
+从数据库表news中获取所有记录，遍历，逐条静态化。
+
+逐条静态化
+start=0-----------静态化第一条  3
+where id>$start
+url:localhost/14_smarty/news/toHtml.php?start=0
+start=第一条文章id-------第二条  5
+where id>3
+url:localhost/14_smarty/news/toHtml.php?start=3
+
+url:localhost/14_smarty/news/toHtml.php?start=5
+......
+
+第一步：新建一个文件toHtml.php
+第二步：编程
+接收start值
+获取记录  where id>$start order by id asc limit 1
+获取模板的运行结果news/detail.html
+写文件
+提示，自动下一次请求 http
+
+
+总结：
+
+MVC
+
+
+
+
+
+
+
+
+
+
+
+
+
+$smarty->fetch()//获取页面运行结果（模板的运行结果）
+
+
+
+
+
+
+
+
+
+
+
+MVC
+ThinkPHP
+Yii
+MySQL
+88
+
+
+
+
+
+
+
+
+

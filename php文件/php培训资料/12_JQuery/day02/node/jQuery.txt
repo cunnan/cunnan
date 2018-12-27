@@ -1,0 +1,103 @@
+﻿jQuery
+       5、节点的添加和删除
+              $(selector).append("添加的新内容")
+              功能：在选择器原有内容的后面添加新的内容。新的内容可以是HTML标签。
+             
+              $(selector).prepend("添加的新内容")
+              功能：在选择器原有内容的前面添加新的内容。新的内容可以是HTML标签。
+
+              $(selector).before("添加的新内容")
+               功能：添加新的内容在选择器的外面的前面。新的内容可以是HTML标签。
+
+              $(selector).after("添加的新内容")
+              功能：添加新的内容在选择器的外面的后面。新的内容可以是HTML标签。
+
+              $(selector).remove();
+              功能：删除指定的节点
+              $(selector).empty()
+              功能：清空节点
+
+五、jQuery的事件
+       1、bind事件
+             $(selector).bind(type[,data],fn)
+              功能：事件的处理
+              参数：
+              type 事件 
+                       click，dblclick，mouseover，mouseup，mouseout,mousedown,keyup,keypress,keydown,load,unload,focus,blur,change,submit等。
+                        事件要求以字符串形式体现。
+              data 传递的参数
+              fn     事件处理程序。匿名函数，自定义函数的名称。
+
+              $(selector).bind({type:fn,type:fn}); 
+
+        2、简写事件
+              $(selector).type(fn)
+              功能：事件处理
+              参数：
+              fn 事件处理程序
+
+       3、hover事件
+             $(selector).hover(fn1,fn2); 
+             功能：封装了鼠标划入和鼠标划出事件。
+             参数：
+             fn1 针对鼠标划入事件的事件处理程序。
+             fn2 针对鼠标划出事件的事件处理程序。
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+习题：
+1、在下面的HTML文档中
+      <div>
+          原有内容
+      </div>
+       <h1>标题1</h1>
+     在h1的上一个同胞节点的原有内容的前面添加新的文档。文档内容为 “新文档”，要求文档字体为红色。
+
+2、有如下html文档
+      <div style='width:150px;height:150px;background-color:green;'></div>
+<input type="button" value="单击" />
+     单击按钮，改变div层的背景色。
+
+3、有如下html文档
+      <div style='width:150px;height:150px;background-color:green;'></div>
+      当鼠标划入div层时，改变背景色为红色。当鼠标划出div层时，改变背景色为黄色。
+
+4、有div层，应用鼠标单击事件，鼠标第一次点击div层时，背景色为红色。第二次点击是div层背景色为绿色，第三次点击div层时，背景色为黄色。周而复始。
+
+5、有div层，当鼠标划入div层时，改变div层的文本为 
+      mouseover，当鼠标划出div层时，改变div层的文本为mouseout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              

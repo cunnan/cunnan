@@ -1,0 +1,253 @@
+﻿ctrl+f5 清除缓存刷新
+jQuery
+六、jQuery的特效
+       1、隐藏和显示
+             $(selector).hide([speed])
+             功能：隐藏
+             参数：
+             speed 隐藏的速度。字符串类型：slow（慢）、fast（快）
+                                             数值类型（毫秒）：1000
+ 
+            $(selector).show([speed])
+            功能：显示
+            参数：
+             speed 显示的速度。字符串类型：slow（慢）、fast（快）
+                                             数值类型（毫秒）：1000
+
+
+       2、滑上和滑下
+             $(selector).slideUp([speed])
+             功能：滑上
+             参数：
+             speed 滑上的速度。字符串类型：slow（慢）、fast（快）
+                                             数值类型（毫秒）：1000
+
+             $(selector).slideDown([speed])
+             功能：滑下
+             参数：
+             speed 滑下的速度。字符串类型：slow（慢）、fast（快）
+                                             数值类型（毫秒）：1000 
+
+        3、淡入和淡出
+              $(selector).fadeIn([speed])
+              功能：淡入
+              参数：
+              speed 淡入的速度.字符串类型：slow（慢）、fast（快）
+                                            数值类型（毫秒）：1000 
+
+              $(selector).fadeOut([speed])
+              功能：淡出
+              参数：
+              speed  淡出的速度。字符串类型：slow（慢）、fast（快）
+                                                数值类型（毫秒）：1000 
+
+              $(selector).fadeTo([speed],opacity)
+              功能：淡出到指定的透明度
+              参数：
+              speed   淡出的速度。字符串类型：slow（慢）、fast（快）
+                                                数值类型（毫秒）：1000 
+              opacity 透明度。取值范围0~1。值越小透明度越高。
+
+        4、动画特效
+              $(selector) .animate({样式名称：样式值[,样式名称：样式值...]})
+              功能：动画特效
+              参数：
+               对象 要修改的选择器的css样式。css样式是数值类型样式。
+
+        5、$(selector).stop()
+              功能：停止选择器上的特效
+
+七、jQuery的工具函数
+       1、$.trim(string str) 
+            功能：去掉字符串的前后空格
+            参数：
+            str 要去掉前后空格的字符串
+  
+       2、$.each(array arr,function(key,value){ 
+                        数组遍历
+             })  
+            功能：数组的遍历
+
+      3、$.grep(array arr,function(value,key){}) 
+            功能：数组的过滤
+            参数：
+            arr 要进行过滤的数组
+            function(value,key){} value 要进行过滤的数组元素
+                                                key    要进行过滤的数组的下标
+            返回：过滤后的数组
+
+      4、过滤和计算
+            $.map(array arr,function(value,key){
+                        //过滤和计算
+            })
+           功能：数组的过滤和计算
+           参数：
+           arr 要过滤和计算的数组
+           function(value,key){} value 数组的元素
+                                               key    数组的下标
+           返回：过滤和计算后的数组
+
+       5、$.merge(array arr1,array arr2)
+             功能：数组的合并
+             参数：
+             arr1 arr2 要进行合并的数组
+             返回：合并后的数组
+
+       6、$.isArray(变量)
+             功能：判断给定的变量是否是一个数组
+             参数：
+             变量  要进行判断的变量
+             返回：布尔值
+
+       7、$.isNumeric(变量)
+             功能：判断给定的变量是否是一个数值（number）类型
+             参数：
+             变量  要进行判断的变量
+             返回：布尔值
+        
+       8、$.isFunction(变量)
+             功能：判断给定的变量是否是一个函数类型
+             参数：
+             变量  要进行判断的变量
+             返回：布尔值
+ 
+       9、$.type(变量)   
+             功能：测试并返回变量的数据类型
+             参数：
+             变量   要进行测试的变量
+             返回：数据类型
+             
+八、特殊的选择器 this
+
+九、AJAX
+       AJAX （Asynchronous JavaScript And XML）
+       AJAX并不是一门新的语言，综合 JavaScript、XML、JSON、XMLHTTPRequest对象。
+       
+      AJAX 优点：
+      1、提升用户体验
+      2、减轻服务器负担
+      3、不需要插件
+
+     AJAX 缺点：
+      1、破坏浏览器的前进和后退按钮
+      2、对搜索引擎支持度不高。
+
+     AJAX数据的异步提交和更新
+     同步：通话
+     异步：短信
+
+     1、$(selector).load(url[,data][,callback])
+           功能：ajax异步数据提交或获取
+           参数：
+           url 异步请求数据的地址
+           data 异步请求的数据
+           callback function(request,status,xhr){} 
+                          request 异步数据请求返回的结果
+                          status    异步数据请求返回的状态
+                                         success、error
+                          xhr         XMLHttpRequest对象。内置了request，status。
+
+     2、$.get 和 $.post
+           $.get(url[,data][,callback])
+           功能：发送异步数据请求
+           参数：
+           url 异步数据请求的地址
+           data 异步数据请求的数据
+           callback 异步数据请求的回调函数 
+                         function(response,status,xhr){
+                          }
+                          request 异步数据请求返回的结果
+                          status    异步数据请求返回的状态
+                          xhr         XMLHttpRequest对象。内置了request，status。
+
+
+          $.post(url[,data][,callback])
+           功能：发送异步数据请求
+           参数：
+           url 异步数据请求的地址
+           data 异步数据请求的数据
+           callback 异步数据请求的回调函数 
+                         function(response,status,xhr){
+                          }
+                          request 异步数据请求返回的结果
+                          status    异步数据请求返回的状态
+                          xhr         XMLHttpRequest对象。内置了request，status。
+
+        jQuery获取form表单中的值
+        $(selector).val();
+
+     
+     
+
+
+
+
+
+
+
+
+
+
+      
+             
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+              
+
+
+    
+
+
+
+习题：
+1、有如下的HTML文档：
+     <img src=""/>
+      <input type="button" value="hide" id="hide"/>
+<input type="button" value="show" id="show"/>
+     点击hide按钮图片隐藏，点击show按钮图片显示。
+2、有如下的HTML文档：
+     <img src=""/>
+      <input type="button" value="animate" id="animate"/>
+     点击按钮让图片向左移动300像素。
+
+3、遍历数组
+      var  arr = ["team","time","term"]
+     将遍历到的结果写入到div层中。写入的格式为：
+      key=0 value=team
+
+4、有如下变量
+      var email = "1";
+      var hosts = ["163.com","126.com","qq.com"]
+      过滤数组，要求找出数组中元素包含email字符串的数组元素。
+
+5、有如下HTML标签
+       <div>div层1<span style="background-color:green;">span1</span></div>
+<div>div层2<span style="background-color:blue;">span2</span></div>
+     点击span，在被点击的span的父级div层中加入
+     <span style='color:red'>hello</span>
+    要求加入新标签后不破坏原有HTML文档。
+
+
+
+
+
+
+
+
+
+

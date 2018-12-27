@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>用户中心_京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/public/js/transport.js"></script>
+    <script type="text/javascript" src="__ROOT__/public/js/user.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+        var msg_title_empty = "留言标题为空";
+        var msg_content_empty = "留言内容为空";
+        var msg_title_limit = "留言标题不能超过200个字";
+      //]]>
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      
+      <include file="Public:header" />
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div id="urHere" class="globalModule">
+        <h3><a href=".">首页</a> <code>&gt;</code> 用户中心</h3>
+      </div>
+      <div class="blank"></div>
+      <div id="globalLeft">
+        <div class="globalModule">
+          <h3><div id="list_t_l"><div id="list_t_r"><b>用户中心</b></div></div></h3>
+          <div id="global_box" class="userMenu">
+            <a href="__APP__/User/index" class="curs"><img src="__ROOT__/public/themes/jindong/images/u1.gif"> 欢迎页</a>
+			<a href="__APP__/User/profile"><img src="__ROOT__/public/themes/jindong/images/u2.gif"> 用户信息</a>
+			<a href="__APP__/User/order"><img src="__ROOT__/public/themes/jindong/images/u3.gif"> 我的订单</a>
+			<a href="__APP__/User/address"><img src="__ROOT__/public/themes/jindong/images/u4.gif"> 收货地址</a>
+			<a href="__APP__/User/collection"><img src="__ROOT__/public/themes/jindong/images/u5.gif"> 我的收藏</a>
+			<a href="__APP__/User/message"><img src="__ROOT__/public/themes/jindong/images/u6.gif"> 我的留言</a>
+			<a href="__APP__/User/tag"><img src="__ROOT__/public/themes/jindong/images/u7.gif"> 我的标签</a>
+			<a href="__APP__/User/booking"><img src="__ROOT__/public/themes/jindong/images/u8.gif"> 缺货登记</a>
+			<a href="__APP__/User/bonus"><img src="__ROOT__/public/themes/jindong/images/u9.gif"> 我的红包</a>
+			<a href="__APP__/User/affiliate"><img src="__ROOT__/public/themes/jindong/images/u10.gif"> 我的推荐</a>
+			<a href="__APP__/User/comment"><img src="__ROOT__/public/themes/jindong/images/u11.gif"> 我的评论</a>
+			<!--<a href="__APP__/User/groupbuy">我的团购</a>-->
+			<a href="__APP__/User/trackpackages"><img src="__ROOT__/public/themes/jindong/images/u12.gif"> 跟踪包裹</a>
+			<a href="__APP__/User/accountlog"><img src="__ROOT__/public/themes/jindong/images/u13.gif"> 资金管理</a>
+			<a href="__APP__/User/logout" style="background:none; text-align:right; margin-right:10px;"><img src="__ROOT__/public/themes/jindong/images/bnt_sign.gif"></a>
+		  </div>
+		</div>
+      </div>
+      <div id="globalBigRight">
+        <div id="globalUserCenterInfo" class="globalModule">
+          <div class="globalModuleContent">
+            <h2>hello 欢迎您回到 京东网上商城！</h2>
+            <p class="textDesc">您的上一次登录时间：2012-05-30 09:45:49</p>
+            <p class="textDesc">您的等级是 注册用户 </p>
+            <p class="textStrong">您还没有通过邮件认证 <a href="javascript:sendHashMail()">点此发送认证邮件</a></p>
+            <div class="msgNocice">用户中心公告！</div>
+            <div class="f_l" style="width:350px; float:left">
+              <h5 class="h5"><span>您的账户</span></h5>
+              <div class="blank"></div>
+              &nbsp;余额:<a href="__APP__/User/accountlog" style="color:#006bd0;">￥0.00元</a><br />
+              &nbsp;红包:<a href="__APP__/User/bonus" style="color:#006bd0;">共计 0 个,价值 ￥0.00元</a><br />
+              &nbsp;积分:0积分<br />
+            </div>
+            <div class="f_r" style="width:350px; float:right">
+              <h5 class="h5"><span>用户提醒</span></h5>
+              <div class="blank"></div>您最近30天内提交了1个订单<br />
+            </div>
+          </div>
+        </div>
+        <div class="tab_box"></div>
+      </div>
+      <div class="blank"></div>
+      
+      <include file="Public:footer" />
+      
+    </div>
+  </body>
+</html>

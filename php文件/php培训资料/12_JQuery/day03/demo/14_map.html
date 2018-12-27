@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 工具函数</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+$(function(){
+	var arr = [18,3,6,20];
+	var result = $.map(arr,function(value,key){
+		if(value>10){
+			return value*10;//180,200
+		}
+	});
+	alert(result);
+});
+</script>
+</head>
+
+
+<body>
+<div></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

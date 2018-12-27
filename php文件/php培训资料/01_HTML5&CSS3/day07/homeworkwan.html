@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+       .nav-wrap{
+	      height:40px;
+       	  background:#FF8400;
+       	  line-height:40px;
+       }
+       .nav{
+	      width:1000px;
+       	  margin:0 auto;
+       }
+       .nav ul{
+	     float:left;/*左版块*/
+       }
+       .nav li{
+	      float:left;
+       	  font:16px/40px 微软雅黑;
+       	  padding:0 32px;
+       }
+       .nav li.cur{
+	      background:#FF471C;
+       	  
+       }
+       .nav li.cur a{
+	      color:#000; 
+       }
+       .nav li a{
+	      color:#fff;
+       }
+       .nav .link-info{/*右版块*/
+	     float:right;
+         width:135px;
+         height:40px;
+         background:url(images/bg02.gif) no-repeat;
+         padding-left:30px;
+       }
+       .link-info img{
+	      width:26px;
+       	  float:left;
+       	  border-radius:13px;
+       	  margin:7px 6px 0 0;
+       }
+       .link-info a{
+	      float:left;
+       }
+    </style>
+  </head>
+  <body>
+     <div class="nav-wrap"><!--100%背景-->
+       <div class="nav"> <!--固定宽度内容居中显示-->
+          <ul>
+             <li class="cur"><a href="#">首页</a></li>
+             <li><a href="#">食谱</a></li>
+             <li><a href="#">探店</a></li>
+             <li><a href="#">佳饮</a></li>
+             <li><a href="#">美食圈</a></li>
+             <li><a href="#">美食专题</a></li>
+             <li><a href="#">作者排行榜</a></li>
+          </ul>
+          <div class="link-info">
+             <img src="images/meishi.jpg" alt=""/>
+             <a href="#">搜狐美食</a>
+          </div>
+       </div>
+     </div>
+  </body>
+</html>

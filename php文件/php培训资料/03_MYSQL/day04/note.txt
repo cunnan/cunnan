@@ -1,0 +1,93 @@
+一.约束条件
+ 1.种类
+  (1) NOT NULL 不能为空
+  (2)DEFAULT  默认值
+  (3)[PRIMARY]KEY 主键
+  (4)UNIQUE [KEY] 唯一性
+  (5)FOREIGN KEY  外键
+ 2.FOREIGN KEY  外键:一对多个表实现的
+     字段的完整性和一致性的约束
+     
+ 3.完整格式
+   create table test(
+     id int ...,
+     aid int unsigned NOT NULL,
+     tid int unsigned NOT NULL,
+     FOREIGN KEY(外键列aid) 
+     REFERENCES 父名称cms_admin(id)
+     [UPDATE RESTRICT|CASCADE|SET NULL|NO ACTION]
+     [DELETE RESTRICT|CASCADE|SET NULL|NO ACTION]
+   );
+        说明:
+      RESTRICT默认值|NO ACTION: 不能更新或删除父表的信息
+                                                                  子表中有相应数据的信息
+      CASCADE:级联 ,当更新或删除父表的信息,子表也更新或删除
+                              相应的信息  
+                                                               
+      SET NULL:当更新或删除父表的信息,子表也设置为 NULL值
+   
+  4. 逻辑外键
+          原理:父表和子表是一个表，实现无限极菜单分类
+          
+二.可视化操作MySQL工具
+  1. c/s： client/server 桌面安装软件
+       (1)Navicat
+       (2)Mysql_Front
+  2. b/s: browser/server 通过浏览器执行的软件
+       (1) phpMyAdmin (php语言开始的)
+            说明:
+       php.ini 配置文件
+       a. extension_dir='D:\php5.4\ext'
+         PHP动态链接库文件(函数库)位置
+       b. 加载函数库
+         extension=php_mysql.dll
+         extension=php_mysqli.dll
+         extension=php_mbstring.dll
+                   将配置文件中语句前面的分号去掉
+                   然后重启apache才能生效
+三. 备份和恢复
+   1.登录时备份:
+     mysqldump -uroot -p 数据库[表]>文件位置(d:/my.sql)
+   2.恢复
+     USE 数据库
+     mysql> source 文件位置(d:/my.sql)
+   
+   
+   
+   
+   
+   
+   
+    
+
+
+
+       
+       
+       
+    
+
+          
+         
+  
+  
+  
+  
+  
+  
+   
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+  
+  

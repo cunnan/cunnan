@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style>
+      .box p:before{
+	      content:"+==+";
+      }
+      .box p:after{
+	      content:url(images/pic1.jpg);
+      }
+      a:after{
+	     content:attr(class);
+      }
+    </style>
+  </head>
+  <body>
+      <div class="box">
+         <p>段落</p>
+         <p>段落</p>
+         <p>段落</p>
+         <p>段落</p>
+      </div>
+      <a href="#" title="这是链接" class="test1">链接内容</a>
+  </body>
+</html>
+
+
+
+
+
+

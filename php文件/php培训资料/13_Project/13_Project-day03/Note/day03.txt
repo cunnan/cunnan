@@ -1,0 +1,54 @@
+﻿文章管理的添加，列表，修改，删除--逻辑删除
+添加：
+	1、表单页面
+	表单元素由表字段决定
+	title
+	content
+	//addtime
+	typeid
+		a
+			//读取数据库表type,找a的子，呈现
+		b
+		c
+		
+		|
+		提交
+		|
+		save.php
+		提示跳转
+文章列表页：
+	实例化数据库操作类
+	获取总记录数
+	规定每页的条数
+	实例化分页类
+	获取开始位置
+	获取当前页的数据
+	显示列表
+	显示分页效果
+select n.*,t.tname from news as n join type as t on n.typeid=t.id 
+修改
+删除---逻辑删除  state---->9
+update("news",array('state'=>9),"")
+
+广告图片管理   上传图片
+不同的一级分类下，有不同的广告图片
+alter table advinfo add typeid int default 0;
+
+
+4、开发后台
+5、实现前台
+6、测试
+7、上线   服务器   域名
+
+	
+
+
+
+
+
+
+
+
+
+
+

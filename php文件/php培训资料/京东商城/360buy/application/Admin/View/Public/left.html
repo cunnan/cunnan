@@ -1,0 +1,44 @@
+<script type=text/javascript src="__ROOT__/library/dtree/js/dtree.js"></script>
+<script  type=text/javascript> 
+  //退出后台
+  function logout()
+  {
+	  if(confirm("是否退出后台管理系统?"))
+	  {
+		  window.location = "";
+	  }
+  }
+  function hello()
+  {
+    d = new dTree('d','__ROOT__/library/dtree/');
+
+    d.add(0,-1,'后台管理','');
+
+    d.add(1,0,'重新登陆','javascript:logout()');
+
+    d.add(2,0,'分类管理','');
+    d.add(21,2,'添加分类','__APP__/AddType/index');
+    d.add(22,2,'修改分类','__APP__/ModType/index');
+    
+    d.add(3,0,'品牌管理','');
+    d.add(31,3,'添加品牌','__APP__/AddBrand/index');
+    d.add(32,3,'修改品牌','__APP__/ModBrand/index');
+
+    d.add(4,0,'产品管理','');
+    d.add(41,4,'添加产品','__APP__/AddProduct/index');
+    d.add(42,4,'修改产品','__APP__/ModProduct/index');
+
+    d.add(5,0,'订单管理','');
+    d.add(51,5,'查看订单','__APP__/Order/index');
+    
+    d.add(6,0,'设置管理员','');
+    d.add(61,6,'添加管理员','__APP__/User/index');
+    d.add(62,6,'修改管理员','__APP__/User/update');
+
+    d.add(7,0,'返回首页','__APP__/Index/index');
+
+    document.write(d);
+  }
+
+  hello();
+</script>

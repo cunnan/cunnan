@@ -1,0 +1,137 @@
+﻿PDO
+一、概述
+       PDO (PHP Data Object PHP数据对象) 
+       封装好的类：
+       PDO、PDOStatement
+
+二、安装 
+       1、 确认是否安装
+              <?php
+                   phpinfo();
+       2、编辑php.ini
+             extension_dir = "D:\php5.4\ext"
+             extension=php_pdo_mysql.dll 去掉前面的“;”
+       3、重启apache
+       4、再次确认是否安装成功。
+
+三、PDO的应用
+       1、实例化PDO类，获取类对象
+              $pdo = new PDO(string $dsn[,string $username][,string $passwod]) 
+              功能：获取类对象
+              参数：
+              dsn  data source name 数据源名称
+                       连接数据库类型 mysql
+                       连接数据库的主机名称 localhost、127.0.0.1
+                       数据库的名称，例如：cms
+                       格式：mysql:host=localhost;dbname=cms  
+             username 用户名
+             password  密码
+
+        2、操作
+              exec(string $query)
+              功能：执行sql语句
+              参数：
+               query  没有返回结果集的sql语句。例如：insert，delete，update
+              返回：被影响的行数。有可能受影响行数是：0
+
+        3、lastInsertId()
+              功能：获取最近一次成功insert操作产生的id，要求id必须是自增的。
+              返回：自增的id
+
+        4、query(string $query)
+              功能：执行有返回结果集的sql语句
+              参数：
+              query  有返回结果集的sql语句
+              返回：PDOStatement 类对象。
+
+四、PDO准备语句
+        1、提升效率
+        2、提高安全性
+        
+        准备语句执行的步骤
+         1、PDO通知mysql编译sql语句。编译的sql语句有可能带有参数。
+               prepare($query)
+               功能：编译sql语句。
+               参数：
+               query  要进行编译的sql语句。包括：有返回结果集的sql语句和没有返回结果集的sql语句。
+               返回：PDOStatement类的类对象。
+
+         2、 若编译的sql语句带有参数，则绑定参数。可选
+                - 以？来表示参数
+                   bindParam(string $name,string $value)
+                   功能：参数绑定
+                   参数：
+                   name  参数的名称，若参数是以 “?”,则参数名称从下标1开始顺延。
+                   value   参数值 value必须是一个变量名称。
+                    
+                   
+
+
+   
+
+         3、执行
+               execute()
+               功能：执行准备语句编译好的sql语句。PDOStatement类的成员方法。
+               返回：没有返回结果集的sql语句，返回是布尔值。
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+       
+	
+
+
+习题：
+1、应用PDO类，实例化PDO类，获取类对象
+2、应用PDO类，更新cms_news表中的tid字段，观察被影响的行数。
+3、向cms_admin表中添加一条用户记录。若添加成功，返回：
+      新增用户成功，新增用户id为：***
+     否则返回：新增用户失败。
+4、应用PDO准备语句，向cms_admin表中插入一条数据记录。观察执行后的返回。
+5、应用PDO准备语句，删除表中的一条记录，要求被删除的记录id以where条件给出，以参数？形式绑定参数。
+6、完成用户注册
+     将收录的数据以准备语句形式完成数据录入。要求用户名和密码都为sql语句的参数。
+
+
+
+
+
+
+
+
+
+
+      
+      
+       

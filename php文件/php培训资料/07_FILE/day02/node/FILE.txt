@@ -1,0 +1,178 @@
+﻿文件和目录
+mkdir(string $pathname[,int $mode][,boolean $recursive])
+功能：创建目录
+参数：
+pathname 创建的目录名称
+mode         创建目录的权限。最大权限：777
+recursive   是否可以递归创建目录。默认false。
+返回：布尔值
+
+rename(string $oldname,string $newname)
+功能：对目录或者文件进行重命名
+参数：
+oldname 源文件名称
+newname 目标文件名称
+返回：布尔值
+
+
+copy(string $oldfilename,string $newfilename)
+功能：文件的复制
+参数：
+oldfilename 源文件名称
+newfilename 目标文件名称
+返回：布尔值
+
+rmdir(string $pathname)
+功能：删除一个空目录
+参数：
+pathname 要删除的目录地址
+返回：布尔值
+
+unlink(string $filename)
+功能：删除文件
+参数：
+filename 要删除的文件地址
+返回：布尔值
+注意：被unlink删除的文件不在回收站里。
+
+4、PHP对文件的操作
+      touch(string $filename)
+      功能：创建一个空的新文件
+      参数：
+      filename  要创建的文件的地址
+      返回：布尔值
+
+      unlink(string $filename)
+      功能：删除文件
+      参数：
+      filename 要删除的文件地址
+      返回：布尔值
+
+      copy(string $oldfilename,string $newfilename)
+      功能：文件的复制
+      参数：
+      oldfilename 源文件名称
+      newfilename 目标文件名称
+      返回：布尔值
+
+      rename(string $oldname,string $newname)
+      功能：对目录或者文件进行重命名
+      参数：
+      oldname 源文件名称
+      newname 目标文件名称
+      返回：布尔值
+
+      file_get_contents(string $filename)  
+      功能：获取文件内容
+      参数：
+       filename 要获取文件内容的地址，
+                       地址可以是远程文件地址（http，ftp协议）
+                       也可以是本地文件地址
+      返回： 文件内容。格式：字符串
+
+      file_put_contents(string $filename,string $contents)
+       功能：向filename中写入contents内容
+      参数：
+      filename 要写入内容的文件地址（ftp 有权限）
+      contents 要写入的内容
+      返回：成功：成功写入的字节数。
+                 失败：false
+
+      fopen(string $filename,string $mode)
+      功能：打开文件
+      参数：
+      filename 要打开的文件地址
+      mode      以何种形式打开文件
+                      r 以只读方式打开文件，将文件指针指向文件首。若文件不存在，不尝试创建。
+                      r+ 以读写方式打开文件，将文件指针指向文件首。若文件存在，不尝试创建。
+
+                      w 以只写方式打开文件，将源文件内容清空，文件指针指向文件首。若文件不存在，则尝试创建。
+                      w+ 以读写方式打开文件，将源文件内容清空，文件指针指向文件首。若文件不存在，则尝试创建。
+
+	    a  以追加的方式打开文件，以只写的方式打开，文件指针在文件内容末尾，若文件不存在，尝试创建新文件。
+                     a+ 追加，以读写方式打开文件，若读，则文件指针在文件首，若写，则文件指针在文件末尾。若文件不存在，尝试创建新文件                      
+      返回：文件资源
+ 
+      fgetc(resource $fh)    
+      功能：从打开的文件资源中获取一个字节的内容
+      参数：
+      fh      已经打开的文件资源
+      返回：获取一个字节的内容
+
+      fwrite(resource $fh,string $contents)
+      功能：向已经打开的文件中写入内容
+      参数：
+      fh     已经打开的文件资源
+      contents 要写入的内容
+      返回： 成功写入的字节数
+
+      fclose(resource $fh)
+      功能：释放已经打开的文件资源
+      参数：
+      fh     已经打开的文件资源
+
+      fgets(resource $fh)   
+      功能：获取文件中的内容，一次获取一行
+      参数：
+      fh     已经打开的文件资源
+      返回：每执行获取到一行文件中的内容，获取不到false。
+
+      fread(resource $fh,int $length)
+      功能：读出文件中的内容。
+      参数：
+      fh   已经打开的文件资源
+      length 读出的长度，单位：字节
+      返回：文件中的内容。
+
+      feof(resource $fh)--file end of file
+      功能：判断文件指针是否到达文件尾
+      参数：
+      fh   已经打开的文件资源
+      返回：布尔值  true 到达文件尾
+                             false 没到达文件尾。 
+  
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+习题：
+1、删除目录下的测试文件。观察返回的结果。
+2、应用file_get_contents获取index.php文件中的内容：
+     index.php文件中有如下内容
+     hello world
+     将获取到的内容应用file_put_contents写入到index1.php文件中。
+3、在a.txt文件中读取出该文件的内容，并在文件的末尾追加新的文本内容。
+4、应用fgets 读取a.txt文件中的内容，循环读出。
+5、应用fread读取出文件中的内容，要求一次读取出全部文件内容。
+
+6、项目中的退出完成。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

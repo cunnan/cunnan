@@ -1,0 +1,201 @@
+﻿GD库
+一、概述
+       GD库PHP用来制作动态图片。GD支持三种互联网中流行的图片格式：jpeg、gif、png。
+      
+       用途：
+       1、验证码
+       2、水印
+       3、图片的缩放和剪切
+       4、动态图表
+
+二、安装
+       1、确认是否安装
+             phpinfo
+       2、编辑PHP的配置文件 php.ini
+              extension_dir = "D:\php5.4\ext"
+              extension=php_gd2.dll
+              去掉extension前面的分号。
+      3、重启网络服务器（apache）
+      4、再次确认是否安装
+
+三、应用
+       1、纸
+       2、画（颜色）
+       3、展示/收藏
+       4、收拾
+
+       1、画布
+             imagecreatetruecolor(int $width,int $height)
+             功能：创建画布资源
+             参数：
+             width 画布的宽
+             height 画布的高
+             返回：资源
+
+       2、画（颜色）
+             imagecolorallocate(resource $img,
+                                               int $red,
+                                               int $green,
+                                               int $blue)
+             功能：创建颜色
+             参数：
+             img  创建画布时产生的资源
+             red   红色，取值范围0~255
+             green 绿色，取值范围0~255
+             blue    蓝色，取值范围0~255
+             返回：颜色值
+
+             imagesetpixel(resouece $img,
+                                      int $x,int $y,
+                                      int $color)
+             功能：画点
+             参数：
+             img  创建画布时产生的资源
+             x,y    点的坐标
+             color  点颜色
+ 
+            imagefill(resouece $img,int $x,int $y,$color)
+            功能：填充画布
+            参数：
+            img  创建画布时产生的资源
+            x，y 填充画布背景色时的坐标（0,0）
+            color 颜色 
+            
+       
+      3、展示/收藏
+           展示
+           - 通知浏览器输出图片
+             header("Content-Type:image/图片格式")
+             图片格式 png、gif、 jpeg
+           - GD库函数输出图片
+             image图片格式(resource $img)
+
+           收藏
+             image图片格式(resource $img,string $filename)
+             功能：画布资源的收藏
+             参数：
+             img 创建画布时产生的资源
+             filename 保存图片的文件地址.
+                             注意：保存文件的图片格式要跟函数中指定的图片格式保持一致。          
+
+      4、释放内存
+            imagedestroy(resource $img)
+            功能：释放内存
+            参数：
+            img   创建画布时产生的资源
+
+      5、线
+            imageline(resource $img,
+                              int $x_1,int $y_1,
+                              int $x_2,int $y_2,
+                              int $color)
+           功能：画线
+           参数：
+           img   创建画布时产生的资源
+           x_1,y_1 线的起点坐标
+           x_2,y_2 线的终点坐标
+           color    线的颜色
+
+     6、imagerectangle(resource $img,
+                                       int $x_1,int $y_1,
+                                       int $x_2,int $y_2,
+                                       int $color)
+           功能：空心的矩形
+           参数：
+           img  创建画布时产生的资源
+           x_1,y_1 矩形的起点坐标
+           x_2,y_2 矩形的终点坐标
+           color     空心矩形边框的颜色
+
+     7、imagefilledrectangle(resource $img,
+                                       int $x_1,int $y_1,
+                                       int $x_2,int $y_2,
+                                       int $color)
+           功能：实心的矩形
+           参数：
+           img  创建画布时产生的资源
+           x_1,y_1 矩形的起点坐标
+           x_2,y_2 矩形的终点坐标
+           color     实心矩形的颜色
+
+        8、imageellipse(resource $img,int $x,int $y,
+                                     int $width,int $height,int $color)
+              功能：画圆，空心圆
+              参数：
+              img   创建画布时产生的资源
+              x,y     圆心点坐标
+              width 圆的宽
+              height 圆的高
+              color 颜色
+
+      9、imagefilledellipse(resource $img,int $x,int $y,
+                                     int $width,int $height,int $color)
+              功能：画圆，实心圆
+              参数：
+              img   创建画布时产生的资源
+              x,y     圆心点坐标
+              width 圆的宽
+              height 圆的高
+              color 颜色
+
+       10、imagestring(resource $img,int $font,
+                                    int $x,int $y,
+                                    string $text,int $color)
+               功能：在图片上输出文字
+               参数：
+               img   创建画布时产生的资源
+               font   文字的字体大小，取值范围（1~5）
+               x，y   文字的起始点坐标
+               text    文字
+               color  字体颜色  
+     
+        11、imagettftext(resource $img,int $size,float $angle,
+                                      int $x,int $y,int $color,string $ttffilename,
+                                      string $text)
+                功能：输出文字
+                参数：
+                img 创建画布时产生的资源
+                size 字体的大小 
+                angle 文字出现的角度
+                x，y   文字出现的位置
+                color  字体的颜色
+                ttffilename 字体文件的位置
+                                     C:\WINDOWS\Fonts
+                text   文字内容
+
+  
+              
+     
+
+
+
+
+
+
+
+
+
+习题：
+1、创建一个300*300画布，在画布上画100个随机出现的点。
+2、保存上一题创建的图片。比较三种图片格式保持的效果。
+3、在一张200*200的画布上输出一个正十字。
+4、在上一题的画布上画一个实心的圆。
+5、在上一题的画布上输出文字。
+6、在上一题的画布上输出中文。
+7、制作验证码
+      - 画布（浅色、颜色随机）
+      - 干扰（随机出现线、点）
+      - 写字
+      - 输出 展示
+      - 释放资源
+
+
+
+
+
+
+
+
+
+
+ 

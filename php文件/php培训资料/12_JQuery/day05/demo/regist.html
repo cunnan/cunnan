@@ -1,0 +1,164 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery UI插件</title>
+<!-- 引入jquery库文件 -->
+<script src="jquery-1.8.0.js"></script>
+<!-- 引入jquery插件  -->
+<script src="./validate/jquery-ui-1.10.3.custom.js"></script>
+<!-- 引入表单验证插件 validate -->
+<script type="text/javascript" src="./validate/jquery.validate.js"></script>
+<!-- 引入form表单ajax提交插件 -->
+<script type="text/javascript" src="./validate/jquery.form.js"></script>
+
+<!-- 引入UI插件的css样式 -->
+<link rel="stylesheet" href="./validate/smoothness/jquery-ui-1.10.3.custom.css" />
+
+<!-- 引入validate插件的汉化插件 -->
+<script type="text/javascript" src="./validate/jquery.validate.messages_zh.js"></script>
+<script>
+$(function(){
+	//点击span弹出对话框
+	$("span").click(function(){
+		//添加表单验证
+		//当表单验证通过时，添加ajax表单无刷新提交
+		$("#reg").validate({
+			//验证通过以后，执行匿名函数
+			"submitHandler":function(){
+				//ajax异步数据提交				
+				$("#reg").ajaxSubmit({					
+					"url":"regist.php",
+					"type":"post",
+					"success":function(response,status){
+						if(response==1){
+							$("#tip").html("用户名不能为空");							
+						}else if(response==2){
+							$("#tip").html("密码不能为空");							
+						}else if(response==3){
+							$("#tip").html("邮箱地址不能为空");
+						}else if(response==4){
+							$("#tip").html("注册成功");
+						}else{
+							$("#tip").html("注册失败");
+						}
+					}
+				});
+				
+			}
+		});
+		
+		$("#reg").dialog({
+			"width":400,
+			"title":"用户注册",
+			//为弹出层添加按钮
+			"buttons":{
+				//键名称 是按钮上体现的文字
+                //匿名函数执行的功能既按钮完成的功能。   				
+				"注册":function(){
+					//form表单提交
+					$("#reg").submit();
+				}
+			}
+		});
+		//在出生日期输入框中加入 日期弹出层
+		$("#birthday").datepicker({
+			"changeYear":true
+		});
+		
+		/*var hosts = ["163.com","126.com","qq.com"];
+		$("#email").autocomplete({
+			"source":hosts
+		});*/
+		$("#email").autocomplete({
+			"source":function(response,request){
+				//response.term 用户输入的内容
+				//request 函数名称 接收一个数组参数，作为
+				//自动补全的提示。
+				//自动补全程序目标：request接收的参数是正确提示
+				//所有提示的邮箱地址
+				var hosts = ["163.com","126.com","qq.com","189.com","sina.com","139.com"];
+				//用户输入的内容
+				var term = response.term;
+				//用户输入的用户名部分
+				var name = term;
+				//用户输入的域名部分 
+				var host;
+				//request的参数
+				var result = [];
+				
+				//将用户输入的内容进行拆分 分为name和host
+				//拆分以@为拆分的标识
+				//判断用户输入的内容中是否有@符号
+				var pos = term.indexOf("@");
+				
+				//若pos大于-1，说明用户输入了@
+				if(pos>-1){
+					//对用户输入的内容进行拆分 name 和 host
+					name = term.slice(0,pos);
+					host = term.slice(pos+1);
+				}
+				
+				//过滤 仅仅对用户输入的host
+				//用于提示的数组
+				var findHost;
+				if(host){
+					//若用户输入了host，进行过滤
+					//用host与hosts中的每个value进行比对
+					findHost = $.grep(hosts,function(value,key){
+						if(value.indexOf(host)>-1){
+							return value;
+						}
+					});
+				}else{
+					//若用户没有输入host
+					findHost = hosts;
+				}
+				
+				//在findHost的每个元素中拼接name和@
+				result = $.map(findHost,function(value,key){
+					return name+"@"+value;
+				});
+				
+				request(result);
+			}
+		});
+		
+	});
+});
+</script>
+
+</head>
+
+
+<body>
+<span>注册</span>
+<form id="reg" action="regist.php" method="post" style="display:none;">
+<p id="tip"></p>
+用户名：<input type="text" name="username" id="username" class="required"/><br/><br/>
+密码：<input type="password" name="password" id="password" class="required"/><br/><br/>
+邮箱：<input type="text" name="email" id="email" class="required email"/><br/><br/>
+出生日期：<input type="text" name="birthday" id="birthday" /><br/><br/>
+
+</form>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

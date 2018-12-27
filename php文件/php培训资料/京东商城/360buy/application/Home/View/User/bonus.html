@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>用户中心_京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="__ROOT__/public/js/common.js"></script>
+    <script type="text/javascript" src="__ROOT__/public/js/user.js"></script>
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+	 var bonus_sn_empty = "请输入您要添加的红包号码！";
+	 var bonus_sn_error = "您输入的红包号码格式不正确！";
+	 var email_empty = "请输入您的电子邮件地址！";
+	 var email_error = "您输入的电子邮件地址格式不正确！";
+	 var old_password_empty = "请输入您的原密码！";
+	 var new_password_empty = "请输入您的新密码！";
+	 var confirm_password_empty = "请输入您的确认密码！";
+	 var both_password_error = "您现两次输入的密码不一致！";
+	 var msg_blank = "不能为空";
+	 var no_select_question = "- 您没有完成密码提示问题的操作";
+	 function selectPage(sel)
+	 {
+	   sel.form.submit();
+	 }
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      
+      <include file="Public:header" />
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div id="urHere" class="globalModule">
+        <h3><a href=".">首页</a> <code>&gt;</code> 用户中心</h3>
+      </div>
+      <div class="blank"></div>
+      <div id="globalLeft">
+        <div class="globalModule">
+          <h3><div id="list_t_l"><div id="list_t_r"><b>用户中心</b></div></div></h3>
+          <div id="global_box" class="userMenu">
+            <a href="__APP__/User/index"><img src="__ROOT__/public/themes/jindong/images/u1.gif"> 欢迎页</a>
+			<a href="__APP__/User/profile"><img src="__ROOT__/public/themes/jindong/images/u2.gif"> 用户信息</a>
+			<a href="__APP__/User/order"><img src="__ROOT__/public/themes/jindong/images/u3.gif"> 我的订单</a>
+			<a href="__APP__/User/address"><img src="__ROOT__/public/themes/jindong/images/u4.gif"> 收货地址</a>
+			<a href="__APP__/User/collection"><img src="__ROOT__/public/themes/jindong/images/u5.gif"> 我的收藏</a>
+			<a href="__APP__/User/message"><img src="__ROOT__/public/themes/jindong/images/u6.gif"> 我的留言</a>
+			<a href="__APP__/User/tag"><img src="__ROOT__/public/themes/jindong/images/u7.gif"> 我的标签</a>
+			<a href="__APP__/User/booking"><img src="__ROOT__/public/themes/jindong/images/u8.gif"> 缺货登记</a>
+			<a href="__APP__/User/bonus" class="curs"><img src="__ROOT__/public/themes/jindong/images/u9.gif"> 我的红包</a>
+			<a href="__APP__/User/affiliate"><img src="__ROOT__/public/themes/jindong/images/u10.gif"> 我的推荐</a>
+			<a href="__APP__/User/comment"><img src="__ROOT__/public/themes/jindong/images/u11.gif"> 我的评论</a>
+			<!--<a href="__APP__/User/groupbuy">我的团购</a>-->
+			<a href="__APP__/User/trackpackages"><img src="__ROOT__/public/themes/jindong/images/u12.gif"> 跟踪包裹</a>
+			<a href="__APP__/User/accountlog"><img src="__ROOT__/public/themes/jindong/images/u13.gif"> 资金管理</a>
+			<a href="__APP__/User/logout" style="background:none; text-align:right; margin-right:10px;"><img src="__ROOT__/public/themes/jindong/images/bnt_sign.gif"></a>
+		  </div>
+		</div>
+      </div>
+      <div id="globalBigRight">
+        <div class="tab_box">
+          <div class="globalModule">
+            <div class="tab_title"><h3>我的红包</h3></div>
+            <div class="globalModuleContent">
+              <table cellspacing="0" class="tableList">
+                <tr>
+                  <th>红包序号</th>
+                  <th>红包名称</th>
+                  <th>红包金额</th>
+                  <th>最小订单金额</th>
+                  <th>截至使用日期</th>
+                  <th>红包状态</th>
+                </tr>
+                <tr>
+                  <td colspan="6" class="textStrong">您现在还没有红包</td>
+                </tr>
+              </table>
+              <div class="blank"></div>
+              <form name="selectPageForm" action="" method="get">
+                <div id="pager"></div>
+              </form>
+            </div>
+          </div>
+          <div class="globalModule">
+            <div class="tab_title"><h3>添加红包</h3></div>
+            <div class="globalModuleContent">
+              <form name="addBouns" action="" method="post" onSubmit="return addBonus()">
+                <table cellspacing="0" class="tableList">
+                  <tr>
+                    <th>红包序列号：</th>
+                    <td>
+                      <input name="bonus_sn" type="text" size="30" class="textInput" />
+                      <input type="hidden" name="act" value="act_add_bonus" />
+                      <input type="submit" value="添加一个红包" />
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blank"></div>
+      
+      <include file="Public:footer" />
+
+    </div>
+  </body>
+</html>

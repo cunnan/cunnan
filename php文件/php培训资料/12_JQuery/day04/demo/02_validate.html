@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 插件</title>
+<!-- 引入jQuery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- 引入jQuery 表单验证插件 -->
+<script src="./validate/jquery.validate.js"></script>
+<!-- 引入汉化插件 -->
+<script src="./validate/jquery.validate.messages_zh.js"></script>
+<script>
+$(function(){
+	//1、插件必须有选择器
+	//2、插件的名称：validate
+	$("form").validate();
+});
+</script>
+</head>
+
+
+<body>
+<center>用户注册</center><br/>
+<form action="regist.php" method="post">
+用户名：<input type="text" name="username" id="username" class="required"/><br/><br/>
+密码：<input type="password" name="password" id="password" class="required"/><br/><br/>
+邮箱：<input type="text" name="email" id="email" class="required email"/><br/><br/>
+主页：<input type="text" name="url" id="url" class="url"/><br/><br/>
+<input type="submit" value="注册" />
+</form>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

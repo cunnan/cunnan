@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery</title>
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<script>
+//5、找到h5到h1之间的选择器，改变文本字体颜色。
+$(function(){	
+	//找h5的上一个同胞节点
+	$("h5").prev().css("color","green"); //h4
+	//找到h5向上的全部同胞节点
+	$("h5").prevAll().css("color","red");
+	//找到h1到h4之间的同胞节点
+	$("h4").prevUntil("h1").css("border","2px solid blue");
+});
+</script>
+
+</head>
+
+
+<body>
+<h1>新闻标题1</h1>
+<h2>新闻标题2</h2>
+<h3>新闻标题3</h3>
+<h4>新闻标题4</h4>
+<h5>新闻标题5</h5>
+<h6>新闻标题6</h6>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,170 @@
+js中的this关键字：代表当前标签对象
+<input type="text" size="10" onblur="hello(this)">
+function hello(a)
+{
+  //显示文本框的value值
+  alert(a.value);
+}
+<input type="text" size="10" onblur="hello(this.value)">
+function hello(a)
+{
+  //显示文本框的value值
+  alert(a);
+}
+
+
+
+ajax的dataType选项：代表服务器端返回结果的类型
+"dataType":"html|json|xml"  注意：默认html
+说明：
+html：服务器返回的是一个大字符串(因为字符串中可以有html代码)
+json：服务器返回的是一个json对象
+xml：服务器返回的是一个xml文档
+总结：
+1、服务器只返回一个值(html)
+2、服务器返回多个值(json)
+
+
+ThinkPHP获得模型对象的方法
+$model = D("模型名");//必须新建模型文件
+$model = D("表名");//不用新建模型文件
+$model = M("表名");//不用新建模型文件
+注意：表名必须要全部小写
+      M("carinfo")---->carinfo
+      M("carInfo")---->car_info
+
+
+PHP系统函数
+1、将关联数组转换为json字符串
+   json格式的字符串 json_encode(数组)
+2、将json字符串还原成一个关联的数组
+   array json_decode(json格式的字符串)
+
+
+
+-------------------------------------------------------
+事务Transaction
+
+作用：保证数据的完整性
+
+特性：原子性、一致性、持久性、隔离性
+
+开启事务
+start transaction;
+
+结束事务
+commit;		提交事务(成功)
+rollback;	回滚事务(失败)
+
+
+ThinkPHP调用事务
+M()->execute("start transation");
+M()->execute("commit");
+M()->execute("rollback");
+---------------------------------------------------------
+DedeCMS：Content Manager System(CMS系统)
+
+作用：快速建站
+
+二次开发产品
+DedeCMS		内容管理系统
+Discuz		论坛
+UCHome		社区
+EcShop		电商
+ShopEx		电商
+
+
+下载资源包
+DedeCMS-V5.7-GBK-SP1.tar.gz
+DedeCMS-V5.7-UTF8-SP1.tar.gz
+
+
+DedeCMS开发环境要求
+1、开启mysql扩展
+2、开启gd2扩展
+3、设置php.ini中的request_order选项
+   request_order = "CGP"
+4、设置Apache的默认起始页
+   DirectoryIndex index.html index.php
+重启Apache服务
+
+
+项目目录
+a---------------------静态html文件**********
+data------------------临时文件
+dede------------------后台管理目录**********
+images----------------图片
+include---------------公用类、公用函数**********
+install---------------安装目录**********
+member----------------会员目录
+plus------------------插件目录
+special---------------专题目录
+templets--------------模板目录**********
+  default-------------默认模板
+uploads---------------上传文件**********
+index.php-------------入口文件
+
+
+使用DedeCMS步骤
+1、安装(创建数据库)
+2、进入后台管理，添加数据
+3、自定义模板页面
+
+
+安装DedeCMS
+http://localhost/项目/install/index.php
+http://localhost/项目/install
+http://localhost/项目/index.php
+http://localhost/项目
+
+
+访问前台
+http://localhost/项目/index.php
+http://localhost/项目
+
+
+访问后台管理
+http://localhost/项目/dede/index.php
+http://localhost/项目/dede
+
+
+
+后台管理常用的选项
+1、网站栏目管理(添加数据)
+   核心->网站栏目管理
+2、一键更新网站(生成静态的html文件)
+   生成->一键更新网站
+3、更新主页html(变更主页的模板文件)
+   生成->更新主页html
+4、网页主页链接(设置主页的链接地址)
+   系统->系统基本参数->站点设置->网页主页链接
+5、文档HTML默认保存路径(设置静态html的保存路径)
+   系统->系统基本参数->站点设置->文档HTML默认保存路径
+6、图片/上传文件默认路径(上传文件的保存路径)
+   系统->系统基本参数->站点设置->图片/上传文件默认路径
+7、模板默认风格(设置默认的模板目录)
+   系统->系统基本参数->站点设置->模板默认风格
+8、图片浏览器文件类型(支持的图片的格式)
+   系统->系统基本参数->附件设置->图片浏览器文件类型
+9、允许上传的软件类型
+   系统->系统基本参数->附件设置->允许上传的软件类型
+10、允许的多媒体文件类型(允许使用的音频视频的格式)
+   系统->系统基本参数->附件设置->允许的多媒体文件类型
+11、禁用词语
+   系统->系统基本参数->互动设置->禁用词语
+12、替换词语
+   系统->系统基本参数->互动设置->替换词语
+13、模板引擎禁用PHP函数
+   系统->系统基本参数->其他选项->模板引擎禁用PHP函数
+14、模板引擎禁用标签
+   系统->系统基本参数->其他选项->模板引擎禁用标签
+
+
+
+
+
+
+
+
+
+

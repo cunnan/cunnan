@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+/*全局样式*/
+body{
+	font-size:12px;
+	font-family:宋体;
+}
+/*清除块元素空隙*/
+body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,tr,th,td,form,input,select,textarea{
+	 margin:0;
+	 padding:0;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size:14px;
+	font-weight:bold;
+}
+/*超链接默认样式 */
+a{
+	color:#333;
+	text-decoration:none;
+}
+a:hover{
+	color:#900;
+	text-decoration:underline;
+}
+/*链接元素是图像 去掉边框*/
+img{
+	border:0;
+}
+/*清除列表项目符号 */
+ul,ol,li{
+	list-style:none;
+}
+/*万能清除 */
+.clearfix:after{
+	content:".";
+    clear:both;
+    display:block;
+    height:0;
+    visibility:hidden;
+}
+.clearfix{
+	zoom:1;
+}
+
+
+
+
+
+
+
+
+
+

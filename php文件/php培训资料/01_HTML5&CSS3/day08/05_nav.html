@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+      .nav{/*固定宽度水平中显示内容*/
+	     width:1000px;
+      	 height:40px;
+      	 background:#49B3C8;
+         line-height:40px;
+         margin:0 auto;
+         border-radius:8px;
+         box-shadow:0 8px 0 #40B368;
+      }
+      .nav li{
+	     float:left;
+      	 /* width:100px;
+      	 text-align:center; */
+      	 font:bold 16px/40px 微软雅黑;
+	     
+      }
+      .nav a{
+      	 display:block;
+	     color:#fff;
+      	 padding:0 32px;
+      	 /* transition-property:all;
+      	 transition-duration:2s;
+      	 transition-timing-fuction:ease-in;
+      	 transition-delay:0.2s; */
+      	 transition:all 2s ease-in 0.2s;
+      	 /* transition:transform 0.8s,color 2s 0.8s; */
+      }
+      .nav a:hover{
+	     color:rgba(0,255,0,0.5);
+      	 /* transform:translate(14px,0); */
+      	 transform:rotate(40deg) skew(30deg,30deg);
+      }
+    </style>
+  </head>
+  <body>
+     <div class="nav"><!--100%背景宽度  -->
+        <ul><!--固定宽度水平居中 -->
+           <li><a href="#">首页</a></li>
+           <li><a href="#">资讯</a></li>
+           <li><a href="#">小学</a></li>
+           <li><a href="#">中学</a></li>
+           <li><a href="#">历史</a></li>
+           <li><a href="#">教育</a></li>
+           <li><a href="#">社会</a></li>
+           <li><a href="#">高中</a></li>
+           <li><a href="#">留学</a></li>
+           <li><a href="#">作者</a></li>
+        </ul>
+     </div>
+  </body>
+</html>

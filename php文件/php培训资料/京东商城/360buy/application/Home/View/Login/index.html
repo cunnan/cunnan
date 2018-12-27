@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>用户中心_京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container">
+    
+      <include file="Public:header" />
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div class="usBox clearfix" >
+        <div class="user_tit" align="center">
+          <ul>
+            <li><span>用户登录</span></li>
+          </ul>
+        </div>
+        <div style=" clear:both"></div>
+        <div class="usBox_in clearfix" style="position:relative">
+          <div class="usBox_1 f_l">
+            <form name="formLogin" action="" method="post" onsubmit="return userLogin()">
+              <table width="100%" border="0" align="left" cellpadding="3" cellspacing="5">
+                <tr>
+                  <td width="15%" align="right">用户名：</td>
+                  <td width="85%"><input name="username" type="text" size="25" class="inputBg" /></td>
+                </tr>
+                <tr>
+                  <td align="right">密码：</td>
+                  <td><input name="password" type="password" size="15"  class="inputBg"/></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td  align="left"><input type="checkbox" value="1" name="remember" id="remember" /><label for="remember">请保存我这次的登录信息。</label></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td align="left">
+                    <input type="hidden" name="act" value="act_login" />
+                    <input type="hidden" name="back_act" value="./index.php" />
+                    <input type="submit" name="submit" value="" class="us_Submit" />
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><a href="__APP__/Login/qpassword" class="f3">密码问题找回密码</a>&nbsp;&nbsp;&nbsp;<a href="__APP__/Register/password" class="f3">注册邮件找回密码</a></td>
+                </tr>
+              </table>
+            </form>
+          </div>
+          <div class="usTxt" style="position:absolute; TOP:15PX; right:40PX;">
+            <strong>如果您不是会员，请注册</strong>  <br />
+            <strong class="f4">友情提示：</strong>
+            <br />不注册为会员也可在本店购买商品
+            <br />但注册之后您可以：
+            <br />1. 保存您的个人资料
+            <br />2. 收藏您关注的商品
+            <br />3. 享受会员积分制度
+            <br />4. 订阅本店商品信息  <br />
+            <a href="__APP__/Register/index"><img src="__ROOT__/public/themes/jindong/images/bnt_ur_reg.gif" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      
+      <include file="Public:footer" />
+      
+    </div>
+  </body>
+</html>

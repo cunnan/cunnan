@@ -1,0 +1,578 @@
+/* 1280 */
+#container {
+  width:1200px;
+  margin: 0 auto; position:relative;
+}
+#globalLeft {
+  width: 211px;
+  float: left;
+  padding-right:1px; 
+}
+
+
+/* 1280 */
+#globalMiddle{width:766px; float:left; _overflow:hidden} 
+
+.table1  td,.table1  th{ padding:5px}
+
+
+
+
+
+#globalMiddle .m_none {
+display:none;}
+
+#globalRight {
+  width: 211px;
+  display: inline;
+  float: right;
+}
+#globalRight .r_none{
+display:none;
+}
+
+
+/* 1280 */
+#globalBigRight {
+float:right; width:983px;_width:980px;
+}
+
+
+
+#globalBigRight3 {
+float:right; width:980px;
+}
+
+
+
+
+
+#globalBigRight #globalRight {
+  margin: 0;
+}
+.globalFrame {
+  width: 980px;
+}
+#globalBigRight{}
+
+.moduleBg {
+  background: #f5fcfe url(../images/module_bg.gif) no-repeat;
+  border: 1px solid #a5d2eb;
+  margin-bottom: 4px;
+}
+
+
+#globalBest h3{line-height: 28px; width:100%; padding:0;
+height: 28px;
+background:url(../images/recom_title_m.gif) repeat-x;float:left;
+}
+#recom_title_r{background:url(../images/recom_title_r.gif) right 0 no-repeat;float:left; width:100%;height: 28px;}
+#recom_title_l{background:url(../images/recom_best.gif) left 0 no-repeat;float:left; width:100%;height: 28px;}
+
+
+#recom_title_r span{ float:left; font-weight:bold; color:#FFFFFF; font-size:14px; padding-left:15px;}
+
+
+#recom_title_r a{color:#999999; font-weight:normal; float:right; padding-right:5px; line-height:28px;}
+
+
+
+
+
+.title_goods{ float:left; color:#FFF; font-size:14px; padding-left:15px;}
+#recom_title_r a{ line-height:27px;}
+.none_box .dis_none{ display:none}
+
+.globalModule {
+
+}
+
+
+#globalLeft .globalModule h3 {
+line-height: 27px; width:100%;
+color: #333;
+height: 27px;
+background:url(../images/spring_06.gif);float:left;  
+}
+
+#globalLeft .globalModule h3 #list_t_l{height: 27px;  width:100%; padding:0; margin:0; 
+}
+#globalLeft .globalModule h3 #list_t_r{ font-size:14px;float:left; 
+ height: 27px; width:100%;
+}
+
+
+
+
+
+
+
+
+
+
+#globalLeft .globalModule1 .h32{
+line-height: 30px; width:100%;
+color: #fff;
+height: 27px; overflow:hidden;
+background:url(../images/h32.gif);float:left; text-align:right;  
+}
+
+#globalLeft .globalModule1 .h32 b{ padding-left:10px; float:left; font-size:14px;}
+#globalLeft .globalModule1 .h32 a{ color:#FFF; font-weight:normal; float:right; padding:5px 6px 0 0}
+
+#globalLeft .globalModule1 .h31 {
+line-height: 27px; width:100%;
+color: #fff;
+height: 27px;
+background:url(../images/spring_06.jpg);float:left;  
+}
+
+#globalLeft .globalModule1 .h31 #list_t_l{height: 27px;  width:100%; padding:0; margin:0; 
+}
+#globalLeft .globalModule1 .h31 #list_t_r{ font-size:14px;float:left; 
+ height: 27px; width:100%;
+}
+#globalLeft .globalModule1 .h31 b{ padding-left:10px;}
+
+
+
+#globalRight .globalModule h3 {
+line-height: 27px; width:100%;
+color: #333;
+height: 27px;
+background:url(../images/spring_06.gif) no-repeat;float:left;  
+}
+
+#globalRight .globalModule h3 #list_t_l{height: 27px;  width:100%; padding:0; margin:0; 
+}
+#globalRight .globalModule h3 #list_t_r{ font-size:14px;float:left; 
+ height: 27px; width:100%;
+}
+
+
+
+
+
+
+.globalModule h3 #list_t_r b{ margin:0 10px;
+}
+.globalModule #global_box{ border:1px solid #eaeaea; border-top:none; padding:10px 4px; float:left; width:201px;}
+
+
+
+#globalRight .globalModule .h3_3,#globalLeft .globalModule .h3_3 {
+line-height:30px; width:100%;
+color: #cc0000;
+height:30px;
+background:url(../images/h3_3.gif);float:left;  
+}
+
+.h3_3 #list_t_l{height:30px;  width:100%; padding:0; margin:0; 
+}
+.h3_3 #list_t_r{ font-size:14px;float:left; 
+ height:30px; width:100%;
+}
+
+
+
+
+
+
+
+
+.liye .globalModule #global_box{ border:1px solid #eaeaea; border-top:none;}
+
+.globalModuleContent {
+  line-height: 1.6em;
+  color: #333;
+  padding: 10px;
+}
+.globalModuleContent a {
+  color: #5fb0dc;
+}
+.globalModule .more {  margin:0; padding:5px 0 3px 0; text-align:right; padding-right:5px; display:block;}
+.globalModule .more a{ color:#005aa0;}
+.globalModule .globalTag {
+  position: absolute;
+  top:6px;   left:160px;
+}
+.globalModule .globalTag h2{
+  float:left; border:1px solid #a5d2eb;
+	border-bottom:none; padding:2px 4px 0 4px; margin-right:5px;
+	background:#fff; height:18px; line-height:18px;
+	font-weight:100;
+}
+.globalModule .globalTag h2.h2bg{
+border:none; background:none;
+}
+.globalModule .globalTag h2 a{
+color:#d6290b; text-decoration:none; font-weight:bold;
+}
+.globalModule .globalTag h2.h2bg a{
+color:#333; text-decoration:none; font-weight:normal;
+}
+
+
+
+#globalCatgoods h3{ background:#0033FF}
+
+
+
+#globalcat h3{ background: url(../images/globalcat_m.gif) repeat-x ; height:30px;line-height:30px; width:100%; text-align:left}
+
+#globalcat h3 .cat_r{ background:url(../images/globalcat_r.gif) right 0 no-repeat;width:100%;_width:98%; float:left} 
+#globalcat h3 .cat_r span{ float:left;width:100%;background:url(../images/globalcat_l.gif) 0 0 no-repeat;}
+#globalcat h3 .cat_r span a{ line-height:30px; font-size:14px; color:#cc0000}
+
+
+
+
+#globalcat .itemGrid{ background:url(../images/dot.gif) 0 0 repeat-y; border-bottom:1px solid #e6e6e6}
+
+
+
+#globalcat .itemGrid .in{ background:url(../images/dot.gif) right 0 repeat-y ; float:left; width:100%}
+
+/*升级到2.5.1时加的—促销信息*/
+.promotion_info{
+padding:5px 0 5px 5px; line-height:23px;
+}
+.promotion_info acronym{
+width:7px; height:7px;
+position:relative; top:5px;
+}
+/*  ==================== 网格方式显示 ====================  */
+.itemGrid {
+  width: 100%; height:auto;
+  overflow: hidden; 
+}
+#globalMiddle .itemGrid{height:auto; float:left;width: 100%;}
+#globalMiddle .itemGrid .item {
+  text-align: center; 
+  width:33.3%;height: 173px; overflow:hidden; padding:5px 0; border-bottom:1px dotted #dedede;
+  float: left; 
+}
+
+#globalMiddle .itemGrid .item p {
+}
+
+#globalMiddle .itemGrid .item .pic {
+ margin:0 0 6px 0;
+}
+#globalMiddle .itemGrid .item .name,
+#globalMiddle .itemGrid .item .price {
+  margin:0;
+}
+#globalMiddle .itemGrid .item .pic img{ width:100px; height:100px;}
+
+
+
+
+
+
+#globalMiddle .itemGrid .hot_item1 .price{ display:block; height:18px; line-height:18px; background:#ff3333; position:absolute;
+ right:10px; top:110px;padding:0 5px; color:#fff; font-weight:bold}
+
+
+
+
+#globalLeft .itemGrid .item {
+  text-align: center; 
+  width: 160px;
+  float: left;
+  padding: 18px 18px 10px;
+}
+#globalLeft .itemGrid .item .pic {line-height:20px;  
+  margin-bottom: 14px;
+}
+#globalLeft .itemGrid .item .name,
+#globalLeft .itemGrid .item .price,
+#globalLeft .itemGrid .item .btnList {
+  margin-bottom: 8px;
+}
+#globalRight .itemGrid .item {
+  overflow: hidden;
+  padding: 10px;
+  zoom: 1; border-bottom:1px dotted #dedede; 
+}
+
+
+
+
+#globalRight .itemGrid .item .pic {
+  float: left;
+  margin-right: 10px;
+}
+#globalRight .itemGrid .item img{ width:50px; height:50px;
+}
+#globalRight .itemGrid .item .name,
+#globalRight .itemGrid .item .price {
+  margin-bottom: 0px;
+}
+
+
+#globalRight2 .itemGrid .item { text-align:left;
+  overflow: hidden; width:100%;
+
+  zoom: 1; background: url(../images/line_1.gif) repeat-x 0 bottom;
+}
+#globalRight2 .itemGrid .item .pic {
+  float: left;
+  margin-right: 10px;
+}
+#globalRight2 .itemGrid .item img{ width:50px; height:50px;
+}
+#globalRight2 .itemGrid .item .name,
+#globalRight2 .itemGrid .item .price {
+  margin-bottom: 0px;
+}
+
+
+
+#globalBigRight .itemGrid{height:auto; float:left;width: 100%;}
+#globalBigRight .itemGrid .item {
+  text-align: center; 
+  width:24%;  height: 160px; overflow:hidden; padding:14px 0px;
+  float: left; 
+}
+#globalMiddle .itemGrid .item .name{ height:40px; overflow:hidden;padding:0 10px; display:block;word-break:break-all;white-space:normal;word-wrap:break-word; }
+
+
+#globalBigRight .itemGrid{height:auto; float:left;width: 100%;}
+#globalBigRight .itemGrid .item {
+  text-align: center; 
+  width:24%;  height: 185px; overflow:hidden; padding:14px 0px;
+  float: left; 
+}
+#globalBigRight .itemGrid .item .name{ height:36px; overflow:hidden;margin:0 15px; padding-bottom:6px;}
+#globalBigRight .itemGrid .item .name span{ color:#ff0000}
+#globalBigRight .itemGrid .item  .goodsPrice{ color:#FF0000}
+
+.name a span{ color:#ff6600}
+
+
+
+
+
+.itemGrid .item .name a {line-height:20px;
+}
+.itemGrid .item .price {
+  color: #999; margin:0; line-height:20px;
+}
+
+.itemGrid2 .item .name a { line-height:18px; height:36px; overflow:hidden; display:block}
+#globalRight .itemGrid2 .item { border:none; padding:0px 5px;}
+
+
+
+.goodsPrice {
+  color: #ff6600; font-weight:bold;
+}
+.marketPrice {
+  color: #999; text-decoration:line-through
+}
+.itemGrid .item .btnList {
+  color: #5fb0dc;
+}
+.itemGrid .item .btnList a {
+  text-decoration: underline;
+  color: #5fb0dc;
+}
+.itemGrid .item .btnList a:hover {
+  color: #666;
+}
+.itemGrid .item .pic img { width:130px; height:130px;
+}
+
+
+/*  ==================== 列表方式显示 ====================  */
+.itemList .item {
+  overflow: hidden;
+  padding: 10px;
+  zoom: 1; border-bottom:1px dotted #ccc
+}
+.itemList .item .pic {
+  float: left;
+  position: relative;
+}
+.itemList .item .pic img { width:130px; height:130px;
+}
+.itemList .item .itemListInfo {
+  float: left;
+  padding-left: 30px;
+}
+.itemList .item .itemListInfo .name img {
+  vertical-align: middle;
+}
+.itemList .item .itemListInfo .name a {
+  font-weight: bold; font-size:14px;
+  color: #333;
+}
+.itemList .item .price {
+  color: #333;
+}
+.itemList .item .price .goodsPrice {
+  color: #f00; font-weight:bold;
+}
+.itemList .item .price .marketPrice {
+  color: #333;
+  background: url(../images/line_through.gif) repeat-x center 7px;
+}
+.itemList .item .brief {
+  color: #999;
+  width: 280px;    height: 30px;
+}
+.itemList .item .btnList {
+  color: #5fb0dc;
+}
+.itemList .item .btnList a {
+  text-decoration: underline;
+  color: #5fb0dc;
+}
+.itemList .item .btnList a:hover {
+  color: #666;
+}
+.itemList .item .sort {
+  color: #333;
+}
+.itemList .item .name,
+.itemList .item .price,
+.itemList .item .brief,
+.itemList .item .sort,
+.itemList .item .btnList {
+  margin-bottom: 5px;
+}
+
+/*  ==================== 文字方式显示 ====================  */
+.itemText .item {
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e1e2;
+}
+.itemText .item .name a {
+  font-weight: bold;
+  color: #333;
+}
+.itemText .item .price {
+  color: #666;
+}
+.itemText .item .price .goodsPrice {
+  color: #e42e2f;
+  margin-right: 25px;
+}
+.itemText .item .price .marketPrice {
+  color: #333;
+  background: url(../images/line_through.gif) repeat-x center 7px;
+  margin-right: 25px;
+}
+.itemText .item .brief {
+  color: #999;
+  height: 30px;
+}
+.itemText .item .btnList {
+  color: #5fb0dc;
+}
+.itemText .item .btnList a {
+  text-decoration: underline;
+  color: #5fb0dc;
+}
+.itemText .item .btnList a:hover {
+  color: #666;
+}
+
+.itemText .item .name,
+.itemText .item .price,
+.itemText .item .brief,
+.itemText .item .btnList {
+  margin-bottom: 5px;
+}
+
+
+.tableList {
+  width: 100%;
+  margin: 5px auto 20px auto;
+}
+.tableList th {
+  text-align: left;
+  vertical-align: top;
+  color: #333;
+  padding: 3px 3px 3px 10px;
+}
+.tableList td { 
+  vertical-align: top;
+  padding: 3px 3px 3px 10px;
+
+}  
+
+.tab_box .tableList td { 
+ background:url(../images/line_1.gif) 0 bottom repeat-x;
+}  
+
+
+
+.tableList tr.last td {
+  border: 0;
+}
+.tableList .textInput {
+  height: 15px;
+  padding: 2px;   margin-right: 5px;
+  border: 1px solid #ccc;
+}
+
+.userMenu a{display:block; height:25px; line-height:25px; background:url(../images/menuBg.gif) no-repeat 0 -30px;
+    color:#3f3f3f; text-decoration:none; margin:0 0 3px 0; padding-left:3px;}
+.userMenu a.curs{background:url(../images/menuBg.gif) no-repeat 0 0; font-weight:bold;}
+.userMenu a img{ margin-right:3px;}
+.quotation *{ vertical-align: middle;}
+ .blank{height:8px; line-height:8px; clear:both; visibility:hidden;}
+  .blank5{height:5px; line-height:5px;/* _margin:-3px 0;*/ clear:both; visibility:hidden;}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #globalMiddle .itemGrid .hot_item1 { height:180px; position:relative;border-bottom:1px solid #e2ebf4}
+
+#globalMiddle .itemGrid  .hot_item2  { height:50px; border:none; padding:10px 0;}
+#globalMiddle .itemGrid  .hot_item2  .pic img{ width:50px; height:50px; float:left}
+#globalMiddle .itemGrid  .hot_item2  .pic { float:left; padding-left:12px;}
+#globalMiddle .itemGrid  .hot_item2  .name{ text-align:left; padding-top:6px; }
+  
+ #globalMiddle .itemGrid .hot_item3box{ background:#f3f8fc; width:100%; padding:10px 0;border-bottom:1px solid #e2ebf4;} 
+ #globalMiddle .itemGrid .hot_item3box .hot_item2 { height:20px;line-height:20px; overflow:hidden; background:url(../images/biao9.gif) 13px 8px no-repeat; padding:0; border:none; text-align:left; float:left }
+ 
+  #globalMiddle .itemGrid .hot_item3box .hot_item2  a{ padding-left:23px;}
+  
+  
+  
+
+  
+  
+ /*  ==================== 商品类排行榜 ====================  */ 
+  .top10 #global_box{ padding:0; width:209px; border-bottom:none}
+ .top10 .itemGrid2{ padding:0; margin:0} 
+.top10 .tab_title{ border-bottom:1px solid #cc0000; width:100%; padding:0; padding-top:7px;}
+.top10 .tab_title h2{ background:url(../images/top10_a.gif) no-repeat; width:62px; height:19px;line-height:19px; text-align:center; font-weight:normal; float:left; color:#cc0000; margin-left:4px;}
+.top10 .tab_title .h2bg{ background:url(../images/top10_b.gif) no-repeat; color:#999999}
+.top10 .itemGrid .line{ padding:12px 0; float: left; border-bottom:1px solid #efefef; width:100%}
+.top10 .itemGrid .no{ float:left; color:#cc0000; font-size:14px; font-weight:bold; padding-right:10px;}
+.top10 .txt_list .no{ padding-right:0px; padding-left:6px;}
+.top10 .txt_list { background:none; height:34px; line-height:34px; border-bottom:1px solid #efefef}
+  .top10 .txt_list a{ background:no-repeat;  height:34px; line-height:34px; padding-right:6px;}
+  
+  
+  /*  ==================== 促销商品 ====================  */  
+  .cuxiao { }
+.cuxiao  #list_t_r{}
+.cuxiao  #global_box{ text-align:center; padding-top:3px;height:332px; overflow:hidden}
+.cuxiao  #global_box .goodsItem{ padding:3px 0; text-align:center; position:relative }
+.cuxiao .name{ display:block; height:20px;line-height:20px; overflow:hidden}
+.cuxiao  #global_box .goodsItem .goods_img{ width:100px; height:100px;}
+.timeBox{ font-size:12px; color:#222; text-align:center;  padding-top:4px;}
+.timeBox strong{ font-size:20px; font-weight:bold; font-family:Arial, Helvetica, sans-serif; color:#e61400}
+.cuxiao .price{ color:#999999}
+
+

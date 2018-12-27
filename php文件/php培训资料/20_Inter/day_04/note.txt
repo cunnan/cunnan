@@ -1,0 +1,166 @@
+﻿购物车功能
+1、逻辑功能(ActController、OrderController)
+2、数据表
+
+
+
+DedeCMS：内容管理系统
+
+作用：快速建站
+
+DedeCMS的使用步骤
+1、安装
+2、进入后台管理添加数据
+3、自定义模板页面
+
+DedeCMS对开发环境的要求
+1、开启mysql扩展
+2、开启gd2扩展
+3、设置request_order选项
+4、设置Apache默认的起始页
+
+访问路径
+1、安装DedeCMS
+   http://localhost/项目/install/index.php
+2、访问前台
+   http://localhost/项目/index.php
+3、访问后台管理
+   http://localhost/项目/dede/index.php
+
+项目目录
+a------------------------静态html文件
+dede---------------------后台管理目录
+include------------------公用类、公用函数
+install------------------安装目录
+templets-----------------模板目录
+  default----------------默认模板
+uploads------------------上传文件
+index.php----------------入口文件
+
+DedeCMS后台管理的使用
+
+
+DedeCMS帮助手册
+1、标签参考
+   模板标签参考->全局标签
+2、数据表
+   二次开发->常用数据表说明
+3、数据库封装类
+   常用函数、类参考->数据库类
+
+常用的数据表
+1、dede_arctype：栏目表、频道表、分类表
+     id：分类编号
+     typename：分类名称
+2、dede_archives：文章表
+     id：文章编号
+     typeid：分类编号
+     title：文章标题
+     click：点击量
+     writer：作者
+     source：来源
+     litpic：新闻图片
+     pubdate：发表时间
+3、dede_addonarticle：文章附加表
+     aid：文章编号
+     typeid：分类编号
+     body：文章内容
+4、dede_addonsoft：软件附加表
+5、dede_addonimages：图片附加表
+6、dede_addonshop：商品附加表
+7、dede_flink：友情链接表
+
+自定义模板
+1、在templets目录下新建一个模板文件夹
+2、在模板文件夹下新建html文件、新建图片、样式表
+3、设置主页的模板
+   生成->更新主页html
+4、设置默认的模板目录
+   系统->系统基本参数->站点设置->模板默认风格
+
+模板目录
+hello
+  images
+  css
+  header.html-----------网页头(文件名任意)
+  footer.html-----------网页脚(文件名任意)
+  index.html------------主页模板(文件名任意)
+  list_article.htm------新闻列表页的模板(文件名固定)
+  article_article.htm---文章页的模板(文件名固定)
+
+
+Dede标签特点
+1、标签定界符：{}、[field]
+2、所有标签都是双标签：{标签}{/标签}、{标签/}
+3、所有{}标签都是以dede:来开头的
+4、标签不能任意嵌套
+
+
+Dede标签
+1、获得默认的模板路径
+{dede:global.cfg_templets_skin/}
+2、获得系统的全局变量值
+{dede:global.变量名/}
+3、包含html文件
+{dede:include file="xxx.html" /}
+4、频道标签、分类标签
+{dede:channel type='top' row='0'}
+  <a href='[field:typelink/]'>[field:typename/]</a>
+{/dede:channel}
+5、频道内容列表标签
+{dede:channelartlist row=6}
+  <a href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}</a>
+  {dede:arclist titlelen='42' row='2'}
+     <a href="[field:arcurl /]">[field:title /]</a>
+  {/dede:arclist}
+{/dede:channelartlist}
+6、自定义公用的函数：/项目/include/common.func.php
+   模板页面来调用：通过输出字段值的标签来调用
+   [field:字段名 function="函数(值,值,@me)" /]
+   {dede:field name="字段名" function="函数(值,@me,值)"/}
+7、文章列表标签(文章表、分类表的多表查询)
+{dede:arclist titlelen='' orderby='' limit='0,1'}
+  <a href='[field:arcurl/]'>[field:title/]</a>
+{/dede:arclist}
+注意：
+   1)首页：获得是所有文章
+   2)列表页：获得当前分类下的所有文章
+8、sql标签(注意：只能执行查询语句)
+{dede:sql sql="select语句"}
+  [field:字段名 /]
+{/dede:sql}
+9、field标签
+{dede:field name="字段名" /}
+注意：
+   1)列表页：获得当前分类的某个字段值
+   2)文章页：获得当前文章的某个字段值
+10、DedeCMS提供ajax评论功能
+    1)将templets/default/ajaxfeedback.htm文件复制到自己的模板目录中
+    2)在页面的评论位置，包含该html文件
+
+
+
+DedeCMS知识点
+1、安装
+2、后台的使用
+3、自定义模板
+   1)dede标签
+   2)自定义公用函数
+   3)数据库封装类的使用
+
+
+
+Linux操作系统
+
+
+
+
+
+
+
+
+
+
+
+
+

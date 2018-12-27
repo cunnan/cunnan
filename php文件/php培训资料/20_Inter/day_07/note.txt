@@ -1,0 +1,75 @@
+京东商城
+
+
+要求
+1、设计数据库
+2、MVC框架
+3、购物流程
+
+
+项目进度
+第1天：设计数据库
+第2、3天：添加分类、添加商品
+第4、5天：首页
+第6、7天：产品详细信息页
+第8、9天：购物车功能
+第10天：订单结算
+
+
+数据表
+manager		管理员表
+question	密码的问题表(可有可无)
+userinfo	会员表
+goodstype	产品分类表
+brand		品牌表(可有可无)
+goodsinfo	产品表
+reviews		产品评论表
+carinfo		购物车表
+orderinfo	订单表
+orderdetails	订单明细表
+
+
+
+无限级分类级菜单
+create table menuInfo
+(
+  menuId       int            auto_increment primary key,
+  menuName     varchar(20)    not null,
+  pid          int            not null #当前菜单的父菜单id
+);
+insert into menuInfo(menuName,pid)values('中国',0);
+
+insert into menuInfo(menuName,pid)values('河北省',1);
+insert into menuInfo(menuName,pid)values('山西省',1);
+insert into menuInfo(menuName,pid)values('山东省',1);
+insert into menuInfo(menuName,pid)values('河南省',1);
+
+insert into menuInfo(menuName,pid)values('张家口',2);
+insert into menuInfo(menuName,pid)values('承德',2);
+insert into menuInfo(menuName,pid)values('石家庄',2);
+insert into menuInfo(menuName,pid)values('邯郸',2);
+
+insert into menuInfo(menuName,pid)values('太原',3);
+insert into menuInfo(menuName,pid)values('吕梁',3);
+insert into menuInfo(menuName,pid)values('运城',3);
+insert into menuInfo(menuName,pid)values('大同',3);
+
+insert into menuInfo(menuName,pid)values('济南',4);
+insert into menuInfo(menuName,pid)values('青岛',4);
+insert into menuInfo(menuName,pid)values('威海',4);
+insert into menuInfo(menuName,pid)values('日照',4);
+
+insert into menuInfo(menuName,pid)values('洛阳',5);
+insert into menuInfo(menuName,pid)values('郑州',5);
+insert into menuInfo(menuName,pid)values('信阳',5);
+insert into menuInfo(menuName,pid)values('驻马店',5);
+
+
+
+
+
+
+
+
+
+

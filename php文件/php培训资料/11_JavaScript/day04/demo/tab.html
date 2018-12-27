@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<title>JavaScript BOM</title>
+<style>
+#tab{
+	font-size:14px;
+}
+
+#tit{
+	width:300px;
+	
+}
+
+#tit h3{
+	float:left;
+	width:96px;
+	border:2px solid #fff;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background-color:#ccc;
+	margin:0;
+	padding:0;	
+}
+#tit .tit_now{
+	background-color:#888;
+}
+#content{
+	background-color:#888;
+	width:300px;
+}
+#content div{
+	display:none;	
+}
+#content .now{
+	display:block;
+}
+</style>
+</head>
+
+<body>
+<!-- 最外层div -->
+<div id="tab">
+    <!-- 标题部分div -->
+ 	<div id="tit">
+        <h3 onmouseover="changeTab(0)">国内新闻</h3>
+        <h3 onmouseover="changeTab(1)">国际新闻</h3>
+        <h3 onmouseover="changeTab(2)" class="tit_now">体育新闻</h3>
+	</div>
+    <!-- 标题部分div -->
+    
+    <!-- 内容部分div -->
+	<div id="content">
+	    <div>
+	 		<ul>
+	 			<li>国内新闻标题1</li>
+	 			<li>国内新闻标题2</li>
+	 			<li>国内新闻标题3</li>
+	 			<li>国内新闻标题4</li>
+	 			<li>国内新闻标题5</li>
+	 		</ul>
+	    </div>
+	    
+	    <div>
+	 		<ul>
+	 			<li>国际新闻标题1</li>
+	 			<li>国际新闻标题2</li>
+	 			<li>国际新闻标题3</li>
+	 			<li>国际新闻标题4</li>
+	 			<li>国际新闻标题5</li>
+	 		</ul>
+	    </div>
+	    
+	    <div   class="now">
+	 		<ul>
+	 			<li>体育新闻标题1</li>
+	 			<li>体育新闻标题2</li>
+	 			<li>体育新闻标题3</li>
+	 			<li>体育新闻标题4</li>
+	 			<li>体育新闻标题5</li>
+	 		</ul>
+	    </div>
+	</div>
+	<!-- 内容部分div -->
+</div>
+<script>
+//获取h3的对象
+var h3obj = document.getElementsByTagName("h3");
+var dobj = document.getElementById("content").getElementsByTagName("div");
+
+function changeTab(id){//0
+	for(var i=0;i<h3obj.length;i++){
+		if(id==i){//
+			//给h3和div 0设置特殊的class
+			h3obj[i].className="tit_now";
+		    dobj[i].className = "now";			
+		}else{
+			h3obj[i].className = "";
+			dobj[i].className = "";
+		}
+	}
+}
+
+</script>
+<!-- 最外层div -->
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript</title>
+</head>
+
+<body>
+<div id="one" style="position:absolute;top:0px;left:0px;width:50px;height:50px;background-color:green;"></div>
+
+<script>
+//获取div的javascript对象
+var dobj = document.getElementById("one");
+//首先定义div层在x轴的位置
+var x = 0;
+//首先定义div层在y轴的位置
+var y = 0;
+//定义每次x轴累加的步长
+var sx = 10;
+//定义每次y轴累加的步长
+var sy = 10;
+
+function move(){
+	x += sx; //此时div层x位置移动了10
+	y += sy; //此时div层y位置移动了10
+	
+	if(x>=innerWidth-50||x<=0){
+		sx = -1*sx;
+	}
+	if(y>=innerHeight-50||y<=0){
+		sy = -1*sy;
+	}
+	//修改div层的样式
+	dobj.style.left = x;
+	dobj.style.top = y;
+}
+
+setInterval("move()",100);
+
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

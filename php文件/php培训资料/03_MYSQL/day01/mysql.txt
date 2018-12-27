@@ -1,0 +1,246 @@
+Microsoft Windows XP [版本 5.1.2600]
+(C) 版权所有 1985-2001 Microsoft Corp.
+
+C:\Documents and Settings\Administrator>mysql -uroot -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.5.21 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SET NAMES gbk;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> USE psd1611;
+Database changed
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_psd1611 |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE test1(
+    -> num1 tinyint,
+    -> num2 smallint,
+    -> num3 mediumint,
+    -> num4 int
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC test1;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| num1  | tinyint(4)   | YES  |     | NULL    |       |
+| num2  | smallint(6)  | YES  |     | NULL    |       |
+| num3  | mediumint(9) | YES  |     | NULL    |       |
+| num4  | int(11)      | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE test2(
+    -> num1 tinyint,
+    -> num2 tinyint unsigned
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> DESC test2;
++-------+---------------------+------+-----+---------+-------+
+| Field | Type                | Null | Key | Default | Extra |
++-------+---------------------+------+-----+---------+-------+
+| num1  | tinyint(4)          | YES  |     | NULL    |       |
+| num2  | tinyint(3) unsigned | YES  |     | NULL    |       |
++-------+---------------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+mysql> CREATE TABLE test3(
+    -> num1 smallint unsigned,
+    -> num2 smallint(3) zerofill
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC test3;
++-------+-------------------------------+------+-----+---------+-------+
+| Field | Type                          | Null | Key | Default | Extra |
++-------+-------------------------------+------+-----+---------+-------+
+| num1  | smallint(5) unsigned          | YES  |     | NULL    |       |
+| num2  | smallint(3) unsigned zerofill | YES  |     | NULL    |       |
++-------+-------------------------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert test3(num1,num2)
+    -> value
+    -> (1,1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from test3;
++------+------+
+| num1 | num2 |
++------+------+
+|    1 |  001 |
++------+------+
+1 row in set (0.00 sec)
+
+mysql> insert test3(num1,num2)
+    -> value
+    -> (65535,65535);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from test3;
++-------+-------+
+| num1  | num2  |
++-------+-------+
+|     1 |   001 |
+| 65535 | 65535 |
++-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert test3(num1,num2)
+    -> value
+    -> (65536,65536);
+ERROR 1264 (22003): Out of range value for column 'num1' at row 1
+mysql> CREATE TABLE test4(
+    -> salary1 float(7,2),
+    -> salary2 double(7,2),
+    -> salray3 decimal(7,2)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC test4;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| salary1 | float(7,2)   | YES  |     | NULL    |       |
+| salary2 | double(7,2)  | YES  |     | NULL    |       |
+| salray3 | decimal(7,2) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert test4(salary1,salary2,salary3)
+    -> value
+    -> (787.789,56.987,45.678);
+ERROR 1054 (42S22): Unknown column 'salary3' in 'field list'
+mysql> insert test4(salary1,salary2,salray3)
+    -> value
+    -> (787.789,56.987,45.678);
+Query OK, 1 row affected, 1 warning (0.06 sec)
+
+mysql> SHOW WARNINGS;
++-------+------+----------------------------------------------+
+| Level | Code | Message                                      |
++-------+------+----------------------------------------------+
+| Note  | 1265 | Data truncated for column 'salray3' at row 1 |
++-------+------+----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from test4;
++---------+---------+---------+
+| salary1 | salary2 | salray3 |
++---------+---------+---------+
+|  787.79 |   56.99 |   45.68 |
++---------+---------+---------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE test5(
+    -> aa char(5),
+    -> bb varchar(21844)
+    -> );
+ERROR 1118 (42000): Row size too large. The maximum row size for the used table
+type, not counting BLOBs, is 65535. You have to change some columns to TEXT or B
+LOBs
+mysql> CREATE TABLE test5(
+    -> aa char(5),
+    -> bb varchar(21800)
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> CREATE TABLE test6(
+    -> sex1 tinyint(1),
+    -> sex2 boolean
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC test6;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| sex1  | tinyint(1) | YES  |     | NULL    |       |
+| sex2  | tinyint(1) | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> CREATE TABLE test7(
+    -> aa date,
+    -> bb time,
+    -> cc year,
+    -> dd datetime,
+    -> ee timestamp
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC test7;
++-------+-----------+------+-----+-------------------+--------------------------
+---+
+| Field | Type      | Null | Key | Default           | Extra
+   |
++-------+-----------+------+-----+-------------------+--------------------------
+---+
+| aa    | date      | YES  |     | NULL              |
+   |
+| bb    | time      | YES  |     | NULL              |
+   |
+| cc    | year(4)   | YES  |     | NULL              |
+   |
+| dd    | datetime  | YES  |     | NULL              |
+   |
+| ee    | timestamp | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTA
+MP |
++-------+-----------+------+-----+-------------------+--------------------------
+---+
+5 rows in set (0.01 sec)
+
+mysql> insert test7(aa,bb,cc,dd,ee)
+    -> value
+    -> ('2016-12-23','17:52:30','2016',now(),current_timestamp);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from test7;
++------------+----------+------+---------------------+---------------------+
+| aa         | bb       | cc   | dd                  | ee                  |
++------------+----------+------+---------------------+---------------------+
+| 2016-12-23 | 17:52:30 | 2016 | 2016-12-23 17:53:30 | 2016-12-23 17:53:30 |
++------------+----------+------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE test8(
+    -> sex enum('0','1','2')
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC test8;
++-------+-------------------+------+-----+---------+-------+
+| Field | Type              | Null | Key | Default | Extra |
++-------+-------------------+------+-----+---------+-------+
+| sex   | enum('0','1','2') | YES  |     | NULL    |       |
++-------+-------------------+------+-----+---------+-------+
+1 row in set (0.02 sec)
+
+mysql> insert test8(sex)
+    -> value
+    -> (0);
+ERROR 1265 (01000): Data truncated for column 'sex' at row 1
+mysql> insert test8(sex)
+    -> value
+    -> ('0');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>

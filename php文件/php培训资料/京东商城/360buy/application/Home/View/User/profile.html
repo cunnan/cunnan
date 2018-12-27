@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>用户中心_京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/public/js/user.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        var bonus_sn_empty = "请输入您要添加的红包号码！";
+        var bonus_sn_error = "您输入的红包号码格式不正确！";
+        var email_empty = "请输入您的电子邮件地址！";
+        var email_error = "您输入的电子邮件地址格式不正确！";
+        var old_password_empty = "请输入您的原密码！";
+        var new_password_empty = "请输入您的新密码！";
+        var confirm_password_empty = "请输入您的确认密码！";
+        var both_password_error = "您现两次输入的密码不一致！";
+        var msg_blank = "不能为空";
+        var no_select_question = "- 您没有完成密码提示问题的操作";
+        //]]>
+        </script>
+  </head>
+  <body>
+    <div id="container">
+      
+      <include file="Public:header" />
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div id="urHere" class="globalModule">
+        <h3><a href=".">首页</a> <code>&gt;</code> 用户中心</h3>
+      </div>
+      <div class="blank"></div>
+      <div id="globalLeft">
+        <div class="globalModule">
+          <h3><div id="list_t_l"><div id="list_t_r"><b>用户中心</b></div></div></h3>
+          <div id="global_box" class="userMenu">
+            <a href="__APP__/User/index"><img src="__ROOT__/public/themes/jindong/images/u1.gif"> 欢迎页</a>
+			<a href="__APP__/User/profile" class="curs"><img src="__ROOT__/public/themes/jindong/images/u2.gif"> 用户信息</a>
+			<a href="__APP__/User/order"><img src="__ROOT__/public/themes/jindong/images/u3.gif"> 我的订单</a>
+			<a href="__APP__/User/address"><img src="__ROOT__/public/themes/jindong/images/u4.gif"> 收货地址</a>
+			<a href="__APP__/User/collection"><img src="__ROOT__/public/themes/jindong/images/u5.gif"> 我的收藏</a>
+			<a href="__APP__/User/message"><img src="__ROOT__/public/themes/jindong/images/u6.gif"> 我的留言</a>
+			<a href="__APP__/User/tag"><img src="__ROOT__/public/themes/jindong/images/u7.gif"> 我的标签</a>
+			<a href="__APP__/User/booking"><img src="__ROOT__/public/themes/jindong/images/u8.gif"> 缺货登记</a>
+			<a href="__APP__/User/bonus"><img src="__ROOT__/public/themes/jindong/images/u9.gif"> 我的红包</a>
+			<a href="__APP__/User/affiliate"><img src="__ROOT__/public/themes/jindong/images/u10.gif"> 我的推荐</a>
+			<a href="__APP__/User/comment"><img src="__ROOT__/public/themes/jindong/images/u11.gif"> 我的评论</a>
+			<!--<a href="__APP__/User/groupbuy">我的团购</a>-->
+			<a href="__APP__/User/trackpackages"><img src="__ROOT__/public/themes/jindong/images/u12.gif"> 跟踪包裹</a>
+			<a href="__APP__/User/accountlog"><img src="__ROOT__/public/themes/jindong/images/u13.gif"> 资金管理</a>
+			<a href="__APP__/User/logout" style="background:none; text-align:right; margin-right:10px;"><img src="__ROOT__/public/themes/jindong/images/bnt_sign.gif"></a>
+		  </div>
+		</div>
+      </div>
+      <div id="globalBigRight">
+        <div class="tab_box">
+          <div class="globalModule">
+            <div class="tab_title"><h3>个人资料</h3></div>
+            <div class="globalModuleContent">
+            <form name="formPassword" action="__APP__/User/checkpwd" method="post" onSubmit="return editPassword()">
+              <table cellspacing="0" class="tableList">
+                <tr>
+                  <th width="100">原密码</th>
+                  <td><input name="old_password" type="password" size="25" class="textInput" /></td>
+                </tr>
+                <tr>
+                  <th>新密码</th>
+                  <td><input name="new_password" type="password" size="25" class="textInput" /></td>
+                </tr>
+                <tr>
+                  <th>确认密码</th>
+                  <td><input name="comfirm_password" type="password" size="25" class="textInput" /></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <input name="submit" type="submit" value="确认修改" />
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <form name="formEdit" action="__APP__/User/checkprofile" method="post" onSubmit="return userEdit()">
+              <table cellspacing="0" class="tableList">
+                <tr>
+                  <th width="100">出生日期： </th>
+                  <td>
+                    <select name="birthdayYear">
+                      <option value="1952">1952</option>
+                      <option value="1953">1953</option>
+                    </select>&nbsp;
+                    <select name="birthdayMonth">
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                    </select>&nbsp;
+                    <select name="birthdayDay">
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>性　别： </th>
+                  <td><input type="radio" name="sex" value="0" checked="checked" />保密&nbsp;&nbsp;
+                    <input type="radio" name="sex" value="1"  />男&nbsp;&nbsp;
+                    <input type="radio" name="sex" value="2"  />女&nbsp;&nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <th>电子邮件地址： </th>
+                  <td><input name="email" type="text" value="123@yahoo.com.cn" size="25" class="inputBg" /><span style="color:#FF0000"> *</span></td>
+                </tr>
+                <tr>
+                  <th id="extend_field2i">QQ：</th>
+                  <td><input name="extend_field2" type="text" class="inputBg" value="123456"/><span style="color:#FF0000"> *</span></td>
+                </tr>
+                <tr>
+                  <th id="extend_field5i">手机：</th>
+                  <td><input name="extend_field5" type="text" class="inputBg" value="13581690000"/><span style="color:#FF0000"> *</span></td>
+                </tr>
+                <tr>
+                  <th>密码提示问题：</th>
+                  <td >
+                    <select name='sel_question'>
+                      <option value='0'>请选择密码提示问题</option>
+                      <option value="friend_birthday">我最好朋友的生日？</option>
+                      <option value="old_address">我儿时居住地的地址？</option>
+                      <option value="motto">我的座右铭是？</option>
+                      <option value="favorite_movie">我最喜爱的电影？</option>
+                      <option value="favorite_song">我最喜爱的歌曲？</option>
+                      <option value="favorite_food">我最喜爱的食物？</option>
+                      <option value="interest">我最大的爱好？</option>
+                      <option value="favorite_novel">我最喜欢的小说？</option>
+                      <option value="favorite_equipe">我最喜欢的运动队？</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th >密码问题答案：</th>
+                  <td><input name="passwd_answer" type="text" size="25" class="inputBg" maxlengt='20' value=""/></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center" bgcolor="#FFFFFF">
+                    <input name="submit" type="submit" value="确认修改"  style="border:none;" />
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="blank"></div>
+    
+    <include file="Public:footer" />
+    
+   </div>
+  </body>
+</html>

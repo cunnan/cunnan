@@ -1,0 +1,20 @@
+#a1{
+	margin:0 auto;
+	width:200px;
+	height:200px;
+	border:2px solid #f00;
+	overflow:hidden;	
+}
+#a2{
+	margin:0 auto;
+	width:200px;
+	height:200px;
+	border:2px solid #0f0;
+	background-image:url(../images/123.jpg);
+	overflow:hidden;
+}
+
+
+
+
+

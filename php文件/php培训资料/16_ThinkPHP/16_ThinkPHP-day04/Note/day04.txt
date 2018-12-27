@@ -1,0 +1,134 @@
+﻿自动验证
+	创建数据
+	哪个输入框需要验证，验证的规则，辅助内容
+	在数据模型类中加一个属性：
+	protected $_validate=array(
+		array(验证字段1,验证规则,错误提示,[验证条件,附加规则,验证时间]),
+	);
+	验证条件：
+	
+    	self::EXISTS_VALIDATE 或者0 存在字段就验证（默认）
+    	self::MUST_VALIDATE 或者1 必须验证
+    	self::VALUE_VALIDATE或者2 值不为空的时候验证
+	验证时间
+
+    	self::MODEL_INSERT或者1新增数据时候验证
+    	self::MODEL_UPDATE或者2编辑数据时候验证
+    	self::MODEL_BOTH或者3全部情况下验证（默认）
+
+验证规则	附加规则：
+正则		regex 	正则验证，定义的验证规则是一个正则表达式（默认）
+
+字段名称		confirm 	验证表单中的两个字段是否相同，定义的验证规则是一个字段名
+一个值		equal 	验证是否等于某个值，该值由前面的验证规则定义
+一个值		notequal 	验证是否不等于某个值，该值由前面的验证规则定义（3.1.2版本新增）
+array(1,2,3)	in 	验证是否在某个范围内，定义的验证规则可以是一个数组或者逗号分割的字符串
+array(1,2,3)	notin 	验证是否不在某个范围内，定义的验证规则可以是一个数组或者逗号分割的字符串（3.1.2版本新增）
+array(5,25)	length 	验证长度，定义的验证规则可以是一个数字（表示固定长度）或者数字范围（例如3,12 表示长度从3到12的范围）
+array(18,40)	between 	验证范围，定义的验证规则表示范围，可以使用字符串或者数组，例如1,31或者array(1,31)
+		notbetween 	验证不在某个范围，定义的验证规则表示范围，可以使用字符串或者数组（3.1.2版本新增）
+		expire 	验证是否在有效期，定义的验证规则表示时间范围，可以到时间，例如可以使用 2012-1-15,2013-1-15 表示当前提交有效期在2012-1-15到2013-1-15之间，也可以使用时间戳定义
+		ip_allow 	验证IP是否允许，定义的验证规则表示允许的IP地址列表，用逗号分隔，例如201.12.2.5,201.12.2.6
+		ip_deny 	验证IP是否禁止，定义的验证规则表示禁止的ip地址列表，用逗号分隔，例如201.12.2.5,201.12.2.6
+''		unique 	验证是否唯一，系统会根据字段目前的值查询数据库来判断是否存在相同的值，当表单数据中包含主键字段时unique不可用于判断主键字段本身
+	验证规则：
+		
+	create($arr)
+
+	add()
+	save()
+<input type="text" name="username"/>
+会员注册：uservip
+	表单项：
+	用户名
+	密码
+	确认密码
+	邮箱
+	年龄
+	电话
+1、创建表
+create table uservip(
+	id int key auto_increment,
+	username char(20) unique,
+	password char(32) not null,
+	email char(50),
+	age tinyint,
+	phone char(20),
+	state tinyint(1) default 0
+);
+思路：
+	1、在前台的首页加一个连接
+	2、写控制器及方法
+	UservipController.class.php  
+	function reg(){
+
+	}
+	view:reg.html---表单	
+	
+	3、声明数据模型类。
+	Common/Model/UservipModel.class.php
+	4、表单验证
+	指定验证规则
+	创建数据create()
+	获取错误信息getError()
+	
+	5、使用批量验证
+	protected $patchValidate=true;
+	
+自动完成：数据验证合法后，对数据再次处理。
+1、在数据模型类中加
+protected $_auto=
+    array(
+         array(完成字段1,完成规则,[完成时间,附加规则]),
+         array(完成字段2,完成规则,[完成时间,附加规则]),
+         ......
+    );
+完成时间：
+	1----insert
+	2----update
+	3----both
+附加规则：
+function 	使用函数，表示填充的内容是一个函数名
+callback 	回调方法 ，表示填充的内容是一个当前模型的方法
+field 	用其它字段填充，表示填充的内容是一个其他字段的值
+string 	字符串（默认方式）
+
+md5(md5($password).$username);
+
+产品添加，修改（多图片处理）
+create table product(
+	id int key auto_increment,
+	title varchar(50),
+	price float(7,2) default 0.00
+);
+create table productimage(
+	id int key auto_increment,
+	imagename varchar(50),
+	productid int
+);
+思路：
+	按管理员使用的步骤
+	1、呈现一个连接
+	2、点击连接进入产品添加的表单页面
+	ProductController.class.php
+	function add()---------->View/Product/add.html
+	|
+	提交按钮
+	|
+	save() 保存图片，信息入表，提示跳转
+
+修改：
+	点击修改连接
+	|
+	修改的表单页面
+	
+
+超文本标记语言	
+
+YII
+Mysql高级
+
+
+
+
+

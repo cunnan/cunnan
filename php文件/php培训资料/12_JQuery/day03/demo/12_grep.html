@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 工具函数</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+/*
+ * 4、有如下变量
+ var email = "1";
+ var hosts = ["163.com","126.com","qq.com"]
+ 过滤数组，要求找出数组中元素包含email字符串的数组元素。
+ */
+$(function(){	
+	 var  arr = [5,8,6,78,99];
+	 //对数组进行过滤，挑选出数组中值大于10的数组元素
+	 var result = $.grep(arr,function(value,key){
+		 if(value>10&&key>3){
+			 return value;//99
+		 }
+	 });
+	 alert(result);
+	
+});
+</script>
+</head>
+
+
+<body>
+<div></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

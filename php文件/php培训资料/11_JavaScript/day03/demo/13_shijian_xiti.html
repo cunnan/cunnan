@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM className</title>
+</head>
+
+<body>
+<div onclick="changeColor();">我是div标签</div>
+<script>
+/*
+ * 3、有div层，点击div层改变div层的背景色，
+ 第一次点击改背景色为绿色。
+ 第二次点击改背景色为黄色，
+ 第三次点击改背景色为蓝色。周而复始。
+ */
+var dobj = document.getElementsByTagName("div");
+var i=1;
+function changeColor(){
+	if(i==1){
+		dobj[0].style.backgroundColor = "green";
+		i = 2;
+	}else if(i==2){
+		dobj[0].style.backgroundColor = "yellow";
+		i = 3;
+	}else if(i==3){	
+		dobj[0].style.backgroundColor = "blue";
+		i = 1;
+	}	
+}
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

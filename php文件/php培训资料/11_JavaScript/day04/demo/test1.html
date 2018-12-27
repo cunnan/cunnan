@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<title>JavaScript BOM</title>
+</head>
+
+<body onunload="closeSon()">
+
+<script>
+/*
+ * 1、应用window.open打开子窗口，在父窗口中点击按钮，
+ 子窗口可以弹出对话框。关闭父窗口，子窗口也随之关闭。
+ */
+var wson = open("test2.html","_blank","width=200,height=200");
+var wson2 = open("test2.html","_blank","width=200,height=200");
+
+function callSon(){
+	wson.alert("hello father");
+}
+
+function closeSon(){
+     wson.close();
+}
+</script>
+<input type="button" value="call son" onclick="callSon()" />
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style>
+       .div1{
+       	  display:inline; /*块元素转行元素*/
+	      width:100px;
+       	  height:100px;
+       	  background:#ff0;
+       }
+       .span1{
+       	  display:block;/*行元素转为块元素*/
+	      width:100px;
+       	  height:100px;
+       	  background:#0f0;
+       }
+      .list{
+      	 width:200px;
+	     background:#ff0;
+      }
+      .list li{
+	     /* float:left; */
+      	 display:inline-block;
+      	 width:50px;
+      	 height:50px;
+      	 background:#f00;
+      }
+      .list li.two{
+	     /* display:none;  */
+      	/*  visibility:hidden; */
+      	visibility:visble;
+      }
+    </style>
+  </head>
+  <body>
+     <div class="div1">块元素</div>
+     <span class="span1">行元素</span>
+     
+     <ul class="list clearfix">
+        <li>one</li>
+        <li class="two">two</li>
+        <li>three</li>
+     </ul>
+  </body>
+</html>
+
+
+

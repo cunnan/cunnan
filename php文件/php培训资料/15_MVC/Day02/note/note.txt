@@ -1,0 +1,116 @@
+一、MVC
+
+1.什么是MVC?
+
+MVC是Model(模型) -- View(视图) -- Controller(控制器)的简写;
+
+Model表示应用程序核心(比如数据库记录列表);
+
+View表示显示的HTML页面;
+
+Controller表示应用程序中处理用户交互的部分;如从视图读取数据,并且模型发送数据;
+
+二、PATHINFO模式
+
+1.什么是PATHINFO模式?
+
+PATHINFO模式就是通过路径表现形式在URL中传递相关参数的方式;
+
+2.为什么要采用PATHINFO模式?
+
+便于网络推广(SEO)
+
+3.如何获取地址栏中的PATHINFO参数
+
+string $_SERVER['PATH_INFO']
+
+三、Apache URL Rewrite
+
+1.什么是URL Rewrite?
+
+URL Rewrite(URL重写),就是把一个客户端请求的地址转换服务器真实地址的过程
+
+2.为什么要采用URL Rewrite?
+
+A.把复杂的URL地址转换在短洁的URL地址;
+
+B.便于SEO;
+
+3.开启Apache URL重写模块
+
+A.编辑Apache的配置文件 -- httpd.conf
+
+B.启用LoadModule rewrite_module modules/mod_rewrite.so选项
+
+C.将AllowOverride None修改为AllowOverride All
+
+D.保存设置后,重新启动Apache
+
+4..htaccess文件
+
+作用:定义目录级别的重写规则
+
+5.重写规则
+
+RewriteEngine On/Off,打开/关闭重写引擎
+
+RewriteRule 源地址正则表达式 目标地址
+
+RewriteCond 重写条件
+
+四、ZendStudio安装Emmet
+
+1.安装
+
+A.Help --> Install New Software
+
+B.在Work With中输入 http://emmet.io/eclipse/updates/
+
+2.Emmet快捷键
+
+父子:标记名称 > 标记名称
+
+兄弟:标记名称 + 标记名称
+
+向上:标记名称 ^ 标记名称
+
+数量:标记名称 * 量词
+
+文本:{}
+
+属性:[]
+
+div id="container"    : #container
+
+标记名称 id="container" : 标记名称#id
+
+div class="a b"       : .a.b
+
+标记名称 class="a b"    : 标记名称.a.b 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

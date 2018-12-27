@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+  <div>当前操作：添加产品&nbsp;<a href="__APP__/Admin/Product/oper">列表</a></div>
+  <form enctype="multipart/form-data" action="__APP__/Admin/Product/save" method="post">
+  <table>
+  	<tr>
+  		<td>标题：</td>
+  		<td><input type="text" name="title"/></td>
+  	</tr>
+  	<tr>
+  		<td>价格：</td>
+  		<td><input type="text" name="price"/></td>
+  	</tr>
+  	<tr>
+  		<td>图片：</td>
+  		<td><input multiple='multiple' type="file" name="upload[]"/></td>
+  	</tr>
+  	<tr>
+  		<td colspan="2"><input type="submit" value="提交"/></td>
+  	</tr>
+  </table>
+  
+  </form>
+  </body>
+</html>

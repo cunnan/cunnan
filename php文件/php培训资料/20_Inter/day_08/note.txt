@@ -1,0 +1,75 @@
+﻿Sphinx：全文检索
+
+
+like查询
+select * from 表名 where 字段 like '%关键字%';
+Sphinx查询
+select * from 表名 where 主键 in (值,值,值...);
+
+
+Sphinx工作原理
+Sphinx(服务)-----配置-----生成索引文件
+  |
+sphinxapi.php
+  |
+xxx.php-------------------database
+
+
+下载资源包
+coreseek-3.2.14-win32.zip(中文)
+sphinx-3.2.14-win32.zip(英文)
+
+
+目录结构
+coreseek
+  api----------------sphinx接口文件
+    sphinxapi.php
+  bin----------------命令文件
+    indexer
+    searchd
+  etc----------------配置文件
+    csft_mysql.conf
+    uni.lib
+  var----------------临时文件
+
+
+
+安装Sphinx
+1、修改配置文件：e:/coreseek/etc/csft_mysql.conf
+   1)修改数据库配置
+   2)数据库配置下的几个选项注释掉
+   3)将所有相对路径改为绝对路径
+2、生成索引文件：打开命令提示符窗口，执行如下命令(Win7以管理员方式打开)
+   e:/coreseek/bin/indexer --config e:/coreseek/etc/csft_mysql.conf --all
+   注意：只要没看到"ERROR: FATAL:"就算成功
+   错误："csft_mysql.conf line 1 col 1."
+   解决：打开配置文件，另存为，将存储格式编码改为ANSI
+3、安装服务：打开命令提示符窗口，执行如下命令(Win7以管理员方式打开)
+   e:/coreseek/bin/searchd --config e:/coreseek/etc/csft_mysql.conf --install
+4、卸载服务：打开命令提示符窗口，执行如下命令(Win7以管理员方式打开)
+   e:/coreseek/bin/searchd --delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

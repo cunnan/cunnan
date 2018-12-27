@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM className</title>
+</head>
+
+<body>
+<p>这里是段落标签</p>
+<input type="button" value="点击" />
+
+<script>
+/*
+ * 2、有一个div层，通过按钮改变div层的背景色。
+ 按钮响应鼠标单击事件。
+
+ */
+//获取p标签的对象
+var pobj = document.getElementsByTagName("p");
+//获取input的javascript对象
+var iobj = document.getElementsByTagName("input");
+//   b、对象.on事件名称 = 事件处理程序。
+iobj[0].onmouseover = function(){
+	pobj[0].innerHTML="鼠标划入";
+}
+
+iobj[0].onmouseout = function(){
+	pobj[0].innerHTML = "鼠标划出";
+}
+
+
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

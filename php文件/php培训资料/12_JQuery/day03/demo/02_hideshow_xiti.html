@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 特效</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+/*
+ * 1、有如下的HTML文档：
+ <img src=""/>
+ <input type="button" value="hide" id="hide"/>
+<input type="button" value="show" id="show"/>
+点击hide按钮图片隐藏，点击show按钮图片显示。
+ */
+$(function(){
+	$("#hide").click(function(){
+		$("img").hide();
+	});
+	
+	$("#show").click(function(){
+		$("img").show();
+	});
+});
+</script>
+</head>
+
+
+<body>
+ <img src="dog.jpg"/><br/>
+ <input type="button" value="hide" id="hide"/>
+<input type="button" value="show" id="show"/>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

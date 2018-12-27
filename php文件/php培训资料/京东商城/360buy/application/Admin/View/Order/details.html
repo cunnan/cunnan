@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/library/jquery/jquery-1.4.js"></script>
+    <style type="text/css">
+       td{
+			height:25px;
+       		text-align:left;
+       		padding-left:5px;
+       }
+    </style>
+  </head>
+  <body>
+    <!-- 网站的头 -->
+    <include file="Public:header" />
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 订单管理 : 订单详细信息</div>
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv"><include file="Public:left" /></div>
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv">
+        <br>
+        <form name="frm" method="post" action="">
+        <table border="1" align="center" width="500" cellpadding="0" cellspacing="0">
+          <tr class="modTypeDiv1">
+            <td colspan="2" style="text-align:center;">订单详情</td>
+          </tr>
+          <tr>
+            <td width="130">订单编号：</td>
+            <td>1345678901</td>
+          </tr>
+          <tr>
+            <td>订单总价：</td>
+            <td>1500</td>
+          </tr>
+          <tr>
+            <td>下单人：</td>
+            <td>张三</td>
+          </tr>
+          <tr>
+            <td>收货人姓名：</td>
+            <td>张三</td>
+          </tr>
+          <tr>
+            <td>详细地址：</td>
+            <td>北京市海淀区</td>
+          </tr>
+          <tr>
+            <td>电话：</td>
+            <td>13500000000</td>
+          </tr>
+          <tr>
+            <td>电子邮件：</td>
+            <td>123@sina.com</td>
+          </tr>
+          <tr>
+            <td>邮编：</td>
+            <td>100037</td>
+          </tr>
+          <tr>
+            <td>手机：</td>
+            <td>13500000000</td>
+          </tr>
+          <tr>
+            <td>最佳送货时间：</td>
+            <td>下午三点</td>
+          </tr>
+          <tr>
+            <td>订单附言：</td>
+            <td>颜色调换颜色调换颜色调换颜色调换颜色调换颜色调换</td>
+          </tr>
+          <tr>
+            <td>是否付款：</td>
+            <td>
+              <input type="radio" name="isPay" value="0" checked>未付
+              <input type="radio" name="isPay" value="1">己付
+            </td>
+          </tr>
+          <tr>
+            <td>是否发货：</td>
+            <td>
+              <input type="radio" name="isSend" value="0" checked>未发
+              <input type="radio" name="isSend" value="1">己发
+            </td>
+          </tr>
+          <tr>
+            <td>是否签收：</td>
+            <td>
+              <input type="radio" name="isCheck" value="0" checked>未签收
+              <input type="radio" name="isCheck" value="1">己签收
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" style="text-align:center;">
+              <input type="submit" value="更新">
+              &nbsp;&nbsp;&nbsp;
+              <input type="reset" value="重置">
+            </td>
+          </tr>
+        </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

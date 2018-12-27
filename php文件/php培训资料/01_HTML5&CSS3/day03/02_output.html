@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+     <form oninput ="res.value=parseInt(a.value) + parseInt(b.value)">
+         <label>输入值:</label>
+         <input type="number" min="0" 
+           max="100" value="5" name="a"/>
+         +
+         <input type="range" min="0" 
+           max="100" value="5" name="b"/>
+         =<output name="res">10</output>
+     </form>
+  </body>
+</html>

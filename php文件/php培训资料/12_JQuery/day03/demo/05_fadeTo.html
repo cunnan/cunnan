@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 特效</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+$(function(){
+	$("#to").click(function(){
+		$("div").fadeTo("slow",0.5);
+	});
+	
+	$("#in").click(function(){
+		$("div").fadeTo("slow",1);
+	});
+});
+</script>
+</head>
+
+
+<body>
+<div style="background-color:green;width:150px;height:150px;"></div>
+<input type="button" value="fadeTo0.5" id="to"/>
+<input type="button" value="fadeTo1" id="in"/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

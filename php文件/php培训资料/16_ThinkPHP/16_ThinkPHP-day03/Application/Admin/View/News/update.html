@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+  <include file="Public/header"/>
+  <h1>修改文章</h1>
+  <div><a href="__APP__/Admin/News/oper">列表</a></div>
+  <form action="__APP__/Admin/News/usave" method="post">
+  <table>
+  	<tr>
+  		<td>标题：</td>
+  		<td><input value="{$arr.title}" type="text" name="title"/></td>
+  	</tr>
+  	<tr>
+  		<td>分类：</td>
+  		<td>
+  		<select name="typeid" id="suibian">
+  			{$str}
+  		</select>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td>内容：</td>
+  		<td>
+  		<textarea name="content">{$arr.content}</textarea>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td colspan="2"><input type="hidden" name="id" value="{$arr.id}"/><input type="submit" value="添加"/></td>
+  	</tr>
+  </table>
+  </form>
+  </body>
+</html>
+<script type="text/javascript">
+document.getElementById("suibian").value='{$arr.typeid}';
+</script>
+
+
+
+

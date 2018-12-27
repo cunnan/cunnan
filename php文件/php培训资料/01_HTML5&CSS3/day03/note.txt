@@ -1,0 +1,106 @@
+一表单(Form)
+ 1.表单:收集客户端信息,发送到远程服务器
+ 2.格式
+  <form action="动态页面xx.php" method="get|post">
+     ...
+  </form>
+ 3.
+  (1)单行文本框
+  (2)密码
+  (3)单选框
+  (4)多选框
+  (5)下拉列表框
+  (6)浏览框
+  (7)多行文本框
+  (8)按钮
+     a.提交按钮
+     b.普通按钮
+     c.重置按钮
+  (9)隐藏域
+   <input type="hidden" name="名称 " value="值"/>
+      说明:客户端无需理会,给服务器传递信息
+ 4.HTML5 新的 Input 类型
+   type 中的值
+   (1) email:规定输入框邮箱,自动验证邮箱功能
+   (2) url :规定输入框网址,自动验证网址功能
+   (3) number:规定输入框数值
+   (4) range:规定输入框数值,显示滑块效果
+   (5) Date pickers (date, month, week,
+               time, datetime, datetime-local)
+ 
+   (6)search :规定输入框搜索
+   (7)color: 拾色器
+  5.HTML5新增的元素
+     input
+     select
+     textarea
+    (1)datalist:规定输入框列表项，列表项datalist
+                                 用输入框中 属性 list的值 和 datalist
+                                 中id值相同实现绑定
+    (2)output:规定输出框
+  6.HTML5 的新的表单属性
+        新的 form中属性:
+    (1)autocomplete:自动完成(提示)功能
+            autocomplete="on|off"
+    (2)novalidate：关闭html5中自动验证功能
+         novalidate="true"
+        新的 input中属性：
+    (1)autocomplete:自动完成(提示)功能
+            autocomplete="on|off"
+    (2)required:输入框必须填写,不能为空
+            required="required"
+    (3)placeholder: 提示信息
+    (4)autofocus:获得鼠标焦点
+            autofocus="autofocus"
+    (5)pattern:规定输入框实现正则表达式验证功能
+                                写验证规范
+    (6)min max step:最小值,最大值,步长
+                  说明:input 类型值是 number,range,date picker 
+                           可以使用的属性
+    (7)width height:具体宽和高的属性元素有 img,input
+    (8)mutiple：规定输入框多选
+    (9)list属性:规定绑定列表项,用输入框中list属性值
+                                和 datalist 中id属性值相同
+    (10)form 属性:规定表单元素属于 一个或多个表单
+              也就是表单元素可以写在from标记外，但要用form属性
+              标识来着那个表单
+二.框架集
+   1.什么是框架集:被用了组成多个窗口的，并且每个窗口有
+                                 独立的页面。
+   2.frameset
+     (1)格式
+       <frameset cols="20%,*"左右窗口|rows="20%,*"上下窗口>
+          <frame src="1.html"/>
+          <frame src="2.html"/>
+       </frameset>
+     (2)嵌套框架
+       <frameset rows="20%,*">
+           <frame src="top.html"/>
+           <frameset cols="20%,*">
+               <frame src="menu.html"/>
+               <frame src="main.html"/>
+           </frameset>
+       </frameset>
+     (3)frame 标记中属性
+        a. noresize:yes默认值|no  设置窗口大小
+        b. scrolling:yes|no|auto 设置浏览器滚动条效果
+        c.frameborder:边框     
+         说明:
+        frameset 不能和body一起使用
+        html5 不支持 frameset
+   3.iframe:
+    (1)格式
+     <iframe src="窗口页面" width="宽"
+          height="高" scrolling="yes|no|auto"
+          frameborder="0">
+     </iframe>
+                
+      
+       
+    
+    
+  
+  
+  
+  
+  

@@ -1,0 +1,122 @@
+一.PHP数据库函数库
+  1. mysql 函数库
+  2. mysqli 函数库
+  3. pdo 函数库
+二.mysql 函数库
+  1. phpinfo();测试是否按装了mysql 函数库
+  2. 安装 mysql 函数库  php.ini
+     (1) extension_dir = 'D:/php5.4/ext' 
+         PHP函数库位置
+     (2) extension=php_mysql.dll将前面的分号
+                  去掉然后重启apache服务器
+  3.
+    (1)连接Mysql
+    resource mysql_connect($host,$name,$pwd)
+           说明:
+        a.$host 服务器主机名/IP
+        b.$name Mysql 用户名称  root
+        c.$pwd  Mysql密码
+    (2)打开数据库
+    bool mysql_select_db($dataname[,resource $link])
+    (3)执行SQL语句
+    mixed  mysql_query($sql)
+         说明:
+       a. SQL语句是 select show desc等
+                    返回 resource类型结果集
+       b. SQL语句是 insert,update,delete
+                    返回布尔类型
+   (4) 将结果集转为数组
+      array mysql_fetch_row(resource $results):
+                    抽取一行结果集转为一维索引数组
+      array mysql_fetch_assoc(resource $results):
+                     抽取一行结果集转为一维关联数组
+      array mysql_fetch_array(resource $results[,int $type]):
+                    抽取一行结果集转为一维索引和关联数组
+            说明:
+         a. MYSQL_BOTH 值3 有索引和关联数组
+         b. MYSQL_ASSOC 值 2 有关联数组
+         c. MYSQL_NUM 值1  有索引数组
+         
+    (5)释放结果集
+       bool mysql_free_result(resource $result)
+    (6)关闭数据库
+       bool mysql_close([resource $link]); 
+    (7) 增删改的影响行数   
+      int mysql_affected_rows([resource $link])
+           说明:成功返回 >=1整数,没有影响行数返回 0
+                   失败返回 -1 
+     
+     
+     
+     
+     
+     
+       
+========================================
+乱码:
+  1. zend 工具  : 
+  window-Perferences-General-workspace - utf8
+  2. HTML5
+  <meta charset="utf-8"/>
+  3. PHP 
+  header('Content-Type:text/html;charset=utf-8');
+  4. mysql
+   (1) mysql 服务器  配置文件my.ini(不正确,改好中文信息重写)
+     default-character-set=utf8
+     character-set-server=utf8
+   (2)
+           创建数据库  utf8
+           创建表结构  utf8
+   (3) windows 命令行 cmd
+     set names gbk cmd窗口要中文显示 mysql服务器的中文数据
+     
+   show variables like 'character%'; utf8
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+  
+ 
+
+
+
+
+
+
+  
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+  
+  
+
+
+  
+  

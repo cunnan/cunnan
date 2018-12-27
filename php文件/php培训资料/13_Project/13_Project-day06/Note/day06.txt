@@ -1,0 +1,41 @@
+﻿首页：
+	头部推荐文章  3
+	第一屏推荐文章  2
+	国际新闻图片推荐  1
+
+news-----state
+	3
+友情链接：
+友情链接表：
+create table friend(
+	id int key auto_increment,
+	fname char(20),
+	url char(100),
+	addtime int
+);
+后台：
+添加 列表 修改 删除---物理
+
+列表：
+oper.php
+
+	
+
+6、测试
+
+7、上线   服务器   域名
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+

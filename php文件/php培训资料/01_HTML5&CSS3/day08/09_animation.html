@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style>
+       .box{
+	      width:80px;
+       	  height:80px;
+       	  border:1px solid #f00;
+       	  margin:50px auto 0;
+       }
+       .son{
+	      width:80px;
+       	  height:80px;
+       	  background:#ff0;
+       	  /* animation-name:myAni;
+       	  animation-duration:2s;
+       	  animation-delay:0.2s;
+       	  animation-timing-function:ease-in-out;
+          animation-iteration-count:infinite;
+       	  animation-direction:alternate; */
+       	  animation:myAni 2s 0.2s ease-in-out 
+       	           infinite alternate;
+       }
+       @keyframes myAni{
+	     0%  {
+       	      transform:rotate(0deg);
+              background:#ff0;
+             }
+       	 100%{
+              transform:rotate(359deg);
+              background:#f00;
+             }
+       }
+    </style>
+  </head>
+  <body>
+      <div class="box">
+         <div class="son">
+                          动画
+         </div>
+      </div>
+  </body>
+</html>

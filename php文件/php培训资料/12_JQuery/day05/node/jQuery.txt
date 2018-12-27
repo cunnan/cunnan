@@ -1,0 +1,49 @@
+﻿jQuery
+十一、UI插件的应用
+           jquery-ui-1.10.3.custom.js (UI插件)
+           jquery-ui-1.10.3.custom.css （UI插件的样式文件）
+           功能：对话框(dialog)、日期（datepicker）、自动补全（autocomplete）
+
+           jquery.validate.js(表单验证插件)
+           jquery.validate.messages_zh.js（表单验证汉化插件）
+           功能:表单验证(validate)
+
+          jquery.form.js(ajaxform表单提交插件)
+          功能：ajax form表单提交（ajaxSubmit）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE `cms_user` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(30) NOT NULL,
+ `password` char(32) NOT NULL,
+ `email` varchar(100) DEFAULT NULL,
+ `birthday` varchar(30) NOT NULL,
+ PRIMARY KEY (`id`),
+ UNIQUE KEY `username` (`username`)
+ )ENGINE=InnoDB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

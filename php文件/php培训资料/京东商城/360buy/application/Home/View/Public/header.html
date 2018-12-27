@@ -1,0 +1,135 @@
+<Script language="JavaScript">
+function show_menu(obj_s,obj){
+	var  s_id = document.getElementById(obj_s);
+	var  sc_id = document.getElementById(obj);
+	     s_id.style.display = "";
+	     //sc_id.className = "ahv";
+}
+     	
+function hide_menu(obj_h,obj){
+	var  h_id = document.getElementById(obj_h);
+	var  hc_id = document.getElementById(obj);
+	     h_id.style.display = "none";
+	     //hc_id.className = "alk";
+}
+window.onload = function()
+{
+  //fixpng();
+}
+function checkSearchForm()
+{
+    if(document.getElementById('keyword').value)
+    {
+        return true;
+    }
+    else
+    {
+		   alert("请输入搜索关键词！");
+        return false;
+    }
+}
+</Script>
+      <div id="globalHeader">
+        <ul id="top_nav_ul">
+          <div id=navigation1_03 style=" float:right;">
+          <dl>
+            <dt style="POSITION: relative; z-index:999999999">
+              <a style="float:right; background:url(__ROOT__/public/themes/jindong/images/biao.gif) 55px center no-repeat; padding-right:23px;display:block; line-height:29px;"  class=alk 
+              onmouseover="show_menu('float_menu2','c_fship_c')"
+              onmouseout="hide_menu('float_menu2','c_fship_c')"
+              href="#"  target=_self>客服中心</a>
+              <div id=float_menu2 onMouseOver="show_menu('float_menu2','c_fship_c')" style="border: #ccc 1px solid; border-top:none;DISPLaY: none; Z-INDEX: 20; LEFT: 0px; top:0; WIdtH:70px; padding:0 0 5px 8px;POSITION: absolute;" 
+              onmouseout="hide_menu('float_menu2','c_fship_c')">
+                <ul class=cship_list>
+			      <li style="padding-bottom:7px; padding-top:5px;"><a target="_blank" href="user.php">客服中心</a> </li>
+			      <li><a target="_blank" href="__APP__/User/index">会员后台</a> </li>
+			      <li><a target="_blank" href="__APP__/User/order">我的订单</a> </li>
+			      <li><a target="_blank" href="__APP__/User/message">我的留言</a> </li>
+                </ul>
+              </div>
+            </dt>
+            <dd></dd>
+          </dl>
+          </div>
+          <div style="float:right; _padding-top:9px; background: url(__ROOT__/public/themes/jindong/images/nav_bg2.gif) 0 top no-repeat; height:29px; padding-left:28px;">
+            <a href="__APP__/Promotion/index"  >今日特价</a> <img style="vertical-align:middle" src="__ROOT__/public/themes/jindong/images/nav_li.gif">
+            <a href="#"  >极品源码</a> <img style="vertical-align:middle" src="__ROOT__/public/themes/jindong/images/nav_li.gif">
+            <a href="__APP__/Cart/index"  >查看购物车</a> <img style="vertical-align:middle" src="__ROOT__/public/themes/jindong/images/nav_li.gif">
+            <a href="__APP__/Quotation/index"  >报价单</a> <img style="vertical-align:middle" src="__ROOT__/public/themes/jindong/images/nav_li.gif">
+          </div>
+          <div  style="float:right; color:#acacac; padding-right:15px;">
+            <script type="text/javascript" src="__ROOT__/public/js/transport.js"></script>
+            <script type="text/javascript" src="__ROOT__/public/js/utils.js"></script>
+            <font id="ECS_MEMBERZONE">您好，欢迎您光临万联商城！
+              <a href="__APP__/Login/index">[请登录]</a>
+              <span>，新用户？</span>
+              <a style="color:#ff6600" href="__APP__/Register/index">[免费注册]</a>
+            </font>
+          </div>
+        </ul>
+        <p id="logo"><img style="float:left" src="__ROOT__/public/themes/jindong/images/logo.gif"/></a></p>
+      </div>
+      <div id="globalNav">
+        <ul>
+          <if condition="$pageName eq index">
+          <li><a href="__APP__/Index/index" class="cur">首页</a></li>
+          <else />
+          <li><a href="__APP__/Index/index">首页</a></li>  
+          </if>
+          <if condition="$pageName eq category1">
+          <li><a href="__APP__/Category/index/id/1" class="cur">服饰鞋帽</a></li>
+          <else />
+          <li><a href="__APP__/Category/index/id/1"  >服饰鞋帽</a></li>
+          </if>
+          <if condition="$pageName eq auction">
+          <li><a href="__APP__/Auction/index" target="_blank" class="cur">夺宝岛</a></li>
+          <else />
+          <li><a href="__APP__/Auction/index" target="_blank"  >夺宝岛</a></li>
+          </if>
+          <if condition="$pageName eq Diy">
+          <li><a href="__APP__/Diy/index" class="cur">装机大师</a></li>
+          <else />
+          <li><a href="__APP__/Diy/index">装机大师</a></li>
+          </if>
+          <if condition="$pageName eq Message">
+          <li><a href="__APP__/Message/index" class="cur">留言板</a></li>
+          <else />
+          <li><a href="__APP__/Message/index">留言板</a></li>
+          </if>
+          <if condition="$pageName eq category2">
+          <li><a href="__APP__/Category/index/id/2" class="cur">汽车用品</a></li>
+          <else />
+          <li><a href="__APP__/Category/index/id/2"  >汽车用品</a></li>
+          </if>
+          <if condition="$pageName eq category3">
+          <li><a href="__APP__/Category/index/id/3" class="cur">展销会专栏</a></li>
+          <else />
+          <li><a href="__APP__/Category/index/id/3"  >展销会专栏</a></li>
+          </if>
+        </ul>
+      </div>
+      <div id="globalSearch">
+        <img style="position:absolute; left:0;" src="__ROOT__/public/themes/jindong/images/search_box_l.gif">
+        <img  style="position:absolute; right:0;" src="__ROOT__/public/themes/jindong/images/search_box_r.gif">
+        <form id="searchForm" name="searchForm" method="post" action="__APP__/Search/index" onSubmit="return checkSearchForm()" style="background:#99CC00; padding-left:13px;">
+          <div class="search_left">
+            <input style="float:left;" name="keywords" type="text" id="keyword" value="请输入商品关键字" onclick="javascript:this.value='';this.style.color='#333333';" />
+            <input type="image" src="__ROOT__/public/themes/jindong/images/search.gif" style="float:left" />
+            <span class="key2">热门搜索 ：
+              <a target="_blank" style=" color:#ffcccc" href="__APP__/Search/index">品牌日用品</a>
+              <a target="_blank" style=" color:#ffcccc" href="__APP__/Search/index">品牌服装</a>
+            </span>
+          </div>
+          <div class="search_right">
+            <div class="buy_car_bg clearfix" id="ECS_CaRTINFO" >
+              <a href="__APP__/Cart/index">
+                <span>购物车中有<b>0</b>件商品</span>
+                <ul class="car_ul">
+                <a href="#" style="color:#999; padding-left:30px;">您的购物车暂无商品 赶快选择心爱的商品吧</a>
+                </ul>
+              </a>
+            </div>
+            <a href="__APP__/Cart/flow"><img src="__ROOT__/public/themes/jindong/images/qujiesuan.gif"></a>
+          </div>
+        </form>
+      </div>

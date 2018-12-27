@@ -1,0 +1,15 @@
+﻿create table class(
+id int(4) primary key auto_increment,
+name char(20)
+)default charset=utf8;
+
+create table student(
+id int(8) primary key auto_increment,
+name char(10),
+age tinyint(3),
+sex char(1),
+card char(30),
+education char(10),
+introduce char(100),
+classid int(4)
+)default charset=utf8;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body style="height:2000px;">
+  <h1>文章列表页：</h1>
+  <hr/>
+  <ul>
+  	<{foreach $arr as $k => $v}>
+  	<{if $v@iteration%2==0}>
+  	<li style="background:#abcdef;"><{$v@total}>--<a href='detail.php?id=<{$v.id}>'><{$v.title}></a></li>
+  	<{else}>
+  	<li style="background:#fedcba;"><{$v@total}>--<a href='detail.php?id=<{$v.id}>'><{$v.title}></a></li>
+  	<{/if}>
+  	<{/foreach}>
+  </ul>
+  <h1>加边线</h1>
+  
+  <ul style="padding:0;border:1px solid #333;list-style:none;">
+  	<{foreach $arr as $k => $v}>
+  	<{if $v@last}>
+  	<li><{$v@total}>--<a href='detail.php?id=<{$v.id}>'><{$v.title}></a></li>
+  	<{else}>
+  	<li style="border-bottom:1px solid #abcedf;"><{$v@total}>--<a href='detail.php?id=<{$v.id}>'><{$v.title}></a></li>
+  	<{/if}>
+  	<{/foreach}>
+  </ul>
+  
+  </body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style>
+      .box{
+	     width:400px;
+      	 background:#ff0;
+      }
+      .a1{
+      	 float:left;
+	     width:80px;
+      	 height:50px;
+      	 background:#f00; 
+      }
+     .a2{
+     	 float:left;
+	     width:80px;
+      	 height:30px;
+      	 background:#0f0; 
+      }
+     .a3{
+     	 float:left;
+	     width:80px;
+      	 height:50px;
+      	 background:#00f; 
+      }
+      .clear{
+	     clear:both;
+      }
+      .list{
+      	 width:200px;
+	     background:#ff0;
+      }
+      .list li{
+	     float:left;
+      	 width:50px;
+      	 height:50px;
+      	 background:#f00;
+      	 margin-right:8px;
+      }
+      .clearfix:after{
+	    content:".";
+      	clear:both;
+      	display:block;
+      	height:0;
+      	visibility:hidden;
+      }
+      .clearfix{
+	    zoom:1;
+      }
+    </style>
+  </head>
+  <body>
+     <!--高度塌陷:当父元素中的子元素都浮动
+                而父元素没有设置高度那父元素的高为0  -->
+     <div class="box">
+        <div class="a1"></div>
+        <div class="a2"></div>
+        <div class="a3"></div>
+        <div class="clear"></div>
+     </div>
+     <!--错误写法,要用万能清除实现  -->
+     <ul class="list clearfix">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+     </ul>
+  </body>
+</html>
+
+
+
+
+

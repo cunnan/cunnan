@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 插件</title>
+<!-- 引入jQuery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+
+<script>
+$(function(){
+	var email = "tom@163.com";
+	//判断用户输入的email中是否含有@符号
+	//对象.indexOf("子字符串")
+	var pos = email.indexOf("@");
+	//对象.slice(start[,end])
+	//alert(email.slice(0,pos));//name
+	//host
+	alert(email.slice(pos+1));
+});
+</script>
+</head>
+
+
+<body>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

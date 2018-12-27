@@ -1,0 +1,254 @@
+一.字符串函数库
+  1.substr：字符串截取
+    string substr(string $var,int $start[,int $length])
+  2.strlen：获得字符串长度
+  3.
+    strtolower:转为小写字符
+    strtoupper:转为大写字符
+    ucfirst:将字符串首个字母大写
+    ucwords:将字符串中的每个单词大写
+  4.
+    trim: 清除两边空格，也可以清除指定字符
+    ltrim:清除左边空格，也可以清除指定字符
+    rtrim:清除右边空格，也可以清除指定字符
+    
+  5.
+    strpos:查找字符串首次出现的编号位置,编号从0开始
+                        区分大小写
+         格式:mixed strpos ( string $haystack , 
+        mixed $needle [, int $offset = 0 ] )
+         成功返回编号位置，失败返回false  
+    stripos:不区分大小写
+    strrpos:查找字符串最后出现的编号位置,编号从0开始
+                        区分大小写
+    strripos:查找字符串最后出现的编号位置,编号从0开始
+                           不区分大小写
+                           
+  6.
+    strstr:  查找字符串的首次出现位置,区分大小写
+        string strstr ( string $haystack ,
+           mixed $needle [, bool $before_needle = false ] )
+              说明:
+         a.返回 haystack 字符串从 needle 第一次
+                       出现的位置开始到 haystack 结尾的字符串。
+         b.$before_needle若为 TRUE，strstr() 将返回 needle 
+                      在 haystack 中的位置之前的部分。   
+    stristr:不区分大小写
+    strchr:是 strstr 的别名
+    strrchr:查找字符串的最后出现位置,区分大小写
+    
+   7.
+     strrev:字符串反转
+   8.str_replace:字符串替换
+        格式:mixed str_replace ( mixed $search ,
+         mixed $replace , mixed $subject 
+         [, int &$count ] )
+         
+   9.
+     htmlspecialchars:自动将特殊符号转为HTML实体
+          格式:
+       string htmlspecialchars ( string $string
+        [, int $flags = ENT_COMPAT]);
+          说明:
+        a. htmlspecialchars只能转换  > < & '和"特殊符号
+        b. $flag默认值 ENT_COMPAT 默认不处理单引号
+        c. $flag:
+             ENT_COMPAT  默认不处理单引号
+             ENT_QUOTES  处理单引号和双引号
+             ENT_NOQUOTES 不处理单引号和双引号
+   10 加密函数
+      md5:计算字符串的 MD5 散列值,返回32位字符串
+      sha1:计算字符串的sha1 散列值,返回40位字符串
+      
+   11. strip_tags:从字符串中去除 HTML 和 PHP 标记
+    string strip_tags ( string $str 
+        [, string $allowable_tags ] )
+    说明:
+    $allowable_tags值
+            去除HTML 和 PHP 标记外,可以保留的标记
+            
+二.数组(Array)
+ 1.什么是数组:一组数据的集合,存多个值
+ 2.分类
+   (1)索引数组:键名名称是整数,默认编号从0开始
+   (2)关联数组:键名名称是字符串
+ 3.定义数组
+   (1) $arr = array([[$key=>]$value,
+              [[$key=>]$value,...]]);
+   (2) $arr[[$key]] =$value;
+   (3) PHP5.4以上支持  用 [] 替代 array()
+             例如:
+          $arr =array('a','b','c','d');
+          $arr = ['a','b','c','d'];
+     说明:
+     a.数组中的值可以是任意数据类型
+     b.数组中的键名称只有整数和字符类型
+     c.如果省略键名称,以默认连续的整数作为
+              数组的键名,编号从0开始的索引数组
+     d.如果键名称相同后面的值覆盖前面的值
+  4. 数组中键名称数据类型转换
+     (1)数组中出现的第一个省略键名称,而它之前的
+                数组成员的键名称都是负值，该键名称为0
+     (2)数组中出现的第一个省略键名称,而它之前的
+                数组成员的键名称有正值和负值，该键名称为
+                最大值加1
+     (3)数组中键名称如果是浮点型,转为整型，下向
+                取整
+     (4)数组中键名称合法整数数字符串转为整型，
+                合法浮点数字符串该字符串
+     (5)数组中键名称 布尔值，true 转为1,false
+                转为0
+     (6)数组中键名称 null 转为空字符串
+   5.数组的访问和修改,添加
+     (1)访问
+       a.输出数组中某一个值
+         echo $arr[$key];
+       b.循环遍历每个值
+        foreach($arr as [$key=>]$value){
+          ...
+        }
+              说明:foreach 用在没规律的索引数组
+                      和关联数组
+     (2)修改,添加
+       $arr[$key] =$value;
+               说明: 键名称存在修改，不存在添加
+   6.数组函数库
+    1. count/sizeof :获得数组或对象的长度
+    2. join/implode:将一维数组转为字符串
+          格式:
+     string join(string $glue,array $arr)
+     string implode(string $glue,array $arr)   
+          
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+     
+     
+       
+       
+       
+       
+       
+     
+   
+   
+        
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+     
+   
+        
+        
+        
+        
+        
+        
+        
+     
+         
+    
+        
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+    
+    
+    
+  
+  
+    
+    
+  
+
+
+

@@ -1,0 +1,40 @@
+﻿3、替换
+      str_replace(mixed $search,mixed $replace,mixed $subject)
+      功能：字符串的替换
+      参数：
+      search  要查找的字符串
+      replace  替换的字符串
+      subject  源字符串
+      返回：被替换后的字符串
+
+      preg_replace(mixed $pattern,mixed $replace,mixed $subject) 
+      功能：正则替换
+      参数：
+      pattern 正则表达式
+      replace  进行替换的字符串
+      subject  源字符串
+      返回：  被替换后的字符串
+ 
+贪婪模式和非贪婪模式
+.*   贪婪模式
+.*?  非贪婪模式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

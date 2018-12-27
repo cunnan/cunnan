@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+  <h1>会员注册</h1>
+  <form action="__APP__/Home/Uservip/reg" method="post">
+  <table width="100%" border=1>
+  	<tr>
+  		<td width="100">用户名：</td>
+  		<td width="300"><input value="{$arr.username}" type="text" name="username"/></td>
+  		<td>{$eArr.username}</td>
+  	</tr>
+  	<tr>
+  		<td>密码：</td>
+  		<td><input value="{$arr.password}" type="password" name="password"/></td>
+  		<td>{$eArr.password}</td>
+  	</tr>
+  	<tr>
+  		<td>确认密码：</td>
+  		<td><input type="password"  value="{$arr.repassword}" name="repassword"/></td>
+  		<td>{$eArr.repassword}</td>
+  	</tr>
+  	<tr>
+  		<td>邮箱：</td>
+  		<td><input  value="{$arr.email}" type="text" name="email"/></td>
+  		<td>{$eArr.email}</td>
+  	</tr>
+  	<tr>
+  		<td>年龄：</td>
+  		<td><input type="text"  value="{$arr.age}" name="age"/></td>
+  		<td>{$eArr.age}</td>
+  	</tr>
+  	<tr>
+  		<td>电话：</td>
+  		<td><input type="text" name="phone"  value="{$arr.phone}"/></td>
+  		<td>{$eArr.phone}</td>
+  	</tr>
+  	<tr>
+  		<td colspan="3"><input type="submit" value="提交"/></td>
+  	</tr>
+  </table>
+  </form>
+  </body>
+</html>

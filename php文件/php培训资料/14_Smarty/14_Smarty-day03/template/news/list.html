@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <link type="text/css" rel="stylesheet" href="<{$smarty.const.BASE_URL}>css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="<{$smarty.const.BASE_URL}>css/news.css"/>
+  </head>
+  <body>
+  <{*使用公共模板header.html*}>
+  <{include file="public/header.html"}>
+  <div class="content clear">
+	  <div class="left">
+	  	<div>
+	  		<h3>国内文章</h3>
+	  		<{t_getNewsByFid fid=2 num=5 length=7 arrname='guoneiArr'}>
+	  		
+	  		<ul>
+	  			<{foreach $guoneiArr as $v}>
+	  			<li><{$v['title']}></li>
+	  			<{/foreach}>
+	  		</ul>
+	  	</div>
+	  	<div>
+	  		<h3>国际文章</h3>
+	  		<{t_getNewsByFid fid=1 num=5 length=7 arrname='guoneiArr'}>
+	  		<ul>
+	  		
+	  			<{foreach $guoneiArr as $v}>
+	  			<li><{$v.title}></li>
+	  			<{/foreach}>
+	  		</ul>
+	  	</div>
+	  	<div>
+	  		<h3>社会文章</h3>
+	  		<{t_getNewsByFid fid=3 num=5 length=7 arrname='guoneiArr'}>
+	  		<ul>
+	  			<{foreach $guoneiArr as $v}>
+	  			<li><{$v.title}></li>
+	  			<{/foreach}>
+	  		</ul>
+	  	</div>
+	  </div>
+	  <div class="right">
+		  <div>当前位置：首页 > 文章列表</div>
+		  <ul>
+		  	<{foreach $arr as $v}>
+		  	<li><a href='<{$smarty.const.BASE_URL}>html/<{$v.id}>.html'><{$v.title|mb_substr:0:7:'UTF-8'}><{if mb_strlen($v.title)>7}>...<{/if}></a></li>
+		  	<{/foreach}>
+		  </ul>
+		  <div><{$pageStr}></div>
+	  </div>
+  </div>
+  
+  <{include file="public/footer.html"}>
+  </body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

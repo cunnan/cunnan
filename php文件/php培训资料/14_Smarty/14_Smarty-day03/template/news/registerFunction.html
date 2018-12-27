@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+  </head>
+  <body>
+  <h3>国际</h3>
+   <{t_getNewsByFid fid=1 num=5 length=7 arrname="guojiArr"}>
+   <table>
+    <{foreach $guojiArr as $v}>
+   	<tr>
+   		<td><{$v.title}></td>
+   	</tr>
+   	<{/foreach}>
+   </table>
+   <h3>国内</h3>
+   <{t_getNewsByFid fid=2 num=5 length=7 arrname='guoneiArr'}>
+   <table>
+    <{foreach $guoneiArr as $v}>
+   	<tr>
+   		<td><{$v.title}></td>
+   	</tr>
+   	<{/foreach}>
+   </table>
+   <h3>社会</h3>
+   <{t_getNewsByFid fid=3 num=5 length=7 arrname='shehuiArr'}>
+   <table>
+    <{foreach $shehuiArr as $v}>
+   	<tr>
+   		<td><{$v.title}></td>
+   	</tr>
+   	<{/foreach}>
+   </table>
+  </body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

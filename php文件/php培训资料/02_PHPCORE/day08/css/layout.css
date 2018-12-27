@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+/*头部样式*/
+.header{
+	width:1000px;
+	height:100px;
+	background:#f00;
+	margin:0 auto;
+}
+/*contentA样式*/
+.contentA{
+	width:1000px;
+	margin:0 auto;
+	margin-top:10px;
+}
+.contentA .left{
+	float:left;
+	width:290px;
+	height:200px;
+	background:#ff0;
+	margin-right:10px;
+}
+.contentA .right{
+	float:right;
+	width:700px;
+	height:200px;
+	background:#f0f;
+}
+/*contentB样式*/
+.contentB{
+	width:1000px;
+	margin:0 auto;
+	margin-top:10px;
+}
+.contentB .left{
+	float:left;
+	width:290px;
+	height:200px;
+	background:#00f;
+	margin-right:10px;
+}
+.contentB .right{
+	float:right;
+	width:400px;
+	height:200px;
+	background:#0f0;
+}
+/*底部样式*/
+.footer{
+	width:1000px;
+	height:100px;
+	background:#0ff;
+	margin:0 auto;
+	margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

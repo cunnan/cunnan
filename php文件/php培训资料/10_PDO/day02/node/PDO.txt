@@ -1,0 +1,116 @@
+﻿PDO
+      - rowCount()
+         功能：返回没有返回结果集的sql语句被影响行数 或者 
+                    有返回结果集的sql语句的查询行数。
+         
+     - fetch([int $fetch_style])
+        功能：获取查询的结果
+        参数：
+        fetch_style       PDO::FETCH_BOTH  关联和索引数组
+                                 PDO::FETCH_ASSOC 关联数组
+                                 PDO::FETCH_NUM   索引数组
+        返回：获取查询的结果。一次获取一行结果。获取不到返回false。
+
+五、PDO对事务的处理
+       事务
+        事务是一组sql语句，这组sql语句要么集体执行成功，要么集体执行不成功。
+       事务特点：
+       原子性
+       隔离性
+       持久性
+       一致性 
+
+       事务支持：InnoDB 
+                        
+       InnoDB和MyISAM存储引擎的区别
+       - InnoDB 支持事务，MyISAM不支持事务
+       - InnoDB支持行级别锁，MyISAM支持表级别锁。
+
+      1、事务在MySQL执行
+            查看自动提交的状态
+             show variables like '%autocommit%';
+
+      2、在MySQL命令行下执行事务：
+            - 关闭自动提交（autocommit）
+               set autocommit=0;
+            - 开启事务
+               start transaction;
+            - 执行sql语句
+            - 视执行情况 提交/回滚
+               提交：commit
+               回滚：rollback   
+            - 开启自动提交
+               set autocommit=1;
+
+       PDO扩展中执行事务
+       - 关闭自动提交
+         setAttribute(PDO::ATTR_AUTOCOMMIT,0)
+       - 开启事务
+          beginTransaction()
+       - 执行sql  语句
+       - 视具体情况 提交或者回滚
+          提交：commit()
+          回滚：rollBack()
+       - 开启自动提交
+          setAttribute(PDO::ATTR_AUTOCOMMIT,1)
+
+
+         
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+习题：
+1、应用PDO的准备语句，从cms_admin数据库表中循环获取查询的记录。将获取的结果打印到屏幕上。
+2、在MySQL命令行下执行事务：
+      更新cms_admin表中的一条数据，试着回滚数据观察结果。
+3、模拟事务 ，应用PDO类。
+      create table demo(
+        id int not null key auto_increment,
+        username varchar(10) unique not null,
+        money   int
+       )engine=innodb;
+    
+      insert into demo(username,money) value('tom',200)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

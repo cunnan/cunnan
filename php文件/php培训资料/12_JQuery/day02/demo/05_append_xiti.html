@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery DOM</title>
+<!-- 引入jQuery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<script>
+/*
+ * 1、在下面的HTML文档中
+ <div>
+ 原有内容
+</div>
+<h1>标题1</h1>
+在h1的上一个同胞节点的原有内容的前面添加新的文档。文档内容
+为 “新文档”，要求文档字体为红色。
+ */
+$(function(){
+	$("h1").prev().prepend("<span style='color:red'>新文档</span>");
+});
+</script>
+</head>
+
+
+<body>
+ <div>
+ 原有内容
+</div>
+<h1>标题1</h1>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <style>
+        /*:first-of-type 父元素中首个出现的b标记 
+           first-child 父元素中第一个元素是b标记 
+        */
+        .box em:first-child{
+	       color:blue;
+        }
+        .box b:last-child{
+	       color:yellow;
+        }
+        .box b:nth-child(3){
+	       color:green;
+        }
+        .box em:only-child{
+	       color:red;
+        }
+    </style>
+  </head>
+  <body>
+     <h3 class="box">
+        <em>倾斜</em>
+        <b>加粗</b>
+        <b>加粗</b>
+        <b>加粗</b>
+        <b>加粗</b>
+     </h3>
+     <h3 class="box">
+     <em>倾斜</em>
+       <b>加粗</b>
+        <b>加粗</b>
+        <b>加粗</b>
+        <b>加粗</b>
+        <b>加粗</b>
+     </h3>
+     <h3 class="box">
+        <em>倾斜</em>
+        
+     </h3>
+  </body>
+</html>

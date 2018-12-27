@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>购物流程_京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container">
+      
+      <include file="Public:header" />
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div id="urHere" class="globalModule">
+        <h3><a href=".">首页</a> <code>&gt;</code> 购物流程</h3>
+      </div>
+      <div class="blank"></div>
+      <form action="__APP__/Cart/checkflow" method="post" name="theForm" id="theForm" onsubmit="return checkConsignee(this)">
+        <div class="flowBox_title">
+          <dl></dl><dt>填写配送信息</dt><dd></dd>
+        </div>
+        <div class="flowBox">
+        <table border="0" cellspacing="0" class="tableList" >
+          <tr>
+            <th>配送区域:</th>
+            <td colspan="3">
+            <select name="country" id="selCountries_0">
+              <option value="0">请选择国家</option>
+              <option value="1" selected>中国</option>
+            </select>
+            <select name="province" id="selProvinces_0">
+              <option value="0">请选择省</option>
+              <option value="2" >北京</option>
+              <option value="3" >安徽</option>
+              <option value="4" >福建</option>
+              <option value="5" >甘肃</option>
+              <option value="6" >广东</option>
+              <option value="7" >广西</option>
+              <option value="8" >贵州</option>
+              <option value="9" >海南</option>
+              <option value="10" >河北</option>
+              <option value="11" >河南</option>
+              <option value="12" >黑龙江</option>
+              <option value="13" >湖北</option>
+              <option value="14" >湖南</option>
+              <option value="15" >吉林</option>
+              <option value="16" >江苏</option>
+              <option value="17" >江西</option>
+              <option value="18" >辽宁</option>
+              <option value="19" >内蒙古</option>
+              <option value="20" >宁夏</option>
+              <option value="21" >青海</option>
+              <option value="22" >山东</option>
+              <option value="23" >山西</option>
+              <option value="24" >陕西</option>
+              <option value="25" >上海</option>
+              <option value="26" >四川</option>
+              <option value="27" >天津</option>
+              <option value="28" >西藏</option>
+              <option value="29" >新疆</option>
+              <option value="30" >云南</option>
+              <option value="31" >浙江</option>
+              <option value="32" >重庆</option>
+              <option value="33" >香港</option>
+              <option value="34" >澳门</option>
+              <option value="35" >台湾</option>
+            </select>
+            <select name="city" id="selCities_0" onchange="region.changed(this, 3, 'selDistricts_0')">
+              <option value="0">请选择市</option>
+            </select>
+            <select name="district" id="selDistricts_0" style="display:none">
+              <option value="0">请选择区</option>
+            </select>
+            <span class="textStrong">(必填)</span>
+          </td>
+        </tr>
+        <tr>
+          <th>收货人姓名:</th>
+          <td><input name="consignee" type="text" value="" id="consignee_0" class="textInput" /> <span class="textStrong">(必填)</span></td>
+          <th>电子邮件地址:</th>
+          <td><input name="email" type="text" value="123@yahoo.com.cn" id="email_0" class="textInput" /> <span class="textStrong">(必填)</span></td>
+        </tr>
+        <tr>
+          <th>详细地址:</th>
+          <td><input name="address" type="text" value="" id="address_0" class="textInput" /> <span class="textStrong">(必填)</span></td>
+          <th>邮政编码:</th>
+          <td><input name="zipcode" type="text" value="" id="zipcode_0" class="textInput" /></td>
+        </tr>
+        <tr>
+          <th>电话:</th>
+          <td><input name="tel" type="text" value="" id="tel_0" class="textInput" /> <span class="textStrong">(必填)</span></td>
+          <th>手机:</th>
+          <td><input name="mobile" type="text" value="" id="mobile_0" class="textInput" /></td>
+        </tr>
+        <tr>
+          <th>标志建筑:</th>
+          <td><input name="sign_building" type="text" value="" id="sign_building_0" class="textInput" /></td>
+          <th>最佳送货时间:</th>
+          <td><input name="best_time" type="text" value="" id="best_time_0" class="textInput" /></td>
+        </tr>
+        <tr>
+          <td colspan="4" align="center">
+            <input type="submit" name="Submit" value="配送至这个地址" />
+            <input type="hidden" name="step" value="consignee" />
+            <input type="hidden" name="act" value="checkout" />
+            <input name="address_id" type="hidden" value="" />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="blank"></div>
+  </form>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  
+  <include file="Public:footer" />
+  </div>
+ </body>
+</html>

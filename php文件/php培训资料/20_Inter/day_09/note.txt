@@ -1,0 +1,88 @@
+﻿NoSQL：Not Only SQL
+
+NoSQL相关产品
+1、Memcache	内存存储(内存缓存)
+2、MongoDB	文档型数据库
+3、Redis		内存存储
+
+存储数据特点
+MySQL：数据量大、速度慢
+NoSQL：数据量小、速度快
+
+什么样的数据存储在什么产品中？
+MySQL：稳定的数据
+NoSQL：活跃的数据
+
+
+
+缓存作用：提升网站的访问效率
+
+缓存分类
+1、按缓存数据存储位置不同
+   1)文件缓存
+   2)内存缓存
+2、按缓存的数据量的不同
+   1)整站缓存
+   2)页面缓存
+   3)局部缓存(片段缓存)
+   4)局部不缓存
+   5)数据缓存(变量缓存)
+
+
+Memcache：内存缓存、数据缓存
+
+
+下载资源包
+memcache_1.2.6-win64-bin.zip(64位)
+memcached-1.2.6-win32-bin.zip(32位)
+
+
+安装Memcache：打开命令提示符窗口，切换到memcached.exe所在的目录
+1、安装服务
+   memcached.exe -d install
+   memcached -d install
+2、启动服务
+   memcached -d start
+3、停止服务
+   memcached -d stop
+4、卸载服务
+   memcached -d uninstall
+
+
+php要访问Memcache的话，必须要安装Memcache扩展
+1、将php_memcache.dll复制到php安装目录中的ext文件夹中
+2、修改php.ini配置文件，添加memcache扩展
+   extension=php_memcache.dll
+3、重启Apache服务
+4、通过phpinfo()查看mecache
+
+
+Memcache类的使用：$mem = new Memcache();
+1、连接服务
+   $mem->connect("主机地址",端口号);
+2、向缓存中添加数据
+   $mem->set(名,值,标识,时间);
+3、替换缓存中的数据
+   $mem->replace(名,值,标识,时间);
+4、删除缓存中的数据
+   $mem->delete(名);
+5、清空缓存
+   $mem->flush();
+6、获得缓存中的数据
+   $变量 = $mem->get(名);
+7、关闭连接
+   $mem->close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+

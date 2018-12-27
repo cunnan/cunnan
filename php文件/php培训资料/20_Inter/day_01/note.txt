@@ -1,0 +1,170 @@
+﻿韩
+13581698800
+84772721
+
+
+知识点
+1、购物车功能
+2、二次开发(DedeCMS)
+3、Linux操作系统
+4、Sphinx全文检索
+5、Memcache内存缓存
+6、MongoDB文档型数据库
+7、Redis内存存储
+8、微信接口
+
+
+购物车功能：网上购物功能
+
+访问流程
+                             操纵购物车
+index.php---------act.php------------car.php
+商城首页                                              购物车页面
+
+实现购物车的方式
+1、cookie		不用
+2、session	效率高、用户体验不好
+3、database	效率低、用户体验好
+
+
+数据库中的数据类型
+int    float     char     varchar    text    timestamp
+
+
+$_SESSION["car"][$bookId] = $bookInfo;
+
+$_SESSION["car"] = array(
+  1=>array("bookId"=>1,"bookName"=>值,"price"=>值)
+  3=>array("bookId"=>3,"bookName"=>值,"price"=>值)
+  6=>array("bookId"=>6,"bookName"=>值,"price"=>值)
+  8=>array("bookId"=>8,"bookName"=>值,"price"=>值)
+);
+
+$bookId = 6;
+unset($_SESSION["car"][$bookId]);
+if($_SESSION["car"][$bookId] == NULL)
+
+
+
+
+ThinkPHP + Database
+
+访问流程
+                                   商城首页                                         购物车页面
+LoginController->IndexController->ActController->CarController->OrderController
+   会员登陆                                              操纵购物车                                      订单页面
+
+
+数据表
+userinfo		会员表(LoginController)
+bookinfo		产品表(IndexController)
+carinfo		购物车表(ActController、CarController)
+orderinfo		订单表(OrderController)
+orderdetails	订单明细表(OrderController)
+
+
+项目目录
+library-----------------------第三方资源包
+  ThinkPHP
+  jquery
+application------------------应用程序
+  Home----------------------前台目录
+  Admin---------------------后台管理目录
+public-----------------------公用文件
+  images
+  css
+index.php-------------------前台入口文件
+admin.php------------------后台管理入口文件
+
+
+
+ThinkPHP入口文件中的常量：define("BIND_MODULE","Home");
+1、不加，默认Home
+     http://localhost/项目/index.php/模块名/控制器/方法
+2、加
+     http://localhost/项目/index.php/控制器/方法
+
+
+ThinkPHP配置文件
+1、当前模块中的配置文件(只对当前模块起作用)
+   application/Home/Conf/config.php
+   application/Admin/Conf/config.php
+2、前后台模块的公用配置文件(对所有模块都起作用)
+   application/Common/Conf/config.php
+3、全局配置文件(对整个项目都起作用)
+   library/ThinkPHP/Conf/convention.php
+建议：不建议修改全局配置文件
+优先级：1 > 2 > 3
+
+
+
+http://localhost/store/index.php/Login/index.html
+ThinkPHP系统常量
+__APP__：返回入口文件地址(/store/index.php)
+__ROOT__：返回项目根目录地址(/store)
+__PUBLIC__：返回公用文件目录(/store/public)
+
+
+主键说明：
+1、主键约束的限制
+   1)唯一
+   2)非空
+2、什么样的字段适合充当主键
+   1)主键最好是数字类型
+   2)主键最好是短主键
+
+
+
+MySQL高级
+1、视图View
+   简化查询语句
+2、触发器Trigger：相当于数据库中的事件
+   当用户对表进行增删改操作的同时，是否要执行其他操作
+3、存储过程Procedure：相当于数据库中的自定义函数
+   解决了代码的重用
+4、数据库编程
+5、索引Index
+   提高表的查询速度
+6、存储引擎Engine：InnoDB、MyISAM
+   用于临时改变数据库的性能
+7、事务Transaction
+   保证数据的完整性
+
+-----------------------------------------------------
+视图View
+
+作用：简化查询语句
+
+创建视图
+create view 视图名
+as 
+select语句;
+
+删除视图
+drop view 视图名;
+
+使用视图：把视图当表用
+select * from 视图名;
+select * from 视图名 where 条件;
+建议：建议不要对视图执行insert、update、delete操作
+
+
+
+
+作业：
+1、创建视图
+2、熟悉购物车的例子
+3、考虑完ThinkPHP的例子
+4、数据表
+
+
+
+
+
+
+
+
+
+
+
+

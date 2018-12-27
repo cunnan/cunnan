@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript BOM</title>
+</head>
+
+<body>
+<p></p>
+<script>
+//获取p标签的JavaScript对象
+var pobj = document.getElementsByTagName("p");
+var sec = 3;//显示在页面上的时间
+for(var i=sec;i>=1;i--){
+	setTimeout("jump("+i+")",(sec-i)*1000);//0
+	                                  //1  
+	                                  //2
+}
+//更新p标签上的文本
+
+function jump(i){
+	
+	//写时间
+	pobj[0].innerHTML = i+"秒钟以后跳转回首页";
+	if(i==1){
+		location.href="index.php";
+	}
+}
+//0秒以后看见
+/*pobj[0].innerHTML = "3秒钟以后跳转回首页";//0秒钟以后看见
+pobj[0].innerHTML = "2秒钟以后跳转回首页";//1秒钟以后看见
+pobj[0].innerHTML = "1秒钟以后跳转回首页";//2秒钟以后看见，跳转*/
+
+</script>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

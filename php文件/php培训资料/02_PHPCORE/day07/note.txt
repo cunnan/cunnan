@@ -1,0 +1,69 @@
+一.数组函数库
+  1.安装
+  2.
+   (1) count/sizeof:获得数组或对象的长度个数
+   (2) join/implode:将一维数组转为字符串
+   (3) explode:将字符串转为一维数组
+    array explode ( string $delimiter , 
+    string $string [, int $limit ] )
+       说明:
+      a.如果 limit 参数是负数，
+                 则返回除了最后的 -limit 个元素外的所有元素。
+      b.如果 limit 是 0，则会被当做 1。
+   (4) 数组指针函数
+      current:将数组指针指向当前的成员值,并返回该值
+      next:将数组指针指向下一个的成员值,并返回该值
+      prev:将数组指针指向上一个的成员值,并返回该值
+      reset:将数组指针指向第一个成员值,并返回该值
+      end:将数组指针指向最后一个成员值,并返回该值
+      
+      each: 返回数组中当前的键／值对并将数组指针向前移动一步 
+         array each ( array &$array )
+         
+      list:把数组中的值赋给一些变量 
+      
+   (5)
+      in_array:判断变量是否是数组的值
+      bool in_array(mixed $needle,array $arr
+           [,bool $strict=false]);
+             说明:
+         a. 区别大小写   
+         b. 如果$strict 默认值 false  松散比较 ==
+                          如果$strict   true 严格比较 ===
+      array_key_exsits:判断变量是否是数组的键名称
+   (6)
+      array_push:在当前数组的尾部添加一个或多个成员值,返回新长度
+      array_unshift:在当前数组的头部添加一个或多个成员值,返回新长度
+      
+      array_pop:在当前数组的尾部删除一个成员值，并返回该值
+      array_shift:在当前数组的头部删除一个成员值，并返回该值
+   
+   (7) array_map:将回调函数作用到给定数组的单元上 
+      格式:array array_map ( callable $callback ,
+        array $arr1 [, array $... ] )
+        
+二. 多维数组
+      原理:数组中成员值又是数组
+
+
+
+
+
+      
+   
+   
+   
+   
+   
+      
+      
+      
+   
+   
+   
+   
+   
+   
+   
+   
+  

@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM className</title>
+
+
+</head>
+
+<body>
+<div>
+	<p>段落标签</p>
+	<ul><li>新闻标题1</li><li>新闻标题2</li><li>新闻标题3</li></ul>
+	<h1>标题1</h1>
+</div>
+<script>
+//找ul节点的父级节点
+var uobj = document.getElementsByTagName("ul");
+//查找ul节点的父级节点，打印出父级节点的名称
+document.write(uobj[0].parentNode.parentNode.parentNode.parentNode.nodeName);
+//找到ul节点的子节点
+document.write("<br/>");
+document.write(uobj[0].childNodes.length);
+//打印任意一个子节点的节点名称
+document.write("<br/>");
+document.write(uobj[0].childNodes[0].nodeName);
+//获取第一个子节点的节点名称
+document.write("<br/>");
+document.write(uobj[0].firstChild.nodeName);
+//获取最后一个子节点的节点名称
+document.write("<br/>");
+document.write(uobj[0].lastChild.nodeName);
+//找到ul节点的上一个同胞节点
+document.write("<br/>");
+document.write(uobj[0].previousSibling.previousSibling.nodeName);
+//找到ul节点的下一个同胞节点
+document.write("<br/>");
+document.write(uobj[0].nextSibling.nextSibling.nodeName);
+
+</script>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

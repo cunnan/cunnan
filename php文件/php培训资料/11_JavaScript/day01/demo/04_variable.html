@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript 变量的类型 复合类型</title>
+
+
+</head>
+
+<body>
+<script>
+//声明Object 对象类型变量
+var obj = new Object();
+var obj = {"username":"tom","password":"123"};
+document.write(typeof(obj));
+//声明Array数组类型
+var arr = new Array();
+document.write("<br/>");
+document.write(typeof(arr));//Object
+document.write("<br/>");
+//测试arr的数据类型
+if(arr instanceof Object){
+	document.write("yes");
+}
+document.write("<br/>");
+if(obj instanceof Array){
+	document.write("yes");
+}else{
+	document.write("no");
+}
+//定义函数数据类型
+var f = new Function();
+document.write("<br/>");
+document.write(typeof(f));
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

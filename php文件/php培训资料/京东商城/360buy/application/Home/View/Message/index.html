@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>留言板_京东网上商城-综合网购首选</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__ROOT__/public/themes/jindong/stye1024.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript">
+	//<![CDATA[
+	
+	window.onload = function()
+	{
+	  //fixpng();
+	}
+	function checkSearchForm()
+	{
+	    if(document.getElementById('keyword').value)
+	    {
+	        return true;
+	    }
+	    else
+	    {
+			   alert("请输入搜索关键词！");
+	        return false;
+	    }
+	}
+	function selectPage(sel)
+	{
+	  sel.form.submit();
+	}
+	var msg_empty_email = "请输入您的电子邮件地址";
+    var msg_error_email = "电子邮件地址格式不正确";
+    var msg_title_empty = "留言标题为空";
+    var msg_content_empty = "留言内容为空";
+    var msg_captcha_empty = "验证码为空";
+    var msg_title_limit = "留言标题不能超过200个字";
+    
+	/**
+	* 提交评论信息
+	*/
+	function submitMsgBoard(frm)
+	{
+	var frm         = document.forms['formMsg'];
+	var msg_title   = frm.elements['msg_title'].value;
+	var msg_content = frm.elements['msg_content'].value;
+	var msg = '';
+	
+	if (msg_title.length == 0)
+	{
+	    msg += msg_title_empty + '\n';
+	}
+	if (frm.elements['captcha'] && frm.elements['captcha'].value.length==0)
+	{
+	    msg += msg_captcha_empty + '\n'
+	}
+	if (msg_content.length == 0)
+	{
+	    msg += msg_content_empty + '\n'
+	}
+	if (msg_title.length > 200)
+	{
+	    msg += msg_title_limit + '\n';
+	}
+	
+	if (msg.length > 0)
+	{
+	    alert(msg);
+	    return false;
+	}
+	else
+	{
+	    return true;
+	}
+	}
+	//]]>
+	</script>
+  </head>
+  <body>
+    <div id="container">
+      
+      <include file="Public:header" />
+      
+      <div class="p_w" style="clear:both; overflow:hidden"></div>
+      <div id="urHere" class="globalModule">
+        <h3><a href=".">首页</a> <code>&gt;</code> 留言板</h3>
+      </div>
+      <div class="blank"></div>
+      <div id="globalLeft">
+        <div class="globalModule1">
+          <h3 class="h32"><b>商品分类</b> <a target="_blank" href="__APP__/Search/index">全部分类>></a></h3>
+          <div class="my_left_category">
+            <div class="blank" style="height:0; _display:none"></div>
+            <h2> <a target="_blank" href="category.php?id=355"> 展销会专栏</a></h2>
+            <div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
+              <h3>
+                <div class="xianzhi"><a target="_blank" href="category.php?id=360">休闲食品</a> <span class="des">- </span></div>
+              </h3>
+              <div class="h3_cat">
+                <div class="shadow">
+                  <div class="shadow_border">
+                    <ul>
+                      <li><a target="_blank" href="category.php?id=365">恰恰系列</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
+              <h3>
+                <div class="xianzhi"><a target="_blank" href="category.php?id=360">休闲食品</a> <span class="des">- </span></div>
+              </h3>
+              <div class="h3_cat">
+                <div class="shadow">
+                  <div class="shadow_border">
+                    <ul>
+                      <li><a target="_blank" href="category.php?id=365">恰恰系列</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
+              <h3>
+                <div class="xianzhi"><a target="_blank" href="category.php?id=360">休闲食品</a> <span class="des">- </span></div>
+              </h3>
+              <div class="h3_cat">
+                <div class="shadow">
+                  <div class="shadow_border">
+                    <ul>
+                      <li><a target="_blank" href="category.php?id=365">恰恰系列</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2> <a target="_blank" href="category.php?id=17"> 手机数码</a></h2>
+            <div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
+              <h3>
+                <div class="xianzhi"><a target="_blank" href="category.php?id=32">手机通讯</a> <span class="des">-  GSM手机  CDMA手机   双模手机  3G手机  双卡手机   对讲机</span></div>
+              </h3>
+              <div class="h3_cat">
+                <div class="shadow">
+                  <div class="shadow_border">
+                    <ul>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
+              <h3>
+                <div class="xianzhi"><a target="_blank" href="category.php?id=32">手机通讯</a> <span class="des">-  GSM手机  CDMA手机   双模手机  3G手机  双卡手机   对讲机</span></div>
+              </h3>
+              <div class="h3_cat">
+                <div class="shadow">
+                  <div class="shadow_border">
+                    <ul>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h2_cat" onmouseover="this.className='h2_cat active_cat'" onmouseout="this.className='h2_cat'">
+              <h3>
+                <div class="xianzhi"><a target="_blank" href="category.php?id=32">手机通讯</a> <span class="des">-  GSM手机  CDMA手机   双模手机  3G手机  双卡手机   对讲机</span></div>
+              </h3>
+              <div class="h3_cat">
+                <div class="shadow">
+                  <div class="shadow_border">
+                    <ul>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                      <li><a target="_blank" href="#">GSM手机</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="blank"></div>
+          </div>
+        </div>
+        <div class="blank"></div>
+        <div class="blank"></div>
+        <div class="box" id='history_div'>
+          <div id="globalHistory" class="globalModule" >
+            <h3 class="h3_3" style="border-bottom:1px dotted #efefef"><div id="list_t_l"><div id="list_t_r"><b style="color:#333">最近浏览过的商品</b></div></div></h3>
+            <div id="global_box" >
+              <ul id="history_list" class="boxCenterList"></ul>
+            </div>
+          </div>
+        </div>
+		<script type="text/javascript">
+		if (document.getElementById('history_list').innerHTML.replace(/\s/g,'').length<1)
+		{
+		    document.getElementById('history_div').style.display='none';
+		}
+		else
+		{
+		    document.getElementById('history_div').style.display='block';
+		}
+		function clear_history()
+		{
+		Ajax.call('user.php', 'act=clear_history',clear_history_Response, 'GET', 'TEXT',1,1);
+		}
+		function clear_history_Response(res)
+		{
+		document.getElementById('history_list').innerHTML = '您已清空最近浏览过的商品';
+		}
+		</script>
+		<div class="blank"></div>
+	  </div>
+	  <div id="globalBigRight">
+	    <div id="globalGroupList" class="globalModule">
+	      <div class="tab_box">
+	        <div class="tab_title"><h3>留言板</h3></div></div>
+	        <div class="boxCenterList" style="padding:20px;">
+	          <div class="f_l" style="width:100%; position:relative;">
+	            [<b>评论</b>]&nbsp;连天宇：评论了
+	            <b><a class="f3" href="__APP__/Goods/index" target="_blank" title="">AMD AthlonII×2（速龙II双核）250盒装CPU（Socket AM3/3.0GHz/2M二级缓存/45纳米）</a></b>
+	            <font class="f4"></font> (2010-01-29 07:02:59)<img style="position:absolute; right:0px;" src="__ROOT__/public/themes/jindong/images/stars5.gif" alt="5" />
+	          </div>
+	          <div class="msgBottomBorder word">我现在的电脑就用这个，这里比我买的便宜。<br></div>
+	          <br/>
+	          <div class="f_l" style="width:100%; position:relative;">
+	            [<b>评论</b>]&nbsp;连天宇：评论了
+	            <b><a class="f3" href="__APP__/Goods/index" target="_blank" title="">AMD AthlonII×2（速龙II双核）250盒装CPU（Socket AM3/3.0GHz/2M二级缓存/45纳米）</a></b>
+	            <font class="f4"></font> (2010-01-29 07:02:59)<img style="position:absolute; right:0px;" src="__ROOT__/public/themes/jindong/images/stars5.gif" alt="5" />
+	          </div>
+	          <div class="msgBottomBorder word">我现在的电脑就用这个，这里比我买的便宜。<br></div>
+	          <br/>
+	          <div class="f_l" style="width:100%; position:relative;">
+	            [<b>评论</b>]&nbsp;连天宇：评论了
+	            <b><a class="f3" href="__APP__/Goods/index" target="_blank" title="">AMD AthlonII×2（速龙II双核）250盒装CPU（Socket AM3/3.0GHz/2M二级缓存/45纳米）</a></b>
+	            <font class="f4"></font> (2010-01-29 07:02:59)<img style="position:absolute; right:0px;" src="__ROOT__/public/themes/jindong/images/stars5.gif" alt="5" />
+	          </div>
+	          <div class="msgBottomBorder word">我现在的电脑就用这个，这里比我买的便宜。<br></div>
+	          <br/>
+	        </div>
+	      </div>
+	      <div class="blank"></div>
+	      <form name="selectPageForm" action="/shop/message.php" method="get">
+	        <div id="pager">
+	          <a class="next" href="message.php?page=1">上一页</a>
+	          <span class="page_now">1</span>
+	          <a href="message.php?page=2">2</a>
+	          <a class="next" href="message.php?page=2">下一页</a>
+	        </div>
+	      </form>
+	      <div id="globalGroupList" class="globalModule">
+	        <div class="tab_box">
+	          <div class="tab_title"><h3>我要留言</h3></div>
+	        </div>
+	        <div class="v_m">
+	          <form action="message.php" method="post" name="formMsg" onSubmit="return submitMsgBoard()">
+	            <table width="100%" border="0" cellpadding="3"  class="tableList ">
+	              <tr>
+	                <td align="right">用户名</td>
+	                <td><input name="user_name"  class="textInput" type="text" size="15" value="匿名用户" /></td>
+	              </tr>
+	              <tr>
+	                <td align="right">电子邮件地址</td>
+	                <td><input name="user_email" type="text"  class="textInput" size="20" value="" /></td>
+	              </tr>
+	              <tr>
+	                <td align="right">留言类型</td>
+	                <td>
+	                  <input name="msg_type" type="radio" value="0" checked="checked" />留言
+	                  <input type="radio" name="msg_type" value="1" />投诉
+	                  <input type="radio" name="msg_type" value="2" />询问
+	                  <input type="radio" name="msg_type" value="3" />售后
+	                  <input type="radio" name="msg_type" value="4" />求购 
+	                </td>
+	              </tr>
+	              <tr>
+	                <td align="right">主题</td>
+	                <td><input name="msg_title" type="text"  class="textInput" size="30" /></td>
+	              </tr>
+	              <tr>
+	                <td align="right">验证码</td>
+	                <td>
+	                  <input type="text" size="8" name="captcha" class="textInput" />
+	                  <img src="" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='captcha.php?'+Math.random()" />
+	                </td>
+	              </tr>
+	              <tr>
+	                <td align="right" valign="top">留言内容</td>
+	                <td><textarea name="msg_content" cols="50" rows="4" wrap="virtual" style="border:1px solid #ccc;"></textarea></td>
+	              </tr>
+	              <tr>
+	                <td>&nbsp;</td>
+	                <td>
+	                  <input type="hidden" name="act" value="act_add_message" />
+	                  <input type="submit" value="" class="bnt_blue_1" />
+	                </td>
+	              </tr>
+	            </table>
+	          </form>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="blank"></div>
+	    
+	    <include file="Public:footer" />
+	    
+	  </div>
+	</body>
+</html>

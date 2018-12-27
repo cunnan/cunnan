@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>demo test</title>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript">
+    function delImage(id,imagename){
+    	$.ajax({
+    		url:'__APP__/Admin/Product/delimage',
+    		data:'id='+id+"&imagename="+imagename,
+    		type:'post',
+    		dataType:'json',
+    		success:function(re){
+    			if(re.status==1){
+    				$("#image_"+id).remove();
+    			}else{
+    				alert("图片删除失败");
+    			}
+    		}
+    	})
+    }
+    </script>
+  </head>
+  <body>
+  <div>当前操作：修改产品&nbsp;<a href="__APP__/Admin/Product/oper">列表</a></div>
+  <form enctype="multipart/form-data" action="__APP__/Admin/Product/usave" method="post">
+  <table>
+  	<tr>
+  		<td>标题：</td>
+  		<td><input value="{$arr.title}" type="text" name="title"/></td>
+  	</tr>
+  	<tr>
+  		<td>价格：</td>
+  		<td><input value="{$arr.price}" type="text" name="price"/></td>
+  	</tr>
+  	<tr>
+  		<td>图片：</td>
+  		<td>
+  		<table>
+  			<foreach name='imageArr' item='v'>
+  			<tr id="image_{$v.id}">
+  				<td><img src="__PUBLIC__/upload/{$v.imagename}" width="100"/></td>
+  				<td><a href="javascript:delImage({$v.id},'{$v.imagename}')">删除</a></td>
+  			</tr>
+  			</foreach>
+  		</table>
+  		<input multiple='multiple' type="file" name="upload[]"/></td>
+  	</tr>
+  	<tr>
+  		<td colspan="2"><input type="hidden" name="id" value="{$arr.id}"/><input type="submit" value="提交"/></td>
+  	</tr>
+  </table>
+  
+  </form>
+  </body>
+</html>

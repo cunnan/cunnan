@@ -1,0 +1,316 @@
+一.数据库(DataBase  DB)
+  1.什么是数据库:按特定形态存储数据的仓库，电子文档形态
+  2.数据库分类
+    (1)关系型数据库:二维表，MySQL,SQLserver,Orcale,DB2等
+    (2)非关系型数据库：Nosql,MongoDB等
+  3.MySQL
+    (1)安装
+    (2)打开 windows 窗口
+             开始--运行 -- cmd (窗口+R)
+    (3)登录和退出
+      <<登录： mysql -u用户名 -p密码  [-P端口]
+           [-h服务器名称][-D选择数据库]
+            
+              说明: 
+         a.简单登录mysql -uroot -p 
+         b. 
+            -P端口:如果不是默认端口3306,端口
+                                       不能省略 
+            -h 服务器名称/IP : 不是连接本地，服务器名称
+                                       不能省略
+      <<退出
+        exit
+        quit
+        \q
+   
+    (4)MySQL注释
+       -- 注释
+       # 注释
+    (5)
+      windows下: my.ini配置文件
+      a. port=3306
+      b. basedir="D:/mysql/" MySQL安装位置
+      c.datadir="C:/Documents and Settings/All Users/Application Data/MySQL/MySQL Server 5.5/Data/"
+        MySQL数据库的位置
+      
+      d.character-set-server=utf8 MySQL字符集编码
+      e.default-storage-engine=INNODB 
+                说明:
+        MySQL引擎
+        (a)INNODB  (外键,事务)
+        (b)MyISAM
+        
+    (6) SQL语言(结构化查询语言)
+      a.DDL:数据的定义语言,创建数据库
+                         创建表结构等
+                 创建(CREATE) 修改(ALTER) 删除(DROP)
+      b.DML：数据的操作语言,对数据库表中数据增删改
+                增(INSERT)删(DELETE)改(UPDATE)
+      c.DQL：数据的查询语言
+                查询(SELECT)
+      d.DCL：数据的控制语言,给用户分配权限(GRANT)
+                          或撤销权限(REVOKE)
+    (7)SQL 语句书写规范
+       a.SQL系统命令大写,名称小写
+       b.SQL语句支持折行,但不能在函数或引号中折行
+       c.SQL语句结束分隔符用 分号或\g
+       d.名称不能用关键字和保留字，如果使用必须用
+                   反引号括起来     例如:`userName`
+    (8)创建数据库代码
+       a.查看数据库
+         SHOW DATABASES;
+       b.创建数据库
+         CREATE DATABASE [IF NOT EXISTS] 数据库名
+         [[DEFAULT] CHARACTER SET [=] 编码];
+
+       c.删除数据
+         DROP DATABASE [IF EXISTS] 数据库名;
+       
+       d.查看创建数据库的命令
+        SHOW CREATE DATABASE 数据库名;
+    
+       e.修改数据库字符集编码
+         ALTER DATABASE 数据库名
+         [DEFAULT] CHARACTER SET [=]编码;
+       
+       f.打开数据库
+         USE 数据库名;    
+       g.查看当前打开的数据库
+         SELECT DATABASE();
+         
+   (9)创建表(Table)结构
+      a.查看表
+      SHOW TABLES;
+      b.创建表结构
+      CREATE TABLE [IF NOT EXISTS]表名(
+                 字段名(Field)|列名  数据类型 [字段属性|约束条件],
+                 字段名(Field)|列名  数据类型 [字段属性|约束条件],
+        ...
+      )[ENGINE=InnoDB DEFAULT CHARSET=utf8];
+      c. 查看表结构
+         DESC 表名;
+         DESCRIBE 表名;
+         SHOW COLUMNS FROM 表名;  column 列
+      d.查看创建表结构命令
+         SHOW CREATE TABLE 表名; 
+      
+      
+             说明:数据库中的最小单元就是表(Table),
+                     列(字段 Field)和行(记录 Record)
+                     表中至少1个列,可以有0个记录
+                     
+    (10)对表 添加和查询数据
+      a.添加(Insert)
+      insert [into] 表(字段,字段...)
+      value[s]
+      (值,值...),
+      (值,值...),
+      ......;
+      b.查询(Select)
+      select * from 表名;
+      select 字段名,字段名... from 表名;
+             说明: * 代表所有字段
+     
+    (11)MySQL数据类型
+       <<整型
+         tinyint([M]) unsigned|zerofill
+                              大小  1字节  = 2^8 =8bit
+                              范围:
+                                  有符号位  -128 ~127 
+                                  无符号位  0~255              
+                                                         
+         smallint([M]) unsigned|zerofill
+                              大小  2字节  = 2^16 
+                              范围:
+                                  有符号位  -32768 ~32767 
+                                  无符号位  0~65535 
+         mediumint([M]) unsigned|zerofill
+                              大小  3字节  = 2^24
+                              范围:
+                                  有符号位  -8388608 ~8388607 
+                                  无符号位  0~16777215 
+         int([M]) unsigned|zerofill
+                              大小  4字节  = 2^32
+                              范围:
+                                  有符号位  -2147483648 ~2147483647
+                                  无符号位  0~4294967295
+         
+         bigint([M]) unsigned|zerofill
+                              大小  8字节  = 2^64
+                  说明:字段属性                      
+           unsigned:无符号位,只能正数
+           zerofill：填补0,当显示长度小于指定长度 
+                                            用0填补,如果是 zerofill的字
+                                            段会自动添加unsigned 
+                                            
+         >>浮点
+           float([M,D]) unsigned|zerofill  单精度浮点
+                                  大小 :4个字节(1符号位,8位指数,数 23位)
+                                  范围: -3.40e38 ~ 3.40e38
+                                  精度: 小数点 7位
+                                      
+           double([M,D]) unsigned|zerofill 双精度浮点
+                                  大小 :8个字节(1符号位,11位指数,数 52位)
+                                  范围: -1.79e308 ~ 1.79e308
+                                  精度: 小数点15位
+           decimal([M,D]) unsigned|zerofill 定长浮点
+                M 默认总长度10 D 默认0
+                M最大值 65 ,D最大 30 
+                       说明:
+              a. M浮点数的总长度,D小数位 
+                                   例如  float(7,2) unsigned 
+                                   最大值   99999.99
+              b. float,double 存近似值，
+                 decimal 存精确值
+          >>字符型
+             char(M):定长字符, char(30) 存 'hello'
+                                       在数据库中不足的用空格填满 'hello       '
+                                       大小:至多255字节(一个字母占一个字节)
+             varchar(M):变长字符,varchar(30) 存 'hello'
+                                       在数据库'hello'
+                                       大小:至多65535字节
+             tinytext:至多255字节
+             text:至多65535字节
+             mediumtext:至多16777215字节
+             longtext：42亿左右字节                          
+                             
+                             
+                             
+                           说明:
+                a.char 效率高不省空间，varchar 效率低省空间
+                                      例如:pwd字段 char(32)
+                b.字符类型的长度与下面情况有关系
+                  (a)至多65535字节
+                  (b)字符集编码
+                     gbk：至多占2字节
+                     utf8:至多占3字节 (最大21844字节)
+                  (c)所有的字段不能超过 65535字节                    
+                
+                c.与 char,varchar 比 text 效率最低
+                                       一般用在  新闻内容类型  用text
+                                       
+           >>布尔类型
+              tinyint(1)
+              boolean
+           >>时间日期类型
+             date：4个字节  YYYY-MM-DD
+             time：3个字节  HH:MM:SS
+             year：1个字节  YYYY
+             datetime:8个字节  YYYY-MM-DD HH:MM:SS
+             timestamp 时间戳 :4个字节
+           >>枚举类型
+              enum:至多65535字节
+                             例如: sex enum('0','1','2')
+             
+             
+           
+           
+           
+           
+           
+                                       
+                
+                
+                
+                
+                
+                
+             
+          
+                
+               
+         
+         
+                          
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                     
+                     
+                     
+                      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   
+   
+   
+   
+   
+   
+   
+   
+   
+       
+       
+       
+       
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

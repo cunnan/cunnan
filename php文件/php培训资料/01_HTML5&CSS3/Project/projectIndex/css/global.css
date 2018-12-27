@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+ /*全局样式*/
+    body{
+	  font-size:12px;
+      font-family:宋体;
+    }
+    body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,tr,td,form,input,select,textarea{
+	   margin:0;
+       padding:0;
+    }
+    a{
+	   color:#333;
+       text-decoration:none;
+    }
+    a:hover{
+	   color:#900;
+       text-decoration:underline;
+    }
+    img{
+	  border:0;
+    }
+    h1,h2,h3,h4,h5,h6{
+	    font-size:14px;
+    	font-weight:bold;
+    }
+    ul,ol,li{
+	    list-style:none;
+    }
+    .clear{
+	   clear:both;
+       zoom:1;
+    }
+    .clear:after{
+	   content:'.';
+       display:block;
+       visibility:hidden;
+       height:0;
+       clear:both;
+    }
+    :focus{
+	   outline:none;
+    }
+
+	.left{
+		float:left;
+	}
+	.center{
+		float:left;
+	}
+	.right{
+		float:right;
+	}
+	.blank10{
+		 margin-top:10px;
+	}
+    .blank20{
+		 margin-top:20px;
+	}
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery AJAX</title>
+<!-- 引入jquery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<!-- jQuery代码 -->
+<script type="text/javascript">
+$(function(){
+	$("input").click(function(){
+		$("div").load("ajax.php","username=tom&password=123"); //以GET形式传递参数
+		$("div").load("ajax.php",{"username":"tom","password":"123"});//以POST形式传递参数
+		
+	});
+});
+</script>
+</head>
+
+
+<body>
+<div></div>
+<input type="button" value="click" />
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,319 @@
+﻿DedeCMS知识点
+1、安装
+2、后台使用
+3、自定义模板
+   1)设置自定义模板
+   2)Dede标签
+   3)自定义公用函数
+   4)数据库封装类
+4、ajax评论
+
+
+
+Linux操作系统
+
+
+Windows操作系统
+1、DOS系统
+2、WindowsNT
+3、Windows95
+4、Windows98
+5、WindowsMe
+6、Windows2000
+7、WindowsXp
+8、Windows2003
+
+
+Linux系统
+1、LinuxText
+2、红帽
+3、红旗
+4、CentOS
+
+
+Linux特点
+1、开源(免费、源代码开放)
+2、稳定
+3、安全性高
+4、丰富的安装软件
+
+
+安装Linux操作系统
+1、安装双系统
+   1)Linux系统安装盘
+2、通过虚拟机进行安装
+   1)VM虚拟机软件
+   2)系统安装盘、系统镜像文件
+     CentOS-6.5-i386-bin-DVD1.iso
+
+
+计算机快捷键
+Ctrl + A	全选
+Ctrl + S	保存
+Ctrl + C	复制
+Ctrl + V	粘贴
+Ctrl + X	剪切
+Ctrl + Z  	撤消
+Ctrl + Y	前进
+Ctrl + N	新建
+F2		重命名
+F5		刷新
+Home		回到行开头
+End		回到行尾
+
+
+超级管理员帐号
+Windows：administrator
+Linux：root
+
+
+Linux客户端工具：Putty
+
+
+Linux命令引导符：[root@aca514da /]#
+root：当前登陆用户
+ip地址：主机地址
+/：当前用户所在的目录
+#：引导符的结束
+
+
+Linux目录介绍
+bin--------------------系统常用命令
+dev--------------------磁盘信息************
+home-------------------用户主目录
+lost+found-------------回收站************
+misc-------------------常用工具
+net--------------------网络文件
+proc-------------------内存信息
+sbin-------------------系统级命令
+srv--------------------系统服务信息
+tmp--------------------临时文件夹************
+var--------------------可变化的内容************
+boot-------------------linux从这里启动
+etc--------------------配置文件************
+lib--------------------链接库文件
+media------------------光驱的挂载点
+mnt--------------------外挂设备的挂载点
+opt--------------------可操作的文件
+root-------------------root的主目录
+selinux----------------防火墙
+sys--------------------系统文件
+usr--------------------用户安装的软件************
+
+
+Linux颜色介绍
+黑色、白色：普通文件
+蓝色：文件夹
+绿色：可执行文件
+红色：包文件、压缩文件
+
+
+Linux命令
+
+1、查看当前目录下所有内容
+   1)查看当前目录下的内容(不包括隐藏文件)
+     ls
+   2)查看当前目录下所有内容，包括隐藏文件
+     ls -a
+   3)查看当前目录下所有内容，包括隐藏文件(不包括.   ..)
+     ls -A
+   4)查看当前目录下所有内容(以列表的方式)
+     ls -l
+   5)以列表的方式显示所有内容，并包括隐藏文件
+     ls -l -a
+     ls -a -l
+     ls -la
+     ls -al
+   6)查看指定目录下的内容
+     ls 路径
+     ls -la 路径
+     (1)查看var目录下的内容
+        ls var
+     (2)查看var/www下的所有内容
+        ls var/www
+     (3)在etc目录下，查看var/www下的所有内容
+        ls ../var/www    (路径：相对路径)
+        ls /var/www      (路径：绝对路径)
+
+2、查看工作路径
+pwd
+
+3、清屏
+clear
+
+4、切换工作目录
+   1)进入当前目录下某一文件夹
+     cd 文件夹
+   2)连续进入一个多级目录
+     cd 路径
+     cd var/www/html
+   3)在etc目录，进入var/www/html
+     cd /var/www/html
+     cd ../var/www/html
+   4)返回上一级目录
+     cd ..
+   5)返回根目录
+     cd /
+
+5、更改登陆密码
+   1)更改root帐号密码
+     passwd
+   2)更改指定帐号的密码
+     passwd 用户名
+
+6、创建文件夹
+   1)在当前目录下新建一个文件夹
+     mkdir 文件夹
+     mkdir tarena
+   2)在当前目录下，连续创建多个文件夹
+     mkdir 文件夹 文件夹 文件夹...
+     mkdir hello haha aaa bbb
+   3)在指定路径下，创建一个文件夹
+     mkdir 路径/文件夹
+     在当前目录下的hello文件夹内，创建一个test文件夹
+     mkdir hello/test
+     mkdir /tarena/hello/test
+   4)连续创建一个多级目录
+     mkdir -p a/b/c/d
+
+7、删除文件夹
+   1)删除当前目录下的指定文件夹
+     rmdir 文件夹
+     rmdir aaa
+   2)同时删除多个文件夹
+     rmdir 文件夹 文件夹...
+     rmdir bbb haha
+   注意：只能删除空文件夹
+
+8、创建文件
+   1)在当前目录下新建一个文件
+     touch 文件名
+     touch a.txt
+   2)同时创建多个文件
+     touch 文件名 文件名...
+     touch a.txt b.txt c.txt
+   3)在指定目录下新建一个文件
+     touch 路径/文件名
+     touch hello/index.php
+
+9、删除文件
+   1)删除当前目录下指定文件
+     unlink 文件名
+     unlink a.txt
+   2)删除指定路径下的指定文件
+     unlink 路径/文件名
+     unlink hello/index.php
+     unlink /tarena/hello/index.php
+   注意：一次只能删除一个文件
+
+10、删除文件或文件夹
+    1)删除当前目录下的b.txt(提示)
+      rm b.txt
+    2)同删除当前目录下的多个文件(提示)
+      rm a.txt b.txt c.txt d.txt
+    3)不提示，直接删除文件
+      rm -f 文件名 文件名 文件名
+      rm -f a.txt b.txt c.txt
+    4)删除当前目录下的a文件夹
+      rm -r -f a
+      rm -rf a
+      rm -fr a
+    5)删除当前目录下的多个东西
+      rm -rf hello b.txt c.txt
+    6)删除当前目录下的所有文件
+      rm -rf *.*
+    7)清空目录
+      rm -rf *
+
+11、复制文件
+    1)将当前目录下的a.txt复制到hello文件夹中
+      cp 文件  路径/文件夹
+      cp a.txt hello
+      cp /tarena/a.txt /tarena/hello
+    2)将a.txt复制到hello文件夹下，但同时改名为aaa.txt
+      cp 原文件名  路径/文件夹/新文件名
+      cp a.txt hello/aaa.txt
+      cp /tarena/a.txt /tarena/hello/aaa.txt
+    注意：只能复制文件
+
+12、移动文件或文件夹
+    1)将b.txt移动到hello文件夹下
+      mv 文件名 路径/文件夹
+      mv b.txt hello
+      mv /tarena/b.txt /tarena/hello
+    2)移动过程中并重命名
+      mv 原文件名 路径/文件夹/新文件名
+      mv c.txt hello/ccc.txt
+      mv /tarena/c.txt /tarena/hello/ccc.txt
+    3)移动文件夹
+      mv 文件夹 路径/文件夹
+      mv 原文件夹 路径/文件夹/新文件夹
+      mv haha hello
+
+13、重命名
+    mv 原名 新名
+    mv a.txt index.php
+    mv hello haha
+
+14、修改文件或文件夹的权限
+    1)权限种类：读(r 4)、写(w 2)、执行(x 1)
+    2)用户种类：a(all所有人)  u(user文件拥有者)
+                g(group组用户)  o(other其他用户)
+    3)权限操作符：+(赋予)、-(收回)
+    4)查看权限：ls -l
+      -rw-r--r--  a.txt
+      drwxr-xr-x  hello
+      说明
+      第1位：代表当前是文件还是文件夹
+      第234位：代表u用户的权限
+      第567位：代表g用户的权限
+      第89十位：代表o用户的权限
+    5)修改权限的命令格式
+      chmod 用户[+-]权限 文件夹或文件
+      chmod 数数数 文件夹或文件
+    6)例子
+      (1)修改a.txt权限，让u用户具有rwx的权限
+         chmod u+x a.txt
+         chmod u+r+w+x a.txt
+      (2)修改a.txt权限，收回u用户的x权限
+         chmod u-x a.txt
+      (3)将最大的权限赋予a.txt(说明：所有人具有所有权限)
+         chmod a+r+w+x a.txt
+         chmod 777 a.txt
+      (4)修改a.txt权限，u:rw  g:r  o:r
+         chmod 644 a.txt
+      (5)修改hello文件夹的权限，将w给o用户
+         chmod o+w hello
+      (6)将最大的权限给hello文件夹，包括子目录
+         chmod -R a+r+w+x hello
+         chmod -R 777 hello
+      (7)修改hello文件夹权限：u:rwx  g:rx  o:rx
+         chmod 755 hello
+      注意：
+      (1)最大权限：777   a+r+w+x
+      (2)文件默认的权限：644   u:rw g:r  o:r
+      (3)文件夹默认的权限：755  u:rwx  g:rx  o:rx
+
+15、查找文件
+    find 路径 -name 名
+    1)查找Apache配置文件
+      find / -name httpd.conf
+      find /etc -name httpd.conf
+    2)查找PHP配置文件
+      find /etc -name php.ini
+    3)查找MySQL配置文件
+      find /etc -name my.*
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,168 @@
+﻿JavaScript
+     5、样式
+           批量修改样式
+           对象.className = class样式的名称
+
+    Model 模型
+      如果将整个HTML文档倒置过来，HTML文档就可以被视为一个倒置的树形结构。而结构上的元素、文档、注释和文本都可以被称为这个树形结构上的节点。树形结构就被称为HTML文档的Model模型。
+ 
+     所有的节点都有节点名称（nodeName），节点类型（nodeType）,有些节点有节点值（nodeValue）
+
+     节点之间的关系：
+     父节点：parentNode
+
+     子节点： childNodes  
+                    firstChild(第一个子节点)   
+                    lastChild(最后一个子节点)
+         
+     同胞节点：previousSibling(上一个同胞节点)  
+                       nextSibling（下一个同胞节点）
+
+       - 创建节点
+          document.createElement(HTML Tag名称)
+          功能：创建一个新的节点。
+          参数：
+          HTML Tag名称 要创建的HTML元素的名称。
+          返回：节点的对象
+
+      - 对象.appendChild(节点对象)    
+
+      - 删除现有节点中的子节点
+         对象.removeChild(子节点的对象)
+
+
+六、JavaScript事件
+       1、事件源
+             所有HTML元素都可以被视为事件源。
+  
+       2、事件
+             鼠标事件  单击事件 click
+                             双击事件  dblclick
+                             鼠标抬起  mouseup
+                             鼠标按下  mousedown
+                             鼠标划入  mouseover
+                             鼠标划出  mouseout
+
+            键盘事件  键盘按下   keydown
+                                              keypress  
+                            键盘抬起    keyup
+
+            文档事件  文档加载完毕 load
+                            文档关闭之前 unload
+
+            表单事件  获取焦点   focus
+                            失去焦点    blur
+                            表单改变事件 change
+                            提交           submit
+
+          3、事件处理程序
+                a、<tag on事件名称 = “事件处理成序”>
+                         事件处理成序:可以是一段javascript代码。也可以是
+自定义函数的名称。
+               b、对象.on事件名称 = 事件处理程序。
+                      事件处理程序 ：是匿名函数
+
+七、BOM
+       BOM(Broswer Object Model 浏览器对象模型)  
+   
+       window 对象 可以省略不写
+ 
+       属性
+       location.href 指定文档跳转的地址。
+       innerWidth   浏览器可视范围的宽
+       innerHeight  浏览器可视范围的高   
+
+       方法
+       alert(string str)  
+
+       comfirm(string str)
+       功能：弹出一个具有判断功能的对话框
+
+       setInterval(code,millisec)
+       功能：每间隔millisec时间，执行一次代码code
+       参数：
+       code   可以是一段JavaScript代码，或者可以是自定义函数的名称
+                  如果是JavaScript代码或自定义函数的名称则必须写在字符串里面。
+                  也可以是匿名函数。匿名函数不需要引号。
+       millisec  毫秒值
+       返回：id值
+
+      clearInterval(setInterval产生的id)
+      功能：停止 setInterval
+      参数：
+       setInterval产生的id
+
+
+
+
+
+
+      
+   
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+ 
+
+
+习题：
+1、给HTML文档中添加img标签，要求img标签添加到div层中。指定img标签的宽和高分别为 30。
+
+2、有一个div层，通过按钮改变div层的背景色。按钮响应鼠标单击事件。
+
+3、有div层，点击div层改变div层的背景色，第一次点击改背景色为绿色。第二次点击改背景色为黄色，第三次点击改背景色为蓝色。周而复始。
+
+4、在超链接中当发生单击事件时，弹出一个有确认功能的对话框，当选则取消时。链接不跳转。
+
+5、有如下div层
+       <div id="one" style="font-size:40px;width:50px;height:50px;background-color:green;"></div>
+     有两个按钮，点击第一个按钮开始计数（从1开始自增），点击第二个按钮停止计数。
+
+6、当鼠标划过div层时div层停止运动。划出div层时，div层继续漂浮。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      

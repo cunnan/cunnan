@@ -1,0 +1,113 @@
+一.transform CSS3 2D 转换（css3.0）
+  1.移动 (值:像素 百分比)
+    translate(x,y)	定义 2D 转换，沿着 X 和 Y 轴移动元素。
+    translateX(n)	定义 2D 转换，沿着 X 轴移动元素。
+    translateY(n)	定义 2D 转换，沿着 Y 轴移动元素。
+
+  2.缩放(值:倍数)
+    scale(x,y)	定义 2D 缩放转换，改变元素的宽度和高度。
+    scaleX(n)	定义 2D 缩放转换，改变元素的宽度。
+    scaleY(n)	定义 2D 缩放转换，改变元素的高度。
+    
+  3.旋转(值:度 deg)
+   rotate(angle)	定义 2D 旋转，在参数中规定角度。
+  4.(值:度 deg)
+   skew(x-angle,y-angle)	定义 2D 倾斜转换，沿着 X 和 Y 轴。
+   skewX(angle)	定义 2D 倾斜转换，沿着 X 轴。
+   skewY(angle)	定义 2D 倾斜转换，沿着 Y 轴。
+   
+  说明:
+       调整中心轴属性: transform-origin:0 0;
+       
+二.动画(css3.0)
+ 1.transition:过渡动画
+    transition-property	规定应用过渡的 CSS 属性的名称。(例如:width,height,color,background,transform等)
+    transition-duration	定义过渡效果花费的时间。默认是 0。（单位: 秒s, 毫秒ms）
+    transition-timing-function	规定过渡效果的时间曲线。默认是 "ease"。	3
+             值:
+        linear 匀速
+        ease:慢进慢出
+        ease-in:慢进快出
+        ease-out:快进慢出
+        ease-in-out:慢进慢出
+    transition-delay	规定过渡效果何时开始。默认是 0。
+    缩写形式：
+     transition:property duration timing-function  delay;
+    
+   说明:
+   a. 过渡动画：只有首尾两帧,中间过程首尾两帧过渡产生
+   b. 通过事件触发(鼠标滑过状态hover)
+ 
+ 2.animation:帧动画
+   (1)定义动画
+     @keyframes 动画名称 {}(定义动画帧)
+   (2)应用动画
+      animation-name:动画名称
+      animation-duration:动画时间(s秒 ms毫秒)
+      animation-delay:动画延时
+      animation-timing-function:动画运动曲线
+      animation-iteration-count:动画次数默认一次
+             说明:默认执行一次  值 infinite实现无限次循环动画
+      animation-direction:动画方向
+            说明: alternate 更替 
+    
+    说明:
+    a.animation帧动画(多帧,实现复杂动画)
+    b.不是必须用事件触发,可以实现当加载页面动画开始执行
+ 
+三.透明度
+ 1.opacity: 0~1; (w3c 支持的写法,IE6,IE7不支持)
+ 2.filter:alpha(opacity=0~100);(IE支持的写法)
+ 
+四.表格
+  1. border-collapse: seperate 分离|collapse 合并
+  2. border-spacing:value 单元格和单元格的距离
+  说明:
+        一般将下面的属性 放到全局样式中。
+    border-collapse:collapse;
+    border-spacing:0;
+  
+五. 加前缀对老版本浏览器支持
+   -moz-   火狐浏览器
+   -webkit- 谷歌,safari
+   -o-      欧朋
+   -ms-     IE
+   说明: 一般属性前面写前缀,目标对老版本浏览器的支持
+   
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

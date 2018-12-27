@@ -1,0 +1,147 @@
+一.清除浮动
+ 1.格式
+   clear:left清除左边
+         |right清除右边
+         |both清除两边
+ 2.清除浮动的使用
+   (1)将版块和版块之间划分界限(区分开) 
+   (2)解决高度塌陷:当父元素中的子元素都浮动
+                而父元素没有设置高度那父元素的高为0
+   说明:
+    解决方法：
+   a.  
+     .clear{
+       clear:both;
+     }
+   b.万能清除(在父元素上写 class样式)
+     .clearfix:after{
+        content:".";
+        clear:both;
+        display:block;
+        height:0;
+        visibility:hidden;
+     }
+     .clearfix{
+        zoom:1;
+     }
+   
+二.布局显示
+  1. display: none|block块|
+              inline行|inline-block 内联块
+          说明:
+         a.inline-block 内联块：是块元素,但有行
+                           元素不折行的特性
+         b.display:none 隐藏(不占位隐藏)
+  2. visibility:visble默认值| hidden 隐藏
+         说明:
+        visibility:hidden;占位隐藏
+三.背景(Background)
+  1.background-color:value;       背景颜色
+  2.background-image:url(图像URL)  背景图像
+  3.background-repeat:repeat|repeat-x水平平铺
+                      repeat-y 垂直平铺| 
+                      no-repeat 不平铺
+  4.background-position:value水平位置 value 垂直位置;
+                                              背景位置
+      说明:
+     background-position
+     a.方向值
+           水平位置   left center right
+           垂直位置    top  center bottom
+     b.只有一个值时代表 水平位置，垂直位置默认为
+              垂直居中
+     c. 像素值  
+          例如：background-position:30px 50px; 
+  5.background-attachment:scroll随滚动条滚动|
+                          fixed 固定不随滚动条滚动
+                                                       背景图像固定
+     缩写形式
+   background:color image repeat attachment position;
+   说明: 如果是大盒子小图一般是正值
+           如果是小盒子大图一般是负值
+   6. css3 新增
+      1. background-size:  背景图像大小
+             说明:
+         background-size值
+         a. 百分比
+         b. 像素值
+         c. cover 等比例填满,超出的部分裁切
+         d. contain 等比例填满一边容器。
+      2. 实现多个背景图像
+ 
+四.css精灵(css sprites)
+  1.原理:多张小背景图像整合到一张大图中，
+                  减轻服务器负担     
+      说明: 小盒子大图背景图像的位置都是负值,
+                 最大值(0,0)
+       
+五.列表(List)
+ 1. list-style-type:disc默认值|square方块|circle空心圆|
+                    decimal阿拉伯数字|
+                    upper-alpha 大写的字母 
+                    lower-alpha 小写的字母
+                    upper-roman 大写的罗马数字
+                    lower-roman 小写的罗马数字
+ 2. list-style-image:url(图像URL);
+ 3. list-style-position:outside默认值|inside
+ 
+ 缩写形式
+    list-style:type image position;
+         说明:
+       a. list-style:none  去掉项目符号
+
+       b.新闻列表实现
+       .list li{
+	      background:url(images/dot1.png) no-repeat left center;
+          padding-left:14px;
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+           
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+   
+   
+   
+   
+   
+   
+    

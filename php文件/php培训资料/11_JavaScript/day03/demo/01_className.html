@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>JavaScript DOM className</title>
+<style>
+.test{
+	font-size:40px;
+	color:red;
+	background-color:blue;
+}
+.test1{
+	border:1px solid green;
+}
+</style>
+
+</head>
+
+<body>
+<a href='http://www.baidu.com'>百度</a>
+<script>
+//修改超链接的样式，要求 文字大小为40像素，
+//文字颜色为红色，背景色为蓝色
+//获取超链接的javascript对象
+var aobj = document.getElementsByTagName("a");
+//对象.className 
+aobj[0].className = "test test1";
+
+
+</script>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

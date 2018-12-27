@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="__ROOT__/public/css/admin.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="__ROOT__/library/jquery/jquery-1.4.js"></script>
+    <script type="text/javascript" src="__ROOT__/library/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript">
+      var editor1;
+      KindEditor.ready(function(e){
+          editor1 = e.create("[name=remark]",{
+              width:"600px",
+              height:"100px",
+              items:["source","undo","redo","|","bold","italic","underline","image"]
+          });
+      });
+      var editor2;
+      KindEditor.ready(function(e){
+          editor2 = e.create("[name=attribute]",{
+              width:"600px",
+              height:"100px",
+              items:["source","undo","redo","|","bold","italic","underline"]
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- 网站的头 -->
+    <include file="Public:header" />
+    <!-- 当前位置 -->
+    <div class="locationDiv">&nbsp;: 产品管理 : 添加产品</div>
+    <!-- 正文内容 -->
+    <div class="mainDiv clear">
+      <!-- 左侧树状列表 -->
+      <div class="leftDiv" style="height:700px;"><include file="Public:left" /></div>
+      <!-- 右侧页面内容 -->
+      <div class="rightDiv" style="height:700px;">
+        <br>
+        <form name="frm" method="post" action="" enctype="multipart/form-data">
+        <table class="addNewsTb" bgcolor="#DCDCDC" border="0" align="center" width="700">
+          <tr>
+            <td>商品名称：</td>
+            <td><input type="text" name="goodsName" size="50"></td>
+          </tr>
+          <tr>
+            <td>商品货号：</td>
+            <td><input type="text" name="goodsCode" size="50"></td>
+          </tr>
+          <tr>
+            <td>商品库存：</td>
+            <td><input type="text" name="haveCount" size="50"></td>
+          </tr>
+          <tr>
+            <td>商品品牌：</td>
+            <td>
+              <select name="brandId">
+                <option value="1">联想</option>
+                <option value="2">三星</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>商品分类：</td>
+            <td>
+              <select name="typeId">
+                <option value="1">数码产品</option>
+                <option value="2">家用电器</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>市场价：</td>
+            <td><input type="text" name="oldPrice" size="50"></td>
+          </tr>
+          <tr>
+            <td>美智价：</td>
+            <td><input type="text" name="price" size="50"></td>
+          </tr>
+          <tr>
+            <td>商品图片：</td>
+            <td>
+               <input type="file" name="myFile1" size="20">
+            </td>
+          </tr>
+          <tr>
+            <td>商品图片：</td>
+            <td>
+               <input type="file" name="myFile1" size="20">
+            </td>
+          </tr>
+          <tr>
+            <td>商品图片：</td>
+            <td>
+               <input type="file" name="myFile1" size="20">
+            </td>
+          </tr>
+          <tr>
+            <td>商品图片：</td>
+            <td>
+               <input type="file" name="myFile1" size="20">
+            </td>
+          </tr>
+          <tr>
+            <td>规格参数：</td>
+            <td><textarea name="attribute"></textarea></td>
+          </tr>
+          <tr>
+            <td>商品介绍：</td>
+            <td><textarea name="remark"></textarea></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+              <input type="submit" value="添加" class="btn2">
+              &nbsp;&nbsp;&nbsp;
+              <input type="reset" value="取消" class="btn2">
+            </td>
+          </tr>
+        </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

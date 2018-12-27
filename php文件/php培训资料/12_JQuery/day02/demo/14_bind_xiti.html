@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 事件</title>
+<!-- 引入jQuery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<script>
+ /*
+ 3、有如下html文档
+      <div style='width:150px;height:150px;
+	      background-color:green;'></div>
+      当鼠标划入div层时，改变背景色为红色。当鼠标划出div层时，
+      改变背景色为黄色。
+*/
+$(function(){
+	/*$("div").bind("mouseover",function(){
+		$("div").css("background-color","red");
+	});
+	
+	$("div").bind("mouseout",function(){
+		$("div").css("background-color","yellow");
+	});*/
+	$("div").bind({
+		"mouseover":function(){
+		    		$("div").css("background-color","red");
+	    },
+	   "mouseout":function(){
+					$("div").css("background-color","yellow");
+	   }
+  	 });
+});
+
+</script>
+</head>
+
+
+<body>
+<div style='width:150px;height:150px;background-color:green;'></div>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

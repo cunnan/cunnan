@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>jQuery 事件</title>
+<!-- 引入jQuery库文件 -->
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<script>
+/*
+ * 5、有div层，当鼠标划入div层时，改变div层的文本为 
+ mouseover，当鼠标划出div层时，改变div层的文本为mouseout
+ */
+$(function(){
+	$("div").hover(function(){
+		$("div").html("mouseover");
+	},function(){
+		$("div").html("mouseout");
+	});
+});
+
+</script>
+</head>
+
+
+<body>
+<div style='width:150px;height:150px;background-color:green;'></div>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

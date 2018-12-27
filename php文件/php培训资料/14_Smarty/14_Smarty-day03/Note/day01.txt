@@ -1,0 +1,85 @@
+﻿smarty 模板引擎，操作模板
+目录结构：
+libs ------ smarty所有的程序文件
+template----- 模板的家目录
+template_c-----模板的编译目录
+news----主程序目录
+
+主程序中如何使用smarty操作模板：
+1、加载Smarty.class.php
+2、实例化
+3、设置模板的家目录，设置模板的编译目录
+4、给模板传值
+5、显示模板
+
+6、模板接收数据  模板标签
+{$名称}
+
+修改标签的定界符：
+$smarty->left_delimiter="<{";
+$smarty->right_delimiter="}>";
+
+很多很多的标签：
+数据组使用标签
+<{$名称.下标}> <{$名称['下标']}>
+二维数组：
+数组遍历标签
+{foreach 被遍历的数组 as $k => $v}
+{$v}
+{/foreach}
+
+{foreach 被遍历的数组 as $v}
+{$v}
+{/foreach}
+
+foreach的属性：
+$v@iteration   第几次循环
+$v@index   获取索引下标
+$v@total  循环的次数
+$v@first   是否是第一次循环
+$v@last  是否为最后一次循环
+
+
+
+条件标签
+{if 条件}
+{/if}
+
+{if 条件}
+{else}
+{/if}
+
+{if 条件1}
+{elseif 条件2}
+......
+{/if}
+
+例子：给li加上下表现，ul边框，最后一个li的下边线不加。
+
+案例：
+实现文章列表页（分页），文章详细页
+1、加一个文件夹
+class
+	Page.class.php
+2、新建一个list.php---文章列表
+
+sql注入：
+通过改变传值，从而改变sql语句的意图。
+$id=$_GET['id'];//7 union select *,1,2,3,4 from admin limit 1,1 
+$sql="select * from news where id=7 
+union select *,1,2,3,4 from admin limit 1,1 ";
+
+MVC
+ThinkPHP
+Yii
+MySQL
+88
+
+
+
+
+
+
+
+
+
